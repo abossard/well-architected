@@ -11,7 +11,9 @@ single-page app with:
 Usage: python3 build_pages.py
 """
 import json
+import os
 import pathlib
+import re
 from collections import Counter
 
 OUT = pathlib.Path(__file__).parent / "mental_models"
@@ -30,6 +32,29 @@ for t in sorted(taxonomy, key=lambda x: x["entity"]):
     if cat not in categories:
         categories[cat] = []
     categories[cat].append(t["entity"])
+
+# Build name → card slug lookup for linking
+def slugify(s):
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+card_files = {f.replace(".html", "") for f in os.listdir(OUT / "cards")
+              if f.endswith(".html") and f != "index.html"} if (OUT / "cards").exists() else set()
+
+mental_model_names = {t["entity"] for t in taxonomy if t["category"] == "MENTAL_MODEL"}
+
+def linkify_name(name):
+    """If a name has a card diagram page, return a link to it."""
+    slug = slugify(name)
+    if slug in card_files:
+        return f'<a href="cards/{slug}.html" class="model-link">{name}</a>'
+    return name
+
+def linkify_list(names_csv):
+    """Turn a comma-separated list of names into linked names."""
+    if names_csv == "—":
+        return "—"
+    parts = [n.strip() for n in names_csv.split(",")]
+    return ", ".join(linkify_name(p) for p in parts)
 
 LAYER_EMOJI = {
     "foundational": "🧠", "structural": "🏗️", "operational": "⚙️",
@@ -55,11 +80,14 @@ def card_html(card):
     emoji = LAYER_EMOJI.get(layer, "🧠")
     color = LAYER_COLOR.get(layer, "#f59e0b")
     conns = card.get("connections", 0)
+    slug = slugify(card["name"])
+    has_tree = slug in card_files
 
     when_items = "".join(f"<li>{w}</li>" for w in card.get("when_to_apply", []))
     fail_items = "".join(f"<li>{w}</li>" for w in card.get("without_it", []))
-    builds = ", ".join(card.get("builds_on", [])) or "—"
-    enables = ", ".join(card.get("enables", [])) or "—"
+    builds = linkify_list(", ".join(card.get("builds_on", [])) or "—")
+    enables = linkify_list(", ".join(card.get("enables", [])) or "—")
+    tree_link = f'<a href="cards/{slug}.html" class="tree-link">🌳 Explore connection tree →</a>' if has_tree else ""
 
     return f"""
     <div class="model-card" data-layer="{layer}">
@@ -68,7 +96,7 @@ def card_html(card):
           <span class="layer-badge" style="background:{color}20;color:{color};border-color:{color}40">{emoji} {layer}</span>
           <span class="conn-badge">{conns} connections</span>
         </div>
-        <h3>{card['name']}</h3>
+        <h3>{linkify_name(card['name'])}</h3>
         <p class="mantra">"{card.get('mantra', '')}"</p>
       </div>
       <div class="card-body">
@@ -88,20 +116,24 @@ def card_html(card):
           <div><strong>🔗 Builds on:</strong> {builds}</div>
           <div><strong>🔗 Enables:</strong> {enables}</div>
         </div>
+        {tree_link}
       </div>
     </div>"""
 
 def taxonomy_section(cat, items):
     emoji = CAT_EMOJI.get(cat, "📦")
     color = CAT_COLOR.get(cat, "#8b949e")
-    pills = "".join(
-        f'<span class="tax-pill" style="border-color:{color}40">{item}</span>'
-        for item in items
-    )
+    pills = []
+    for item in items:
+        slug = slugify(item)
+        if cat == "MENTAL_MODEL" and slug in card_files:
+            pills.append(f'<a href="cards/{slug}.html" class="tax-pill tax-link" style="border-color:{color}40">{item}</a>')
+        else:
+            pills.append(f'<span class="tax-pill" style="border-color:{color}40">{item}</span>')
     return f"""
     <div class="tax-group">
       <h3 style="color:{color}">{emoji} {cat} <span class="tax-count">({len(items)})</span></h3>
-      <div class="tax-pills">{pills}</div>
+      <div class="tax-pills">{"".join(pills)}</div>
     </div>"""
 
 cards_html = "".join(card_html(c) for c in cards)
