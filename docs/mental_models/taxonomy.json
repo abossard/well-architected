@@ -1,0 +1,3522 @@
+[
+  {
+    "entity": "Azure Cosmos DB",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Cost Optimization",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Health Model",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Performance Efficiency",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Front Door",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Reliability",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Operational Excellence",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Kubernetes Service",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Redundancy",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Monitor",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Security",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "AKS",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Microsoft Entra ID",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Mission-Critical Workloads",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Disaster Recovery",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Infrastructure As Code",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Failure Mode Analysis",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Security Design Review Checklist",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Availability Zones",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Policy",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Synapse",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure SQL Database",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Log Analytics Workspace",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Zone-Redundant Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Mission-Critical Workload",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "DevOps",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Design Review Checklist For Reliability",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure Well-Architected Framework",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure App Service",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Log Analytics",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "AIOps",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Monitoring System",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Resiliency",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Key Vault",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "App Service",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Storage",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Microsoft",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Grafana",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Health Modeling",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Observability",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Latency",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Safe Deployment Practices",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Safe Deployment Practices (SDP)",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Application Insights",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Container Registry",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Blue/Green Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Network Security Groups",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Zero Trust",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Security Posture",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Integrity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Zonal Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Scale-Unit Architecture",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Deployment Stamp",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Microsoft Entra",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Functions",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Private Endpoints",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Mission-Critical Design Methodology",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Azure Cosmos DB Analytical Store",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Continuous Backup Mode",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Continuous Validation And Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Well-Architected Framework",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Azure Dashboards",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Global Traffic Routing",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Availability Zone",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Reliability Design Principles",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Assume Breach",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Security Pillar",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Deployment Stamps",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Core Architecture Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Four Vs Of Big Data",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Azure Traffic Manager",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Pipelines",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Load Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Recovery Point Objective",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Virtual Network",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Firewall",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure CDN",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Design For Recovery",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Availability",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Active-Passive Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Cold Spare",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Least Privilege",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Capacity Planning",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Data Residency",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Multi-Zone Multi-Region Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure Landing Zone",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Distributed Tracing",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Container Registry",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Geo-Redundant Storage",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Virtual Machines",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Virtual Machine Scale Sets",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Change Feed",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Caching",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Key Vault",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Data Factory",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Private Link",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "GitHub Actions",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "CI/CD Pipelines",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Zero-Downtime Deployment",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Blue-Green Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure SQL",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Application Gateway",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure WAF",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Virtual Machines",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Design For Resilience",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "RTO",
+    "category": "METRIC"
+  },
+  {
+    "entity": "RPO",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Verify Explicitly",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Confidentiality",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Microsoft Zero Trust Model",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Security Readiness Plan",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Progressive Exposure",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Feature Flags",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Cost-Efficiency Mindset",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Design For Rate Optimization",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Zone-Redundant Deployments With Backup Across Regions",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Multi-Region Deployments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Multi-Region Architecture",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Autoscaling",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Active/Active Model",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Regional Pairs",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure CNI",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "SNAT Port Exhaustion",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": "Calico",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Kubernetes",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "IaaS",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Logic Apps",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Content Delivery Network",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Global Resources",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Cosmos DB For NoSQL",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Chaos Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Azure Database For PostgreSQL",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Time-To-Live",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Data Tiering",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "MACsec",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Consistency Levels",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Periodic Backup Mode",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure DevOps",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "CI/CD",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Performance Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Recovery Time Objective",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Azure Data Explorer",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "ExpressRoute",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Monitor Alerts API",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Query Packs",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Cognitive Services",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Kusto Query Language",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Bastion",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Network Policy",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Express Route",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Network Policies",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Virtual Machine Scale Sets",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Secret Management",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Threat Modeling",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Defense-In-Depth",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Data Integrity Protection",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Blast Radius",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Site Reliability Engineers",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Root Cause Analysis",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Automation",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Recoverability",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "RE:07",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Failover",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "DR Plan",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Mitigation",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Deployment Stamps Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Encryption",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Access Controls",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Misconfiguration",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": "Performance Model",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Performance Optimization",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Cost-Management Discipline",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Design For Usage Optimization",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Health Probes",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Locally Redundant Deployments With Backup Across Regions",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure Regions",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Multi-Region Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Fabrikam, Inc.",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Lamna Healthcare Company",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Woodgrove Bank",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Global Distribution",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure SDKs",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Circuit Breaker",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Sentinel",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Correlation IDs",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Loosely Coupled Event-Driven Architecture",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "TCP Port Exhaustion",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": "Azure Event Hubs",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Autoscale",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Microsoft Entra Workload ID",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Serverless Computing",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Web Application Firewall",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Infrastructure As A Service",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Composite SLO",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Recovery Time Objectives",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Regional Stamp Resources",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Regional Resources",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Well-Architected Assessment",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CQRS",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Event Sourcing",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Variety",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Veracity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Partitioning Strategy",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Direct Connectivity Mode",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Cache For Redis",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Hyperscale (Citus)",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Point-In-Time Restore",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "CAP Theorem",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Custom Resolution Policies",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Hub Region",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Synapse Link",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Cosmos DB For Nosql",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Soft-Delete Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Sharding",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Penetration Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Common Vulnerabilities And Exposures",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Chaos Studio",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Stress Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Chaos Experiments",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "MLOps Workflow",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Mission-Critical Online",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Staging Environment",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Subscription-Scoped Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Active/Active Design",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "DDoS",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "KQL",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Health Score",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Layered Application Health",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Service Level Objective",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Azure Databricks",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Resource Manager",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Standard Load Balancer",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure DNS",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Web Application Firewall",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Front Door Premium",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Virtual WAN",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Kubenet",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure NAT Gateway",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Network Address Translation",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "NAT Gateway",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Firewall Manager",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Region",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Traffic Manager",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Micro-Segmentation",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "WAF",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "DevSecOps",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Microsoft Entra Privileged Identity Management",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Deployment-Time Retrieval",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Application-Startup Retrieval",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Managed Identities",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Private Endpoints",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Self-Preservation",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Overprovisioning",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Self-Healing",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Design For Operations",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Observable Systems",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Simplicity",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "SLO",
+    "category": "METRIC"
+  },
+  {
+    "entity": "RE:03",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "RE:05",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "RE:08",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "RE:09",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Replication",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Data Replication",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Active-Passive Warm Standby",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Synchronous Replication",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Asynchronous Replication",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Business Criticality",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Production Drills",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Active-Active Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Warm Spare",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure DNS Private Resolver",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Vulnerability Scanning",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CIA Triad",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Data Classification",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Segmentation",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "SE:02",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "SE:05",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "SE:06",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "SDLC",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Inspection Security Controls",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Performance Testing Strategy",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Quality Gates",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Dynamic Scaling",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Performance Targets",
+    "category": "METRIC"
+  },
+  {
+    "entity": "PE:01",
+    "category": "OTHER"
+  },
+  {
+    "entity": "PE:06",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Load Balancer",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Multitenancy",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Performance Design Patterns",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Dashboards",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Alerts",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Incident Management",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Centralized Operations Teams",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Observability Framework",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Canary Deployments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Progressive Exposure Rollout",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Service-Level Agreements",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Active-Active Model",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Design Review Checklist For Cost Optimization",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Functional Monitoring",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Health Entity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Health State",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Health Signal",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Entity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Proseware, Inc.",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Asynchronous Data Replication",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Synchronous Data Replication",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Cross-Region Network Latency",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Fourth Coffee",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Zone-Redundant Deployment With Backup Across Regions",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Service-Level Objective",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Scale Unit",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Noisy Neighbor Antipattern",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": ".NET SDK",
+    "category": "OTHER"
+  },
+  {
+    "entity": "PaaS",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Queue-Based Load Leveling",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Bulkhead",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Saga",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Retry",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Throttling",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Polly",
+    "category": "OTHER"
+  },
+  {
+    "entity": "NServiceBus",
+    "category": "OTHER"
+  },
+  {
+    "entity": "MassTransit",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Microservices Architecture",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Retries With Backoff",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Event-Driven Design",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure ExpressRoute",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Outbox Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Transactional Session",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Auto Heal",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Health Check",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Docker Hub",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Geo-Replication",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Per-App Scaling",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "App Service Plan",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Safe Deployment Practice Framework",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Kubernetes RBAC",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Prometheus",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure Container Apps",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Cluster Autoscaler",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Horizontal Pod Autoscaler",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Virtual Nodes",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "AKS Uptime SLA",
+    "category": "METRIC"
+  },
+  {
+    "entity": "AKS Security Baseline",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Cloud-Native Baseline Architecture",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure Marketplace",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Image Locking",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Zone Redundancy",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Premium Plan",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Microsoft Defender For Container Registries",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Containerization",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Recovery Point Objectives",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Baseline Architecture",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Baseline With Network Controls",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Baseline In Azure Landing Zones",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure Landing Zones",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Time To Live",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Multi-Region Write Configuration",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Active-Active Geographical Distribution",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Volume",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Velocity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Cosmos DB SDK",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Direct Connection Mode",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Security Baseline",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Indexing",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Partition Key",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Continuous Backups",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Automatic Failover",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure Application Architecture Guide",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Multi-Region Write",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Last Write Wins",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Paxos",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Availability Zone Redundancy",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Gateway Connectivity Mode",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Service-Managed Encryption Keys",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Customer-Managed Keys",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Cassandra",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "MongoDB",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Request Units",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Resource Locks",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Soft Delete",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Session",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Flexible Server",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Caching For Hot Tier Data",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Analytical Scenarios",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "SAGA",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Capacity Model",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Microservice Architecture",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Multi-Region Data Platform",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Data Model",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "PACELC Theorem",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Apache Spark",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Microsoft Backbone Network",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Polyglot Storage",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Client-Side Encryption",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Server-Side Encryption",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Paxos Consensus Protocol",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Message Buffer",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Auto Failover Groups",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Cosmos DB Change Feed",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Synapse Studio",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Data Lake Gen2",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "ETL",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Auto-Sync",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Azure Synapse SQL Serverless Pools",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Synapse Spark Pools",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Analytical Store",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Cosmos DB For Mongodb",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Locally-Redundant Storage",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Single Server",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Active Geo-Replication",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure SQL Analytics",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Query Performance Insights",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Transparent Data Encryption",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Business-Critical Service Tier",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Zone-Redundant Deployment Model",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Dependabot",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Mission Critical Online",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Blue/Green Deployments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "GitHub",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Branching Strategy",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Data Virtualization",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Mission-Critical Connected",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Terraform",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure Resource Manager Templates",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Development Environment",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Test Or Staging Environment",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Production Environment",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Mission-Critical",
+    "category": "OTHER"
+  },
+  {
+    "entity": "User Load Generator",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Unit Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Smoke Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Service Level Objectives",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Zero-Downtime Deployments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "End-To-End Automation",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Blast Radius Reduction And Fault Isolation",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Design For Self-Healing",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Design For Scale-Out",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Observe Application Health",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Drive Automation",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Complexity Avoidance",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Loosely Coupled Components",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Automate Build And Release Processes",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Managed Compute Services",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "SIEM",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Business Continuity",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Traffic Light Model",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Action Groups",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Database For Postgres",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "App Services",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "User Flows",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Dedicated Clusters",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure ML",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Blob Storage",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Data Lake Storage",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Anomaly Detection",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Mission-Critical Connected",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Unified Data Sink",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "MLOps",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Sampling",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Cross-Workspace Queries",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Microsoft.Insights REST API",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Microsoft Global Backbone Network",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Multicloud Active-Active Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Anycast Protocol",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Client Side Routing Logic",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Session Affinity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "TLS",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Virtual Private Network",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Virtual Network Gateway",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Service Endpoints",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "VPN",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure DDoS Protection Basic",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure DDoS Standard",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Application Gateway WAF",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Virtual WAN",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Private Link",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Virtual Network Peering",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "SNAT Port Inventory",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "NVA",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "OWASP",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Node Pools",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Akamai",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Verizon",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure RBAC",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Key Vault Provider For Secrets Store CSI Driver",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Akv2K8S",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure VM Image Builder",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "RBAC",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Bicep",
+    "category": "OTHER"
+  },
+  {
+    "entity": "ARM Templates",
+    "category": "OTHER"
+  },
+  {
+    "entity": "IaaS VMs",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Key Rotation",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Mission-Critical Design",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Design Methodology",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Design Principles",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Application Design",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Operational Procedures",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "SlowLoris",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": "Network Virtual Appliances",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Managed Identities",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Microsoft Identity Platform Authentication Libraries",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Next-Generation Firewall",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Secure Token Caching",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "MSAL",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Microsoft Defender For Cloud",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "STRIDE",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Application Security Groups",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Network Watcher",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "DDoS Standard Protection Plan",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Traffic Analytics",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Service Tags",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Key Vault Managed HSM",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Policy-Driven Governance",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Common Engineering Criteria",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Criticality",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Fault Isolation",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Scale Out",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Recovery Plans",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Immutable Ephemeral Units",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Backups",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Disaster Preparedness",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Predictive Alerts",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Failure Simulation",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Reliability Checklist",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Routine Operations",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Incident Learning",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Standards",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Resilience",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Design For Business Requirements",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Graceful Degradation",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Critical Path",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Fault Tolerance",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "RE:01",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "RE:02",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "RE:04",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "RE:06",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "RE:10",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Chaos Engineering",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Reliability Tradeoffs",
+    "category": "TRADEOFF"
+  },
+  {
+    "entity": "Incident Response Plan",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Resource Balancing",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Automatic Scaling",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Over-Provisioning",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Active-Passive Cold Standby",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "War Room",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "DR Drill",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Failback",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "DR Activation Criteria",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Site Recovery",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Backup",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "FMA Documentation",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Tabletop Exercises",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Backup Strategies",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Partial Failover",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Auto-Failover Group",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Degraded Performance",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Failure Mode",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Single Point-Of-Failure Analysis",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "DNS Failover",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "CanNotDelete Locks",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Command Query Responsibility Segregation",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Database Partitioning",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Hub-And-Spoke Model",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Critical Flows",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Serverless",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "SQL Database",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Security Development Lifecycle",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Asset Inventory",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Root-Cause Analysis",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Threat Intelligence",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Security Operation Center",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Data Exfiltration",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Audit Trail",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "SDL",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Automation Of Repetitive Tasks",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Supply Chain Security",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Cryptography",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "DDoS Attacks",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Just-In-Time Access",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Just-Enough-Access",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Role-Based Security Training",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Least-Privilege Access",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Zero Trust Model",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "SE:01",
+    "category": "OTHER"
+  },
+  {
+    "entity": "SE:03",
+    "category": "OTHER"
+  },
+  {
+    "entity": "SE:04",
+    "category": "OTHER"
+  },
+  {
+    "entity": "SE:07",
+    "category": "OTHER"
+  },
+  {
+    "entity": "SE:08",
+    "category": "OTHER"
+  },
+  {
+    "entity": "SE:09",
+    "category": "OTHER"
+  },
+  {
+    "entity": "SE:10",
+    "category": "OTHER"
+  },
+  {
+    "entity": "SE:11",
+    "category": "OTHER"
+  },
+  {
+    "entity": "SE:12",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Security Tradeoffs",
+    "category": "TRADEOFF"
+  },
+  {
+    "entity": "Secure Development Lifecycle",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Identity And Access Management",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "HSM",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Data Masking",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Identity Controls",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Encryption And Decryption",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Resource Segmentation",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Web Application Firewalls",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "File Integrity Monitors",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Predictive Modeling",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Performance Efficiency Checklist",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Nonfunctional Requirements",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "CDN",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "PE:02",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:03",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:04",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:05",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:07",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:08",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:09",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:10",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:11",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "PE:12",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Design Review Checklist",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Performance Efficiency Tradeoffs",
+    "category": "TRADEOFF"
+  },
+  {
+    "entity": "Data Partitioning And Sharding",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Culture Stress",
+    "category": "TRADEOFF"
+  },
+  {
+    "entity": "Denormalization",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Message Bus",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Application Performance Monitoring",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Synthetic Transactions",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Telemetry",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Metrics",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Logs",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Traces",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Profiles",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Operational Excellence Checklist",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "A/B Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Agile Practices",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Shift Left",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Continuous Improvement",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Transparent Communication",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Blameless Analysis",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Automated Pipelines",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Configuration Drift",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": "Quality Assurance",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Source Control",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:01",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:05",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:06",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:07",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:10",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:11",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Software Development Lifecycle",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Gateway Routing",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Safe Deployment",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Anti-Corruption Layer",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Messaging Broker",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Cost Optimization Tradeoffs",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Health Models",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Bake Time",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure App Service Staging Slots",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure App Configuration",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Rolling Back",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Rolling Forward",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Circuit Breakers",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Continuous Integration",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Emergency SDP Protocols",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Decommissioning",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Return On Investment",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Cost Model",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "FinOps",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Cost Optimization Checklist",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Cost Guardrails",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "SDLC Environments",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Accountability Model",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Cost Baseline",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Showback",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Chargeback",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Right-Sizing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Cost Alerts",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Monitor And Optimize Over Time",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Consumption-Based Pricing",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Fixed-Price Billing",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Active-Passive Model",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Commitment-Based Discounts",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Hybrid Use",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "CO:01",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:02",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:03",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:04",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:05",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:06",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:07",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:08",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:09",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:10",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:11",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:12",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:13",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "CO:14",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Cost Management",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Zero-Trust Architecture",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Static Content Hosting Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Valet Key Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Queue-Based Load Leveling Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "SLI",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Azure Monitor Logs",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Kusto Queries",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Structural Monitoring",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Health Endpoint Monitoring Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Watchdog Service",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Model Of Models",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Workload",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Relationship",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Service Bus",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Health Model Schema",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Service-Level Indicators",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Service-Level Objectives",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Time To Detect",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Time To Mitigate",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Azure Monitor Health Models",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Traffic Light Approach",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Active-Active Deployments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Active-Passive Deployments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Active-Passive",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Metro DR",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Locally Redundant Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Paired Regions",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Paired Region",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Shared Responsibility Principle",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Platform As A Service",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Region Pairs",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Object Replication",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Multi-Zone Architecture",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Contoso, Ltd.",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Zonal (Pinned) Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Locally Redundant Deployment With Backups Across Regions",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Geodes Pattern",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Risk Tolerance",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Single-Region Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Zonal Pinned Deployment",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "In-Region DR",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Java",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Health Endpoint Monitoring",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Application Health Model",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Structured Logging",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Active/Passive Model",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Compute Decision Tree",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure Policy Add-On For AKS",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Planned Maintenance",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Proximity Placement Groups",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Private Clusters",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure API Management",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Power Apps",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Power Automate",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Linux-Based Container Runtimes",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "North Star Design Approach",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Azure Well-Architected Mission-Critical Workload",
+    "category": "OTHER"
+  },
+  {
+    "entity": "ACID",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Centralized Data Services",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": "Cosmos DB Account Reader",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "DocumentDB Account Contributor",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Cosmos DB Operator",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Enterprise Flash Tier",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Caching Layer",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Conflict Resolution",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Change Feed Processor",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Event Grid",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Single-Region Write Configuration",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "HTAP",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Request Unit",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Cosmos DB Account Reader Role",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Zone-Redundant Storage",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Reserved Capacity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Smoke Tests",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "GitHub AE",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure Well-Architected Framework Mission-Critical Workload",
+    "category": "OTHER"
+  },
+  {
+    "entity": "UI Testing",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Event Hubs",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Microsoft Mission-Critical Support",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Power BI",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Correlation ID",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Automated Incident Response",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Synapse Spark Pools",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Log Analytics Commitment Tier Pricing Model",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "X-Azure-FDID",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Regional Deployment Stamp",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Blue-Green Deployments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Identity As A Security Perimeter",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Microsoft Azure Backbone",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Load Balancer",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "RFC 1918",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Internet Egress",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "TLS Offloading",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "DDoS Attack",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure DDoS Network Protection",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Virtual Network Integration",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Zero-Trust Model",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Configuration As Code",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Runtime Retrieval",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Backup Center",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "GitHub Dependabot",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Update Management",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Application Platform",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Data Platform",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Networking And Connectivity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Health Modeling And Observability",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Deployment And Testing",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Secret Scanning",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Infrastructure-As-Code",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Azure Defender",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Virtual Network Service Endpoints",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Firewall Premium",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Virtual Network Injection",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Network Virtual Appliance",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Deploy If Not Exist",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Mission Critical Reference Implementation",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Application Gateways",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Zero Trust Architecture",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "On-Call Rotation",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Support Contracts",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Point-In-Time Recovery",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Backup",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Azure Managed Redis",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Files",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Detection",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Azure Storage Redundancy",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "SQL Database Active Geo-Replication",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Expressroute",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Eventual Consistency",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Polyglot Persistence",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "VPN Gateway",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Shard",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure OpenAI",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Data Consistency",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Partitioning",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Region",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Geo-Distant Deployments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Security Posture Management",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Security Checklist",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Role-Based Training",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Security Compliance Requirements",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Code Signing",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Data Integrity",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Attack Surface",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Security Design Principles",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Design Review Checklist For Security",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Network Time Protocol",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Confidential-Compute",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Logging",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Firewalls",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Virus Scanners",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Proof Of Concept",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Azure Well-Architected Pillars",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Defense In Depth",
+    "category": "MENTAL_MODEL"
+  },
+  {
+    "entity": "Business Data",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Technical Debt",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": "Change Management",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:08",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:02",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:03",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:04",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "OE:09",
+    "category": "PROCESS"
+  },
+  {
+    "entity": "Safe Deployment Strategies",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Service Discovery",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Azure Load Balancers",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Application Health Extension",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "VM Applications",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure SQL Managed Instance",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Azure Database For MySQL",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Staging Environments",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Trunk-Based Branching",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Underprovisioned Resources",
+    "category": "TRADEOFF"
+  },
+  {
+    "entity": "Lack Of Optimization Over Time",
+    "category": "ANTI_PATTERN"
+  },
+  {
+    "entity": "SHO",
+    "category": "METRIC"
+  },
+  {
+    "entity": "Asynchronous Logging",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Service Health Objectives",
+    "category": "METRIC"
+  },
+  {
+    "entity": "ASP.NET Core",
+    "category": "OTHER"
+  },
+  {
+    "entity": "Azure NetApp Files",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Active-Active",
+    "category": "PATTERN"
+  },
+  {
+    "entity": "Datacenter",
+    "category": "CONCEPT"
+  },
+  {
+    "entity": "Reliability Hub",
+    "category": "AZURE_SERVICE"
+  },
+  {
+    "entity": "Principle Of Simplicity",
+    "category": "MENTAL_MODEL"
+  }
+]
