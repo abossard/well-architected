@@ -12,7 +12,7 @@
     "content_length": 19315,
     "created_at": "2026-04-23T21:21:24.372531+00:00",
     "updated_at": "2026-04-23T21:22:12.493865+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-application-design.md",
+    "file_path": "well-architected/mission-critical/mission-critical-application-design.md",
     "track_id": "insert_20260423_232124_e00129d0",
     "metadata": {
       "processing_start_time": 1776979284,
@@ -35,7 +35,7 @@
     "content_length": 41312,
     "created_at": "2026-04-23T21:22:12.514931+00:00",
     "updated_at": "2026-04-23T21:23:43.825279+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-application-platform.md",
+    "file_path": "well-architected/mission-critical/mission-critical-application-platform.md",
     "track_id": "insert_20260423_232212_b785cffc",
     "metadata": {
       "processing_start_time": 1776979332,
@@ -53,7 +53,7 @@
     "content_length": 11007,
     "created_at": "2026-04-23T21:23:43.904321+00:00",
     "updated_at": "2026-04-23T21:23:59.365283+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-architecture-pattern.md",
+    "file_path": "well-architected/mission-critical/mission-critical-architecture-pattern.md",
     "track_id": "insert_20260423_232343_f6119e3c",
     "metadata": {
       "processing_start_time": 1776979423,
@@ -70,7 +70,7 @@
     "content_length": 1828,
     "created_at": "2026-04-23T21:23:59.425017+00:00",
     "updated_at": "2026-04-23T21:24:08.695900+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-assessment.md",
+    "file_path": "well-architected/mission-critical/mission-critical-assessment.md",
     "track_id": "insert_20260423_232359_0a3f8c70",
     "metadata": {
       "processing_start_time": 1776979439,
@@ -100,7 +100,7 @@
     "content_length": 78904,
     "created_at": "2026-04-23T21:24:08.737704+00:00",
     "updated_at": "2026-04-23T21:27:06.209178+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-data-platform.md",
+    "file_path": "well-architected/mission-critical/mission-critical-data-platform.md",
     "track_id": "insert_20260423_232408_854772d5",
     "metadata": {
       "processing_start_time": 1776979448,
@@ -122,7 +122,7 @@
     "content_length": 30852,
     "created_at": "2026-04-23T21:27:06.297019+00:00",
     "updated_at": "2026-04-23T21:28:12.578092+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-deployment-testing.md",
+    "file_path": "well-architected/mission-critical/mission-critical-deployment-testing.md",
     "track_id": "insert_20260423_232706_3c2cfe8a",
     "metadata": {
       "processing_start_time": 1776979626,
@@ -139,7 +139,7 @@
     "content_length": 5943,
     "created_at": "2026-04-23T21:28:12.686414+00:00",
     "updated_at": "2026-04-23T21:28:32.291203+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-design-methodology.md",
+    "file_path": "well-architected/mission-critical/mission-critical-design-methodology.md",
     "track_id": "insert_20260423_232812_52361dfc",
     "metadata": {
       "processing_start_time": 1776979692,
@@ -157,7 +157,7 @@
     "content_length": 11482,
     "created_at": "2026-04-23T21:28:32.369103+00:00",
     "updated_at": "2026-04-23T21:29:02.574378+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-design-principles.md",
+    "file_path": "well-architected/mission-critical/mission-critical-design-principles.md",
     "track_id": "insert_20260423_232832_86c0ed16",
     "metadata": {
       "processing_start_time": 1776979712,
@@ -181,7 +181,7 @@
     "content_length": 42680,
     "created_at": "2026-04-23T21:29:02.671637+00:00",
     "updated_at": "2026-04-23T21:30:48.768555+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-health-modeling.md",
+    "file_path": "well-architected/mission-critical/mission-critical-health-modeling.md",
     "track_id": "insert_20260423_232902_021016a1",
     "metadata": {
       "processing_start_time": 1776979742,
@@ -207,7 +207,7 @@
     "content_length": 56818,
     "created_at": "2026-04-23T21:30:48.869822+00:00",
     "updated_at": "2026-04-23T22:28:22.469528+00:00",
-    "file_path": "/Users/abossard/Desktop/cxe/well-architected/well-architected/mission-critical/mission-critical-networking-connectivity.md",
+    "file_path": "well-architected/mission-critical/mission-critical-networking-connectivity.md",
     "track_id": "insert_20260423_233048_6a5a6375",
     "metadata": {
       "processing_start_time": 1776983277,

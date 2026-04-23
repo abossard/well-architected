@@ -268,7 +268,7 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
       .filter(Boolean)
       .sort((a,b)=>a.label.localeCompare(b.label));
     const link = d.type==="doc"
-      ? `<div><a href="../well-architected/mission-critical/${d.file}" target="_blank">open source file ↗</a></div>` : "";
+      ? `<div><a href="https://learn.microsoft.com/azure/well-architected/mission-critical/${d.file.replace('.md','')}" target="_blank">open on Microsoft Learn ↗</a></div>` : "";
     sel.innerHTML = `<div style="color:var(--fg);font-weight:600">${d.label}</div>
       <div style="color:var(--muted);font-size:11px;margin:2px 0 6px;">${d.type}${d.file?" · "+d.file:""}</div>
       ${link}
