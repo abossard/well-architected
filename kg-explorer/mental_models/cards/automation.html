@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Automation · Mental Model Map</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-alt: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --gold: #f1c40f;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; height:100%; background:var(--bg); color:var(--text);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif; }
+  a { color: var(--accent); }
+  .app {
+    display:grid; grid-template-columns: 1fr 380px; height:100vh; width:100vw;
+  }
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: 60vh 40vh; }
+  }
+  .viz { position:relative; overflow:hidden; background:
+      radial-gradient(ellipse at center, #111827 0%, #0d1117 70%); }
+  .viz svg { width:100%; height:100%; display:block; cursor: grab; }
+  .viz svg:active { cursor: grabbing; }
+
+  .toolbar {
+    position:absolute; top:12px; left:12px; display:flex; gap:8px; flex-wrap:wrap; z-index:5;
+  }
+  .toolbar button, .legend-chip {
+    background: rgba(22,27,34,0.85); color:var(--text); border:1px solid var(--border);
+    padding:6px 10px; border-radius:6px; font-size:12px; cursor:pointer;
+    backdrop-filter: blur(6px);
+  }
+  .toolbar button:hover { border-color: var(--accent); }
+
+  .legend {
+    position:absolute; bottom:12px; left:12px; display:flex; gap:6px; flex-wrap:wrap; z-index:5;
+  }
+  .legend-chip { display:flex; align-items:center; gap:6px; font-size:11px; cursor:default; }
+  .legend-chip .dot { width:10px; height:10px; border-radius:50%; }
+
+  .sidebar {
+    background: var(--bg-alt); border-left:1px solid var(--border);
+    padding: 20px; overflow-y:auto;
+  }
+  @media (max-width: 900px) {
+    .sidebar { border-left:none; border-top:1px solid var(--border); }
+  }
+  .sidebar h1 { font-size: 22px; margin: 0 0 4px; color: var(--gold); }
+  .sidebar .mantra { font-style:italic; color: var(--text-dim); margin: 0 0 16px; font-size: 14px; }
+  .sidebar h2 {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--text-dim); margin: 18px 0 6px; border-bottom:1px solid var(--border); padding-bottom:4px;
+  }
+  .sidebar ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; }
+  .sidebar li { margin-bottom: 4px; }
+  .tradeoff {
+    background: #3d2a14; border-left: 3px solid #f59e0b; color: #fbe4b3;
+    padding: 10px 12px; border-radius: 4px; font-size:13px; line-height:1.5;
+  }
+  .detail-card {
+    margin-top: 18px; padding: 12px; border:1px solid var(--border); border-radius:6px;
+    background: #0d1117; font-size: 13px; line-height: 1.5;
+  }
+  .detail-card .cat {
+    display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:1px;
+    padding: 2px 8px; border-radius: 10px; background: #21262d; margin-bottom:6px;
+  }
+  .detail-card h3 { margin: 4px 0 8px; font-size: 15px; }
+  .detail-card .rels { margin-top:6px; font-size: 11px; color: var(--text-dim); }
+
+  .link { fill:none; stroke-opacity:0.55; stroke-width:1.4px; }
+  .node circle { stroke:#0d1117; stroke-width:2px; cursor:pointer;
+    transition: r 0.2s ease, stroke-width 0.2s ease; }
+  .node:hover circle { stroke:#fff; stroke-width:3px; }
+  .node text { font-size:11px; fill: var(--text); pointer-events:none;
+    text-shadow: 0 0 4px #0d1117, 0 0 4px #0d1117; }
+  .node.root text { font-size: 14px; font-weight: 600; fill: var(--gold); }
+  .node.group text { font-weight: 600; font-size: 12px; }
+
+  .tooltip {
+    position:absolute; pointer-events:none; background: rgba(22,27,34,0.95);
+    border:1px solid var(--border); border-radius:6px; padding:8px 10px;
+    font-size:12px; max-width:280px; color:var(--text);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5); opacity:0; transition: opacity 0.15s;
+    z-index: 10;
+  }
+  .tooltip strong { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="viz">
+    <div class="toolbar">
+      <button id="btn-reset">⟲ Reset view</button>
+      <button id="btn-expand">⤢ Expand all</button>
+      <button id="btn-collapse">⤡ Collapse</button>
+      <a href="index.html" style="text-decoration:none;"><button>← All cards</button></a>
+    </div>
+    <svg id="chart"></svg>
+    <div class="legend" id="legend"></div>
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+  <aside class="sidebar">
+    <h1>Automation</h1>
+    <p class="mantra">“Automate everything you'd regret doing manually twice.”</p>
+
+    <h2>When to apply</h2>
+    <ul id="when-list"></ul>
+
+    <h2>Without it</h2>
+    <ul id="without-list"></ul>
+
+    <h2>Key tradeoff</h2>
+    <div class="tradeoff" id="tradeoff-box"></div>
+
+    <div id="detail-slot"></div>
+  </aside>
+</div>
+
+<script>
+const DATA = {"name": "Automation", "category": "ROOT", "mantra": "Automate everything you'd regret doing manually twice.", "description": "Automation minimizes human error and brings consistency to testing, deployment, and operations. Automation replaces repetitive manual tasks with software that completes them quicker, with greater consistency and accuracy, reducing risks.", "children": [{"name": "Patterns", "category": "PATTERN", "isGroup": true, "children": [{"name": "Monitoring System", "category": "PATTERN", "description": "A monitoring system is built with its own stack and flows, decoupled from the workload, covering infrastructure, application health, and build and release processes.", "weight": 2.0, "relations": ["builds_on", "graph"]}]}, {"name": "Processes", "category": "PROCESS", "isGroup": true, "children": [{"name": "Well-Architected Framework", "category": "PROCESS", "description": "The Well-Architected Framework provides design pillars that apply to mission-critical workloads. The Well-Architected Framework provides best practices as technical foundation for building reliable solutions, with pillars including Reliability, Security, Operational Excellence, and Performance Efficiency.", "weight": 2.0, "relations": ["enables", "graph"]}]}, {"name": "Concepts", "category": "CONCEPT", "isGroup": true, "children": [{"name": "Reliability", "category": "CONCEPT", "description": "Reliability is a core design pillar and workload quality pillar within the Well-Architected Framework, serving as the primary focus for mission-critical workloads. It is centered on ensuring systems are resilient, stable, and capable of surviving failures while consistently meeting defined reliability objectives, resiliency targets, and recovery goals during malfunctions or disasters.\n\nKey principles of Reliability include maximizing availability through active/active design, fault isolation,…", "weight": 2.0, "relations": ["enables", "graph"]}]}]};
+const CARD = {"name": "Automation", "mantra": "Automate everything you'd regret doing manually twice.", "layer": "operational", "when_to_apply": ["Deploying infrastructure or application changes", "Running repetitive operational tasks", "Scaling workloads to meet demand", "Executing test suites across environments", "Responding to monitoring alerts with remediation"], "without_it": ["Human errors in deployments cause outages", "Inconsistent environments lead to drift and bugs", "Slow response to incidents due to manual intervention", "Accumulating technical debt from unscripted processes", "Operations that don't scale with workload growth"], "key_tradeoff": "Upfront investment in building and maintaining automation versus the ongoing cost and risk of manual processes.", "builds_on": ["Monitoring System"], "enables": ["Reliability", "Well-Architected Framework"], "connections": 3};
+const COLORS = {"MENTAL_MODEL": "#f1c40f", "PATTERN": "#3b82f6", "AZURE_SERVICE": "#6366f1", "PROCESS": "#22c55e", "CONCEPT": "#9ca3af", "METRIC": "#ef4444", "OTHER": "#64748b", "ROOT": "#f1c40f"};
+
+// Populate sidebar
+document.getElementById('when-list').innerHTML =
+  (CARD.when_to_apply || []).map(x => `<li>${escapeHtml(x)}</li>`).join('');
+document.getElementById('without-list').innerHTML =
+  (CARD.without_it || []).map(x => `<li>${escapeHtml(x)}</li>`).join('');
+document.getElementById('tradeoff-box').textContent = CARD.key_tradeoff || '';
+
+// Legend
+const catsUsed = new Set();
+(function collect(n){ if(n.category) catsUsed.add(n.category); (n.children||[]).forEach(collect); })(DATA);
+const legendEl = document.getElementById('legend');
+['MENTAL_MODEL','PATTERN','AZURE_SERVICE','PROCESS','CONCEPT','METRIC','OTHER']
+  .filter(c => catsUsed.has(c))
+  .forEach(c => {
+    const chip = document.createElement('div');
+    chip.className = 'legend-chip';
+    chip.innerHTML = `<span class="dot" style="background:${COLORS[c]}"></span>${c.replace('_',' ')}`;
+    legendEl.appendChild(chip);
+  });
+
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+
+const svg = d3.select('#chart');
+const tooltip = d3.select('#tooltip');
+const container = svg.append('g');
+
+const zoom = d3.zoom().scaleExtent([0.3, 3])
+  .on('zoom', e => container.attr('transform', e.transform));
+svg.call(zoom);
+
+const root = d3.hierarchy(DATA);
+// Track collapsed state
+root.descendants().forEach(d => { d._children = d.children; });
+
+function radius() {
+  const r = svg.node().getBoundingClientRect();
+  return Math.max(220, Math.min(r.width, r.height) / 2 - 60);
+}
+
+let currentRoot = root;
+
+function render() {
+  const R = radius();
+  const treeLayout = d3.cluster().size([2 * Math.PI, R])
+    .separation((a, b) => (a.parent === b.parent ? 1 : 2) / Math.max(a.depth, 1));
+  treeLayout(currentRoot);
+
+  const bbox = svg.node().getBoundingClientRect();
+  container.attr('transform', `translate(${bbox.width/2},${bbox.height/2})`);
+
+  // Links
+  const linkGen = d3.linkRadial().angle(d => d.x).radius(d => d.y);
+  const links = container.selectAll('path.link').data(currentRoot.links(), d => d.target.data.name);
+  links.exit().remove();
+  links.enter().append('path').attr('class','link')
+    .merge(links)
+    .attr('stroke', d => COLORS[d.target.data.category] || COLORS.OTHER)
+    .attr('d', linkGen);
+
+  // Nodes
+  const nodes = container.selectAll('g.node').data(currentRoot.descendants(), d => d.data.name + d.depth);
+  nodes.exit().remove();
+  const nodesEnter = nodes.enter().append('g')
+    .attr('class', d => 'node' + (d.depth===0?' root':'') + (d.data.isGroup?' group':''));
+  nodesEnter.append('circle');
+  nodesEnter.append('text');
+
+  const all = nodesEnter.merge(nodes);
+  all.attr('transform', d =>
+    `translate(${Math.sin(d.x) * d.y},${-Math.cos(d.x) * d.y})`);
+
+  all.select('circle')
+    .attr('r', d => d.depth === 0 ? 14 : d.data.isGroup ? 8 : 5 + Math.min(4, (d.data.weight||1)))
+    .attr('fill', d => d.depth === 0 ? COLORS.ROOT || '#f1c40f' : COLORS[d.data.category] || COLORS.OTHER)
+    .on('mouseenter', (e,d) => showTooltip(e,d))
+    .on('mousemove', (e,d) => moveTooltip(e))
+    .on('mouseleave', hideTooltip)
+    .on('click', (e,d) => onClick(e,d));
+
+  all.select('text')
+    .attr('dy', '0.32em')
+    .attr('x', d => d.x < Math.PI ? 10 : -10)
+    .attr('text-anchor', d => d.x < Math.PI ? 'start' : 'end')
+    .attr('transform', d => {
+      const deg = (d.x * 180 / Math.PI) - 90;
+      return d.x < Math.PI ? `rotate(${deg})` : `rotate(${deg+180})`;
+    })
+    .text(d => d.data.name);
+}
+
+function onClick(event, d) {
+  if (d.data.isGroup || d.depth === 0) {
+    // toggle collapse
+    if (d.children) { d._kids = d.children; d.children = null; }
+    else if (d._kids) { d.children = d._kids; d._kids = null; }
+    render();
+    return;
+  }
+  showDetail(d.data);
+}
+
+function showDetail(data) {
+  const slot = document.getElementById('detail-slot');
+  const rels = (data.relations && data.relations.length)
+    ? `<div class="rels">Linked via: ${data.relations.map(escapeHtml).join(', ')}</div>` : '';
+  slot.innerHTML = `
+    <div class="detail-card" style="border-left:3px solid ${COLORS[data.category]||COLORS.OTHER}">
+      <span class="cat" style="color:${COLORS[data.category]||COLORS.OTHER}">${(data.category||'').replace('_',' ')}</span>
+      <h3>${escapeHtml(data.name)}</h3>
+      <div>${escapeHtml(data.description || 'No description available.')}</div>
+      ${rels}
+    </div>`;
+  slot.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function showTooltip(e, d) {
+  const desc = d.data.description || d.data.mantra || '';
+  tooltip.html(`<strong>${escapeHtml(d.data.name)}</strong>` +
+    (desc ? `<br/><span>${escapeHtml(desc.slice(0,180))}${desc.length>180?'…':''}</span>` : ''))
+    .style('opacity', 1);
+  moveTooltip(e);
+}
+function moveTooltip(e) {
+  tooltip.style('left', (e.clientX + 14) + 'px').style('top', (e.clientY + 14) + 'px');
+}
+function hideTooltip() { tooltip.style('opacity', 0); }
+
+document.getElementById('btn-reset').onclick = () => {
+  svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+};
+document.getElementById('btn-expand').onclick = () => {
+  root.descendants().forEach(d => { if (d._kids) { d.children = d._kids; d._kids = null; } });
+  render();
+};
+document.getElementById('btn-collapse').onclick = () => {
+  root.descendants().forEach(d => {
+    if (d.depth >= 1 && d.children) { d._kids = d.children; d.children = null; }
+  });
+  render();
+};
+
+window.addEventListener('resize', render);
+render();
+
+// Show root detail by default
+showDetail({name: CARD.name, category: 'MENTAL_MODEL',
+  description: DATA.description || CARD.mantra, relations: []});
+</script>
+</body>
+</html>
