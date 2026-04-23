@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+lightrag_data/vdb_*.json
+lightrag_data/kv_store_llm_response_cache.json
+lightrag_data/kv_store_full_docs.json
+lightrag_data/kv_store_text_chunks.json
+proxy.log
+server.log
+lightrag.log
+pillars_ingest.log
+.env
+nohup.out

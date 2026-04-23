@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Mission-Critical Knowledge Graph</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+  :root {
+    --bg:#0d1117; --panel:#161b22; --border:#30363d; --fg:#c9d1d9;
+    --muted:#8b949e; --accent:#58a6ff;
+    --doc:#f78166; --h2:#a371f7; --h3:#d2a8ff;
+    --product:#79c0ff; --pattern:#ffa657; --process:#d2a8ff;
+    --concept:#3fb950; --metric:#ff7b72;
+    --edge:#30363d; --edge-hi:#ffd33d;
+  }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--fg);
+    font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  #app { display:flex; height:100vh; }
+  #sidebar { width:320px; background:var(--panel); border-right:1px solid var(--border);
+    padding:14px; box-sizing:border-box; overflow-y:auto; }
+  #sidebar h1 { margin:0 0 4px; font-size:16px; }
+  #sidebar p.sub { margin:0 0 14px; color:var(--muted); font-size:12px; }
+  .section { margin-bottom:16px; }
+  .section h2 { font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--muted); margin:0 0 6px; font-weight:600; }
+  input[type=search],input[type=text] { width:100%; box-sizing:border-box;
+    background:#0d1117; border:1px solid var(--border); color:var(--fg);
+    padding:6px 8px; border-radius:6px; font-size:13px; }
+  .chip { display:inline-flex; align-items:center; gap:6px; margin:2px 4px 2px 0;
+    padding:3px 8px; background:#21262d; border:1px solid var(--border);
+    border-radius:12px; font-size:12px; cursor:pointer; user-select:none; }
+  .chip input { margin:0; }
+  .chip.doc     { border-color:var(--doc); }
+  .chip.h2      { border-color:var(--h2); }
+  .chip.h3      { border-color:var(--h3); }
+  .chip.product { border-color:var(--product); }
+  .chip.pattern { border-color:var(--pattern); }
+  .chip.process { border-color:var(--process); }
+  .chip.concept { border-color:var(--concept); }
+  .chip.metric  { border-color:var(--metric); }
+  .swatch { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  #graph { flex:1; position:relative; }
+  svg { width:100%; height:100%; display:block; cursor:grab; }
+  svg:active { cursor:grabbing; }
+  .node circle { stroke:#0d1117; stroke-width:1.5; cursor:pointer; }
+  .node text { fill:var(--fg); font-size:10px; pointer-events:none;
+    paint-order:stroke; stroke:#0d1117; stroke-width:3px; stroke-linejoin:round; }
+  .node.dim { opacity:0.08; }
+  .link { stroke:var(--edge); stroke-opacity:0.5; }
+  .link.hi { stroke:var(--edge-hi); stroke-opacity:0.95; }
+  .link.dim { stroke-opacity:0.05; }
+  #tooltip { position:absolute; pointer-events:none; background:#161b22;
+    border:1px solid var(--border); border-radius:6px; padding:8px 10px;
+    font-size:12px; max-width:320px; box-shadow:0 6px 16px rgba(0,0,0,.5);
+    opacity:0; transition:opacity .1s; }
+  #tooltip h3 { margin:0 0 4px; font-size:13px; color:var(--accent); }
+  #tooltip .meta { color:var(--muted); font-size:11px; }
+  #legend { position:absolute; right:12px; top:12px; background:rgba(22,27,34,.9);
+    border:1px solid var(--border); border-radius:6px; padding:8px 10px; font-size:12px; }
+  #legend .row { display:flex; align-items:center; gap:8px; margin:3px 0; }
+  #stats { color:var(--muted); font-size:11px; margin-top:8px; }
+  a, a:visited { color:var(--accent); }
+  button { background:#21262d; color:var(--fg); border:1px solid var(--border);
+    border-radius:6px; padding:4px 10px; font-size:12px; cursor:pointer; }
+  button:hover { border-color:var(--accent); }
+  .slider { width:100%; }
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="sidebar">
+    <h1>Mission-Critical KG</h1>
+    <p class="sub">Azure Well-Architected Framework · interactive knowledge graph</p>
+
+    <div class="section">
+      <h2>Search</h2>
+      <input id="q" type="search" placeholder="Filter nodes by label…"/>
+    </div>
+
+    <div class="section">
+      <h2>Show node types</h2>
+      <label class="chip doc"><input type="checkbox" data-type="doc" checked/><span class="swatch" style="background:var(--doc)"></span>Document</label>
+      <label class="chip h2"><input type="checkbox" data-type="h2" checked/><span class="swatch" style="background:var(--h2)"></span>Section (H2)</label>
+      <label class="chip h3"><input type="checkbox" data-type="h3" checked/><span class="swatch" style="background:var(--h3)"></span>Subsection (H3)</label>
+      <label class="chip product"><input type="checkbox" data-type="product" checked/><span class="swatch" style="background:var(--product)"></span>Product</label>
+      <label class="chip pattern"><input type="checkbox" data-type="pattern" checked/><span class="swatch" style="background:var(--pattern)"></span>Pattern</label>
+      <label class="chip process"><input type="checkbox" data-type="process" checked/><span class="swatch" style="background:var(--process)"></span>Process</label>
+      <label class="chip concept"><input type="checkbox" data-type="concept" checked/><span class="swatch" style="background:var(--concept)"></span>Concept</label>
+      <label class="chip metric"><input type="checkbox" data-type="metric" checked/><span class="swatch" style="background:var(--metric)"></span>Metric</label>
+    </div>
+
+    <div class="section">
+      <h2>Show edge types</h2>
+      <label class="chip"><input type="checkbox" data-edge="contains" checked/>contains</label>
+      <label class="chip"><input type="checkbox" data-edge="links" checked/>links</label>
+      <label class="chip"><input type="checkbox" data-edge="mentions" checked/>mentions</label>
+      <label class="chip"><input type="checkbox" data-edge="related" checked/>related</label>
+    </div>
+
+    <div class="section">
+      <h2>Min concept mentions: <span id="mmv">1</span></h2>
+      <input id="mm" class="slider" type="range" min="1" max="20" value="1"/>
+    </div>
+
+    <div class="section">
+      <h2>Labels</h2>
+      <label class="chip"><input id="lbl" type="checkbox" checked/>show labels</label>
+      <button id="reheat">Reheat layout</button>
+      <button id="reset">Reset view</button>
+    </div>
+
+    <div class="section">
+      <h2>Selection</h2>
+      <div id="sel" style="color:var(--muted);">Click a node to inspect.</div>
+    </div>
+
+    <div id="stats"></div>
+  </aside>
+
+  <div id="graph">
+    <svg></svg>
+    <div id="tooltip"></div>
+    <div id="legend">
+      <div class="row"><span class="swatch" style="background:var(--doc)"></span>Document</div>
+      <div class="row"><span class="swatch" style="background:var(--h2)"></span>Section</div>
+      <div class="row"><span class="swatch" style="background:var(--h3)"></span>Subsection</div>
+      <div class="row"><span class="swatch" style="background:var(--product)"></span>Product</div>
+      <div class="row"><span class="swatch" style="background:var(--pattern)"></span>Pattern</div>
+      <div class="row"><span class="swatch" style="background:var(--process)"></span>Process</div>
+      <div class="row"><span class="swatch" style="background:var(--concept)"></span>Concept</div>
+      <div class="row"><span class="swatch" style="background:var(--metric)"></span>Metric</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:"#ffa657",process:"#d2a8ff",concept:"#3fb950",metric:"#ff7b72"};
+
+(async function(){
+  const data = await (await fetch("graph.json")).json();
+  document.getElementById("stats").textContent =
+    `${data.meta.docs} docs · ${data.meta.nodes} nodes · ${data.meta.edges} edges`;
+
+  const svg = d3.select("svg");
+  const g = svg.append("g");
+  const linkG = g.append("g").attr("class","links");
+  const nodeG = g.append("g").attr("class","nodes");
+
+  const zoom = d3.zoom().scaleExtent([0.15, 4]).on("zoom", e => g.attr("transform", e.transform));
+  svg.call(zoom);
+
+  // Clone data for filtering
+  let allNodes = data.nodes.map(d => ({...d}));
+  let allEdges = data.edges.map(d => ({...d}));
+
+  const state = {
+    types:new Set(["doc","h2","h3","product","pattern","process","concept","metric"]),
+    edgeTypes:new Set(["contains","links","mentions","related"]),
+    minMentions:1, query:"", showLabels:true, selected:null
+  };
+
+  const sim = d3.forceSimulation()
+    .force("link", d3.forceLink().id(d=>d.id)
+      .distance(l => l.type==="contains"?40 : l.type==="links"?90 : l.type==="related"?120:70)
+      .strength(l => l.type==="contains"?0.9 : l.type==="links"?0.5 : 0.3))
+    .force("charge", d3.forceManyBody().strength(-180))
+    .force("center", d3.forceCenter())
+    .force("collide", d3.forceCollide().radius(d => (d.size||6)+4));
+
+  const tooltip = d3.select("#tooltip");
+
+  let linkSel = linkG.selectAll("line");
+  let nodeSel = nodeG.selectAll("g.node");
+
+  function render(){
+    const w = document.getElementById("graph").clientWidth;
+    const h = document.getElementById("graph").clientHeight;
+    svg.attr("viewBox",[-w/2,-h/2,w,h]);
+
+    const termTypes = new Set(["product","pattern","process","concept","metric"]);
+    const nodeOk = n => {
+      if(!state.types.has(n.type)) return false;
+      if(termTypes.has(n.type) && (n.total||0) < state.minMentions) return false;
+      if(state.query && !n.label.toLowerCase().includes(state.query)) return false;
+      return true;
+    };
+    const nodes = allNodes.filter(nodeOk);
+    const idset = new Set(nodes.map(n=>n.id));
+    const edges = allEdges.filter(e =>
+      state.edgeTypes.has(e.type) &&
+      idset.has(typeof e.source==="object"?e.source.id:e.source) &&
+      idset.has(typeof e.target==="object"?e.target.id:e.target));
+
+    linkSel = linkG.selectAll("line").data(edges, d => (d.source.id||d.source)+"->"+(d.target.id||d.target)+":"+d.type)
+      .join(enter => enter.append("line").attr("class","link")
+        .attr("stroke-width", d => Math.max(0.4, Math.min(3, Math.log2(1+d.weight)))));
+
+    nodeSel = nodeG.selectAll("g.node").data(nodes, d=>d.id)
+      .join(enter => {
+        const ge = enter.append("g").attr("class","node")
+          .call(d3.drag()
+            .on("start",(e,d)=>{if(!e.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+            .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
+            .on("end",(e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}))
+          .on("mouseover",(e,d)=>{
+            tooltip.style("opacity",1).html(tooltipHtml(d));
+            highlight(d);
+          })
+          .on("mousemove",(e)=>{
+            const rect = document.getElementById("graph").getBoundingClientRect();
+            tooltip.style("left",(e.clientX-rect.left+12)+"px")
+                   .style("top",(e.clientY-rect.top+12)+"px");
+          })
+          .on("mouseout",()=>{tooltip.style("opacity",0); highlight(null);})
+          .on("click",(e,d)=>{select(d);});
+        ge.append("circle")
+          .attr("r", d => Math.max(3, Math.min(22, (d.size||6))))
+          .attr("fill", d => COLORS[d.type]);
+        ge.append("text").attr("dx",10).attr("dy",4).text(d=>d.label);
+        return ge;
+      });
+
+    nodeG.selectAll("g.node text").style("display", state.showLabels?null:"none");
+
+    sim.nodes(nodes).on("tick", ticked);
+    sim.force("link").links(edges);
+    sim.alpha(0.8).restart();
+  }
+
+  function ticked(){
+    linkSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+           .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+    nodeSel.attr("transform",d=>`translate(${d.x},${d.y})`);
+  }
+
+  function tooltipHtml(d){
+    const esc = s => String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+    let meta = "";
+    if(d.type==="doc") meta = `document · ${d.file}`;
+    else if(d.type==="h2") meta = `section in ${d.file}`;
+    else if(d.type==="h3") meta = `subsection in ${d.file}`;
+    else meta = `${d.type} · ${d.total} mentions across ${d.docs} docs`;
+    return `<h3>${esc(d.label)}</h3><div class="meta">${esc(meta)}</div>`;
+  }
+
+  function neighborsOf(id){
+    const nb = new Set([id]); const links = new Set();
+    linkSel.each(function(l){
+      const s = l.source.id||l.source, t = l.target.id||l.target;
+      if(s===id||t===id){ nb.add(s); nb.add(t); links.add(l); }
+    });
+    return {nb, links};
+  }
+  function highlight(d){
+    if(!d){ nodeSel.classed("dim",false); linkSel.classed("hi",false).classed("dim",false); return; }
+    const {nb,links} = neighborsOf(d.id);
+    nodeSel.classed("dim", n => !nb.has(n.id));
+    linkSel.classed("hi", l => links.has(l)).classed("dim", l => !links.has(l));
+  }
+
+  function select(d){
+    state.selected = d;
+    const sel = document.getElementById("sel");
+    const {nb} = neighborsOf(d.id);
+    const neighbors = [...nb].filter(id=>id!==d.id)
+      .map(id => allNodes.find(n=>n.id===id))
+      .filter(Boolean)
+      .sort((a,b)=>a.label.localeCompare(b.label));
+    const link = d.type==="doc"
+      ? `<div><a href="../well-architected/mission-critical/${d.file}" target="_blank">open source file ↗</a></div>` : "";
+    sel.innerHTML = `<div style="color:var(--fg);font-weight:600">${d.label}</div>
+      <div style="color:var(--muted);font-size:11px;margin:2px 0 6px;">${d.type}${d.file?" · "+d.file:""}</div>
+      ${link}
+      <div style="color:var(--muted);font-size:11px;margin-top:6px;">Connected (${neighbors.length})</div>
+      <div>${neighbors.slice(0,40).map(n=>`<span class="chip ${n.type}" data-id="${n.id}"><span class="swatch" style="background:${COLORS[n.type]}"></span>${n.label}</span>`).join("")}</div>`;
+    sel.querySelectorAll(".chip[data-id]").forEach(el=>{
+      el.addEventListener("click",()=>{
+        const n = allNodes.find(x=>x.id===el.dataset.id);
+        if(n) select(n);
+      });
+    });
+  }
+
+  // UI wiring
+  document.querySelectorAll("input[data-type]").forEach(el=>{
+    el.addEventListener("change",()=>{
+      el.checked ? state.types.add(el.dataset.type) : state.types.delete(el.dataset.type);
+      render();
+    });
+  });
+  document.querySelectorAll("input[data-edge]").forEach(el=>{
+    el.addEventListener("change",()=>{
+      el.checked ? state.edgeTypes.add(el.dataset.edge) : state.edgeTypes.delete(el.dataset.edge);
+      render();
+    });
+  });
+  const q = document.getElementById("q");
+  q.addEventListener("input",()=>{ state.query = q.value.trim().toLowerCase(); render(); });
+  const mm = document.getElementById("mm");
+  mm.addEventListener("input",()=>{
+    state.minMentions = +mm.value;
+    document.getElementById("mmv").textContent = mm.value;
+    render();
+  });
+  document.getElementById("lbl").addEventListener("change",e=>{
+    state.showLabels = e.target.checked;
+    nodeG.selectAll("g.node text").style("display", state.showLabels?null:"none");
+  });
+  document.getElementById("reheat").addEventListener("click",()=>sim.alpha(1).restart());
+  document.getElementById("reset").addEventListener("click",()=>{
+    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+  });
+
+  window.addEventListener("resize",()=>{
+    const w=document.getElementById("graph").clientWidth, h=document.getElementById("graph").clientHeight;
+    svg.attr("viewBox",[-w/2,-h/2,w,h]);
+    sim.force("center", d3.forceCenter()).alpha(0.3).restart();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

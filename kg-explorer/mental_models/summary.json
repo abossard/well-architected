@@ -1,0 +1,161 @@
+{
+  "total_entities": 880,
+  "total_edges": 980,
+  "classified": 880,
+  "categories": {
+    "CONCEPT": 235,
+    "AZURE_SERVICE": 168,
+    "PATTERN": 161,
+    "PROCESS": 156,
+    "OTHER": 63,
+    "MENTAL_MODEL": 54,
+    "METRIC": 29,
+    "ANTI_PATTERN": 9,
+    "TRADEOFF": 5
+  },
+  "top_mental_models": [
+    {
+      "name": "Zero Trust",
+      "centrality": 7,
+      "bridge_score": 0.952
+    },
+    {
+      "name": "Reliability Design Principles",
+      "centrality": 6,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Assume Breach",
+      "centrality": 6,
+      "bridge_score": 0.933
+    },
+    {
+      "name": "Four Vs Of Big Data",
+      "centrality": 5,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Design For Recovery",
+      "centrality": 5,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Least Privilege",
+      "centrality": 5,
+      "bridge_score": 0.8
+    },
+    {
+      "name": "Zero-Downtime Deployment",
+      "centrality": 4,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Design For Resilience",
+      "centrality": 4,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Verify Explicitly",
+      "centrality": 4,
+      "bridge_score": 0.833
+    },
+    {
+      "name": "Microsoft Zero Trust Model",
+      "centrality": 4,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Cost-Efficiency Mindset",
+      "centrality": 4,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Design For Rate Optimization",
+      "centrality": 4,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Defense-In-Depth",
+      "centrality": 3,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Blast Radius",
+      "centrality": 3,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Automation",
+      "centrality": 3,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Cost-Management Discipline",
+      "centrality": 3,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Design For Usage Optimization",
+      "centrality": 3,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "CAP Theorem",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Self-Preservation",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Design For Operations",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Observable Systems",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Simplicity",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Segmentation",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "PACELC Theorem",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Blast Radius Reduction And Fault Isolation",
+      "centrality": 1,
+      "bridge_score": 0.0
+    }
+  ],
+  "tradeoffs": [
+    "Reliability Tradeoffs",
+    "Security Tradeoffs",
+    "Performance Efficiency Tradeoffs",
+    "Culture Stress",
+    "Underprovisioned Resources"
+  ],
+  "anti_patterns": [
+    "SNAT Port Exhaustion",
+    "Misconfiguration",
+    "TCP Port Exhaustion",
+    "Noisy Neighbor Antipattern",
+    "SlowLoris",
+    "Configuration Drift",
+    "Centralized Data Services",
+    "Technical Debt",
+    "Lack Of Optimization Over Time"
+  ]
+}
