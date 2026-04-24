@@ -180,8 +180,8 @@
     <div class="section">
       <h2>Views</h2>
       <div class="presets" role="group" aria-label="Preset views">
-        <button class="preset-btn" data-preset="models">Mental Models</button>
-        <button class="preset-btn" data-preset="patterns">Patterns + Products</button>
+        <button class="preset-btn" data-preset="models">Concepts + Patterns</button>
+        <button class="preset-btn" data-preset="patterns">Products + Processes</button>
         <button class="preset-btn active" data-preset="all">Everything</button>
       </div>
     </div>
@@ -276,8 +276,8 @@ const ICONS={
 const PREFERS_REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const PRESETS = {
-  models:   { types:["doc","h2","h3"],                                 minMentions:1 },
-  patterns: { types:["pattern","product","process","doc","h2"],        minMentions:1 },
+  models:   { types:["concept","metric","pattern"],                     minMentions:1 },
+  patterns: { types:["pattern","product","process"],                    minMentions:1 },
   all:      { types:["doc","h2","h3","product","pattern","process","concept","metric"], minMentions:1 }
 };
 
