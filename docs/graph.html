@@ -171,6 +171,7 @@ const state = {
   modelOrder: [],
   transform: d3.zoomIdentity,
 };
+let visSet = new Set();
 
 // ─── DOM ──────────────────────────────────────────────────────────────────
 const canvas = document.getElementById("graph");
@@ -348,7 +349,7 @@ function render() {
 
   // Pre-compute visibility set for fast edge filtering
   const nodes = state.data.nodes;
-  const visSet = new Set();
+  visSet = new Set();
   for (let i = 0; i < nodes.length; i++) {
     if (visible(nodes[i])) visSet.add(nodes[i].id);
   }
