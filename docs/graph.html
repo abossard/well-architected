@@ -403,7 +403,6 @@ function render() {
   }
 
   // ── nodes ─────────────────────────────────────────────────────────────
-  const nodes = state.data.nodes;
   for (let i = 0; i < nodes.length; i++) {
     const n = nodes[i];
     if (!visSet.has(n.id)) continue;
