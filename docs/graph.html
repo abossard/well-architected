@@ -402,10 +402,11 @@ function nodeAtPointer(x, y) {
   if (visNodesDirty) rebuildVis();
   if (!quadtree) return null;
   const [wx, wy] = state.transform.invert([x, y]);
-  const searchR = 24 / state.transform.k;
+  // Search radius must be at least as large as the biggest possible node radius
+  const searchR = Math.max(30, 30 / state.transform.k);
   const n = quadtree.find(wx, wy, searchR);
   if (!n) return null;
-  const r = radius(n) + 3;
+  const r = radius(n) + 4;
   const dx = n.x - wx, dy = n.y - wy;
   return (dx * dx + dy * dy) <= r * r ? n : null;
 }
