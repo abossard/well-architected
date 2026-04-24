@@ -480,34 +480,42 @@ def build() -> dict:
         "missing_refs":     len(missing_refs),
     }
 
-    # ─── tier assignment (progressive disclosure) ────────────────────────
-    # Tier 0 (core, always visible): all MENTAL_MODEL + endpoints of
-    #   builds_on/enables edges + top hubs by degree in {PATTERN, AZURE_SERVICE}
-    #   up to a ~220 node budget.
-    # Tier 1 (latent): everything else — revealed on demand by the UI.
-    SEMANTIC_REL = {"builds_on", "enables"}
-    core_ids: set[str] = {n["id"] for n in nodes_out if n["type"] == "MENTAL_MODEL"}
+    # ─── depth assignment (BFS from MENTAL_MODEL seeds) ─────────────────
+    # Each node gets a depth = shortest path distance from any MENTAL_MODEL.
+    # UI starts at depth 3 (~2700 nodes) with a configurable slider.
+    adj: dict[str, set[str]] = {}
     for e in edges_out:
-        if e["relation"] in SEMANTIC_REL:
-            core_ids.add(e["source"])
-            core_ids.add(e["target"])
-    HUB_TYPES = {"PATTERN", "AZURE_SERVICE"}
-    BUDGET = 220
-    hubs = sorted(
-        (n for n in nodes_out if n["type"] in HUB_TYPES and n["id"] not in core_ids),
-        key=lambda n: -(n.get("centrality") or 0),
-    )
-    for n in hubs:
-        if len(core_ids) >= BUDGET:
-            break
-        core_ids.add(n["id"])
-    for n in nodes_out:
-        n["tier"] = 0 if n["id"] in core_ids else 1
+        adj.setdefault(e["source"], set()).add(e["target"])
+        adj.setdefault(e["target"], set()).add(e["source"])
 
-    stats["tiers"] = {
-        "0": sum(1 for n in nodes_out if n["tier"] == 0),
-        "1": sum(1 for n in nodes_out if n["tier"] == 1),
-    }
+    mm_seeds = {n["id"] for n in nodes_out if n["type"] == "MENTAL_MODEL"}
+    depth_map: dict[str, int] = {nid: 0 for nid in mm_seeds}
+    frontier = set(mm_seeds)
+    for d in range(1, 20):
+        next_frontier = set()
+        for nid in frontier:
+            for neighbor in adj.get(nid, set()):
+                if neighbor not in depth_map:
+                    depth_map[neighbor] = d
+                    next_frontier.add(neighbor)
+        if not next_frontier:
+            break
+        frontier = next_frontier
+
+    max_depth = max(depth_map.values()) if depth_map else 0
+    for n in nodes_out:
+        n["depth"] = depth_map.get(n["id"], max_depth + 1)
+
+    # Compute counts per depth for stats
+    depth_counts = Counter(n["depth"] for n in nodes_out)
+    cumulative = {}
+    running = 0
+    for d in sorted(depth_counts.keys()):
+        running += depth_counts[d]
+        cumulative[d] = running
+
+    stats["depths"] = {str(d): cumulative[d] for d in sorted(cumulative.keys())}
+    stats["max_depth"] = max_depth
 
     # mental-model ordering (layer → centrality desc → id) for prev/next nav.
     mm_with_cards = [
@@ -529,7 +537,7 @@ def build() -> dict:
             "id":   n["id"],
             "type": n["type"],
             "deg":  n.get("centrality") or 0,
-            "tier": n.get("tier", 1),
+            "d":    n.get("depth", 99),
         }
         if "x" in n: slim["x"] = n["x"]
         if "y" in n: slim["y"] = n["y"]

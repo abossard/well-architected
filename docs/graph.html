@@ -42,6 +42,9 @@
     header#toolbar .edge-toggle { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 6px 10px; font-size: 0.8rem; border-radius: 6px; cursor: pointer; font-family: inherit; }
     header#toolbar .edge-toggle:hover { color: var(--text); }
     header#toolbar .edge-toggle.on { background: var(--accent-2); color: #fff; border-color: var(--accent-2); }
+    header#toolbar .depth-ctrl { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); }
+    header#toolbar .depth-ctrl input[type=range] { width: 80px; accent-color: var(--accent); cursor: pointer; }
+    header#toolbar .depth-ctrl span:last-child { min-width: 1ch; color: var(--accent); font-weight: 600; }
     header#toolbar .spacer { flex: 1; }
     header#toolbar .fps { color: var(--muted); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
     header#toolbar #breadcrumb { display: flex; gap: 4px; align-items: center; overflow-x: auto; max-width: 40vw; font-size: 0.85rem; color: var(--muted); }
@@ -111,7 +114,12 @@
   <a class="home" href="index.html">← Home</a>
   <input id="search" placeholder="Search… (/)" autocomplete="off" />
   <nav id="filters" role="group" aria-label="filters">
-    <button data-f="focus" class="active" title="Default: mental models + key hubs (~300 nodes)">Focus</button>
+    <button data-f="focus" class="active" title="Depth-based: nodes within N hops of mental models">Focus</button>
+    <label class="depth-ctrl" title="Distance from mental models">
+      <span>Depth</span>
+      <input id="depthSlider" type="range" min="0" max="5" value="3" />
+      <span id="depthVal">3</span>
+    </label>
     <button data-f="mental" title="Mental Models only">Mental Models</button>
     <button data-f="patterns" title="Patterns + Services + MMs">Patterns + Services</button>
     <button data-f="all" title="All 4099 nodes (slower)">Everything</button>
@@ -180,7 +188,7 @@ const ICON_PATH2D = {};
 Object.entries(ICON_PATHS).forEach(([k, v]) => { try { ICON_PATH2D[k] = new Path2D(v); } catch (e) { ICON_PATH2D[k] = null; } });
 
 const FILTERS = {
-  focus:    n => n.tier === 0,                              // default (progressive)
+  focus:    n => n.d <= state.maxDepth,
   mental:   n => n.type === "MENTAL_MODEL",
   patterns: n => n.type === "PATTERN" || n.type === "AZURE_SERVICE" || n.type === "MENTAL_MODEL",
   all:      _ => true,
@@ -202,7 +210,8 @@ const state = {
   selected: null,
   hover: null,
   breadcrumb: [],
-  filter: "focus",            // default: progressive Tier 0 view
+  filter: "focus",
+  maxDepth: 3,            // default: progressive Tier 0 view
   search: "",
   modelOrder: [],
   transform: d3.zoomIdentity,
@@ -836,6 +845,26 @@ function bindUI() {
     });
   });
   updateWarn();
+
+  // depth slider
+  const depthSlider = document.getElementById("depthSlider");
+  const depthVal = document.getElementById("depthVal");
+  if (depthSlider) {
+    const maxD = state.data.stats.max_depth || 8;
+    depthSlider.max = maxD;
+    depthSlider.value = state.maxDepth;
+    depthVal.textContent = state.maxDepth;
+    depthSlider.addEventListener("input", () => {
+      state.maxDepth = parseInt(depthSlider.value);
+      depthVal.textContent = state.maxDepth;
+      if (state.filter !== "focus") {
+        state.filter = "focus";
+        document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("active", x.dataset.f === "focus"));
+      }
+      invalidateVis();
+      requestRender();
+    });
+  }
 
   // edge toggle
   const edgeBtn = document.getElementById("edgeToggle");
