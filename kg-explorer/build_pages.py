@@ -304,9 +304,9 @@ page = f"""<!doctype html>
   <div class="tagline">Scan, drill, connect — one card per model, grounded in Azure WAF docs.</div>
   <div class="stats">
     <div class="stat"><span class="n">{len(cards)}</span> models</div>
-    <div class="stat"><span class="n">161</span> patterns</div>
-    <div class="stat"><span class="n">980</span> relations</div>
-    <div class="stat"><span class="n">9</span> anti-patterns</div>
+    <div class="stat"><span class="n">{cat_counts.get('PATTERN',0)}</span> patterns</div>
+    <div class="stat"><span class="n">{sum(cat_counts.values())}</span> entities</div>
+    <div class="stat"><span class="n">{cat_counts.get('ANTI_PATTERN',0)}</span> anti-patterns</div>
   </div>
 </div>
 
