@@ -1,61 +1,140 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Mental Model Diagrams</title>
+<title>Mental Model Tree Diagrams — Azure Well-Architected</title>
 <style>
- body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-   background:#0d1117; color:#e6edf3; padding:40px 24px; }
- h1 { color:#f1c40f; margin-top:0; }
+ :root {
+   --bg:#0d1117; --surface:#161b22; --border:#30363d; --fg:#c9d1d9;
+   --muted:#8b949e; --accent:#58a6ff; --gold:#f59e0b;
+   --fs-body:15px; --fs-small:13px; --fs-micro:12px;
+ }
+ * { box-sizing:border-box; }
+ html { background:var(--bg); color:var(--fg);
+   font:var(--fs-body)/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+   text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+ body { margin:0; padding:0; }
+ a { color:var(--accent); }
+
+ /* Sticky minimal nav — identical across site */
+ .topbar { position:sticky; top:0; z-index:100; background:var(--bg);
+   border-bottom:1px solid var(--border);
+   padding:8px 20px; display:flex; align-items:center; gap:16px; }
+ .topbar h1 { font-size:16px; margin:0; white-space:nowrap; font-weight:600; }
+ .topbar h1 span { color:var(--gold); }
+ .topbar nav { display:flex; gap:4px; margin-left:auto; }
+ .topbar nav a { color:var(--muted); text-decoration:none;
+   font-size:var(--fs-small); padding:4px 10px; border-radius:6px;
+   transition:color .15s, background .15s; }
+ .topbar nav a:hover { color:var(--accent); background:var(--surface); }
+ .topbar nav a[aria-current="page"] { color:var(--fg); background:var(--surface); }
+
+ .wrap { max-width:1200px; margin:0 auto; padding:20px; }
+ .hero { padding:8px 0 16px; }
+ .hero h2 { margin:0 0 6px; font-size:20px; font-weight:600; }
+ .hero p { color:var(--muted); margin:0; font-size:var(--fs-body); max-width:66ch; }
+
+ .search-bar { margin:14px 0 8px; }
+ .search-bar input { width:100%; max-width:400px; background:var(--surface);
+   border:1px solid var(--border); color:var(--fg); padding:8px 12px;
+   border-radius:8px; font-size:var(--fs-body); }
+ .search-bar input:focus { outline:2px solid var(--accent); outline-offset:1px;
+   border-color:var(--accent); }
+
  ul { list-style:none; padding:0; display:grid; gap:12px;
-   grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); max-width:1200px; margin:0 auto; }
- li a { display:block; padding:16px; background:#161b22; border:1px solid #30363d;
-   border-radius:8px; text-decoration:none; color:#e6edf3; transition: all .15s; }
- li a:hover { border-color:#58a6ff; transform: translateY(-2px); }
- li strong { display:block; color:#f1c40f; margin-bottom:6px; }
- .mantra { font-size:13px; color:#8b949e; font-style:italic; }
- .wrap { max-width:1200px; margin:0 auto; }
+   grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); margin:16px 0; }
+ li a { display:flex; flex-direction:column; gap:6px;
+   padding:14px 16px; background:var(--surface); border:1px solid var(--border);
+   border-left:3px solid var(--gold); border-radius:10px;
+   text-decoration:none; color:inherit;
+   transition:border-color .15s, transform .15s; }
+ li a:hover { border-color:var(--accent); transform:translateY(-2px); }
+ li a:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+ li strong { color:var(--fg); font-size:var(--fs-body); font-weight:600; }
+ li .mantra { font-size:var(--fs-small); color:var(--muted);
+   font-style:normal; line-height:1.5; }
+
+ footer { color:var(--muted); font-size:var(--fs-small); margin-top:32px;
+   border-top:1px solid var(--border); padding-top:14px; }
+ footer a { color:var(--accent); text-decoration:none; }
+
+ @media (prefers-reduced-motion: reduce) {
+   * { transition:none !important; }
+   li a:hover { transform:none; }
+ }
 </style></head><body>
-<div class="wrap"><h1>Mental Model Diagrams</h1>
-<p style="color:#8b949e;">Interactive radial tree visualizations of each mental model and its neighborhood in the Well-Architected knowledge graph.</p>
-<ul><li><a href="zero-trust.html"><strong>Zero Trust</strong><span class="mantra">Never trust, always verify every request</span></a></li>
-<li><a href="reliability-design-principles.html"><strong>Reliability Design Principles</strong><span class="mantra">Design every workload to survive failure gracefully</span></a></li>
-<li><a href="assume-breach.html"><strong>Assume Breach</strong><span class="mantra">Defend every layer as if already compromised</span></a></li>
-<li><a href="four-vs-of-big-data.html"><strong>Four Vs Of Big Data</strong><span class="mantra">Profile volume, velocity, variety, veracity before selecting services</span></a></li>
-<li><a href="design-for-recovery.html"><strong>Design For Recovery</strong><span class="mantra">Engineer recovery paths before failure strikes</span></a></li>
-<li><a href="least-privilege.html"><strong>Least Privilege</strong><span class="mantra">Grant minimum access, scope, and duration</span></a></li>
-<li><a href="zero-downtime-deployment.html"><strong>Zero-Downtime Deployment</strong><span class="mantra">Deploy beside, shift traffic, decommission old.</span></a></li>
-<li><a href="design-for-resilience.html"><strong>Design For Resilience</strong><span class="mantra">Bend under failure, never break entirely.</span></a></li>
-<li><a href="verify-explicitly.html"><strong>Verify Explicitly</strong><span class="mantra">Validate every identity, action, location, every time</span></a></li>
-<li><a href="cost-efficiency-mindset.html"><strong>Cost-Efficiency Mindset</strong><span class="mantra">Spend only what workloads need, maximize ROI</span></a></li>
-<li><a href="design-for-rate-optimization.html"><strong>Design For Rate Optimization</strong><span class="mantra">Squeeze maximum value from every committed dollar.</span></a></li>
-<li><a href="defense-in-depth.html"><strong>Defense in Depth</strong><span class="mantra">Stack redundant security layers at every boundary</span></a></li>
-<li><a href="blast-radius.html"><strong>Blast Radius</strong><span class="mantra">Contain every failure before it spreads.</span></a></li>
-<li><a href="automation.html"><strong>Automation</strong><span class="mantra">Automate everything you'd regret doing twice</span></a></li>
-<li><a href="cost-management-discipline.html"><strong>Cost-Management Discipline</strong><span class="mantra">Make every dollar visible, owned, intentional.</span></a></li>
-<li><a href="design-for-usage-optimization.html"><strong>Design For Usage Optimization</strong><span class="mantra">Eliminate idle capacity, extract maximum resource value</span></a></li>
-<li><a href="cap-theorem.html"><strong>CAP Theorem</strong><span class="mantra">Partition happens—choose consistency or availability now</span></a></li>
-<li><a href="self-preservation.html"><strong>Self-Preservation</strong><span class="mantra">Every component protects itself; failures stay local.</span></a></li>
-<li><a href="design-for-operations.html"><strong>Design For Operations</strong><span class="mantra">Shift left—detect failure before customers do</span></a></li>
-<li><a href="observable-systems.html"><strong>Observable Systems</strong><span class="mantra">Unseen failures become customer-facing outages fast.</span></a></li>
-<li><a href="simplicity.html"><strong>Simplicity</strong><span class="mantra">Shrink surface area before controlling it</span></a></li>
-<li><a href="segmentation.html"><strong>Segmentation</strong><span class="mantra">Draw boundaries before attackers draw theirs.</span></a></li>
-<li><a href="pacelc-theorem.html"><strong>PACELC Theorem</strong><span class="mantra">No partition? Still trade latency for consistency.</span></a></li>
-<li><a href="design-for-self-healing.html"><strong>Design For Self-Healing</strong><span class="mantra">Automate remediation before humans notice failures</span></a></li>
-<li><a href="design-for-scale-out.html"><strong>Design For Scale-Out</strong><span class="mantra">Add more units, never bigger units.</span></a></li>
-<li><a href="mission-critical-design.html"><strong>Mission-Critical Design</strong><span class="mantra">Treat every resource as disposable, nothing irreplaceable.</span></a></li>
-<li><a href="design-principles.html"><strong>Design Principles</strong><span class="mantra">Anchor every decision to principles before patterns.</span></a></li>
-<li><a href="stride.html"><strong>STRIDE</strong><span class="mantra">Hunt all six threat categories before attackers.</span></a></li>
-<li><a href="criticality.html"><strong>Criticality</strong><span class="mantra">Tier every flow before engineering resilience</span></a></li>
-<li><a href="fault-isolation.html"><strong>Fault Isolation</strong><span class="mantra">Contain blast radius, protect critical paths always</span></a></li>
-<li><a href="disaster-preparedness.html"><strong>Disaster Preparedness</strong><span class="mantra">Drill recovery before disaster forces improvisation</span></a></li>
-<li><a href="standards.html"><strong>Standards</strong><span class="mantra">Define pattern once, execute consistently everywhere.</span></a></li>
-<li><a href="design-for-business-requirements.html"><strong>Design For Business Requirements</strong><span class="mantra">Define SLOs before designing infrastructure</span></a></li>
-<li><a href="re-01-simplicity-and-efficiency-in-design.html"><strong>RE:01 - Simplicity and Efficiency in Design</strong><span class="mantra">Kill every component you cannot justify.</span></a></li>
-<li><a href="shift-left.html"><strong>Shift Left</strong><span class="mantra">Catch defects early, fix cheaply, ship confidently</span></a></li>
-<li><a href="transparent-communication.html"><strong>Transparent Communication</strong><span class="mantra">Share status, context, decisions—nobody flies blind</span></a></li>
-<li><a href="monitor-and-optimize-over-time.html"><strong>Monitor And Optimize Over Time</strong><span class="mantra">Right-size continuously—workloads drift, budgets follow.</span></a></li>
-<li><a href="shared-responsibility-principle.html"><strong>Shared Responsibility Principle</strong><span class="mantra">Own everything Microsoft does not manage</span></a></li>
-<li><a href="risk-tolerance.html"><strong>Risk Tolerance</strong><span class="mantra">Quantify acceptable failure before architecting anything</span></a></li>
-<li><a href="identity-as-a-security-perimeter.html"><strong>Identity As A Security Perimeter</strong><span class="mantra">Authenticate every call, trust no network path</span></a></li>
-<li><a href="configuration-as-code.html"><strong>Configuration As Code</strong><span class="mantra">Define every setting in version-controlled code</span></a></li>
-<li><a href="security-design-principles.html"><strong>Security Design Principles</strong><span class="mantra">Bake Zero Trust into every architecture decision</span></a></li>
-<li><a href="azure-well-architected-pillars.html"><strong>Azure Well-Architected Pillars</strong><span class="mantra">Balance five pillars or cascade failures across workloads</span></a></li></ul></div></body></html>
+<header class="topbar">
+  <h1>🌳 <span>Trees</span> · Mental Model Diagrams</h1>
+  <nav aria-label="Primary">
+    <a href="../../">← Home</a>
+    <a href="../../graph.html">Graph</a>
+    <a href="../">Cards</a>
+    <a href="./" aria-current="page">Trees</a>
+  </nav>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <h2>Mental Model Tree Diagrams</h2>
+    <p>Interactive radial tree visualizations of each mental model and its neighborhood in the Well-Architected knowledge graph. 43 diagrams.</p>
+  </section>
+  <div class="search-bar">
+    <input id="tree-search" type="search" placeholder="Filter trees by name or mantra…" autocomplete="off"/>
+  </div>
+  <ul id="tree-list"><li><a href="zero-trust.html"><strong>Zero Trust</strong><span class="mantra">"Never trust, always verify every request"</span></a></li>
+<li><a href="reliability-design-principles.html"><strong>Reliability Design Principles</strong><span class="mantra">"Design every workload to survive failure gracefully"</span></a></li>
+<li><a href="assume-breach.html"><strong>Assume Breach</strong><span class="mantra">"Defend every layer as if already compromised"</span></a></li>
+<li><a href="four-vs-of-big-data.html"><strong>Four Vs Of Big Data</strong><span class="mantra">"Profile volume, velocity, variety, veracity before selecting services"</span></a></li>
+<li><a href="design-for-recovery.html"><strong>Design For Recovery</strong><span class="mantra">"Engineer recovery paths before failure strikes"</span></a></li>
+<li><a href="least-privilege.html"><strong>Least Privilege</strong><span class="mantra">"Grant minimum access, scope, and duration"</span></a></li>
+<li><a href="zero-downtime-deployment.html"><strong>Zero-Downtime Deployment</strong><span class="mantra">"Deploy beside, shift traffic, decommission old."</span></a></li>
+<li><a href="design-for-resilience.html"><strong>Design For Resilience</strong><span class="mantra">"Bend under failure, never break entirely."</span></a></li>
+<li><a href="verify-explicitly.html"><strong>Verify Explicitly</strong><span class="mantra">"Validate every identity, action, location, every time"</span></a></li>
+<li><a href="cost-efficiency-mindset.html"><strong>Cost-Efficiency Mindset</strong><span class="mantra">"Spend only what workloads need, maximize ROI"</span></a></li>
+<li><a href="design-for-rate-optimization.html"><strong>Design For Rate Optimization</strong><span class="mantra">"Squeeze maximum value from every committed dollar."</span></a></li>
+<li><a href="defense-in-depth.html"><strong>Defense in Depth</strong><span class="mantra">"Stack redundant security layers at every boundary"</span></a></li>
+<li><a href="blast-radius.html"><strong>Blast Radius</strong><span class="mantra">"Contain every failure before it spreads."</span></a></li>
+<li><a href="automation.html"><strong>Automation</strong><span class="mantra">"Automate everything you'd regret doing twice"</span></a></li>
+<li><a href="cost-management-discipline.html"><strong>Cost-Management Discipline</strong><span class="mantra">"Make every dollar visible, owned, intentional."</span></a></li>
+<li><a href="design-for-usage-optimization.html"><strong>Design For Usage Optimization</strong><span class="mantra">"Eliminate idle capacity, extract maximum resource value"</span></a></li>
+<li><a href="cap-theorem.html"><strong>CAP Theorem</strong><span class="mantra">"Partition happens—choose consistency or availability now"</span></a></li>
+<li><a href="self-preservation.html"><strong>Self-Preservation</strong><span class="mantra">"Every component protects itself; failures stay local."</span></a></li>
+<li><a href="design-for-operations.html"><strong>Design For Operations</strong><span class="mantra">"Shift left—detect failure before customers do"</span></a></li>
+<li><a href="observable-systems.html"><strong>Observable Systems</strong><span class="mantra">"Unseen failures become customer-facing outages fast."</span></a></li>
+<li><a href="simplicity.html"><strong>Simplicity</strong><span class="mantra">"Shrink surface area before controlling it"</span></a></li>
+<li><a href="segmentation.html"><strong>Segmentation</strong><span class="mantra">"Draw boundaries before attackers draw theirs."</span></a></li>
+<li><a href="pacelc-theorem.html"><strong>PACELC Theorem</strong><span class="mantra">"No partition? Still trade latency for consistency."</span></a></li>
+<li><a href="design-for-self-healing.html"><strong>Design For Self-Healing</strong><span class="mantra">"Automate remediation before humans notice failures"</span></a></li>
+<li><a href="design-for-scale-out.html"><strong>Design For Scale-Out</strong><span class="mantra">"Add more units, never bigger units."</span></a></li>
+<li><a href="mission-critical-design.html"><strong>Mission-Critical Design</strong><span class="mantra">"Treat every resource as disposable, nothing irreplaceable."</span></a></li>
+<li><a href="design-principles.html"><strong>Design Principles</strong><span class="mantra">"Anchor every decision to principles before patterns."</span></a></li>
+<li><a href="stride.html"><strong>STRIDE</strong><span class="mantra">"Hunt all six threat categories before attackers."</span></a></li>
+<li><a href="criticality.html"><strong>Criticality</strong><span class="mantra">"Tier every flow before engineering resilience"</span></a></li>
+<li><a href="fault-isolation.html"><strong>Fault Isolation</strong><span class="mantra">"Contain blast radius, protect critical paths always"</span></a></li>
+<li><a href="disaster-preparedness.html"><strong>Disaster Preparedness</strong><span class="mantra">"Drill recovery before disaster forces improvisation"</span></a></li>
+<li><a href="standards.html"><strong>Standards</strong><span class="mantra">"Define pattern once, execute consistently everywhere."</span></a></li>
+<li><a href="design-for-business-requirements.html"><strong>Design For Business Requirements</strong><span class="mantra">"Define SLOs before designing infrastructure"</span></a></li>
+<li><a href="re-01-simplicity-and-efficiency-in-design.html"><strong>RE:01 - Simplicity and Efficiency in Design</strong><span class="mantra">"Kill every component you cannot justify."</span></a></li>
+<li><a href="shift-left.html"><strong>Shift Left</strong><span class="mantra">"Catch defects early, fix cheaply, ship confidently"</span></a></li>
+<li><a href="transparent-communication.html"><strong>Transparent Communication</strong><span class="mantra">"Share status, context, decisions—nobody flies blind"</span></a></li>
+<li><a href="monitor-and-optimize-over-time.html"><strong>Monitor And Optimize Over Time</strong><span class="mantra">"Right-size continuously—workloads drift, budgets follow."</span></a></li>
+<li><a href="shared-responsibility-principle.html"><strong>Shared Responsibility Principle</strong><span class="mantra">"Own everything Microsoft does not manage"</span></a></li>
+<li><a href="risk-tolerance.html"><strong>Risk Tolerance</strong><span class="mantra">"Quantify acceptable failure before architecting anything"</span></a></li>
+<li><a href="identity-as-a-security-perimeter.html"><strong>Identity As A Security Perimeter</strong><span class="mantra">"Authenticate every call, trust no network path"</span></a></li>
+<li><a href="configuration-as-code.html"><strong>Configuration As Code</strong><span class="mantra">"Define every setting in version-controlled code"</span></a></li>
+<li><a href="security-design-principles.html"><strong>Security Design Principles</strong><span class="mantra">"Bake Zero Trust into every architecture decision"</span></a></li>
+<li><a href="azure-well-architected-pillars.html"><strong>Azure Well-Architected Pillars</strong><span class="mantra">"Balance five pillars or cascade failures across workloads"</span></a></li></ul>
+  <footer>
+    ← Back to <a href="../">Mental Model Cards</a> · <a href="../../">Home</a>
+  </footer>
+</main>
+<script>
+(function() {
+  const input = document.getElementById('tree-search');
+  const items = document.querySelectorAll('#tree-list li');
+  input.addEventListener('input', () => {
+    const q = input.value.toLowerCase();
+    items.forEach(li => {
+      li.style.display = !q || li.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+})();
+</script>
+</body></html>

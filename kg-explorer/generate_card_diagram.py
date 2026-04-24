@@ -335,7 +335,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <nav class="mininav" aria-label="Card navigation">
     <button type="button" onclick="history.back()" aria-label="Go back">← Back</button>
     <span class="title">__NAME__</span>
-    <a href="index.html" aria-label="All cards">All cards →</a>
+    <a href="../../" aria-label="Home">Home</a>
+    <a href="index.html" aria-label="All trees">All trees →</a>
   </nav>
   <div class="viz">
     <div class="toolbar">
@@ -583,28 +584,107 @@ def generate_for_card(card: dict, graph: nx.Graph, tax: dict[str, str]) -> Path:
 def generate_index(cards: list[dict]) -> Path:
     items = "\n".join(
         f'<li><a href="{slugify(c["name"])}.html"><strong>{c["name"]}</strong>'
-        f'<span class="mantra">{c.get("mantra","")}</span></a></li>'
+        f'<span class="mantra">"{c.get("mantra","")}"</span></a></li>'
         for c in cards
     )
-    html = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/>
+    html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Mental Model Diagrams</title>
+<title>Mental Model Tree Diagrams — Azure Well-Architected</title>
 <style>
- body {{ margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-   background:#0d1117; color:#e6edf3; padding:40px 24px; }}
- h1 {{ color:#f1c40f; margin-top:0; }}
+ :root {{
+   --bg:#0d1117; --surface:#161b22; --border:#30363d; --fg:#c9d1d9;
+   --muted:#8b949e; --accent:#58a6ff; --gold:#f59e0b;
+   --fs-body:15px; --fs-small:13px; --fs-micro:12px;
+ }}
+ * {{ box-sizing:border-box; }}
+ html {{ background:var(--bg); color:var(--fg);
+   font:var(--fs-body)/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+   text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }}
+ body {{ margin:0; padding:0; }}
+ a {{ color:var(--accent); }}
+
+ /* Sticky minimal nav — identical across site */
+ .topbar {{ position:sticky; top:0; z-index:100; background:var(--bg);
+   border-bottom:1px solid var(--border);
+   padding:8px 20px; display:flex; align-items:center; gap:16px; }}
+ .topbar h1 {{ font-size:16px; margin:0; white-space:nowrap; font-weight:600; }}
+ .topbar h1 span {{ color:var(--gold); }}
+ .topbar nav {{ display:flex; gap:4px; margin-left:auto; }}
+ .topbar nav a {{ color:var(--muted); text-decoration:none;
+   font-size:var(--fs-small); padding:4px 10px; border-radius:6px;
+   transition:color .15s, background .15s; }}
+ .topbar nav a:hover {{ color:var(--accent); background:var(--surface); }}
+ .topbar nav a[aria-current="page"] {{ color:var(--fg); background:var(--surface); }}
+
+ .wrap {{ max-width:1200px; margin:0 auto; padding:20px; }}
+ .hero {{ padding:8px 0 16px; }}
+ .hero h2 {{ margin:0 0 6px; font-size:20px; font-weight:600; }}
+ .hero p {{ color:var(--muted); margin:0; font-size:var(--fs-body); max-width:66ch; }}
+
+ .search-bar {{ margin:14px 0 8px; }}
+ .search-bar input {{ width:100%; max-width:400px; background:var(--surface);
+   border:1px solid var(--border); color:var(--fg); padding:8px 12px;
+   border-radius:8px; font-size:var(--fs-body); }}
+ .search-bar input:focus {{ outline:2px solid var(--accent); outline-offset:1px;
+   border-color:var(--accent); }}
+
  ul {{ list-style:none; padding:0; display:grid; gap:12px;
-   grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); max-width:1200px; margin:0 auto; }}
- li a {{ display:block; padding:16px; background:#161b22; border:1px solid #30363d;
-   border-radius:8px; text-decoration:none; color:#e6edf3; transition: all .15s; }}
- li a:hover {{ border-color:#58a6ff; transform: translateY(-2px); }}
- li strong {{ display:block; color:#f1c40f; margin-bottom:6px; }}
- .mantra {{ font-size:13px; color:#8b949e; font-style:italic; }}
- .wrap {{ max-width:1200px; margin:0 auto; }}
+   grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); margin:16px 0; }}
+ li a {{ display:flex; flex-direction:column; gap:6px;
+   padding:14px 16px; background:var(--surface); border:1px solid var(--border);
+   border-left:3px solid var(--gold); border-radius:10px;
+   text-decoration:none; color:inherit;
+   transition:border-color .15s, transform .15s; }}
+ li a:hover {{ border-color:var(--accent); transform:translateY(-2px); }}
+ li a:focus-visible {{ outline:2px solid var(--accent); outline-offset:2px; }}
+ li strong {{ color:var(--fg); font-size:var(--fs-body); font-weight:600; }}
+ li .mantra {{ font-size:var(--fs-small); color:var(--muted);
+   font-style:normal; line-height:1.5; }}
+
+ footer {{ color:var(--muted); font-size:var(--fs-small); margin-top:32px;
+   border-top:1px solid var(--border); padding-top:14px; }}
+ footer a {{ color:var(--accent); text-decoration:none; }}
+
+ @media (prefers-reduced-motion: reduce) {{
+   * {{ transition:none !important; }}
+   li a:hover {{ transform:none; }}
+ }}
 </style></head><body>
-<div class="wrap"><h1>Mental Model Diagrams</h1>
-<p style="color:#8b949e;">Interactive radial tree visualizations of each mental model and its neighborhood in the Well-Architected knowledge graph.</p>
-<ul>{items}</ul></div></body></html>"""
+<header class="topbar">
+  <h1>🌳 <span>Trees</span> · Mental Model Diagrams</h1>
+  <nav aria-label="Primary">
+    <a href="../../">← Home</a>
+    <a href="../../graph.html">Graph</a>
+    <a href="../">Cards</a>
+    <a href="./" aria-current="page">Trees</a>
+  </nav>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <h2>Mental Model Tree Diagrams</h2>
+    <p>Interactive radial tree visualizations of each mental model and its neighborhood in the Well-Architected knowledge graph. {len(cards)} diagrams.</p>
+  </section>
+  <div class="search-bar">
+    <input id="tree-search" type="search" placeholder="Filter trees by name or mantra…" autocomplete="off"/>
+  </div>
+  <ul id="tree-list">{items}</ul>
+  <footer>
+    ← Back to <a href="../">Mental Model Cards</a> · <a href="../../">Home</a>
+  </footer>
+</main>
+<script>
+(function() {{
+  const input = document.getElementById('tree-search');
+  const items = document.querySelectorAll('#tree-list li');
+  input.addEventListener('input', () => {{
+    const q = input.value.toLowerCase();
+    items.forEach(li => {{
+      li.style.display = !q || li.textContent.toLowerCase().includes(q) ? '' : 'none';
+    }});
+  }});
+}})();
+</script>
+</body></html>"""
     out = OUT_DIR / "index.html"
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")

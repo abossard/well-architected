@@ -291,10 +291,12 @@ page = f"""<!doctype html>
 <div class="topbar">
   <h1><span>Mental Models</span> · Mission-Critical</h1>
   <nav>
-    <a href="#cards">Cards</a>
+    <a href="../">← Home</a>
+    <a href="../graph.html">Graph</a>
+    <a href="#cards" aria-current="page">Cards</a>
+    <a href="cards/">Trees</a>
     <a href="#warnings">Anti-patterns</a>
     <a href="#taxonomy">Taxonomy</a>
-    <a href="../graph.html">Graph</a>
   </nav>
 </div>
 
@@ -305,12 +307,6 @@ page = f"""<!doctype html>
     <div class="stat"><span class="n">161</span> patterns</div>
     <div class="stat"><span class="n">980</span> relations</div>
     <div class="stat"><span class="n">9</span> anti-patterns</div>
-  </div>
-  <div class="journey">
-    <a href="../graph.html">Graph</a><span class="sep">→</span>
-    <a href="#cards">Cards</a><span class="sep">→</span>
-    <a href="cards/">Trees</a><span class="sep">→</span>
-    <a href="#warnings">Anti-patterns</a>
   </div>
 </div>
 
@@ -323,7 +319,7 @@ page = f"""<!doctype html>
     <div class="guide">
       <h3>For architects starting a new mission-critical project</h3>
       <ol>
-        <li><strong>Start with the foundational models</strong> (🧠 gold cards) — these are ways of <em>thinking</em>, not specific technologies. Internalize "Blast Radius", "Assume Failure", and "Simplicity" before choosing any Azure service.</li>
+        <li><strong>Start with the foundational models</strong> (🧠 gold cards) — these are ways of thinking, not specific technologies. Internalize "Blast Radius", "Assume Failure", and "Simplicity" before choosing any Azure service.</li>
         <li><strong>Use the structural models</strong> (🏗️ blue cards) to shape your architecture — Scale Units, Health Modeling, Active/Active. These determine your deployment topology.</li>
         <li><strong>Apply operational models</strong> (⚙️ green cards) to decide how you'll run it — Automation, Observability, Chaos Engineering, Error Budgets.</li>
         <li><strong>Check anti-patterns</strong> — scan the ⚠️ section below to verify you're not drifting toward known failure modes.</li>

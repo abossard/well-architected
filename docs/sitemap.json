@@ -1,0 +1,403 @@
+{
+  "total_pages": 47,
+  "nav_failures": 0,
+  "broken_links": 0,
+  "pages": [
+    {
+      "path": "/graph.html",
+      "title": "Knowledge Graph \u2014 Mission-Critical Azure Well-Architected",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/",
+      "title": "Mission-Critical Mental Models \u2014 Azure Well-Architected Framework",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/assume-breach.html",
+      "title": "Assume Breach \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/automation.html",
+      "title": "Automation \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/azure-well-architected-pillars.html",
+      "title": "Azure Well-Architected Pillars \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/blast-radius.html",
+      "title": "Blast Radius \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/cap-theorem.html",
+      "title": "CAP Theorem \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/configuration-as-code.html",
+      "title": "Configuration As Code \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/cost-efficiency-mindset.html",
+      "title": "Cost-Efficiency Mindset \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/cost-management-discipline.html",
+      "title": "Cost-Management Discipline \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/criticality.html",
+      "title": "Criticality \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/defense-in-depth.html",
+      "title": "Defense in Depth \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-for-business-requirements.html",
+      "title": "Design For Business Requirements \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-for-operations.html",
+      "title": "Design For Operations \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-for-rate-optimization.html",
+      "title": "Design For Rate Optimization \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-for-recovery.html",
+      "title": "Design For Recovery \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-for-resilience.html",
+      "title": "Design For Resilience \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-for-scale-out.html",
+      "title": "Design For Scale-Out \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-for-self-healing.html",
+      "title": "Design For Self-Healing \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-for-usage-optimization.html",
+      "title": "Design For Usage Optimization \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/design-principles.html",
+      "title": "Design Principles \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/disaster-preparedness.html",
+      "title": "Disaster Preparedness \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/fault-isolation.html",
+      "title": "Fault Isolation \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/four-vs-of-big-data.html",
+      "title": "Four Vs Of Big Data \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/identity-as-a-security-perimeter.html",
+      "title": "Identity As A Security Perimeter \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/",
+      "title": "Mental Model Tree Diagrams \u2014 Azure Well-Architected",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/least-privilege.html",
+      "title": "Least Privilege \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/mission-critical-design.html",
+      "title": "Mission-Critical Design \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/monitor-and-optimize-over-time.html",
+      "title": "Monitor And Optimize Over Time \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/observable-systems.html",
+      "title": "Observable Systems \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/pacelc-theorem.html",
+      "title": "PACELC Theorem \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/re-01-simplicity-and-efficiency-in-design.html",
+      "title": "RE:01 - Simplicity and Efficiency in Design \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/reliability-design-principles.html",
+      "title": "Reliability Design Principles \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/risk-tolerance.html",
+      "title": "Risk Tolerance \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/security-design-principles.html",
+      "title": "Security Design Principles \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/segmentation.html",
+      "title": "Segmentation \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/self-preservation.html",
+      "title": "Self-Preservation \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/shared-responsibility-principle.html",
+      "title": "Shared Responsibility Principle \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/shift-left.html",
+      "title": "Shift Left \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/simplicity.html",
+      "title": "Simplicity \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/standards.html",
+      "title": "Standards \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/stride.html",
+      "title": "STRIDE \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/transparent-communication.html",
+      "title": "Transparent Communication \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/verify-explicitly.html",
+      "title": "Verify Explicitly \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/zero-downtime-deployment.html",
+      "title": "Zero-Downtime Deployment \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/cards/zero-trust.html",
+      "title": "Zero Trust \u00b7 Mental Model Map",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    },
+    {
+      "path": "/mental_models/",
+      "title": "Mental Models \u2014 Mission-Critical Azure Well-Architected Framework",
+      "nav_ok": true,
+      "adhd_ok": true,
+      "broken_links": []
+    }
+  ],
+  "flow": [
+    {
+      "from": "/",
+      "to": "/graph.html",
+      "label": "Graph"
+    },
+    {
+      "from": "/",
+      "to": "/mental_models/",
+      "label": "Cards"
+    },
+    {
+      "from": "/",
+      "to": "/mental_models/cards/",
+      "label": "Trees"
+    },
+    {
+      "from": "/graph.html",
+      "to": "/",
+      "label": "\u2190 Home"
+    },
+    {
+      "from": "/graph.html",
+      "to": "/mental_models/",
+      "label": "Cards \u2192"
+    },
+    {
+      "from": "/mental_models/",
+      "to": "/",
+      "label": "\u2190 Home"
+    },
+    {
+      "from": "/mental_models/",
+      "to": "/graph.html",
+      "label": "Graph"
+    },
+    {
+      "from": "/mental_models/",
+      "to": "/mental_models/cards/",
+      "label": "Trees"
+    },
+    {
+      "from": "/mental_models/cards/",
+      "to": "/",
+      "label": "\u2190 Home"
+    },
+    {
+      "from": "/mental_models/cards/",
+      "to": "/mental_models/",
+      "label": "Cards"
+    },
+    {
+      "from": "/mental_models/cards/",
+      "to": "/graph.html",
+      "label": "Graph"
+    },
+    {
+      "from": "/mental_models/cards/<slug>.html",
+      "to": "/mental_models/cards/",
+      "label": "All trees \u2192"
+    },
+    {
+      "from": "/mental_models/cards/<slug>.html",
+      "to": "/",
+      "label": "Home"
+    }
+  ]
+}
