@@ -1,41 +1,91 @@
-# Mission-Critical Knowledge Graph Explorer
+# Mission-Critical Mental Models — Knowledge Graph Explorer
 
-Interactive force-directed graph of the Azure Well-Architected mission-critical docs.
+Interactive knowledge graph and mental model mining toolkit for the Azure Well-Architected Framework.
 
-## Research summary
+**Live site:** https://abossard.github.io/well-architected/
 
-| Option | Verdict |
-|---|---|
-| **A. LightRAG** | Installs cleanly via `pip install lightrag-hku` **but requires an LLM API key** (OpenAI / Gemini / Ollama) to extract entities from text. Slow first-run and adds runtime deps — overkill for 13 markdown files and not purely local without running Ollama. Not chosen. |
-| **B. D3.js force graph** ✅ | One Python script + one static HTML. Zero runtime deps, pure-local, dark-mode, <30 min. **Chosen.** |
-| C. Obsidian | Requires installing Obsidian; wikilink rewrite step; less control over layout. |
-| D. Neo4j + Bloom | Heavyweight (Java, Docker); setup alone exceeds the time budget. |
-| E. Other | `pyvis`, `mermaid` — pyvis is nice but less styled than a custom D3 build; mermaid doesn't do force layout at this scale. |
+## What's here
 
-## Contents
+| Tool | Description |
+|------|-------------|
+| [Landing page](https://abossard.github.io/well-architected/) | Entry point with stats and navigation |
+| [Mental Model Cards](https://abossard.github.io/well-architected/mental_models/) | 43 cards with mantras, failure modes, tradeoffs — filterable and searchable |
+| [Knowledge Graph](https://abossard.github.io/well-architected/graph.html) | D3 force-directed graph of 880 entities and 980 relations |
+| [Card Trees](https://abossard.github.io/well-architected/mental_models/cards/) | Radial tree diagrams showing each model's connections |
 
-- `build_graph.py` — parses the 13 markdown files, extracts docs / H2 / H3 / curated domain concepts, emits `graph.json`.
-- `graph.json` — 271 nodes, 1991 edges.
-- `index.html` — standalone D3 v7 visualization (loads D3 from CDN).
+## How it works
 
-## Run
+1. **LightRAG** ingests 34 WAF docs (13 mission-critical + 21 pillar docs) into a knowledge graph
+2. **Claude Opus 4.6** (via [copilot-api](https://github.com/ericc-ch/copilot-api)) extracts 880 entities and 980 relations
+3. **Graph analysis** ranks entities by centrality and bridge score
+4. **LLM classification** sorts entities into 9 categories (mental models, patterns, services, etc.)
+5. **Card generation** creates structured cards with mantras, failure modes, and tradeoffs
+6. **spaCy** measures information density; fluffy cards get rewritten
+
+## Scripts
+
+| Script | What it does |
+|--------|-------------|
+| `build_graph.py` | Parse markdown → D3 concept graph (8 node types) |
+| `ingest_lightrag.py` | Ingest docs into LightRAG via copilot-api proxy |
+| `query_lightrag.py` | CLI query tool (hybrid/local/global/naive modes) |
+| `mine_mental_models.py` | Classify entities, generate cards, create HTML report |
+| `build_pages.py` | Generate formatted mental models page from cards.json |
+| `generate_card_diagram.py` | Generate radial tree diagrams per card |
+| `densify_cards.py` | Measure info density with spaCy, rewrite sparse cards |
+| `gh_proxy.py` | Minimal proxy routing to GitHub Models API (alternative to copilot-api) |
+
+## Run locally
 
 ```bash
-cd /Users/abossard/Desktop/cxe/well-architected/kg-explorer
-python3 build_graph.py              # rebuild graph.json from source markdown
-python3 -m http.server 8000         # serve locally (browsers block fetch() on file://)
-open http://localhost:8000/
+# 1. Start copilot-api proxy (needs GitHub Copilot subscription)
+npx copilot-api start --port 11435
+
+# 2. Setup
+cd kg-explorer
+python3 -m venv .venv && source .venv/bin/activate
+pip install lightrag-hku spacy
+python3 -m spacy download en_core_web_sm
+
+# 3. Ingest docs into LightRAG
+python3 ingest_lightrag.py
+
+# 4. Mine mental models
+python3 mine_mental_models.py --top 43
+
+# 5. Build pages
+python3 build_pages.py
+python3 generate_card_diagram.py --all
+
+# 6. Query
+python3 query_lightrag.py --mode hybrid "What is blast radius thinking?"
+
+# 7. Serve locally
+python3 -m http.server 8767 -d mental_models
 ```
 
 ## Graph schema
 
-- **Nodes:** `doc` (markdown file), `h2` (section), `h3` (subsection), `concept` (curated domain term).
-- **Edges:** `contains` (doc→h2→h3), `links` (doc→doc markdown links), `mentions` (doc→concept), `related` (concept↔concept co-occurring in ≥2 docs).
+**Nodes:** doc, h2, h3, product, pattern, process, concept, metric
 
-## UI features
+**Edges:** contains (doc→h2→h3), links (doc→doc), mentions (doc→term), related (term↔term co-occurrence)
 
-- Search/filter by label, node type, edge type.
-- Slider: min concept mention count.
-- Hover → tooltip + highlight neighborhood; click → sidebar with neighbors list.
-- Drag nodes, zoom/pan, reheat layout, toggle labels.
-- Dark-mode styled to match GitHub dark.
+**Entity categories:** MENTAL_MODEL, PATTERN, AZURE_SERVICE, PROCESS, CONCEPT, METRIC, TRADEOFF, ANTI_PATTERN
+
+## Design principles
+
+Built for neurodivergent, fast-thinking architects:
+- 15px/1.65 body text, 66ch max line length
+- Cards visible above the fold (40% fold rule)
+- Instant search, layer filters, progressive disclosure
+- No italic on dark backgrounds — accent borders instead
+- `prefers-reduced-motion` support
+- Keyboard accessible with focus rings
+- Semantic color tokens (gold=foundational, blue=structural, green=operational, red=security)
+
+## Data
+
+- **880 entities**, **980 relations** from 34 WAF docs
+- **43 mental model cards** (deduplicated from 54)
+- **9 anti-patterns**, **5 tradeoffs**
+- Knowledge graph: 1.1MB GraphML

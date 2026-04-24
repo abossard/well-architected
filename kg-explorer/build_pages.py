@@ -407,7 +407,7 @@ page = f"""<!doctype html>
   </section>
 
   <footer style="color:var(--muted);font-size:12px;margin:48px 0 24px;padding-top:16px;border-top:1px solid var(--border);">
-    Built from <a href="https://github.com/MicrosoftDocs/well-architected" style="color:var(--accent)">MicrosoftDocs/well-architected</a>
+    Built from <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" style="color:var(--accent)">abossard/well-architected</a>
     using <a href="https://github.com/HKUDS/LightRAG" style="color:var(--accent)">LightRAG</a> +
     Claude Opus 4.6 via <a href="https://github.com/ericc-ch/copilot-api" style="color:var(--accent)">copilot-api</a>.
     <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" style="color:var(--accent)">Source code</a>
