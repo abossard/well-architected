@@ -480,6 +480,35 @@ def build() -> dict:
         "missing_refs":     len(missing_refs),
     }
 
+    # ─── tier assignment (progressive disclosure) ────────────────────────
+    # Tier 0 (core, always visible): all MENTAL_MODEL + endpoints of
+    #   builds_on/enables edges + top hubs by degree in {PATTERN, AZURE_SERVICE}
+    #   up to a ~220 node budget.
+    # Tier 1 (latent): everything else — revealed on demand by the UI.
+    SEMANTIC_REL = {"builds_on", "enables"}
+    core_ids: set[str] = {n["id"] for n in nodes_out if n["type"] == "MENTAL_MODEL"}
+    for e in edges_out:
+        if e["relation"] in SEMANTIC_REL:
+            core_ids.add(e["source"])
+            core_ids.add(e["target"])
+    HUB_TYPES = {"PATTERN", "AZURE_SERVICE"}
+    BUDGET = 220
+    hubs = sorted(
+        (n for n in nodes_out if n["type"] in HUB_TYPES and n["id"] not in core_ids),
+        key=lambda n: -(n.get("centrality") or 0),
+    )
+    for n in hubs:
+        if len(core_ids) >= BUDGET:
+            break
+        core_ids.add(n["id"])
+    for n in nodes_out:
+        n["tier"] = 0 if n["id"] in core_ids else 1
+
+    stats["tiers"] = {
+        "0": sum(1 for n in nodes_out if n["tier"] == 0),
+        "1": sum(1 for n in nodes_out if n["tier"] == 1),
+    }
+
     # mental-model ordering (layer → centrality desc → id) for prev/next nav.
     mm_with_cards = [
         n for n in nodes_out
@@ -500,6 +529,7 @@ def build() -> dict:
             "id":   n["id"],
             "type": n["type"],
             "deg":  n.get("centrality") or 0,
+            "tier": n.get("tier", 1),
         }
         if "x" in n: slim["x"] = n["x"]
         if "y" in n: slim["y"] = n["y"]
