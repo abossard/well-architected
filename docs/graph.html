@@ -166,7 +166,10 @@ const EDGE_COLORS = {
 // ─── state ────────────────────────────────────────────────────────────────
 const state = {
   data: null,
+  details: null,              // lazy-loaded { id: {summary, mantra, …} }
+  detailsPromise: null,
   idx: new Map(),
+  edgesBy: new Map(),         // id -> Edge[] (undirected adjacency for fast focus + related)
   selected: null,
   hover: null,
   breadcrumb: [],
@@ -211,8 +214,8 @@ function esc(s) { return (s == null ? "" : String(s)).replace(/[&<>"']/g, c => (
 }[c])); }
 
 function radius(n) {
-  const base = n.type === "MENTAL_MODEL" ? 13 : (n.mission_critical ? 6 : 4);
-  return base + Math.min(10, Math.sqrt(n.centrality || 0) * 0.9);
+  const base = n.type === "MENTAL_MODEL" ? 13 : (n.mc ? 6 : 4);
+  return base + Math.min(10, Math.sqrt(n.deg || 0) * 0.9);
 }
 
 function nodeColor(n) { return TYPE_COLORS[n.type] || TYPE_COLORS.OTHER; }
@@ -235,31 +238,32 @@ function visible(n) {
 async function init() {
   resize();
   try {
-    const r = await fetch("./data/data.json");
+    const r = await fetch("./data/graph.json");
     state.data = await r.json();
   } catch (e) {
-    sidebar.innerHTML = `<div class="empty">Failed to load <code>data/data.json</code>.<br/><small>${esc(e.message)}</small></div>`;
+    sidebar.innerHTML = `<div class="empty">Failed to load <code>data/graph.json</code>.<br/><small>${esc(e.message)}</small></div>`;
     return;
   }
 
-  // index by id; resolve edge endpoints to objects for the simulation
+  // index nodes by id; resolve edge endpoints (short field names s/t/r) to
+  // node-object references; build adjacency for O(1) neighbor lookup.
   state.data.nodes.forEach(n => { n.type = n.type || "OTHER"; state.idx.set(n.id, n); });
   const validEdges = [];
+  const edgesBy = state.edgesBy;
   for (const e of state.data.edges) {
-    const s = state.idx.get(e.source), t = state.idx.get(e.target);
+    const s = state.idx.get(e.s), t = state.idx.get(e.t);
     if (!s || !t) continue;
-    validEdges.push({ source: s, target: t, relation: e.relation, weight: e.weight });
+    const edge = { source: s, target: t, relation: e.r };
+    validEdges.push(edge);
+    if (!edgesBy.has(s.id)) edgesBy.set(s.id, []);
+    if (!edgesBy.has(t.id)) edgesBy.set(t.id, []);
+    edgesBy.get(s.id).push(edge);
+    edgesBy.get(t.id).push(edge);
   }
   state.data.edges = validEdges;
 
-  // mental-model ordering for prev/next: layer → centrality desc
-  state.modelOrder = state.data.nodes
-    .filter(n => n.type === "MENTAL_MODEL" && (n.mantra || n.when_to_apply))
-    .sort((a, b) =>
-      (a.layer || "zz").localeCompare(b.layer || "zz")
-      || (b.centrality || 0) - (a.centrality || 0)
-      || a.id.localeCompare(b.id))
-    .map(n => n.id);
+  // mental-model ordering comes precomputed from build_data.py.
+  state.modelOrder = (state.data.stats?.model_order || []).filter(id => state.idx.has(id));
 
   buildLegend();
   initPositions();
@@ -267,6 +271,19 @@ async function init() {
   handleHash();
   invalidateVis();
   requestRender();
+}
+
+// Lazily fetch details.json (descriptions, mantras, docs). Safe to call many
+// times; always returns the same promise.
+function ensureDetails() {
+  if (state.details) return Promise.resolve(state.details);
+  if (!state.detailsPromise) {
+    state.detailsPromise = fetch("./data/details.json")
+      .then(r => r.json())
+      .then(d => { state.details = d; return d; })
+      .catch(e => { console.warn("details.json load failed", e); return {}; });
+  }
+  return state.detailsPromise;
 }
 
 // ─── legend ───────────────────────────────────────────────────────────────
@@ -285,8 +302,8 @@ function initPositions() {
   // fallback ring seed if data lacks x/y (older data.json)
   nodes.forEach((n, i) => {
     if (Number.isFinite(n.x) && Number.isFinite(n.y)) return;
-    const ring = n.mission_critical ? 100 : 450;
-    const a = (i / nodes.length) * Math.PI * 2 + (n.mission_critical ? 0 : Math.PI);
+    const ring = n.mc ? 100 : 450;
+    const a = (i / nodes.length) * Math.PI * 2 + (n.mc ? 0 : Math.PI);
     n.x = cx + Math.cos(a) * ring;
     n.y = cy + Math.sin(a) * ring;
   });
@@ -425,17 +442,26 @@ function render() {
     ctx.stroke();
   }
 
-  // 3) focus edges — all edges touching selected/hovered, drawn on top
+  // 3) focus edges — only adjacency of selected/hovered (edge index lookup,
+  //    no O(N) scan). Still viewport-culled so extreme pans stay cheap.
   if (emphIds.size) {
     ctx.strokeStyle = "rgba(245,158,11,0.9)";
     ctx.lineWidth = 1.6 / t.k;
     ctx.beginPath();
-    for (let i = 0; i < edges.length; i++) {
-      const e = edges[i];
-      if (!emphIds.has(e.source.id) && !emphIds.has(e.target.id)) continue;
-      const s = e.source, d = e.target;
-      if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
-      ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
+    const drawn = new Set();
+    for (const id of emphIds) {
+      const nbrs = state.edgesBy.get(id);
+      if (!nbrs) continue;
+      for (let i = 0; i < nbrs.length; i++) {
+        const e = nbrs[i];
+        if (drawn.has(e)) continue;
+        drawn.add(e);
+        const s = e.source, d = e.target;
+        if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
+        if ((s.x < xMin && d.x < xMin) || (s.x > xMax && d.x > xMax) ||
+            (s.y < yMin && d.y < yMin) || (s.y > yMax && d.y > yMax)) continue;
+        ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
+      }
     }
     ctx.stroke();
   }
@@ -547,6 +573,13 @@ function selectNode(id, pan) {
   renderBreadcrumb();
   if (pan) panTo(n);
   requestRender();
+
+  // details are lazy-loaded; re-render when ready (if this node is still selected)
+  if (!state.details) {
+    ensureDetails().then(() => {
+      if (state.selected === id) renderSidebar(state.idx.get(id));
+    });
+  }
 }
 
 function panTo(n) {
@@ -569,9 +602,10 @@ function prevNextModel(dir) {
 // ─── sidebar ──────────────────────────────────────────────────────────────
 function renderSidebar(n) {
   if (!n) { sidebar.innerHTML = `<div class="empty">Select a node to see details.</div>`; return; }
-  sidebar.innerHTML = (n.type === "MENTAL_MODEL" && (n.mantra || n.when_to_apply))
-    ? mentalModelCard(n)
-    : genericCard(n);
+  const d = state.details ? (state.details[n.id] || {}) : null;
+  sidebar.innerHTML = (d && d.mantra)
+    ? mentalModelCard(n, d)
+    : genericCard(n, d);
 
   sidebar.querySelectorAll("[data-goto]").forEach(el => {
     if (el.classList.contains("missing")) return;
@@ -586,7 +620,6 @@ function renderSidebar(n) {
 function iconSvg(n, size = 24) {
   const path = ICON_PATHS[n.type] || ICON_PATHS.OTHER;
   const color = nodeColor(n);
-  // a single <path> treating whole string as path data works even with multiple M subpaths
   return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${path}"/></svg>`;
 }
 
@@ -608,58 +641,63 @@ function chipRow(title, ids) {
   return `<section><h3>${title}</h3><div class="chips">${arr.map(chip).join("")}</div></section>`;
 }
 
-function relatedIdsFor(n) {
-  // neighbors that are NOT already in builds_on/enables
-  const already = new Set([...(n.builds_on || []), ...(n.enables || []), n.id]);
-  const neighbors = new Map();
-  for (const e of state.data.edges) {
-    let other = null;
-    if (e.source.id === n.id) other = e.target;
-    else if (e.target.id === n.id) other = e.source;
-    if (!other || already.has(other.id)) continue;
-    const prev = neighbors.get(other.id) || { n: other, w: 0 };
-    prev.w += (e.weight || 1) + (e.relation !== "mentioned_with" ? 5 : 0);
-    neighbors.set(other.id, prev);
+function relatedIdsFor(n, d) {
+  // Use the adjacency index instead of scanning all edges. Rank by: semantic
+  // relations first (builds_on/enables), then mentioned_with neighbors.
+  const already = new Set([...(d?.builds_on || []), ...(d?.enables || []), n.id]);
+  const nbrs = state.edgesBy.get(n.id) || [];
+  const seen = new Map(); // id -> score
+  for (let i = 0; i < nbrs.length; i++) {
+    const e = nbrs[i];
+    const otherId = e.source.id === n.id ? e.target.id : e.source.id;
+    if (already.has(otherId)) continue;
+    const bonus = e.relation === "mentioned_with" ? 1 : 6;
+    seen.set(otherId, (seen.get(otherId) || 0) + bonus);
   }
-  return [...neighbors.values()]
-    .sort((a, b) => b.w - a.w)
+  return [...seen.entries()]
+    .sort((a, b) => b[1] - a[1])
     .slice(0, 14)
-    .map(x => x.n.id);
+    .map(x => x[0]);
 }
 
 function sourceDocsHtml(docs) {
   if (!docs || !docs.length) return "";
   return `<section class="sources"><h3>📄 Source docs</h3>${
-    docs.map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title || d.path)}${
+    docs.map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title || d.url)}${
       d.section ? `<small>${esc(d.section)}</small>` : ""}</a>`).join("")
   }</section>`;
 }
 
-function mentalModelCard(n) {
+function mentalModelCard(n, d) {
   return `
-    <header class="card">${iconSvg(n)}<h2>${esc(n.id)}</h2>${n.layer ? `<span class="pill">${esc(n.layer)}</span>` : ""}</header>
-    ${n.mantra ? `<blockquote>“${esc(n.mantra)}”</blockquote>` : ""}
-    ${n.description && !n.mantra ? `<p class="desc">${esc(n.description)}</p>` : ""}
-    ${section("🎯 When to apply", n.when_to_apply)}
-    ${section("💥 Without it", n.without_it)}
-    ${n.key_tradeoff ? `<section><h3>⚖️ Key tradeoff</h3><div class="tradeoff">${esc(n.key_tradeoff)}</div></section>` : ""}
-    ${chipRow("🔗 Builds on", n.builds_on)}
-    ${chipRow("🔗 Enables", n.enables)}
-    ${chipRow("📎 Related", relatedIdsFor(n))}
-    ${sourceDocsHtml(n.source_docs)}
+    <header class="card">${iconSvg(n)}<h2>${esc(n.id)}</h2>${d.layer ? `<span class="pill">${esc(d.layer)}</span>` : ""}</header>
+    ${d.mantra ? `<blockquote>“${esc(d.mantra)}”</blockquote>` : ""}
+    ${d.summary && !d.mantra ? `<p class="desc">${esc(d.summary)}</p>` : ""}
+    ${section("🎯 When to apply", d.when)}
+    ${section("💥 Without it", d.without)}
+    ${d.tradeoff ? `<section><h3>⚖️ Key tradeoff</h3><div class="tradeoff">${esc(d.tradeoff)}</div></section>` : ""}
+    ${chipRow("🔗 Builds on", d.builds_on)}
+    ${chipRow("🔗 Enables", d.enables)}
+    ${chipRow("📎 Related", relatedIdsFor(n, d))}
+    ${sourceDocsHtml(d.docs)}
     <footer class="nav">
       <button id="prev">← prev model</button>
       <button id="next">next model →</button>
     </footer>`;
 }
 
-function genericCard(n) {
+function genericCard(n, d) {
   const typeLabel = TYPE_LABELS[n.type] || n.type;
+  const summary = d ? d.summary : "";
+  const docs    = d ? d.docs    : null;
+  const related = relatedIdsFor(n, d);
+  const loadingHint = (!d && !state.details)
+    ? `<p class="desc" style="opacity:.55">Loading details…</p>` : "";
   return `
     <header class="card">${iconSvg(n)}<h2>${esc(n.id)}</h2><span class="pill">${esc(typeLabel)}</span></header>
-    ${n.description ? `<p class="desc">${esc(n.description)}</p>` : ""}
-    ${chipRow("📎 Connected to", relatedIdsFor(n))}
-    ${sourceDocsHtml(n.source_docs)}`;
+    ${summary ? `<p class="desc">${esc(summary)}</p>` : loadingHint}
+    ${chipRow(`📎 Connected to (${related.length})`, related)}
+    ${sourceDocsHtml(docs)}`;
 }
 
 // ─── breadcrumb ───────────────────────────────────────────────────────────

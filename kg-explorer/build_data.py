@@ -27,9 +27,9 @@ TEXT_CHUNKS   = HERE / "lightrag_data" / "kv_store_text_chunks.json"
 TAXONOMY      = HERE / "mental_models" / "taxonomy.json"
 CARDS         = HERE / "mental_models" / "cards.json"
 
-OUT_PATHS = [
-    HERE / "data" / "data.json",
-    REPO / "docs" / "data" / "data.json",
+OUT_DIRS = [
+    HERE / "data",
+    REPO / "docs" / "data",
 ]
 
 LEARN_BASE     = "https://learn.microsoft.com/azure/well-architected"
@@ -342,6 +342,22 @@ def merge_card_onto_node(node: dict, card: dict) -> None:
             node[k] = card[k]
 
 
+# ─── condensation ──────────────────────────────────────────────────────────
+
+def condense_description(desc: str, max_chars: int = 120) -> str:
+    """Trim to first sentence or max_chars, whichever is shorter."""
+    if not desc:
+        return ""
+    desc = desc.strip()
+    for end in (". ", ".\n", ".\t"):
+        idx = desc.find(end)
+        if 0 < idx < max_chars:
+            return desc[: idx + 1]
+    if len(desc) > max_chars:
+        return desc[:max_chars].rsplit(" ", 1)[0] + "…"
+    return desc
+
+
 # ─── main build ────────────────────────────────────────────────────────────
 
 def build() -> dict:
@@ -464,17 +480,85 @@ def build() -> dict:
         "missing_refs":     len(missing_refs),
     }
 
-    return {"nodes": nodes_out, "edges": edges_out, "stats": stats}
+    # mental-model ordering (layer → centrality desc → id) for prev/next nav.
+    mm_with_cards = [
+        n for n in nodes_out
+        if n["type"] == "MENTAL_MODEL" and (n.get("mantra") or n.get("when_to_apply"))
+    ]
+    mm_with_cards.sort(key=lambda n: (
+        n.get("layer") or "zz",
+        -(n.get("centrality") or 0),
+        n["id"],
+    ))
+    stats["model_order"] = [n["id"] for n in mm_with_cards]
+
+    # ─── split into graph (slim) + details (rich) ────────────────────────
+    graph_nodes = []
+    details: dict[str, dict] = {}
+    for n in nodes_out:
+        slim = {
+            "id":   n["id"],
+            "type": n["type"],
+            "deg":  n.get("centrality") or 0,
+        }
+        if "x" in n: slim["x"] = n["x"]
+        if "y" in n: slim["y"] = n["y"]
+        if n.get("mission_critical"): slim["mc"] = True
+        graph_nodes.append(slim)
+
+        docs = [
+            {"title": d.get("title") or d.get("path") or "", "url": d["url"],
+             **({"section": d["section"]} if d.get("section") else {})}
+            for d in (n.get("source_docs") or [])
+        ]
+        det: dict[str, Any] = {
+            "type":    n["type"],
+            "summary": condense_description(n.get("description", "")),
+        }
+        if docs:
+            det["docs"] = docs
+        if n["type"] == "MENTAL_MODEL":
+            for src, dst in (
+                ("mantra", "mantra"),
+                ("layer", "layer"),
+                ("when_to_apply", "when"),
+                ("without_it", "without"),
+                ("key_tradeoff", "tradeoff"),
+                ("builds_on", "builds_on"),
+                ("enables", "enables"),
+            ):
+                v = n.get(src)
+                if v:
+                    det[dst] = v
+        details[n["id"]] = det
+
+    graph_edges = [
+        {"s": e["source"], "t": e["target"], "r": e["relation"]}
+        for e in edges_out
+    ]
+
+    graph = {"nodes": graph_nodes, "edges": graph_edges, "stats": stats}
+    return graph, details
 
 
 def main():
-    data = build()
-    payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    for out in OUT_PATHS:
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(payload, encoding="utf-8")
-        print(f"✓ wrote {out.relative_to(REPO)}  ({out.stat().st_size/1024:.0f} KB)")
-    s = data["stats"]
+    graph, details = build()
+    graph_payload   = json.dumps(graph,   ensure_ascii=False, separators=(",", ":"))
+    details_payload = json.dumps(details, ensure_ascii=False, separators=(",", ":"))
+    for out_dir in OUT_DIRS:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        gpath = out_dir / "graph.json"
+        dpath = out_dir / "details.json"
+        gpath.write_text(graph_payload,   encoding="utf-8")
+        dpath.write_text(details_payload, encoding="utf-8")
+        print(f"✓ wrote {gpath.relative_to(REPO)}  ({gpath.stat().st_size/1024:.0f} KB)")
+        print(f"✓ wrote {dpath.relative_to(REPO)}  ({dpath.stat().st_size/1024:.0f} KB)")
+        # remove stale combined file if present
+        legacy = out_dir / "data.json"
+        if legacy.exists():
+            legacy.unlink()
+            print(f"  removed stale {legacy.relative_to(REPO)}")
+    s = graph["stats"]
     print(f"\nSummary:")
     print(f"  nodes            : {s['nodes']}")
     print(f"  edges            : {s['edges']}")
