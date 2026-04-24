@@ -150,23 +150,23 @@
   },
   {
     "name": "Least Privilege",
-    "mantra": "Grant only what's needed, only when it's needed, and not a bit more.",
+    "mantra": "Grant only needed access, scope, and time",
     "layer": "security",
     "when_to_apply": [
-      "Assigning permissions to users or service accounts",
-      "Configuring access to production environments",
-      "Designing API authorization scopes",
-      "Onboarding new team members or workloads",
-      "Reviewing existing access policies for drift"
+      "Assigning RBAC roles to users, managed identities, or pipelines",
+      "Configuring Entra PIM for production control plane access",
+      "Designing API authorization scopes or Key Vault access policies",
+      "Onboarding workloads, team members, or CD pipelines",
+      "Auditing existing permissions for privilege drift"
     ],
     "without_it": [
-      "Blast radius of a compromised account expands dramatically",
-      "Insider threats gain unnecessary access to sensitive resources",
-      "Accidental misconfiguration causes widespread data exposure",
-      "Compliance violations due to overly broad permissions",
-      "Difficulty tracing unauthorized actions during incident response"
+      "Compromised managed identity escalates across entire subscription",
+      "Malicious admin deletes Key Vault secrets via standing access",
+      "Accidental broad RBAC assignment exposes production data plane",
+      "Audit failure: overprivileged accounts violate SE:05 compliance requirements",
+      "Incident response stalls\u2014cannot isolate blast radius from shared privileges"
     ],
-    "key_tradeoff": "Tighter access restrictions increase security but add friction to developer velocity and operational agility.",
+    "key_tradeoff": "Tighter RBAC and PIM activation reduce blast radius but add latency, pipeline friction, and Entra ID as a critical dependency.",
     "builds_on": [
       "Access Controls"
     ],
@@ -261,23 +261,23 @@
   },
   {
     "name": "Microsoft Zero Trust Model",
-    "mantra": "Never trust, always verify \u2014 treat every request as if it originates from a hostile network.",
+    "mantra": "Never trust, always verify every request.",
     "layer": "security",
     "when_to_apply": [
-      "Designing identity and access controls for a new workload",
-      "Evaluating network segmentation and micro-perimeter strategies",
-      "Reviewing an architecture for compliance or threat modeling",
-      "Migrating on-premises workloads to the cloud",
-      "Responding to a security incident or breach assessment"
+      "Designing IAM with Entra ID, PIM, RBAC, or Managed Identities",
+      "Micro-segmenting networks via NSGs, Private Link, micro-perimeters",
+      "Enforcing governance with Azure Policy on control plane",
+      "Migrating on-prem workloads\u2014eliminating implicit trust assumptions",
+      "Running security design reviews (SE:01\u2013SE:12) or threat models"
     ],
     "without_it": [
-      "Implicit trust allows lateral movement after a single compromise",
-      "Over-privileged identities amplify blast radius of breaches",
-      "Unverified requests bypass security controls silently",
-      "Flat network architectures expose all resources to attackers",
-      "Security gaps go undetected until a major incident occurs"
+      "Lateral movement after single compromise across flat networks",
+      "Standing admin access enables malicious-admin escalation attacks",
+      "Credentials in code leak via compromised service principals",
+      "No Azure Policy: authorized users bypass security configurations unchecked",
+      "Breaches undetected\u2014no assume-breach compensating controls in place"
     ],
-    "key_tradeoff": "Stronger security posture and reduced blast radius come at the cost of increased complexity, latency from continuous verification, and higher operational overhead.",
+    "key_tradeoff": "Reduced blast radius and explicit verification vs. added latency (identity network traversal), complexity (Entra ID as critical dependency), and misconfiguration risk.",
     "builds_on": [
       "Zero Trust",
       "Assume Breach",
@@ -320,21 +320,21 @@
   },
   {
     "name": "Design For Rate Optimization",
-    "mantra": "Squeeze more value from every dollar already committed.",
+    "mantra": "Squeeze more value from every committed dollar.",
     "layer": "operational",
     "when_to_apply": [
-      "Reviewing existing resource spend without changing architecture",
-      "Choosing between consumption-based and fixed-price billing models",
-      "Negotiating enterprise agreements or reserved instances",
-      "Leveraging hybrid use benefits for existing licenses"
+      "Reviewing resource spend without changing architecture",
+      "Choosing consumption-based vs fixed-price billing models",
+      "Negotiating Reserved Instances, Savings Plans, or enterprise agreements",
+      "Applying Azure Hybrid Benefit or preproduction subscription pricing"
     ],
     "without_it": [
-      "Overpaying for underutilized reserved capacity",
-      "Missing discount programs like hybrid use benefits",
-      "Defaulting to pay-as-you-go when commitments would save money",
-      "Ignoring billing model mismatches across workloads"
+      "Pay-as-you-go defaults waste 30-60% vs Reserved Instance pricing",
+      "Unused Azure Hybrid Benefit entitlements leave license value stranded",
+      "Log Analytics stays on per-GB tier despite predictable ingest volumes",
+      "Single-tenant deployments miss density savings from co-location"
     ],
-    "key_tradeoff": "Commitment-based savings versus the flexibility of on-demand consumption pricing.",
+    "key_tradeoff": "Commitment-based discount depth versus consumption-based flexibility and zero-waste billing.",
     "builds_on": [
       "Consumption-Based Pricing",
       "Fixed-Price Billing",
@@ -690,23 +690,23 @@
   },
   {
     "name": "Design For Self-Healing",
-    "mantra": "Let your system fix itself before anyone notices it broke.",
+    "mantra": "Automate remediation before humans even notice failures",
     "layer": "operational",
     "when_to_apply": [
-      "Transient failures are common in distributed components",
-      "Manual intervention is too slow for SLA requirements",
-      "Known failure modes have predictable remediation steps",
-      "Operating at scale where human response cannot keep pace",
+      "Transient failures common across distributed components",
+      "Manual response too slow for SLA recovery targets",
+      "Known failure modes have predictable, automatable remediation",
+      "Scale exceeds human response capacity",
       "Deploying to environments with variable reliability"
     ],
     "without_it": [
-      "Minor transient faults cascade into full outages",
-      "Operations team drowns in alert fatigue and manual fixes",
-      "Extended downtime waiting for human diagnosis and response",
-      "SLA breaches from slow mean-time-to-recovery",
-      "Repeated incidents for the same well-understood failure modes"
+      "Transient faults cascade into full outages\u2014no circuit breakers or retries",
+      "Alert fatigue buries ops team in repetitive manual fixes",
+      "MTTR explodes waiting for human diagnosis of automatable failures",
+      "SLA breaches from recovery times exceeding targets",
+      "Same known failure causes repeated incidents without automated response"
     ],
-    "key_tradeoff": "Investing in automated remediation logic adds complexity and testing burden upfront to reduce operational toil and downtime later.",
+    "key_tradeoff": "Upfront complexity in remediation logic and testing vs. reduced operational toil, faster MTTR, and fewer cascading outages at runtime",
     "builds_on": [
       "Reliability"
     ],
@@ -996,23 +996,21 @@
   },
   {
     "name": "RE:01 - Simplicity and Efficiency in Design",
-    "mantra": "Keep it simple\u2014every unnecessary component is a future failure point.",
+    "mantra": "Every unnecessary component is a future failure point.",
     "layer": "foundational",
     "when_to_apply": [
-      "Starting a new workload design or major redesign",
-      "Reviewing architecture for reliability improvements",
-      "Evaluating whether to add new components or dependencies",
-      "Assessing technical debt and complexity creep",
-      "Making build-vs-buy decisions"
+      "New workload design or major architecture redesign",
+      "Evaluating new components, dependencies, or build-vs-buy",
+      "Assessing complexity creep and technical debt",
+      "Choosing between managed PaaS/SaaS vs self-managed components"
     ],
     "without_it": [
-      "Over-engineered solutions with excessive failure surfaces",
-      "Increased operational burden from unnecessary components",
-      "Harder-to-diagnose outages due to complex interdependencies",
-      "Slower recovery times from incidents",
-      "Misalignment between architecture complexity and actual business needs"
+      "Excessive failure surfaces from components nobody justified",
+      "Outages take longer to diagnose due to hidden interdependencies",
+      "Recovery time inflates\u2014more components means more restart sequences",
+      "Cost overruns from over-engineered architecture exceeding business requirements"
     ],
-    "key_tradeoff": "Simplicity may limit advanced capabilities, but complexity without justification erodes reliability and increases cost.",
+    "key_tradeoff": "Simplicity vs capability: managed services and fewer components improve reliability but may limit advanced performance patterns, security segmentation (SE:04), or redundancy (RE:05).",
     "builds_on": [],
     "enables": [
       "Design Review Checklist For Reliability"
@@ -1126,23 +1124,23 @@
   },
   {
     "name": "Monitor And Optimize Over Time",
-    "mantra": "Never stop right-sizing\u2014your workload's needs evolve, and so must your investment.",
+    "mantra": "Right-size continuously\u2014workloads drift, budgets follow.",
     "layer": "operational",
     "when_to_apply": [
-      "After initial deployment when usage patterns emerge",
-      "During periodic cost and performance reviews",
-      "When workload demand shifts due to business changes",
-      "Before and after major releases or migrations",
-      "When cloud bills trend unexpectedly upward"
+      "Post-deployment once real usage patterns emerge in Azure Monitor",
+      "Periodic cost-performance reviews using Log Analytics trends",
+      "Workload demand shifts from business or platform changes",
+      "Before/after major releases or migrations as quality gates",
+      "Unexpected cost spikes in Azure billing data"
     ],
     "without_it": [
-      "Over-provisioned resources silently drain budget",
-      "Under-provisioned systems degrade user experience",
-      "Technical debt accumulates as assumptions go unchecked",
-      "Teams lose visibility into cost-to-value alignment",
-      "Architecture decisions become stale and suboptimal"
+      "Over-provisioned VMs/databases drain budget undetected for months",
+      "Under-provisioned tiers cause latency spikes and SLA breaches",
+      "Stale performance assumptions persist without Application Insights baselines",
+      "No cost-to-value visibility\u2014teams cannot justify or cut spend",
+      "Observability gaps prevent AIOps from predicting failures"
     ],
-    "key_tradeoff": "Continuous optimization effort versus the cost of letting resources drift from actual need.",
+    "key_tradeoff": "Continuous optimization overhead (monitoring costs, team effort) versus silent resource drift inflating spend and degrading performance.",
     "builds_on": [
       "SDLC"
     ],
@@ -1177,23 +1175,23 @@
   },
   {
     "name": "Shared Responsibility Principle",
-    "mantra": "Know exactly where the provider's job ends and yours begins.",
+    "mantra": "Your duty starts where Microsoft's management ends",
     "layer": "security",
     "when_to_apply": [
-      "Migrating workloads to the cloud",
-      "Defining security controls for a new service",
-      "Choosing between IaaS, PaaS, and SaaS",
-      "Conducting compliance or audit reviews",
-      "Responding to a security incident"
+      "Migrating workloads\u2014map IaaS/PaaS/SaaS responsibility boundaries first",
+      "Defining security controls per service deployment model",
+      "Choosing zonal vs zone-redundant deployment strategies",
+      "Auditing compliance ownership gaps across shared boundaries",
+      "Triaging incidents\u2014identify accountable party before escalating"
     ],
     "without_it": [
-      "Critical security gaps assumed to be covered by the provider",
-      "Redundant controls wasting effort on provider-managed layers",
-      "Compliance failures due to unclear ownership",
-      "Delayed incident response from ambiguous accountability",
-      "Misallocated budget on responsibilities already handled by the platform"
+      "Unpatched OS on IaaS VMs assumed Microsoft-managed \u2192 breach",
+      "Redundant failover logic built atop zone-redundant PaaS wasting engineering cycles",
+      "Compliance audit failure: no owner documented for data replication in zonal VMSS",
+      "Incident MTTR spikes when teams debate provider vs customer accountability mid-outage",
+      "Budget spent on managed-failover tooling Azure SQL already provides"
     ],
-    "key_tradeoff": "Higher abstraction services (PaaS/SaaS) reduce your responsibility surface but also reduce your control.",
+    "key_tradeoff": "PaaS/SaaS shrinks responsibility surface but surrenders granular control; IaaS grants full control but owns all operational burden.",
     "builds_on": [
       "Microsoft"
     ],
@@ -1388,23 +1386,23 @@
   },
   {
     "name": "Principle Of Simplicity",
-    "mantra": "Keep it simple so it stays reliable.",
+    "mantra": "Simple architecture fails less. Complexity compounds risk.",
     "layer": "foundational",
     "when_to_apply": [
-      "Designing new architecture components",
-      "Reviewing complex dependency chains",
-      "Choosing between feature-rich and lean solutions",
-      "Refactoring systems with frequent outages",
-      "Evaluating whether added complexity is justified"
+      "Choosing single-region multi-zone vs active-active multi-region",
+      "Reviewing dependency chains with load balancers, message buses, CDNs",
+      "Selecting PaaS (App Service, AKS) over custom IaaS builds",
+      "Refactoring systems with frequent outages or slow MTTR",
+      "Adding security controls, replication, or observability components"
     ],
     "without_it": [
-      "Cascading failures from overly complex interdependencies",
-      "Increased attack surface from unnecessary components",
-      "Slower incident response due to hard-to-understand systems",
-      "Performance degradation from bloated architectures",
-      "Higher operational costs from maintaining unneeded complexity"
+      "Cascading failures from interdependencies no one fully understands",
+      "Misconfigurations multiply\u2014each component (firewall, identity, CDN) is a risk surface",
+      "MTTR increases: engineers can't diagnose what they can't mentally model",
+      "Bloated architectures drain budgets on redundant multi-region resources",
+      "Azure Policy drift undetected across inconsistent manual configurations"
     ],
-    "key_tradeoff": "Simplicity may limit flexibility or advanced capabilities, but complexity increases failure probability and operational burden.",
+    "key_tradeoff": "Simplicity limits multi-region redundancy, advanced security segmentation, and performance optimization \u2014 but complexity multiplies failure probability, MTTR, misconfiguration risk, and operational cost.",
     "builds_on": [],
     "enables": [],
     "connections": 0
