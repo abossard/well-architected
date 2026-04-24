@@ -155,12 +155,12 @@ Return ONLY valid JSON array. No markdown fences."""
     return []
 
 
-async def extract_mental_model_cards(mental_models, nodes, edges):
+async def extract_mental_model_cards(mental_models, nodes, edges, max_cards=54):
     """For top mental models, generate structured cards using LLM + graph context."""
     from lightrag.llm.openai import openai_complete_if_cache
 
     cards = []
-    for mm in mental_models[:20]:
+    for mm in mental_models[:max_cards]:
         name = mm["entity"]
         neighbors = find_neighbors(name, edges)
         neighbor_names = sorted(neighbors)[:20]

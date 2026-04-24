@@ -138,6 +138,151 @@
       "name": "Blast Radius Reduction And Fault Isolation",
       "centrality": 1,
       "bridge_score": 0.0
+    },
+    {
+      "name": "Design For Self-Healing",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Design For Scale-Out",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Drive Automation",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Complexity Avoidance",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Mission-Critical Design",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Design Principles",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "STRIDE",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Criticality",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Fault Isolation",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Disaster Preparedness",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Standards",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Design For Business Requirements",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "RE:01",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Least-Privilege Access",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Zero Trust Model",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Shift Left",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Transparent Communication",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Monitor And Optimize Over Time",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Zero-Trust Architecture",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Shared Responsibility Principle",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Risk Tolerance",
+      "centrality": 1,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Identity As A Security Perimeter",
+      "centrality": 0,
+      "bridge_score": 0
+    },
+    {
+      "name": "Zero-Trust Model",
+      "centrality": 0,
+      "bridge_score": 0
+    },
+    {
+      "name": "Configuration As Code",
+      "centrality": 0,
+      "bridge_score": 0
+    },
+    {
+      "name": "Zero Trust Architecture",
+      "centrality": 0,
+      "bridge_score": 0
+    },
+    {
+      "name": "Security Design Principles",
+      "centrality": 0,
+      "bridge_score": 0
+    },
+    {
+      "name": "Azure Well-Architected Pillars",
+      "centrality": 0,
+      "bridge_score": 0
+    },
+    {
+      "name": "Defense In Depth",
+      "centrality": 0,
+      "bridge_score": 0
+    },
+    {
+      "name": "Principle Of Simplicity",
+      "centrality": 0,
+      "bridge_score": 0
     }
   ],
   "tradeoffs": [
