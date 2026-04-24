@@ -4,106 +4,187 @@
 <meta charset="utf-8"/>
 <title>Mission-Critical Mental Models — Azure Well-Architected Framework</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Mental models, knowledge graph, and mind-map trees extracted from the Azure Well-Architected Framework."/>
 <style>
   :root {
-    --bg:#0d1117; --panel:#161b22; --border:#30363d; --fg:#c9d1d9;
-    --muted:#8b949e; --accent:#58a6ff;
+    --bg:#0d1117; --surface:#161b22; --border:#30363d; --fg:#c9d1d9;
+    --muted:#8b949e; --accent:#58a6ff; --gold:#f59e0b;
+    --fs-body:15px; --fs-small:13px; --fs-micro:12px;
+    --c-info:#58a6ff; --c-good:#10b981; --c-warn:#f87171;
+    --c-tradeoff:#7dd3fc; --c-foundational:#f59e0b;
   }
-  html,body { margin:0; background:var(--bg); color:var(--fg);
-    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-  .container { max-width:900px; margin:0 auto; padding:40px 20px; }
-  h1 { font-size:28px; margin:0 0 8px; }
-  .sub { color:var(--muted); font-size:14px; margin-bottom:32px; }
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
-  .card { background:var(--panel); border:1px solid var(--border); border-radius:12px;
-    padding:24px; transition:border-color .2s; }
-  .card:hover { border-color:var(--accent); }
-  .card h2 { margin:0 0 8px; font-size:18px; }
-  .card p { color:var(--muted); font-size:14px; margin:0 0 16px; }
-  .card a { color:var(--accent); text-decoration:none; font-size:14px; font-weight:600; }
-  .card a:hover { text-decoration:underline; }
-  .badge { display:inline-block; padding:2px 10px; border-radius:10px;
-    font-size:12px; font-weight:600; margin-right:6px; }
-  .stats { display:flex; gap:24px; margin:24px 0; flex-wrap:wrap; }
-  .stat { text-align:center; }
-  .stat .n { font-size:32px; font-weight:700; color:var(--accent); }
-  .stat .l { font-size:12px; color:var(--muted); }
-  footer { color:var(--muted); font-size:12px; margin-top:48px; border-top:1px solid var(--border); padding-top:16px; }
-  code { background:#21262d; padding:2px 6px; border-radius:4px; font-size:13px; }
+  * { box-sizing:border-box; }
+  html { background:var(--bg); color:var(--fg);
+    font:var(--fs-body)/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+  body { margin:0; padding:0; }
+  a { color:var(--accent); }
+
+  /* Sticky minimal nav — one line */
+  .topbar { position:sticky; top:0; z-index:100; background:var(--bg);
+    border-bottom:1px solid var(--border);
+    padding:8px 20px; display:flex; align-items:center; gap:16px; }
+  .topbar h1 { font-size:16px; margin:0; white-space:nowrap; font-weight:600; }
+  .topbar h1 span { color:var(--gold); }
+  .topbar nav { display:flex; gap:4px; margin-left:auto; }
+  .topbar nav a { color:var(--muted); text-decoration:none;
+    font-size:var(--fs-small); padding:4px 10px; border-radius:6px;
+    transition:color .15s, background .15s; }
+  .topbar nav a:hover { color:var(--accent); background:var(--surface); }
+  .topbar nav a[aria-current="page"] { color:var(--fg); background:var(--surface); }
+
+  .container { max-width:1200px; margin:0 auto; padding:20px; }
+
+  /* Hero — visible in top 40% */
+  .hero { padding:8px 0 16px; }
+  .hero .tag { color:var(--muted); font-size:var(--fs-body);
+    margin:0; max-width:66ch; }
+  .hero .tag strong { color:var(--fg); font-weight:600; }
+  .hero .stats { display:flex; gap:20px; flex-wrap:wrap;
+    margin:14px 0 0; font-size:var(--fs-small); }
+  .stat { display:inline-flex; align-items:baseline; gap:6px; color:var(--muted); }
+  .stat .n { font-size:20px; font-weight:700; color:var(--accent); }
+
+  /* Cards — 3 in a row */
+  .cards { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin:8px 0 24px; }
+  @media (max-width: 900px) { .cards { grid-template-columns:1fr; } }
+
+  .card { background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--c-info); border-radius:10px;
+    padding:18px 18px 16px; text-decoration:none; color:inherit;
+    display:flex; flex-direction:column; gap:8px;
+    transition:border-color .15s, transform .15s; }
+  .card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .card:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .card[data-kind="graph"] { border-left-color:var(--c-info); }
+  .card[data-kind="cards"] { border-left-color:var(--c-good); }
+  .card[data-kind="trees"] { border-left-color:var(--c-foundational); }
+
+  .card .ico { font-size:22px; line-height:1; }
+  .card h2 { margin:0; font-size:16px; font-weight:600; }
+  .card p { margin:0; color:var(--muted); font-size:var(--fs-small); line-height:1.55;
+    max-width:46ch; }
+  .card .cta { margin-top:auto; color:var(--accent); font-size:var(--fs-small);
+    font-weight:600; padding-top:6px; }
+  .card .meta { font-size:var(--fs-micro); color:var(--muted); }
+
+  /* Collapsible about/dev sections */
+  details { background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--muted); border-radius:10px;
+    padding:12px 16px; margin:10px 0; }
+  details[open] { border-left-color:var(--accent); }
+  details summary { cursor:pointer; font-size:var(--fs-body); font-weight:600;
+    color:var(--fg); list-style:none; display:flex; align-items:center; gap:8px; }
+  details summary::-webkit-details-marker { display:none; }
+  details summary::before { content:"▸"; color:var(--muted); transition:transform .15s; display:inline-block; }
+  details[open] summary::before { transform:rotate(90deg); }
+  details summary:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+  details .body { margin-top:10px; color:var(--muted); font-size:var(--fs-small); max-width:72ch; }
+  details .body ol, details .body ul { padding-left:20px; margin:6px 0; }
+  details .body li { margin:4px 0; color:var(--fg); }
+  details .body li::marker { color:var(--muted); }
+  code { background:#21262d; padding:2px 6px; border-radius:4px; font-size:var(--fs-small); }
+  pre { background:#0b0f14; border:1px solid var(--border); padding:12px;
+    border-radius:8px; overflow-x:auto; font-size:var(--fs-small); margin:8px 0; }
+  pre code { background:transparent; padding:0; }
+
+  footer { color:var(--muted); font-size:var(--fs-small); margin-top:32px;
+    border-top:1px solid var(--border); padding-top:14px; max-width:66ch; }
+  footer a { color:var(--accent); text-decoration:none; }
+  footer a:hover { text-decoration:underline; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition:none !important; animation:none !important; }
+    .card:hover { transform:none; }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>🧠 Mission-Critical Mental Models</h1>
-  <div class="sub">
-    Extracted from the <a href="https://github.com/MicrosoftDocs/well-architected" style="color:var(--accent)">Azure Well-Architected Framework</a>
-    using LightRAG + Claude Opus 4.6 knowledge graph analysis
-  </div>
 
-  <div class="stats">
-    <div class="stat"><div class="n">880</div><div class="l">Entities</div></div>
-    <div class="stat"><div class="n">980</div><div class="l">Relations</div></div>
-    <div class="stat"><div class="n">54</div><div class="l">Mental Models</div></div>
-    <div class="stat"><div class="n">161</div><div class="l">Patterns</div></div>
-    <div class="stat"><div class="n">34</div><div class="l">Docs Analyzed</div></div>
-  </div>
+<header class="topbar">
+  <h1>🧠 <span>Mission-Critical</span> Mental Models</h1>
+  <nav aria-label="Primary">
+    <a href="./" aria-current="page">Home</a>
+    <a href="graph.html">Graph</a>
+    <a href="mental_models/cards/">Cards</a>
+    <a href="mental_models/">Trees</a>
+    <a href="https://github.com/MicrosoftDocs/well-architected" rel="noopener">Source</a>
+  </nav>
+</header>
 
-  <div class="grid">
-    <div class="card">
-      <h2>🔬 Mental Model Mining</h2>
-      <p>54 mental models classified by Opus 4.6 from the knowledge graph. Interactive D3 visualization with model cards, tradeoffs, and anti-patterns.</p>
-      <a href="mental_models/">Explore mental models →</a>
-    </div>
-    <div class="card">
-      <h2>🕸️ Knowledge Graph</h2>
-      <p>271 nodes across 8 types — products, patterns, processes, concepts, metrics. Force-directed graph with search, filters, and hover highlighting.</p>
-      <a href="graph.html">Explore knowledge graph →</a>
-    </div>
-    <div class="card">
-      <h2>📊 Taxonomy</h2>
-      <p>All 880 entities classified into 9 categories. JSON data for programmatic access.</p>
-      <a href="mental_models/taxonomy.json">View taxonomy JSON →</a>
-    </div>
-    <div class="card">
-      <h2>🃏 Model Cards</h2>
-      <p>Top 20 mental models with mantras, failure modes, tradeoffs, and graph connections.</p>
-      <a href="mental_models/cards.json">View cards JSON →</a>
-    </div>
-  </div>
+<main class="container">
 
-  <h2 style="margin-top:40px;">How it was built</h2>
-  <ol style="color:var(--muted); font-size:14px;">
-    <li>13 mission-critical + 21 WAF pillar docs ingested into <strong>LightRAG</strong></li>
-    <li>Entity extraction via <strong>Claude Opus 4.6</strong> through <code>copilot-api</code> proxy</li>
-    <li>Embeddings via <strong>text-embedding-3-small</strong> (1536 dims)</li>
-    <li>Graph centrality + bridge score analysis to rank mental models</li>
-    <li>LLM classification of 880 entities into 9 categories</li>
-    <li>Mental model card generation with mantras, failure modes, tradeoffs</li>
-  </ol>
+  <section class="hero" aria-labelledby="tagline">
+    <p id="tagline" class="tag"><strong>Three views</strong> into the Azure Well-Architected Framework: a force-directed graph, detailed model cards, and hierarchical mind-map trees.</p>
+    <div class="stats" aria-label="Dataset summary">
+      <span class="stat"><span class="n">54</span> mental models</span>
+      <span class="stat"><span class="n">880</span> entities</span>
+      <span class="stat"><span class="n">980</span> relations</span>
+      <span class="stat"><span class="n">161</span> patterns</span>
+      <span class="stat"><span class="n">34</span> docs</span>
+    </div>
+  </section>
 
-  <h2>Run locally</h2>
-  <pre style="background:#161b22; padding:16px; border-radius:8px; font-size:13px; overflow-x:auto;"><code># Start copilot-api proxy (needs GitHub Copilot subscription)
+  <nav class="cards" aria-label="Explore">
+    <a class="card" data-kind="graph" href="graph.html">
+      <span class="ico" aria-hidden="true">🕸️</span>
+      <h2>Graph</h2>
+      <p>Force-directed map of 271 nodes across 8 types. Search, filter, hover to highlight neighbors.</p>
+      <span class="cta">Open graph →</span>
+    </a>
+    <a class="card" data-kind="cards" href="mental_models/cards/">
+      <span class="ico" aria-hidden="true">🃏</span>
+      <h2>Cards</h2>
+      <p>Deep dives per model: mantras, failure modes, tradeoffs, anti-patterns, related links.</p>
+      <span class="cta">Browse cards →</span>
+    </a>
+    <a class="card" data-kind="trees" href="mental_models/">
+      <span class="ico" aria-hidden="true">🌳</span>
+      <h2>Trees</h2>
+      <p>Hierarchical taxonomy grouping 54 models by layer: foundational, structural, operational, security.</p>
+      <span class="cta">See trees →</span>
+    </a>
+  </nav>
+
+  <details>
+    <summary>About this project</summary>
+    <div class="body">
+      <p>Extracted from the Azure Well-Architected Framework using LightRAG and Claude Opus 4.6 knowledge-graph analysis.</p>
+      <ol>
+        <li>Ingested 13 mission-critical + 21 WAF pillar docs into LightRAG.</li>
+        <li>Extracted entities via Claude Opus 4.6 through <code>copilot-api</code> proxy.</li>
+        <li>Generated embeddings with <code>text-embedding-3-small</code> (1536 dims).</li>
+        <li>Ranked mental models by graph centrality + bridge score.</li>
+        <li>Classified 880 entities into 9 categories via LLM.</li>
+        <li>Generated cards with mantras, failure modes, and tradeoffs.</li>
+      </ol>
+    </div>
+  </details>
+
+  <details>
+    <summary>Run locally</summary>
+    <div class="body">
+      <p>Requires a GitHub Copilot subscription for the proxy.</p>
+<pre><code># Start copilot-api proxy
 npx copilot-api start --port 11435
 
 # Install dependencies
-cd kg-explorer && python3 -m venv .venv && source .venv/bin/activate
+cd kg-explorer &amp;&amp; python3 -m venv .venv &amp;&amp; source .venv/bin/activate
 pip install lightrag-hku
 
-# Ingest docs
+# Ingest, mine, query
 python3 ingest_lightrag.py
-
-# Mine mental models
 python3 mine_mental_models.py --top 25
-
-# Query
 python3 query_lightrag.py "What is blast radius thinking?"</code></pre>
+    </div>
+  </details>
 
   <footer>
-    Built with <a href="https://github.com/HKUDS/LightRAG" style="color:var(--accent)">LightRAG</a>,
-    <a href="https://d3js.org" style="color:var(--accent)">D3.js</a>, and
-    <a href="https://github.com/ericc-ch/copilot-api" style="color:var(--accent)">copilot-api</a>.
-    Source: <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" style="color:var(--accent)">abossard/well-architected</a>
+    Built with <a href="https://github.com/HKUDS/LightRAG" rel="noopener">LightRAG</a>,
+    <a href="https://d3js.org" rel="noopener">D3.js</a>, and
+    <a href="https://github.com/ericc-ch/copilot-api" rel="noopener">copilot-api</a>.
+    Source: <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" rel="noopener">abossard/well-architected</a>.
   </footer>
-</div>
+</main>
 </body>
 </html>

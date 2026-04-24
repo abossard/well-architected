@@ -2,33 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>Mission-Critical Knowledge Graph</title>
+<title>Knowledge Graph — Mission-Critical Azure Well-Architected</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <style>
   :root {
-    --bg:#0d1117; --panel:#161b22; --border:#30363d; --fg:#c9d1d9;
-    --muted:#8b949e; --accent:#58a6ff;
+    --bg:#0d1117; --surface:#161b22; --panel:#161b22; --border:#30363d;
+    --fg:#c9d1d9; --muted:#8b949e; --accent:#58a6ff; --gold:#f59e0b;
+    --fs-body:15px; --fs-small:13px; --fs-micro:12px;
     --doc:#f78166; --h2:#a371f7; --h3:#d2a8ff;
     --product:#79c0ff; --pattern:#ffa657; --process:#d2a8ff;
     --concept:#3fb950; --metric:#ff7b72;
     --edge:#30363d; --edge-hi:#ffd33d;
   }
-  html,body { margin:0; height:100%; background:var(--bg); color:var(--fg);
-    font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-  #app { display:flex; height:100vh; }
-  #sidebar { width:320px; background:var(--panel); border-right:1px solid var(--border);
-    padding:14px; box-sizing:border-box; overflow-y:auto; }
-  #sidebar h1 { margin:0 0 4px; font-size:16px; }
-  #sidebar p.sub { margin:0 0 14px; color:var(--muted); font-size:12px; }
-  .section { margin-bottom:16px; }
-  .section h2 { font-size:11px; text-transform:uppercase; letter-spacing:.08em;
-    color:var(--muted); margin:0 0 6px; font-weight:600; }
-  input[type=search],input[type=text] { width:100%; box-sizing:border-box;
-    background:#0d1117; border:1px solid var(--border); color:var(--fg);
-    padding:6px 8px; border-radius:6px; font-size:13px; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; height:100%; background:var(--bg); color:var(--fg);
+    font:var(--fs-body)/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+
+  :focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+
+  /* Sticky mini nav */
+  .topbar { position:sticky; top:0; z-index:100; background:var(--bg);
+    border-bottom:1px solid var(--border); padding:8px 16px;
+    display:flex; align-items:center; gap:12px; height:44px; }
+  .topbar h1 { font-size:15px; margin:0; font-weight:600; white-space:nowrap; }
+  .topbar h1 span { color:var(--gold); }
+  .topbar nav { display:flex; gap:4px; margin-left:auto; font-size:var(--fs-small); }
+  .topbar nav a { color:var(--muted); text-decoration:none; padding:4px 10px;
+    border-radius:6px; transition:color .15s, background .15s; }
+  .topbar nav a:hover { color:var(--accent); background:var(--surface); }
+
+  #app { display:flex; height:calc(100vh - 45px); }
+
+  /* Sidebar */
+  #sidebar { width:320px; flex-shrink:0; background:var(--panel);
+    border-right:1px solid var(--border); padding:16px; overflow-y:auto;
+    font-size:var(--fs-body); line-height:1.65; }
+  #sidebar > * { max-width:66ch; }
+
+  .section { margin-bottom:20px; }
+  .section h2 { font-size:var(--fs-small); text-transform:uppercase;
+    letter-spacing:.06em; color:var(--muted); margin:0 0 8px; font-weight:600; }
+
+  /* Onboarding banner */
+  .onboard { background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--gold); border-radius:8px;
+    padding:12px 14px; margin-bottom:16px; position:relative;
+    font-size:var(--fs-small); line-height:1.5; }
+  .onboard strong { color:var(--gold); display:block; margin-bottom:2px; font-size:var(--fs-body); }
+  .onboard p { margin:0; color:var(--fg); }
+  .onboard button.dismiss { position:absolute; top:6px; right:6px;
+    background:transparent; border:none; color:var(--muted); cursor:pointer;
+    font-size:18px; line-height:1; padding:4px 8px; border-radius:4px; }
+  .onboard button.dismiss:hover { color:var(--fg); background:var(--border); }
+
+  /* Preset buttons */
+  .presets { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
+  .preset-btn { flex:1; min-width:fit-content; background:var(--surface);
+    color:var(--fg); border:1px solid var(--border); border-radius:8px;
+    padding:8px 10px; font-size:var(--fs-small); cursor:pointer;
+    transition:border-color .15s, background .15s; font-weight:500; }
+  .preset-btn:hover { border-color:var(--accent); }
+  .preset-btn.active { border-color:var(--accent); background:rgba(88,166,255,.12); color:var(--accent); }
+
+  input[type=search], input[type=text] { width:100%; background:var(--bg);
+    border:1px solid var(--border); color:var(--fg); padding:8px 10px;
+    border-radius:8px; font-size:var(--fs-body); }
+  input[type=search]:focus { border-color:var(--accent); outline:2px solid var(--accent); outline-offset:1px; }
+
+  /* Chips */
   .chip { display:inline-flex; align-items:center; gap:6px; margin:2px 4px 2px 0;
     padding:3px 8px; background:#21262d; border:1px solid var(--border);
-    border-radius:12px; font-size:12px; cursor:pointer; user-select:none; }
+    border-radius:12px; font-size:var(--fs-micro); cursor:pointer; user-select:none; }
   .chip input { margin:0; }
   .chip.doc     { border-color:var(--doc); }
   .chip.h2      { border-color:var(--h2); }
@@ -39,88 +84,166 @@
   .chip.concept { border-color:var(--concept); }
   .chip.metric  { border-color:var(--metric); }
   .swatch { width:10px; height:10px; border-radius:50%; display:inline-block; }
-  #graph { flex:1; position:relative; }
+
+  /* Advanced details */
+  details.advanced { margin-top:8px; border:1px solid var(--border);
+    border-radius:8px; background:var(--surface); }
+  details.advanced > summary { cursor:pointer; padding:10px 12px;
+    font-size:var(--fs-small); color:var(--accent); font-weight:500;
+    list-style:none; user-select:none; }
+  details.advanced > summary::-webkit-details-marker { display:none; }
+  details.advanced > summary::before { content:"▸ "; display:inline-block;
+    transition:transform .15s; }
+  details.advanced[open] > summary::before { transform:rotate(90deg); }
+  details.advanced .inner { padding:4px 12px 12px; border-top:1px solid var(--border); }
+  details.advanced .inner .section:last-child { margin-bottom:0; }
+
+  .slider { width:100%; }
+
+  button { background:var(--surface); color:var(--fg); border:1px solid var(--border);
+    border-radius:6px; padding:5px 12px; font-size:var(--fs-small); cursor:pointer; }
+  button:hover { border-color:var(--accent); }
+
+  /* Selection panel */
+  #sel { font-size:var(--fs-body); line-height:1.55; }
+  #sel .sel-empty { color:var(--muted); font-style:normal; border-left:2px solid var(--border);
+    padding-left:10px; }
+  #sel .sel-title { color:var(--fg); font-weight:600; font-size:var(--fs-body); }
+  #sel .sel-meta { color:var(--muted); font-size:var(--fs-small); margin:2px 0 8px; }
+  #sel .sel-label { color:var(--muted); font-size:var(--fs-small); margin-top:8px; }
+  #sel a, #sel a:visited { color:var(--accent); }
+
+  #stats { color:var(--muted); font-size:var(--fs-micro); margin-top:12px;
+    padding-top:12px; border-top:1px solid var(--border); }
+
+  /* Graph */
+  #graph { flex:1; position:relative; min-width:0; }
   svg { width:100%; height:100%; display:block; cursor:grab; }
   svg:active { cursor:grabbing; }
   .node circle { stroke:#0d1117; stroke-width:1.5; cursor:pointer; }
+  .node:focus-visible circle { stroke:var(--accent); stroke-width:2.5; }
   .node text { fill:var(--fg); font-size:10px; pointer-events:none;
-    paint-order:stroke; stroke:#0d1117; stroke-width:3px; stroke-linejoin:round; }
+    paint-order:stroke; stroke:#0d1117; stroke-width:3px; stroke-linejoin:round;
+    display:none; }
+  .node.show-label text, .node.hover-label text { display:block; }
   .node.dim { opacity:0.08; }
   .link { stroke:var(--edge); stroke-opacity:0.5; }
   .link.hi { stroke:var(--edge-hi); stroke-opacity:0.95; }
   .link.dim { stroke-opacity:0.05; }
-  #tooltip { position:absolute; pointer-events:none; background:#161b22;
-    border:1px solid var(--border); border-radius:6px; padding:8px 10px;
-    font-size:12px; max-width:320px; box-shadow:0 6px 16px rgba(0,0,0,.5);
-    opacity:0; transition:opacity .1s; }
-  #tooltip h3 { margin:0 0 4px; font-size:13px; color:var(--accent); }
-  #tooltip .meta { color:var(--muted); font-size:11px; }
-  #legend { position:absolute; right:12px; top:12px; background:rgba(22,27,34,.9);
-    border:1px solid var(--border); border-radius:6px; padding:8px 10px; font-size:12px; }
+
+  #tooltip { position:absolute; pointer-events:none; background:var(--surface);
+    border:1px solid var(--border); border-radius:8px; padding:8px 10px;
+    font-size:var(--fs-small); max-width:320px; box-shadow:0 6px 16px rgba(0,0,0,.5);
+    opacity:0; transition:opacity .1s; z-index:20; }
+  #tooltip h3 { margin:0 0 4px; font-size:var(--fs-body); color:var(--accent); }
+  #tooltip .meta { color:var(--muted); font-size:var(--fs-micro); }
+
+  #legend { position:absolute; right:12px; top:12px; background:rgba(22,27,34,.92);
+    border:1px solid var(--border); border-radius:8px; padding:10px 12px;
+    font-size:var(--fs-micro); z-index:10; }
   #legend .row { display:flex; align-items:center; gap:8px; margin:3px 0; }
-  #stats { color:var(--muted); font-size:11px; margin-top:8px; }
-  a, a:visited { color:var(--accent); }
-  button { background:#21262d; color:var(--fg); border:1px solid var(--border);
-    border-radius:6px; padding:4px 10px; font-size:12px; cursor:pointer; }
-  button:hover { border-color:var(--accent); }
-  .slider { width:100%; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition:none !important; animation:none !important; }
+    svg { cursor:default; }
+  }
+
+  @media (max-width: 800px) {
+    #app { flex-direction:column; height:auto; }
+    #sidebar { width:100%; max-height:40vh; border-right:none;
+      border-bottom:1px solid var(--border); }
+    #graph { height:60vh; }
+  }
 </style>
 </head>
 <body>
+
+<header class="topbar">
+  <h1>Knowledge <span>Graph</span></h1>
+  <nav aria-label="Primary">
+    <a href="mental_models/">← Home</a>
+    <a href="#" aria-current="page" style="color:var(--fg);">Graph Explorer</a>
+    <a href="mental_models/#cards">Mental Models →</a>
+  </nav>
+</header>
+
 <div id="app">
-  <aside id="sidebar">
-    <h1>Mission-Critical KG</h1>
-    <p class="sub">Azure Well-Architected Framework · interactive knowledge graph</p>
+  <aside id="sidebar" aria-label="Graph controls">
+
+    <div class="onboard" id="onboard" role="note" hidden>
+      <button class="dismiss" id="onboardDismiss" aria-label="Dismiss tip">×</button>
+      <strong><span aria-hidden="true">👋 </span>Start here</strong>
+      <p>Click any <strong>large node</strong> to inspect it. Hover to highlight neighbors. Use the presets below to focus.</p>
+    </div>
+
+    <div class="section">
+      <h2>Views</h2>
+      <div class="presets" role="group" aria-label="Preset views">
+        <button class="preset-btn" data-preset="models">Mental Models</button>
+        <button class="preset-btn" data-preset="patterns">Patterns + Products</button>
+        <button class="preset-btn active" data-preset="all">Everything</button>
+      </div>
+    </div>
 
     <div class="section">
       <h2>Search</h2>
-      <input id="q" type="search" placeholder="Filter nodes by label…"/>
-    </div>
-
-    <div class="section">
-      <h2>Show node types</h2>
-      <label class="chip doc"><input type="checkbox" data-type="doc" checked/><span class="swatch" style="background:var(--doc)"></span>Document</label>
-      <label class="chip h2"><input type="checkbox" data-type="h2" checked/><span class="swatch" style="background:var(--h2)"></span>Section (H2)</label>
-      <label class="chip h3"><input type="checkbox" data-type="h3" checked/><span class="swatch" style="background:var(--h3)"></span>Subsection (H3)</label>
-      <label class="chip product"><input type="checkbox" data-type="product" checked/><span class="swatch" style="background:var(--product)"></span>Product</label>
-      <label class="chip pattern"><input type="checkbox" data-type="pattern" checked/><span class="swatch" style="background:var(--pattern)"></span>Pattern</label>
-      <label class="chip process"><input type="checkbox" data-type="process" checked/><span class="swatch" style="background:var(--process)"></span>Process</label>
-      <label class="chip concept"><input type="checkbox" data-type="concept" checked/><span class="swatch" style="background:var(--concept)"></span>Concept</label>
-      <label class="chip metric"><input type="checkbox" data-type="metric" checked/><span class="swatch" style="background:var(--metric)"></span>Metric</label>
-    </div>
-
-    <div class="section">
-      <h2>Show edge types</h2>
-      <label class="chip"><input type="checkbox" data-edge="contains" checked/>contains</label>
-      <label class="chip"><input type="checkbox" data-edge="links" checked/>links</label>
-      <label class="chip"><input type="checkbox" data-edge="mentions" checked/>mentions</label>
-      <label class="chip"><input type="checkbox" data-edge="related" checked/>related</label>
-    </div>
-
-    <div class="section">
-      <h2>Min concept mentions: <span id="mmv">1</span></h2>
-      <input id="mm" class="slider" type="range" min="1" max="20" value="1"/>
-    </div>
-
-    <div class="section">
-      <h2>Labels</h2>
-      <label class="chip"><input id="lbl" type="checkbox" checked/>show labels</label>
-      <button id="reheat">Reheat layout</button>
-      <button id="reset">Reset view</button>
+      <input id="q" type="search" placeholder="Filter nodes by label…" aria-label="Filter nodes"/>
     </div>
 
     <div class="section">
       <h2>Selection</h2>
-      <div id="sel" style="color:var(--muted);">Click a node to inspect.</div>
+      <div id="sel"><div class="sel-empty">No node selected yet. Click one on the graph.</div></div>
     </div>
+
+    <details class="advanced">
+      <summary>Advanced filters</summary>
+      <div class="inner">
+
+        <div class="section">
+          <h2>Node types</h2>
+          <label class="chip doc"><input type="checkbox" data-type="doc" checked/><span class="swatch" style="background:var(--doc)"></span>Document</label>
+          <label class="chip h2"><input type="checkbox" data-type="h2" checked/><span class="swatch" style="background:var(--h2)"></span>Section</label>
+          <label class="chip h3"><input type="checkbox" data-type="h3" checked/><span class="swatch" style="background:var(--h3)"></span>Subsection</label>
+          <label class="chip product"><input type="checkbox" data-type="product" checked/><span class="swatch" style="background:var(--product)"></span>Product</label>
+          <label class="chip pattern"><input type="checkbox" data-type="pattern" checked/><span class="swatch" style="background:var(--pattern)"></span>Pattern</label>
+          <label class="chip process"><input type="checkbox" data-type="process" checked/><span class="swatch" style="background:var(--process)"></span>Process</label>
+          <label class="chip concept"><input type="checkbox" data-type="concept" checked/><span class="swatch" style="background:var(--concept)"></span>Concept</label>
+          <label class="chip metric"><input type="checkbox" data-type="metric" checked/><span class="swatch" style="background:var(--metric)"></span>Metric</label>
+        </div>
+
+        <div class="section">
+          <h2>Edge types</h2>
+          <label class="chip"><input type="checkbox" data-edge="contains" checked/>contains</label>
+          <label class="chip"><input type="checkbox" data-edge="links" checked/>links</label>
+          <label class="chip"><input type="checkbox" data-edge="mentions" checked/>mentions</label>
+          <label class="chip"><input type="checkbox" data-edge="related" checked/>related</label>
+        </div>
+
+        <div class="section">
+          <h2>Min concept mentions: <span id="mmv">1</span></h2>
+          <input id="mm" class="slider" type="range" min="1" max="20" value="1" aria-label="Minimum concept mentions"/>
+        </div>
+
+        <div class="section">
+          <h2>Display</h2>
+          <label class="chip"><input id="lbl" type="checkbox"/>always show labels</label>
+          <div style="margin-top:6px; display:flex; gap:6px;">
+            <button id="reheat">Reheat layout</button>
+            <button id="reset">Reset view</button>
+          </div>
+        </div>
+
+      </div>
+    </details>
 
     <div id="stats"></div>
   </aside>
 
   <div id="graph">
-    <svg></svg>
-    <div id="tooltip"></div>
-    <div id="legend">
+    <svg role="img" aria-label="Knowledge graph visualization"></svg>
+    <div id="tooltip" role="tooltip"></div>
+    <div id="legend" aria-label="Legend">
       <div class="row"><span class="swatch" style="background:var(--doc)"></span>Document</div>
       <div class="row"><span class="swatch" style="background:var(--h2)"></span>Section</div>
       <div class="row"><span class="swatch" style="background:var(--h3)"></span>Subsection</div>
@@ -136,6 +259,23 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
 const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:"#ffa657",process:"#d2a8ff",concept:"#3fb950",metric:"#ff7b72"};
+const PREFERS_REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const PRESETS = {
+  models:   { types:["doc","h2","h3"],                                 minMentions:1 },
+  patterns: { types:["pattern","product","process","doc","h2"],        minMentions:1 },
+  all:      { types:["doc","h2","h3","product","pattern","process","concept","metric"], minMentions:1 }
+};
+
+// Onboarding
+(function(){
+  const ob = document.getElementById("onboard");
+  if (!localStorage.getItem("kgOnboardingDismissed")) ob.hidden = false;
+  document.getElementById("onboardDismiss").addEventListener("click", () => {
+    ob.hidden = true;
+    localStorage.setItem("kgOnboardingDismissed","1");
+  });
+})();
 
 (async function(){
   const data = await (await fetch("graph.json")).json();
@@ -150,14 +290,13 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
   const zoom = d3.zoom().scaleExtent([0.15, 4]).on("zoom", e => g.attr("transform", e.transform));
   svg.call(zoom);
 
-  // Clone data for filtering
   let allNodes = data.nodes.map(d => ({...d}));
   let allEdges = data.edges.map(d => ({...d}));
 
   const state = {
-    types:new Set(["doc","h2","h3","product","pattern","process","concept","metric"]),
+    types:new Set(PRESETS.all.types),
     edgeTypes:new Set(["contains","links","mentions","related"]),
-    minMentions:1, query:"", showLabels:true, selected:null
+    minMentions:1, query:"", showLabels:false, selected:null
   };
 
   const sim = d3.forceSimulation()
@@ -167,6 +306,10 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
     .force("charge", d3.forceManyBody().strength(-180))
     .force("center", d3.forceCenter())
     .force("collide", d3.forceCollide().radius(d => (d.size||6)+4));
+
+  if (PREFERS_REDUCED) {
+    sim.alphaDecay(0.2);
+  }
 
   const tooltip = d3.select("#tooltip");
 
@@ -198,7 +341,7 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
 
     nodeSel = nodeG.selectAll("g.node").data(nodes, d=>d.id)
       .join(enter => {
-        const ge = enter.append("g").attr("class","node")
+        const ge = enter.append("g").attr("class","node").attr("tabindex", 0)
           .call(d3.drag()
             .on("start",(e,d)=>{if(!e.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
             .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
@@ -213,7 +356,10 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
                    .style("top",(e.clientY-rect.top+12)+"px");
           })
           .on("mouseout",()=>{tooltip.style("opacity",0); highlight(null);})
-          .on("click",(e,d)=>{select(d);});
+          .on("focus",(e,d)=>{ highlight(d); })
+          .on("blur",()=>{ highlight(null); })
+          .on("click",(e,d)=>{select(d);})
+          .on("keydown",(e,d)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); select(d); } });
         ge.append("circle")
           .attr("r", d => Math.max(3, Math.min(22, (d.size||6))))
           .attr("fill", d => COLORS[d.type]);
@@ -221,11 +367,11 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
         return ge;
       });
 
-    nodeG.selectAll("g.node text").style("display", state.showLabels?null:"none");
+    nodeG.selectAll("g.node").classed("show-label", state.showLabels);
 
     sim.nodes(nodes).on("tick", ticked);
     sim.force("link").links(edges);
-    sim.alpha(0.8).restart();
+    sim.alpha(PREFERS_REDUCED ? 0.4 : 0.8).restart();
   }
 
   function ticked(){
@@ -253,9 +399,14 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
     return {nb, links};
   }
   function highlight(d){
-    if(!d){ nodeSel.classed("dim",false); linkSel.classed("hi",false).classed("dim",false); return; }
+    if(!d){
+      nodeSel.classed("dim",false).classed("hover-label",false);
+      linkSel.classed("hi",false).classed("dim",false);
+      return;
+    }
     const {nb,links} = neighborsOf(d.id);
-    nodeSel.classed("dim", n => !nb.has(n.id));
+    nodeSel.classed("dim", n => !nb.has(n.id))
+           .classed("hover-label", n => nb.has(n.id));
     linkSel.classed("hi", l => links.has(l)).classed("dim", l => !links.has(l));
   }
 
@@ -268,24 +419,48 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
       .filter(Boolean)
       .sort((a,b)=>a.label.localeCompare(b.label));
     const link = d.type==="doc"
-      ? `<div><a href="https://learn.microsoft.com/azure/well-architected/mission-critical/${d.file.replace('.md','')}" target="_blank">open on Microsoft Learn ↗</a></div>` : "";
-    sel.innerHTML = `<div style="color:var(--fg);font-weight:600">${d.label}</div>
-      <div style="color:var(--muted);font-size:11px;margin:2px 0 6px;">${d.type}${d.file?" · "+d.file:""}</div>
+      ? `<div><a href="https://learn.microsoft.com/azure/well-architected/mission-critical/${d.file.replace('.md','')}" target="_blank" rel="noopener">open on Microsoft Learn ↗</a></div>` : "";
+    sel.innerHTML = `<div class="sel-title">${d.label}</div>
+      <div class="sel-meta">${d.type}${d.file?" · "+d.file:""}</div>
       ${link}
-      <div style="color:var(--muted);font-size:11px;margin-top:6px;">Connected (${neighbors.length})</div>
-      <div>${neighbors.slice(0,40).map(n=>`<span class="chip ${n.type}" data-id="${n.id}"><span class="swatch" style="background:${COLORS[n.type]}"></span>${n.label}</span>`).join("")}</div>`;
+      <div class="sel-label">Connected (${neighbors.length})</div>
+      <div>${neighbors.slice(0,40).map(n=>`<span class="chip ${n.type}" data-id="${n.id}" tabindex="0" role="button"><span class="swatch" style="background:${COLORS[n.type]}"></span>${n.label}</span>`).join("")}</div>`;
     sel.querySelectorAll(".chip[data-id]").forEach(el=>{
-      el.addEventListener("click",()=>{
-        const n = allNodes.find(x=>x.id===el.dataset.id);
-        if(n) select(n);
-      });
+      const go = () => { const n = allNodes.find(x=>x.id===el.dataset.id); if(n) select(n); };
+      el.addEventListener("click", go);
+      el.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); go(); }});
     });
   }
 
-  // UI wiring
+  // Presets
+  function applyPreset(name){
+    const p = PRESETS[name]; if(!p) return;
+    state.types = new Set(p.types);
+    state.minMentions = p.minMentions;
+    // Sync chip checkboxes
+    document.querySelectorAll("input[data-type]").forEach(el=>{
+      el.checked = state.types.has(el.dataset.type);
+    });
+    const mm = document.getElementById("mm");
+    mm.value = p.minMentions;
+    document.getElementById("mmv").textContent = p.minMentions;
+    document.querySelectorAll(".preset-btn").forEach(b=>{
+      b.classList.toggle("active", b.dataset.preset===name);
+      if (b.dataset.preset===name) b.setAttribute("aria-pressed","true");
+      else b.removeAttribute("aria-pressed");
+    });
+    render();
+  }
+  document.querySelectorAll(".preset-btn").forEach(b=>{
+    b.addEventListener("click", ()=>applyPreset(b.dataset.preset));
+  });
+
+  // Filter wiring
   document.querySelectorAll("input[data-type]").forEach(el=>{
     el.addEventListener("change",()=>{
       el.checked ? state.types.add(el.dataset.type) : state.types.delete(el.dataset.type);
+      // Invalidate preset highlight since user customized
+      document.querySelectorAll(".preset-btn").forEach(b=>b.classList.remove("active"));
       render();
     });
   });
@@ -305,11 +480,11 @@ const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:
   });
   document.getElementById("lbl").addEventListener("change",e=>{
     state.showLabels = e.target.checked;
-    nodeG.selectAll("g.node text").style("display", state.showLabels?null:"none");
+    nodeG.selectAll("g.node").classed("show-label", state.showLabels);
   });
   document.getElementById("reheat").addEventListener("click",()=>sim.alpha(1).restart());
   document.getElementById("reset").addEventListener("click",()=>{
-    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+    svg.transition().duration(PREFERS_REDUCED?0:500).call(zoom.transform, d3.zoomIdentity);
   });
 
   window.addEventListener("resize",()=>{
