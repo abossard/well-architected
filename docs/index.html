@@ -49,7 +49,7 @@
       <div><b id="stat-models">–</b><span>mental models</span></div>
       <div><b id="stat-nodes">–</b><span>entities</span></div>
       <div><b id="stat-edges">–</b><span>relations</span></div>
-      <div><b id="stat-mc">–</b><span>mission-critical</span></div>
+      <div><b id="stat-mc">–</b><span>core topics</span></div>
     </section>
 
     <form id="search" onsubmit="return jumpToGraph(event)">
@@ -58,7 +58,7 @@
     </form>
 
     <nav class="cta">
-      <a href="graph.html"><b>Explore the full graph</b><span>4 099 entities · 5 928 relations</span></a>
+      <a href="graph.html"><b>Explore the full graph</b><span id="cta-graph-stats">Loading…</span></a>
       <a href="graph.html?filter=mental"><b>Browse mental models</b><span>Curated thinking tools only</span></a>
       <a href="graph.html?filter=patterns"><b>Patterns &amp; services</b><span>Architectural building blocks</span></a>
     </nav>
@@ -79,6 +79,8 @@
         document.getElementById("stat-edges").textContent  = (s.edges ?? 0).toLocaleString();
         document.getElementById("stat-mc").textContent     = (s.mission_critical ?? 0).toLocaleString();
         document.getElementById("stat-docs").textContent   = (s.docs ?? 0).toLocaleString();
+        const el = document.getElementById("cta-graph-stats");
+        if (el) el.textContent = `${(s.nodes??0).toLocaleString()} entities · ${(s.edges??0).toLocaleString()} relations`;
       })
       .catch(() => { /* leave placeholders */ });
 

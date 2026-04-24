@@ -315,7 +315,7 @@ function nodeAtPointer(x, y) {
   const nodes = state.data.nodes;
   for (let i = 0; i < nodes.length; i++) {
     const n = nodes[i];
-    if (!visible(n)) continue;
+    if (!visSet.has(n.id)) continue;
     const r = radius(n) + 3;
     const dx = n.x - wx, dy = n.y - wy;
     const d = Math.hypot(dx, dy);
@@ -346,6 +346,13 @@ function render() {
   ctx.translate(t.x, t.y);
   ctx.scale(t.k, t.k);
 
+  // Pre-compute visibility set for fast edge filtering
+  const nodes = state.data.nodes;
+  const visSet = new Set();
+  for (let i = 0; i < nodes.length; i++) {
+    if (visible(nodes[i])) visSet.add(nodes[i].id);
+  }
+
   // ── edges ─────────────────────────────────────────────────────────────
   const selId = state.selected, hovId = state.hover;
   const emphIds = new Set();
@@ -362,7 +369,7 @@ function render() {
     const e = edges[i];
     if (e.relation !== "mentioned_with") continue;
     const s = e.source, d = e.target;
-    if (!visible(s) || !visible(d)) continue;
+    if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
     ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
   }
   ctx.stroke();
@@ -375,7 +382,7 @@ function render() {
       const e = edges[i];
       if (e.relation !== rel) continue;
       const s = e.source, d = e.target;
-      if (!visible(s) || !visible(d)) continue;
+      if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
       ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
     }
     ctx.stroke();
@@ -388,7 +395,7 @@ function render() {
     for (let i = 0; i < edges.length; i++) {
       const e = edges[i];
       const s = e.source, d = e.target;
-      if (!visible(s) || !visible(d)) continue;
+      if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
       if (!emphIds.has(s.id) && !emphIds.has(d.id)) continue;
       ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
     }
@@ -399,7 +406,7 @@ function render() {
   const nodes = state.data.nodes;
   for (let i = 0; i < nodes.length; i++) {
     const n = nodes[i];
-    if (!visible(n)) continue;
+    if (!visSet.has(n.id)) continue;
     const r = radius(n);
     const isSel = n.id === selId;
     const isHov = n.id === hovId;
@@ -493,10 +500,10 @@ function selectNode(id, pan) {
   }
 
   if (state.selected && state.selected !== id) {
-    if (state.breadcrumb[state.breadcrumb.length - 1] !== state.selected) {
-      state.breadcrumb.push(state.selected);
-      if (state.breadcrumb.length > 8) state.breadcrumb.shift();
-    }
+    // Dedupe: remove any previous occurrence of this id, then append
+    state.breadcrumb = state.breadcrumb.filter(b => b !== state.selected);
+    state.breadcrumb.push(state.selected);
+    if (state.breadcrumb.length > 8) state.breadcrumb.shift();
   }
   state.selected = id;
   try { history.replaceState(null, "", "#" + encodeURIComponent(id)); } catch (_) {}
@@ -614,7 +621,7 @@ function mentalModelCard(n) {
 function genericCard(n) {
   const typeLabel = TYPE_LABELS[n.type] || n.type;
   return `
-    <header class="card">${iconSvg(n)}<h2>${esc(n.id)}</h2><span class="pill">${esc(typeLabel)}${n.mission_critical ? " · MC" : ""}</span></header>
+    <header class="card">${iconSvg(n)}<h2>${esc(n.id)}</h2><span class="pill">${esc(typeLabel)}</span></header>
     ${n.description ? `<p class="desc">${esc(n.description)}</p>` : ""}
     ${chipRow("📎 Connected to", relatedIdsFor(n))}
     ${sourceDocsHtml(n.source_docs)}`;
