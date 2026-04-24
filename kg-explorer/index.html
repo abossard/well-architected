@@ -359,6 +359,7 @@ const PRESETS = {
           .on("focus",(e,d)=>{ highlight(d); })
           .on("blur",()=>{ highlight(null); })
           .on("click",(e,d)=>{select(d);})
+          .on("dblclick",(e,d)=>{ if(d.url) window.open(d.url,"_blank"); })
           .on("keydown",(e,d)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); select(d); } });
         ge.append("circle")
           .attr("r", d => Math.max(3, Math.min(22, (d.size||6))))
@@ -387,7 +388,8 @@ const PRESETS = {
     else if(d.type==="h2") meta = `section in ${d.file}`;
     else if(d.type==="h3") meta = `subsection in ${d.file}`;
     else meta = `${d.type} · ${d.total} mentions across ${d.docs} docs`;
-    return `<h3>${esc(d.label)}</h3><div class="meta">${esc(meta)}</div>`;
+    const linkHint = d.url ? `<div style="font-size:10px;color:var(--accent);margin-top:2px">click to open on Microsoft Learn</div>` : "";
+    return `<h3>${esc(d.label)}</h3><div class="meta">${esc(meta)}</div>${linkHint}`;
   }
 
   function neighborsOf(id){
@@ -418,8 +420,8 @@ const PRESETS = {
       .map(id => allNodes.find(n=>n.id===id))
       .filter(Boolean)
       .sort((a,b)=>a.label.localeCompare(b.label));
-    const link = d.type==="doc"
-      ? `<div><a href="https://learn.microsoft.com/azure/well-architected/mission-critical/${d.file.replace('.md','')}" target="_blank" rel="noopener">open on Microsoft Learn ↗</a></div>` : "";
+    const link = d.url
+      ? `<div><a href="${d.url}" target="_blank" rel="noopener">open on Microsoft Learn ↗</a></div>` : "";
     sel.innerHTML = `<div class="sel-title">${d.label}</div>
       <div class="sel-meta">${d.type}${d.file?" · "+d.file:""}</div>
       ${link}

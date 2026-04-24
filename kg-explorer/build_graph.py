@@ -120,6 +120,12 @@ def parse_file(path: pathlib.Path):
     return dict(file=path.name, title=title, h2s=h2s, h3s=h3s,
                 links=sorted(links), terms=dict(term_counts))
 
+LEARN_BASE = "https://learn.microsoft.com/azure/well-architected/mission-critical"
+
+def file_to_url(filename):
+    """Convert markdown filename to Microsoft Learn URL."""
+    return f"{LEARN_BASE}/{filename.replace('.md', '')}"
+
 def build():
     files = sorted(SRC.glob("mission-critical-*.md"))
     docs = [parse_file(p) for p in files]
@@ -132,19 +138,23 @@ def build():
     # doc nodes
     for d in docs:
         nid = "doc:"+d["file"]
+        url = file_to_url(d["file"])
         add_node(nid, type="doc", label=d["title"], file=d["file"],
-                 size=12+len(d["h2s"]))
+                 url=url, size=12+len(d["h2s"]))
     # heading nodes + contains edges
     for d in docs:
         doc_id = "doc:"+d["file"]
+        base_url = file_to_url(d["file"])
         for h2 in d["h2s"]:
             hid = f"h2:{d['file']}::{slugify(h2)}"
-            add_node(hid, type="h2", label=h2, file=d["file"], size=6)
+            url = f"{base_url}#{slugify(h2)}"
+            add_node(hid, type="h2", label=h2, file=d["file"], url=url, size=6)
             edges.append({"source":doc_id,"target":hid,"type":"contains","weight":1})
         for (h2, h3) in d["h3s"]:
             hid3 = f"h3:{d['file']}::{slugify(h2)}::{slugify(h3)}"
             hid2 = f"h2:{d['file']}::{slugify(h2)}"
-            add_node(hid3, type="h3", label=h3, file=d["file"], size=3)
+            url = f"{base_url}#{slugify(h3)}"
+            add_node(hid3, type="h3", label=h3, file=d["file"], url=url, size=3)
             edges.append({"source":hid2,"target":hid3,"type":"contains","weight":1})
 
     # doc -> doc links
