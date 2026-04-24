@@ -160,166 +160,165 @@ page = f"""<!doctype html>
   :root {{
     --bg:#0d1117; --surface:#161b22; --border:#30363d; --fg:#c9d1d9;
     --muted:#8b949e; --accent:#58a6ff; --gold:#f59e0b;
+    /* Type scale */
+    --fs-body:15px; --fs-small:13px; --fs-micro:12px;
+    /* Semantic colors */
+    --c-tradeoff:#7dd3fc; --c-antipattern:#f87171; --c-pattern:#3b82f6;
   }}
   * {{ box-sizing:border-box; }}
   html {{ background:var(--bg); color:var(--fg);
-    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }}
+    font:var(--fs-body)/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }}
   body {{ margin:0; padding:0; }}
 
-  .hero {{ text-align:center; padding:48px 20px 32px; }}
-  .hero h1 {{ font-size:36px; margin:0; }}
-  .hero h1 span {{ color:var(--gold); }}
-  .hero .subtitle {{ color:var(--muted); font-size:16px; margin:8px 0 24px; max-width:600px; display:inline-block; }}
+  /* Sticky minimal nav */
+  .topbar {{ position:sticky; top:0; z-index:100; background:var(--bg); border-bottom:1px solid var(--border);
+    padding:8px 20px; display:flex; align-items:center; gap:16px; }}
+  .topbar h1 {{ font-size:16px; margin:0; white-space:nowrap; }}
+  .topbar h1 span {{ color:var(--gold); }}
+  .topbar nav {{ display:flex; gap:8px; margin-left:auto; }}
+  .topbar nav a {{ color:var(--muted); text-decoration:none; font-size:var(--fs-small); padding:4px 10px;
+    border-radius:6px; transition:color .15s; }}
+  .topbar nav a:hover {{ color:var(--accent); }}
 
-  .stats {{ display:flex; justify-content:center; gap:24px; flex-wrap:wrap; margin:24px 0; }}
-  .stat {{ text-align:center; }}
-  .stat .n {{ font-size:36px; font-weight:700; color:var(--accent); line-height:1; }}
-  .stat .l {{ font-size:12px; color:var(--muted); margin-top:4px; }}
+  /* Compact hero */
+  .hero {{ padding:20px 20px 12px; max-width:1200px; margin:0 auto; }}
+  .hero .tagline {{ color:var(--muted); font-size:var(--fs-body); margin:4px 0 12px; max-width:60ch; }}
 
-  .container {{ max-width:1100px; margin:0 auto; padding:0 20px; }}
+  .stats {{ display:flex; gap:12px; flex-wrap:wrap; margin:0 0 8px; }}
+  .stat {{ display:inline-flex; align-items:baseline; gap:6px; font-size:var(--fs-small); }}
+  .stat .n {{ font-size:20px; font-weight:700; color:var(--accent); }}
 
-  .nav {{ display:flex; gap:8px; justify-content:center; margin:32px 0; flex-wrap:wrap; }}
-  .nav a {{ background:var(--surface); border:1px solid var(--border); border-radius:8px;
-    padding:8px 16px; color:var(--fg); text-decoration:none; font-size:14px; font-weight:500; }}
-  .nav a:hover {{ border-color:var(--accent); color:var(--accent); }}
+  /* Breadcrumb journey */
+  .journey {{ display:flex; gap:4px; align-items:center; margin:12px 0 0; font-size:var(--fs-small); }}
+  .journey a {{ color:var(--accent); text-decoration:none; }}
+  .journey a:hover {{ text-decoration:underline; }}
+  .journey .sep {{ color:var(--border); }}
 
-  section {{ margin:48px 0; }}
-  section > h2 {{ font-size:22px; margin:0 0 8px; padding-bottom:8px; border-bottom:1px solid var(--border); }}
-  section > .desc {{ color:var(--muted); font-size:14px; margin:0 0 24px; }}
+  .container {{ max-width:1200px; margin:0 auto; padding:0 20px; }}
 
-  /* Guide section */
+  /* Instant search */
+  .search-bar {{ margin:16px 0; }}
+  .search-bar input {{ width:100%; max-width:400px; background:var(--surface); border:1px solid var(--border);
+    color:var(--fg); padding:8px 12px; border-radius:8px; font-size:var(--fs-body); }}
+  .search-bar input:focus {{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }}
+
+  section {{ margin:32px 0; }}
+  section > h2 {{ font-size:20px; margin:0 0 8px; padding-bottom:8px; border-bottom:1px solid var(--border); }}
+  section > .desc {{ color:var(--muted); font-size:var(--fs-small); margin:0 0 16px; max-width:66ch; }}
+
+  /* Guide — collapsed by default */
+  details.guide-wrap {{ margin:8px 0; }}
+  details.guide-wrap summary {{ cursor:pointer; color:var(--accent); font-size:var(--fs-body); font-weight:500;
+    padding:8px 0; }}
   .guide {{ background:var(--surface); border:1px solid var(--border); border-radius:12px;
-    padding:24px; margin:24px 0; }}
-  .guide h3 {{ margin:0 0 12px; color:var(--accent); font-size:16px; }}
-  .guide p {{ color:var(--muted); font-size:14px; margin:8px 0; }}
-  .guide ol, .guide ul {{ color:var(--fg); font-size:14px; padding-left:20px; }}
-  .guide li {{ margin:6px 0; }}
-  .guide code {{ background:#21262d; padding:2px 6px; border-radius:4px; font-size:13px; }}
+    padding:20px; margin:8px 0; }}
+  .guide h3 {{ margin:0 0 8px; color:var(--accent); font-size:var(--fs-body); }}
+  .guide p {{ color:var(--muted); font-size:var(--fs-body); margin:6px 0; max-width:66ch; }}
+  .guide ol, .guide ul {{ color:var(--fg); font-size:var(--fs-body); padding-left:20px; }}
+  .guide li {{ margin:4px 0; }}
 
   /* Model cards */
-  .cards-grid {{ display:grid; grid-template-columns:repeat(auto-fill, minmax(480px, 1fr)); gap:16px; }}
-  .model-card {{ background:var(--surface); border:1px solid var(--border); border-radius:12px;
-    overflow:hidden; transition:border-color .2s; }}
+  .cards-grid {{ display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:12px; }}
+  .model-card {{ background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    overflow:hidden; transition:border-color .15s; border-left:3px solid transparent; }}
   .model-card:hover {{ border-color:var(--accent); }}
-  .card-header {{ padding:20px 20px 12px; }}
-  .card-title-row {{ display:flex; gap:8px; align-items:center; margin-bottom:8px; }}
-  .layer-badge {{ display:inline-block; padding:2px 10px; border-radius:10px;
-    font-size:11px; font-weight:600; border:1px solid; }}
-  .conn-badge {{ font-size:11px; color:var(--muted); }}
-  .card-header h3 {{ margin:0; font-size:18px; }}
-  .mantra {{ font-style:italic; color:#e6edf3; font-size:15px; margin:6px 0 0; }}
-  .card-body {{ padding:0 20px 20px; }}
-  .card-section {{ margin:12px 0; }}
-  .card-section h4 {{ margin:0 0 4px; font-size:13px; color:var(--muted); }}
-  .card-section ul {{ margin:4px 0; padding-left:18px; font-size:13px; }}
-  .card-section li {{ margin:3px 0; }}
-  .card-section p {{ font-size:13px; margin:4px 0; }}
-  .card-links {{ font-size:12px; color:var(--muted); }}
-  .card-links div {{ margin:4px 0; }}
+  .model-card[data-layer="foundational"] {{ border-left-color:var(--gold); }}
+  .model-card[data-layer="structural"] {{ border-left-color:#3b82f6; }}
+  .model-card[data-layer="operational"] {{ border-left-color:#10b981; }}
+  .model-card[data-layer="security"] {{ border-left-color:#ef4444; }}
+  .model-card[data-layer="organizational"] {{ border-left-color:#a855f7; }}
+  .model-card[data-layer="data"] {{ border-left-color:#8b5cf6; }}
+  .card-header {{ padding:16px 16px 8px; }}
+  .card-title-row {{ display:flex; gap:6px; align-items:center; margin-bottom:4px; }}
+  .layer-badge {{ display:inline-block; padding:1px 8px; border-radius:8px;
+    font-size:var(--fs-micro); font-weight:600; border:1px solid; }}
+  .conn-badge {{ font-size:var(--fs-micro); color:var(--muted); }}
+  .card-header h3 {{ margin:0; font-size:16px; }}
+  .mantra {{ font-style:normal; font-weight:500; color:#fff; font-size:var(--fs-body);
+    margin:4px 0 0; border-left:3px solid var(--accent); padding-left:10px; }}
+  .card-body {{ padding:0 16px 16px; }}
+  .card-section {{ margin:10px 0; }}
+  .card-section h4 {{ margin:0 0 2px; font-size:var(--fs-small); color:var(--muted); }}
+  .card-section ul {{ margin:2px 0; padding-left:16px; font-size:var(--fs-body); line-height:1.7; }}
+  .card-section li {{ margin:2px 0; }}
+  .card-section p {{ font-size:var(--fs-body); margin:2px 0; max-width:66ch; }}
+  .card-links {{ font-size:var(--fs-small); color:var(--muted); }}
+  .card-links div {{ margin:3px 0; }}
   .card-links strong {{ color:var(--fg); }}
 
   /* Taxonomy */
-  .tax-group {{ margin:20px 0; }}
-  .tax-group h3 {{ font-size:15px; margin:0 0 8px; }}
-  .tax-count {{ font-weight:400; color:var(--muted); font-size:13px; }}
-  .tax-pills {{ display:flex; flex-wrap:wrap; gap:6px; }}
-  .tax-pill {{ display:inline-block; padding:3px 10px; background:#21262d;
-    border:1px solid var(--border); border-radius:16px; font-size:12px; }}
+  .tax-group {{ margin:16px 0; }}
+  .tax-group h3 {{ font-size:var(--fs-body); margin:0 0 6px; }}
+  .tax-count {{ font-weight:400; color:var(--muted); font-size:var(--fs-small); }}
+  .tax-pills {{ display:flex; flex-wrap:wrap; gap:4px; }}
+  .tax-pill {{ display:inline-block; padding:2px 8px; background:#21262d;
+    border:1px solid var(--border); border-radius:12px; font-size:var(--fs-micro); }}
   a.tax-pill.tax-link {{ background:#f59e0b15; color:var(--gold); text-decoration:none;
-    cursor:pointer; transition:background .2s, border-color .2s; }}
+    cursor:pointer; transition:background .15s, border-color .15s; }}
   a.tax-pill.tax-link:hover {{ background:#f59e0b30; border-color:var(--gold); }}
   a.tax-pill.tax-link::after {{ content:" →"; font-size:10px; }}
 
-  /* Card links */
   .model-link {{ color:var(--accent); text-decoration:none; }}
   .model-link:hover {{ text-decoration:underline; }}
-  .tree-link {{ display:inline-block; margin-top:12px; padding:6px 14px; background:#21262d;
-    border:1px solid var(--border); border-radius:8px; color:var(--accent);
-    text-decoration:none; font-size:13px; font-weight:500; transition:border-color .2s; }}
+  .tree-link {{ display:inline-block; margin-top:8px; padding:4px 12px; background:#21262d;
+    border:1px solid var(--border); border-radius:6px; color:var(--accent);
+    text-decoration:none; font-size:var(--fs-small); font-weight:500; transition:border-color .15s; }}
   .tree-link:hover {{ border-color:var(--accent); }}
 
-  /* Warnings/Anti-patterns */
   .warn-list {{ list-style:none; padding:0; }}
-  .warn-list li {{ padding:6px 12px; margin:4px 0; background:#21262d;
-    border-radius:8px; font-size:14px; }}
+  .warn-list li {{ padding:6px 12px; margin:3px 0; background:#21262d;
+    border-radius:6px; font-size:var(--fs-body); }}
 
-  /* Filter */
-  .filter-row {{ display:flex; gap:8px; margin:16px 0; flex-wrap:wrap; align-items:center; }}
-  .filter-chip {{ display:inline-flex; align-items:center; gap:4px; padding:4px 10px;
-    background:#21262d; border:1px solid var(--border); border-radius:16px;
-    font-size:12px; cursor:pointer; }}
+  .filter-row {{ display:flex; gap:6px; margin:12px 0; flex-wrap:wrap; align-items:center; }}
+  .filter-chip {{ display:inline-flex; align-items:center; gap:4px; padding:3px 8px;
+    background:#21262d; border:1px solid var(--border); border-radius:12px;
+    font-size:var(--fs-micro); cursor:pointer; }}
   .filter-chip input {{ margin:0; }}
-  .filter-chip.active {{ border-color:var(--accent); }}
 
   @media (max-width:600px) {{
     .cards-grid {{ grid-template-columns:1fr; }}
-    .hero h1 {{ font-size:24px; }}
-    .stats {{ gap:16px; }}
+    .topbar h1 {{ font-size:14px; }}
+    .topbar nav {{ gap:4px; }}
+  }}
+  @media (prefers-reduced-motion: reduce) {{
+    * {{ transition:none !important; }}
   }}
 </style>
 </head>
 <body>
 
+<div class="topbar">
+  <h1><span>Mental Models</span> · Mission-Critical</h1>
+  <nav>
+    <a href="#cards">Cards</a>
+    <a href="#warnings">Anti-patterns</a>
+    <a href="#taxonomy">Taxonomy</a>
+    <a href="../graph.html">Graph</a>
+  </nav>
+</div>
+
 <div class="hero">
-  <h1>🧠 <span>Mental Models</span> for Mission-Critical Systems</h1>
-  <div class="subtitle">
-    54 mental models, 161 patterns, 9 anti-patterns extracted from 880 entities
-    across 34 Azure Well-Architected Framework documents using LightRAG + Claude Opus 4.6
-  </div>
+  <div class="tagline">Scan, drill, connect — one card per model, grounded in Azure WAF docs.</div>
   <div class="stats">
-    <div class="stat"><div class="n">54</div><div class="l">Mental Models</div></div>
-    <div class="stat"><div class="n">161</div><div class="l">Patterns</div></div>
-    <div class="stat"><div class="n">168</div><div class="l">Azure Services</div></div>
-    <div class="stat"><div class="n">980</div><div class="l">Relations</div></div>
-    <div class="stat"><div class="n">9</div><div class="l">Anti-patterns</div></div>
+    <div class="stat"><span class="n">{len(cards)}</span> models</div>
+    <div class="stat"><span class="n">161</span> patterns</div>
+    <div class="stat"><span class="n">980</span> relations</div>
+    <div class="stat"><span class="n">9</span> anti-patterns</div>
   </div>
-  <div class="nav">
-    <a href="#journey">🗺️ Guided journey</a>
-    <a href="#guide">📖 How to use</a>
-    <a href="#cards">🃏 Model cards</a>
-    <a href="#taxonomy">📂 Full taxonomy</a>
-    <a href="#warnings">⚠️ Anti-patterns</a>
-    <a href="../graph.html">🕸️ Knowledge graph</a>
+  <div class="journey">
+    <a href="../graph.html">Graph</a><span class="sep">→</span>
+    <a href="#cards">Cards</a><span class="sep">→</span>
+    <a href="cards/">Trees</a><span class="sep">→</span>
+    <a href="#warnings">Anti-patterns</a>
   </div>
 </div>
 
 <div class="container">
 
-  <section id="journey">
-    <h2>🗺️ Your exploration journey</h2>
-    <p class="desc">Follow this path from big picture to deep detail. Each step links to the next.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0;">
-      <div class="guide" style="text-align:center;padding:20px;">
-        <div style="font-size:32px;margin-bottom:8px;">1️⃣</div>
-        <h3 style="margin:0 0 8px;">Explore the graph</h3>
-        <p style="margin:0 0 12px;">See how 880 concepts connect across all 5 WAF pillars. Find clusters, bridges, and hidden relationships.</p>
-        <a href="../graph.html" style="color:var(--accent);font-size:13px;font-weight:600;">Open knowledge graph →</a>
-      </div>
-      <div class="guide" style="text-align:center;padding:20px;">
-        <div style="font-size:32px;margin-bottom:8px;">2️⃣</div>
-        <h3 style="margin:0 0 8px;">Read the model cards</h3>
-        <p style="margin:0 0 12px;">54 mental models ranked by importance. Each card tells you <em>when</em> to apply it and <em>what breaks</em> without it.</p>
-        <a href="#cards" style="color:var(--accent);font-size:13px;font-weight:600;">Browse cards below ↓</a>
-      </div>
-      <div class="guide" style="text-align:center;padding:20px;">
-        <div style="font-size:32px;margin-bottom:8px;">3️⃣</div>
-        <h3 style="margin:0 0 8px;">Drill into a tree</h3>
-        <p style="margin:0 0 12px;">Click any card name to see its radial connection tree — which patterns, services, and processes surround it.</p>
-        <a href="cards/" style="color:var(--accent);font-size:13px;font-weight:600;">Browse all trees →</a>
-      </div>
-      <div class="guide" style="text-align:center;padding:20px;">
-        <div style="font-size:32px;margin-bottom:8px;">4️⃣</div>
-        <h3 style="margin:0 0 8px;">Check anti-patterns</h3>
-        <p style="margin:0 0 12px;">9 known failure modes extracted from the docs. If you recognize your system here, act now.</p>
-        <a href="#warnings" style="color:var(--accent);font-size:13px;font-weight:600;">See warnings ↓</a>
-      </div>
-    </div>
-  </section>
-
   <section id="guide">
-    <h2>📖 How to use this information</h2>
-    <p class="desc">This is a decision-support tool, not a checklist. Use it to build architectural intuition.</p>
+    <details class="guide-wrap">
+      <summary>How to use this information</summary>
 
     <div class="guide">
       <h3>For architects starting a new mission-critical project</h3>
@@ -359,20 +358,25 @@ page = f"""<!doctype html>
       <p><strong>Bridge score</strong> = how much a concept connects otherwise-disconnected parts of the graph. High bridge = removing this concept would fragment understanding.</p>
       <p><strong>Layer</strong> = where the model sits in the thinking hierarchy. You must internalize lower layers before upper layers are useful.</p>
     </div>
+    </details>
   </section>
 
   <section id="cards">
-    <h2>🃏 Mental Model Cards</h2>
-    <p class="desc">Top {len(cards)} mental models ranked by graph centrality. Each card is one screen — mantra first, details on demand.</p>
+    <h2>Mental Model Cards</h2>
+    <p class="desc">{len(cards)} models ranked by centrality. Click name → tree diagram. Click "Builds on" → related card.</p>
+
+    <div class="search-bar">
+      <input id="card-search" type="search" placeholder="Search cards by name, mantra, or keyword…" autocomplete="off"/>
+    </div>
 
     <div class="filter-row">
-      <span style="color:var(--muted);font-size:12px;">Filter by layer:</span>
       <label class="filter-chip"><input type="checkbox" data-layer="all" checked/> All</label>
-      <label class="filter-chip"><input type="checkbox" data-layer="foundational" checked/> 🧠 Foundational</label>
-      <label class="filter-chip"><input type="checkbox" data-layer="structural" checked/> 🏗️ Structural</label>
-      <label class="filter-chip"><input type="checkbox" data-layer="operational" checked/> ⚙️ Operational</label>
-      <label class="filter-chip"><input type="checkbox" data-layer="security" checked/> 🔒 Security</label>
-      <label class="filter-chip"><input type="checkbox" data-layer="data" checked/> 📊 Data</label>
+      <label class="filter-chip"><input type="checkbox" data-layer="foundational" checked/> Foundational</label>
+      <label class="filter-chip"><input type="checkbox" data-layer="structural" checked/> Structural</label>
+      <label class="filter-chip"><input type="checkbox" data-layer="operational" checked/> Operational</label>
+      <label class="filter-chip"><input type="checkbox" data-layer="security" checked/> Security</label>
+      <label class="filter-chip"><input type="checkbox" data-layer="organizational" checked/> Organizational</label>
+      <label class="filter-chip"><input type="checkbox" data-layer="data" checked/> Data</label>
     </div>
 
     <div class="cards-grid">
@@ -411,22 +415,29 @@ page = f"""<!doctype html>
 </div>
 
 <script>
+// Instant search + layer filter
+function filterCards() {{
+  const q = (document.getElementById('card-search').value || '').toLowerCase();
+  const active = new Set();
+  const showAll = document.querySelector('[data-layer=all]').checked;
+  document.querySelectorAll('.filter-row input:checked').forEach(c => {{
+    if (c.dataset.layer !== 'all') active.add(c.dataset.layer);
+  }});
+  document.querySelectorAll('.model-card').forEach(card => {{
+    const layerOk = showAll || active.has(card.dataset.layer);
+    const textOk = !q || card.textContent.toLowerCase().includes(q);
+    card.style.display = (layerOk && textOk) ? '' : 'none';
+  }});
+}}
+document.getElementById('card-search').addEventListener('input', filterCards);
 document.querySelectorAll('.filter-row input').forEach(cb => {{
   cb.addEventListener('change', () => {{
-    const allCb = document.querySelector('[data-layer=all]');
     if (cb.dataset.layer === 'all') {{
       document.querySelectorAll('.filter-row input').forEach(c => c.checked = cb.checked);
     }} else {{
-      allCb.checked = false;
+      document.querySelector('[data-layer=all]').checked = false;
     }}
-    const active = new Set();
-    document.querySelectorAll('.filter-row input:checked').forEach(c => {{
-      if (c.dataset.layer !== 'all') active.add(c.dataset.layer);
-    }});
-    const showAll = document.querySelector('[data-layer=all]').checked;
-    document.querySelectorAll('.model-card').forEach(card => {{
-      card.style.display = (showAll || active.has(card.dataset.layer)) ? '' : 'none';
-    }});
+    filterCards();
   }});
 }});
 </script>
