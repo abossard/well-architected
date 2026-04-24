@@ -1,518 +1,695 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Knowledge Graph — Mission-Critical Azure Well-Architected</title>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<style>
-  :root {
-    --bg:#0d1117; --surface:#161b22; --panel:#161b22; --border:#30363d;
-    --fg:#c9d1d9; --muted:#8b949e; --accent:#58a6ff; --gold:#f59e0b;
-    --fs-body:15px; --fs-small:13px; --fs-micro:12px;
-    --mental-model:#f59e0b; --pattern:#3b82f6; --azure-service:#6366f1;
-    --process:#10b981; --concept:#8b949e; --metric:#ef4444;
-    --tradeoff:#7dd3fc; --anti-pattern:#f87171; --other:#4b5563;
-    --edge:#30363d; --edge-hi:#ffd33d;
-  }
-  * { box-sizing:border-box; }
-  html, body { margin:0; padding:0; height:100%; background:var(--bg); color:var(--fg);
-    font:var(--fs-body)/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graph · Mental Models · Azure WAF</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #1c2128;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #f59e0b;
+      --accent-2: #6366f1;
+      --link: #58a6ff;
+      --mm: #f59e0b;
+      --pattern: #3b82f6;
+      --service: #6366f1;
+      --process: #22c55e;
+      --concept: #9ca3af;
+      --metric: #ef4444;
+      --tradeoff: #a855f7;
+      --anti: #e11d48;
+      --other: #64748b;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.65; }
+    body { display: grid; grid-template-rows: 48px 1fr; grid-template-columns: 1fr 400px; grid-template-areas: "toolbar toolbar" "graph sidebar"; }
 
-  :focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+    header#toolbar { grid-area: toolbar; display: flex; align-items: center; gap: 12px; padding: 0 14px; background: var(--surface); border-bottom: 1px solid var(--border); min-height: 48px; }
+    header#toolbar a.home { color: var(--muted); text-decoration: none; font-size: 0.9rem; padding: 6px 10px; border-radius: 6px; }
+    header#toolbar a.home:hover { color: var(--text); background: var(--surface-2); }
+    header#toolbar input#search { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 7px 12px; font-size: 0.95rem; border-radius: 6px; min-width: 240px; }
+    header#toolbar input#search:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: transparent; }
+    header#toolbar nav { display: flex; gap: 4px; }
+    header#toolbar nav button { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 6px 12px; font-size: 0.85rem; border-radius: 6px; cursor: pointer; }
+    header#toolbar nav button:hover { color: var(--text); }
+    header#toolbar nav button.active { background: var(--accent); color: #0d1117; border-color: var(--accent); font-weight: 600; }
+    header#toolbar .spacer { flex: 1; }
+    header#toolbar .fps { color: var(--muted); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+    header#toolbar #breadcrumb { display: flex; gap: 4px; align-items: center; overflow-x: auto; max-width: 40vw; font-size: 0.85rem; color: var(--muted); }
+    header#toolbar #breadcrumb button { background: transparent; color: var(--link); border: none; cursor: pointer; padding: 2px 4px; font-size: 0.85rem; }
+    header#toolbar #breadcrumb button:hover { text-decoration: underline; }
+    header#toolbar #breadcrumb .sep { color: var(--border); }
 
-  /* Sticky mini nav */
-  .topbar { position:sticky; top:0; z-index:100; background:var(--bg);
-    border-bottom:1px solid var(--border); padding:8px 16px;
-    display:flex; align-items:center; gap:12px; height:44px; }
-  .topbar h1 { font-size:15px; margin:0; font-weight:600; white-space:nowrap; }
-  .topbar h1 span { color:var(--gold); }
-  .topbar nav { display:flex; gap:4px; margin-left:auto; font-size:var(--fs-small); }
-  .topbar nav a { color:var(--muted); text-decoration:none; padding:4px 10px;
-    border-radius:6px; transition:color .15s, background .15s; }
-  .topbar nav a:hover { color:var(--accent); background:var(--surface); }
+    main#graph-area { grid-area: graph; position: relative; overflow: hidden; background: var(--bg); }
+    main#graph-area canvas, main#graph-area svg.overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+    main#graph-area svg.overlay { pointer-events: none; }
+    main#graph-area svg.overlay text { fill: var(--text); font-size: 12px; font-family: inherit; paint-order: stroke; stroke: #0d1117; stroke-width: 3px; stroke-linejoin: round; }
+    main#graph-area svg.overlay text.mm { fill: var(--accent); font-weight: 600; }
+    main#graph-area .hint { position: absolute; top: 12px; left: 12px; color: var(--muted); font-size: 0.82rem; background: rgba(22,27,34,0.9); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); pointer-events: none; }
+    main#graph-area .hint kbd { background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; font-family: ui-monospace, monospace; font-size: 0.78rem; }
+    main#graph-area .legend { position: absolute; bottom: 12px; left: 12px; background: rgba(22,27,34,0.92); padding: 8px 10px; border-radius: 6px; border: 1px solid var(--border); font-size: 0.78rem; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; max-width: 520px; }
+    main#graph-area .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
 
-  #app { display:flex; height:calc(100vh - 45px); }
+    aside#sidebar { grid-area: sidebar; background: var(--surface); border-left: 1px solid var(--border); overflow-y: auto; padding: 24px; }
+    aside#sidebar .empty { color: var(--muted); padding: 32px 8px; text-align: center; }
+    aside#sidebar header.card { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    aside#sidebar header.card svg { width: 26px; height: 26px; flex: none; }
+    aside#sidebar header.card h2 { margin: 0; font-size: 1.45rem; line-height: 1.2; letter-spacing: -0.01em; flex: 1; }
+    aside#sidebar .pill { display: inline-block; background: var(--surface-2); border: 1px solid var(--border); padding: 2px 8px; font-size: 0.72rem; border-radius: 999px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    aside#sidebar blockquote { margin: 8px 0 18px; padding: 10px 14px; background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 6px; font-style: normal; color: var(--text); font-size: 1rem; }
+    aside#sidebar .desc { color: var(--muted); margin: 0 0 18px; }
+    aside#sidebar section { margin: 0 0 18px; padding: 0; }
+    aside#sidebar section h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
+    aside#sidebar section ul { margin: 0; padding-left: 18px; }
+    aside#sidebar section ul li { margin: 3px 0; }
+    aside#sidebar .tradeoff { background: var(--surface-2); border-left: 3px solid var(--tradeoff); padding: 10px 12px; border-radius: 6px; color: var(--text); font-size: 0.95rem; }
+    aside#sidebar .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    aside#sidebar .chips button { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); padding: 5px 10px; border-radius: 999px; font-size: 0.85rem; cursor: pointer; font-family: inherit; text-align: left; }
+    aside#sidebar .chips button:hover { border-color: var(--accent); color: var(--accent); }
+    aside#sidebar .chips button.mm { border-left: 3px solid var(--accent); }
+    aside#sidebar .chips button.pattern { border-left: 3px solid var(--pattern); }
+    aside#sidebar .chips button.service { border-left: 3px solid var(--service); }
+    aside#sidebar .chips button.missing { opacity: 0.55; cursor: not-allowed; border-style: dashed; }
+    aside#sidebar .sources a { display: block; color: var(--link); text-decoration: none; padding: 6px 10px; border: 1px solid var(--border); border-left: 3px solid var(--accent-2); border-radius: 6px; margin-bottom: 6px; font-size: 0.9rem; }
+    aside#sidebar .sources a:hover { background: var(--surface-2); }
+    aside#sidebar .sources a small { display: block; color: var(--muted); font-size: 0.78rem; margin-top: 2px; }
+    aside#sidebar footer.nav { display: flex; justify-content: space-between; gap: 8px; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border); }
+    aside#sidebar footer.nav button { flex: 1; background: var(--surface-2); color: var(--text); border: 1px solid var(--border); padding: 8px 10px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.9rem; }
+    aside#sidebar footer.nav button:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* Sidebar */
-  #sidebar { width:320px; flex-shrink:0; background:var(--panel);
-    border-right:1px solid var(--border); padding:16px; overflow-y:auto;
-    font-size:var(--fs-body); line-height:1.65; }
-  #sidebar > * { max-width:66ch; }
-
-  .section { margin-bottom:20px; }
-  .section h2 { font-size:var(--fs-small); text-transform:uppercase;
-    letter-spacing:.06em; color:var(--muted); margin:0 0 8px; font-weight:600; }
-
-  /* Onboarding banner */
-  .onboard { background:var(--surface); border:1px solid var(--border);
-    border-left:3px solid var(--gold); border-radius:8px;
-    padding:12px 14px; margin-bottom:16px; position:relative;
-    font-size:var(--fs-small); line-height:1.5; }
-  .onboard strong { color:var(--gold); display:block; margin-bottom:2px; font-size:var(--fs-body); }
-  .onboard p { margin:0; color:var(--fg); }
-  .onboard button.dismiss { position:absolute; top:6px; right:6px;
-    background:transparent; border:none; color:var(--muted); cursor:pointer;
-    font-size:18px; line-height:1; padding:4px 8px; border-radius:4px; }
-  .onboard button.dismiss:hover { color:var(--fg); background:var(--border); }
-
-  /* Preset buttons */
-  .presets { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
-  .preset-btn { flex:1; min-width:fit-content; background:var(--surface);
-    color:var(--fg); border:1px solid var(--border); border-radius:8px;
-    padding:8px 10px; font-size:var(--fs-small); cursor:pointer;
-    transition:border-color .15s, background .15s; font-weight:500; }
-  .preset-btn:hover { border-color:var(--accent); }
-  .preset-btn.active { border-color:var(--accent); background:rgba(88,166,255,.12); color:var(--accent); }
-
-  input[type=search], input[type=text] { width:100%; background:var(--bg);
-    border:1px solid var(--border); color:var(--fg); padding:8px 10px;
-    border-radius:8px; font-size:var(--fs-body); }
-  input[type=search]:focus { border-color:var(--accent); outline:2px solid var(--accent); outline-offset:1px; }
-
-  /* Chips */
-  .chip { display:inline-flex; align-items:center; gap:6px; margin:2px 4px 2px 0;
-    padding:3px 8px; background:#21262d; border:1px solid var(--border);
-    border-radius:12px; font-size:var(--fs-micro); cursor:pointer; user-select:none; }
-  .chip input { margin:0; }
-  .chip.MENTAL_MODEL { border-color:var(--mental-model); }
-  .chip.PATTERN      { border-color:var(--pattern); }
-  .chip.AZURE_SERVICE{ border-color:var(--azure-service); }
-  .chip.PROCESS      { border-color:var(--process); }
-  .chip.CONCEPT      { border-color:var(--concept); }
-  .chip.METRIC       { border-color:var(--metric); }
-  .chip.TRADEOFF     { border-color:var(--tradeoff); }
-  .chip.ANTI_PATTERN { border-color:var(--anti-pattern); }
-  .chip.OTHER        { border-color:var(--other); }
-  .swatch { width:10px; height:10px; border-radius:50%; display:inline-block; }
-
-  /* Advanced details */
-  details.advanced { margin-top:8px; border:1px solid var(--border);
-    border-radius:8px; background:var(--surface); }
-  details.advanced > summary { cursor:pointer; padding:10px 12px;
-    font-size:var(--fs-small); color:var(--accent); font-weight:500;
-    list-style:none; user-select:none; }
-  details.advanced > summary::-webkit-details-marker { display:none; }
-  details.advanced > summary::before { content:"▸ "; display:inline-block;
-    transition:transform .15s; }
-  details.advanced[open] > summary::before { transform:rotate(90deg); }
-  details.advanced .inner { padding:4px 12px 12px; border-top:1px solid var(--border); }
-  details.advanced .inner .section:last-child { margin-bottom:0; }
-
-  .slider { width:100%; }
-
-  button { background:var(--surface); color:var(--fg); border:1px solid var(--border);
-    border-radius:6px; padding:5px 12px; font-size:var(--fs-small); cursor:pointer; }
-  button:hover { border-color:var(--accent); }
-
-  /* Selection panel */
-  #sel { font-size:var(--fs-body); line-height:1.55; }
-  #sel .sel-empty { color:var(--muted); font-style:normal; border-left:2px solid var(--border);
-    padding-left:10px; }
-  #sel .sel-title { color:var(--fg); font-weight:600; font-size:var(--fs-body); }
-  #sel .sel-meta { color:var(--muted); font-size:var(--fs-small); margin:2px 0 8px; }
-  #sel .sel-label { color:var(--muted); font-size:var(--fs-small); margin-top:8px; }
-  #sel a, #sel a:visited { color:var(--accent); }
-
-  #stats { color:var(--muted); font-size:var(--fs-micro); margin-top:12px;
-    padding-top:12px; border-top:1px solid var(--border); }
-
-  /* Graph */
-  #graph { flex:1; position:relative; min-width:0; }
-  svg { width:100%; height:100%; display:block; cursor:grab; }
-  svg:active { cursor:grabbing; }
-  .node circle { stroke:#0d1117; stroke-width:1.5; cursor:pointer; }
-  .node:focus-visible circle { stroke:var(--accent); stroke-width:2.5; }
-  .node text { fill:var(--fg); font-size:10px; pointer-events:none;
-    paint-order:stroke; stroke:#0d1117; stroke-width:3px; stroke-linejoin:round;
-    display:none; }
-  .node.show-label text, .node.hover-label text { display:block; }
-  .node.dim { opacity:0.08; }
-  .link { stroke:var(--edge); stroke-opacity:0.5; }
-  .link.hi { stroke:var(--edge-hi); stroke-opacity:0.95; }
-  .link.dim { stroke-opacity:0.05; }
-
-  #tooltip { position:absolute; pointer-events:none; background:var(--surface);
-    border:1px solid var(--border); border-radius:8px; padding:8px 10px;
-    font-size:var(--fs-small); max-width:320px; box-shadow:0 6px 16px rgba(0,0,0,.5);
-    opacity:0; transition:opacity .1s; z-index:20; }
-  #tooltip h3 { margin:0 0 4px; font-size:var(--fs-body); color:var(--accent); }
-  #tooltip .meta { color:var(--muted); font-size:var(--fs-micro); }
-
-  #legend { position:absolute; right:12px; top:12px; background:rgba(22,27,34,.92);
-    border:1px solid var(--border); border-radius:8px; padding:10px 12px;
-    font-size:var(--fs-micro); z-index:10; }
-  #legend .row { display:flex; align-items:center; gap:8px; margin:3px 0; }
-
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    * { transition:none !important; animation:none !important; }
-    svg { cursor:default; }
-  }
-
-  @media (max-width: 800px) {
-    #app { flex-direction:column; height:auto; }
-    #sidebar { width:100%; max-height:40vh; border-right:none;
-      border-bottom:1px solid var(--border); }
-    #graph { height:60vh; }
-  }
-</style>
+    @media (max-width: 900px) {
+      body { grid-template-columns: 1fr; grid-template-rows: 48px 60vh 40vh; grid-template-areas: "toolbar" "graph" "sidebar"; }
+      aside#sidebar { border-left: none; border-top: 1px solid var(--border); }
+      header#toolbar #breadcrumb { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-<header class="topbar">
-  <h1>Knowledge <span>Graph</span></h1>
-  <nav aria-label="Primary">
-    <a href="mental_models/">← Home</a>
-    <a href="#" aria-current="page" style="color:var(--fg);">Graph Explorer</a>
-    <a href="mental_models/#cards">Mental Models →</a>
+<header id="toolbar">
+  <a class="home" href="index.html">← Home</a>
+  <input id="search" placeholder="Search… (/)" autocomplete="off" />
+  <nav id="filters" role="group" aria-label="filters">
+    <button data-f="mental">Mental Models</button>
+    <button data-f="patterns">Patterns + Services</button>
+    <button data-f="all" class="active">Everything</button>
   </nav>
+  <div id="breadcrumb" aria-label="path"></div>
+  <div class="spacer"></div>
+  <span class="fps" id="fps" title="frames per second"></span>
 </header>
 
-<div id="app">
-  <aside id="sidebar" aria-label="Graph controls">
-
-    <div class="onboard" id="onboard" role="note" hidden>
-      <button class="dismiss" id="onboardDismiss" aria-label="Dismiss tip">×</button>
-      <strong><span aria-hidden="true">👋 </span>Start here</strong>
-      <p>Click any <strong>large node</strong> to inspect it. Hover to highlight neighbors. Use the presets below to focus.</p>
-    </div>
-
-    <div class="section">
-      <h2>Views</h2>
-      <div class="presets" role="group" aria-label="Preset views">
-        <button class="preset-btn" data-preset="models">Mental Models</button>
-        <button class="preset-btn" data-preset="patterns">Patterns + Services</button>
-        <button class="preset-btn active" data-preset="all">Everything</button>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Search</h2>
-      <input id="q" type="search" placeholder="Filter nodes by label…" aria-label="Filter nodes"/>
-    </div>
-
-    <div class="section">
-      <h2>Selection</h2>
-      <div id="sel"><div class="sel-empty">No node selected yet. Click one on the graph.</div></div>
-    </div>
-
-    <details class="advanced">
-      <summary>Advanced filters</summary>
-      <div class="inner">
-
-        <div class="section">
-          <h2>Node types</h2>
-          <label class="chip MENTAL_MODEL"><input type="checkbox" data-type="MENTAL_MODEL" checked/><span class="swatch" style="background:var(--mental-model)"></span>Mental model</label>
-          <label class="chip PATTERN"><input type="checkbox" data-type="PATTERN" checked/><span class="swatch" style="background:var(--pattern)"></span>Pattern</label>
-          <label class="chip AZURE_SERVICE"><input type="checkbox" data-type="AZURE_SERVICE" checked/><span class="swatch" style="background:var(--azure-service)"></span>Azure service</label>
-          <label class="chip PROCESS"><input type="checkbox" data-type="PROCESS" checked/><span class="swatch" style="background:var(--process)"></span>Process</label>
-          <label class="chip CONCEPT"><input type="checkbox" data-type="CONCEPT" checked/><span class="swatch" style="background:var(--concept)"></span>Concept</label>
-          <label class="chip METRIC"><input type="checkbox" data-type="METRIC" checked/><span class="swatch" style="background:var(--metric)"></span>Metric</label>
-          <label class="chip TRADEOFF"><input type="checkbox" data-type="TRADEOFF" checked/><span class="swatch" style="background:var(--tradeoff)"></span>Tradeoff</label>
-          <label class="chip ANTI_PATTERN"><input type="checkbox" data-type="ANTI_PATTERN" checked/><span class="swatch" style="background:var(--anti-pattern)"></span>Anti-pattern</label>
-          <label class="chip OTHER"><input type="checkbox" data-type="OTHER"/><span class="swatch" style="background:var(--other)"></span>Other</label>
-        </div>
-
-        <div class="section">
-          <h2>Min connections: <span id="mmv">1</span></h2>
-          <input id="mm" class="slider" type="range" min="1" max="50" value="1" aria-label="Minimum connections"/>
-        </div>
-
-        <div class="section">
-          <h2>Display</h2>
-          <label class="chip"><input id="lbl" type="checkbox"/>always show labels</label>
-          <div style="margin-top:6px; display:flex; gap:6px;">
-            <button id="reheat">Reheat layout</button>
-            <button id="reset">Reset view</button>
-          </div>
-        </div>
-
-      </div>
-    </details>
-
-    <div id="stats"></div>
-  </aside>
-
-  <div id="graph">
-    <svg role="img" aria-label="Knowledge graph visualization"></svg>
-    <div id="tooltip" role="tooltip"></div>
-    <div id="legend" aria-label="Legend">
-      <div class="row"><span class="swatch" style="background:var(--mental-model)"></span>Mental model</div>
-      <div class="row"><span class="swatch" style="background:var(--pattern)"></span>Pattern</div>
-      <div class="row"><span class="swatch" style="background:var(--azure-service)"></span>Azure service</div>
-      <div class="row"><span class="swatch" style="background:var(--process)"></span>Process</div>
-      <div class="row"><span class="swatch" style="background:var(--concept)"></span>Concept</div>
-      <div class="row"><span class="swatch" style="background:var(--metric)"></span>Metric</div>
-      <div class="row"><span class="swatch" style="background:var(--tradeoff)"></span>Tradeoff</div>
-      <div class="row"><span class="swatch" style="background:var(--anti-pattern)"></span>Anti-pattern</div>
-    </div>
+<main id="graph-area">
+  <canvas id="graph"></canvas>
+  <svg class="overlay" id="overlay"></svg>
+  <div class="hint">
+    Scroll to zoom · drag to pan · <kbd>/</kbd> search · <kbd>←</kbd>/<kbd>→</kbd> next model · <kbd>Esc</kbd> clear
   </div>
-</div>
+  <div class="legend" id="legend"></div>
+</main>
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
+<aside id="sidebar"><div class="empty">Select a node to see details.<br /><small>Tip: hover in the graph to preview.</small></div></aside>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script>
-const COLORS={
+(() => {
+"use strict";
+
+// ─── constants ────────────────────────────────────────────────────────────
+const TYPE_COLORS = {
   MENTAL_MODEL:"#f59e0b", PATTERN:"#3b82f6", AZURE_SERVICE:"#6366f1",
-  PROCESS:"#10b981", CONCEPT:"#8b949e", METRIC:"#ef4444",
-  TRADEOFF:"#7dd3fc", ANTI_PATTERN:"#f87171", OTHER:"#4b5563"
+  PROCESS:"#22c55e", CONCEPT:"#9ca3af", METRIC:"#ef4444",
+  ANTI_PATTERN:"#e11d48", TRADEOFF:"#a855f7", OTHER:"#64748b",
 };
-// Lucide icons (MIT, lucide.dev). 24x24 viewBox, stroke-based. Rendered white inside colored circles.
-const ICONS={
-  MENTAL_MODEL:"M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 0 0 12 18Z M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 0 1 12 18Z M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4",
-  PATTERN:"M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 1.998 12c0-.617.236-1.234.706-1.704L4.23 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.525A2.402 2.402 0 0 1 12 1.998c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z",
-  AZURE_SERVICE:"M17.5 19a4.5 4.5 0 1 0-1.41-8.775 5.5 5.5 0 0 0-10.796 2.08A4.002 4.002 0 0 0 6 19h11.5Z",
-  PROCESS:"M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62v-1.993l-2.378-.59Z",
-  CONCEPT:"M9 18h6 M10 22h4 M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14",
-  METRIC:"M22 12h-4l-3 9L9 3l-3 9H2",
-  TRADEOFF:"m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z M7 21h10 M12 3v18 M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2",
-  ANTI_PATTERN:"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z M12 9v4 M12 17h.01",
-  OTHER:"M12 12 m-9 0 a9 9 0 1 0 18 0 a9 9 0 1 0 -18 0 M12 8v4 M12 16h.01"
+const TYPE_LABELS = {
+  MENTAL_MODEL:"Mental Model", PATTERN:"Pattern", AZURE_SERVICE:"Azure Service",
+  PROCESS:"Process", CONCEPT:"Concept", METRIC:"Metric",
+  ANTI_PATTERN:"Anti-pattern", TRADEOFF:"Tradeoff", OTHER:"Other",
 };
-const ALL_TYPES = ["MENTAL_MODEL","PATTERN","AZURE_SERVICE","PROCESS","CONCEPT","METRIC","TRADEOFF","ANTI_PATTERN","OTHER"];
-const PREFERS_REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// Lucide icon paths (24x24 viewBox, stroke-based). Sourced from lucide.dev (MIT).
+const ICON_PATHS = {
+  MENTAL_MODEL: "M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 0 0 12 18Z M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 0 1 12 18Z M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4",
+  PATTERN:      "M19.44 7.85a1 1 0 0 0 .29.88l1.57 1.57c.47.47.7 1.09.7 1.7s-.23 1.24-.7 1.71l-1.61 1.61a.98.98 0 0 1-.84.27c-.47-.07-.8-.48-.97-.92a2.5 2.5 0 1 0-3.21 3.21c.45.17.85.5.92.97a.98.98 0 0 1-.27.84l-1.61 1.61A2.4 2.4 0 0 1 12 22a2.4 2.4 0 0 1-1.7-.71l-1.57-1.57a1 1 0 0 0-.88-.29.97.97 0 0 0-1.02.97 2.5 2.5 0 1 1-3.23-3.24.97.97 0 0 0 .97-1.02 1 1 0 0 0-.29-.88l-1.57-1.57A2.4 2.4 0 0 1 2 12c0-.62.24-1.24.7-1.7l1.53-1.53a1 1 0 0 1 .92-.3c.51.08.87.53 1.07 1.01a2.5 2.5 0 1 0 3.26-3.26c-.48-.2-.93-.56-1.01-1.07a1 1 0 0 1 .3-.92l1.53-1.52A2.4 2.4 0 0 1 12 2a2.4 2.4 0 0 1 1.7.7l1.57 1.57a1 1 0 0 0 .88.3c.5-.08.84-.51 1.02-.97a2.5 2.5 0 1 1 3.24 3.23c-.47.18-.9.52-.97 1.02Z",
+  AZURE_SERVICE:"M17.5 19a4.5 4.5 0 1 0-1.41-8.78 5.5 5.5 0 0 0-10.8 2.08A4 4 0 0 0 6 19h11.5Z",
+  PROCESS:      "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z M19.62 10.4l-1.1-2.65L20 6l-2-2-1.74 1.48-2.7-1.11L12.93 2h-1.95l-.63 2.4L7.7 5.52 6 4 4 6l1.45 1.79-1.08 2.66L2 11v2l2.4.66 1.12 2.64L4 18l2 2 1.8-1.46 2.6 1.07L11 22h2l.6-2.4 2.65-1.09c.45.13 1.75 1.3 1.75 1.3l2-2-1.48-1.75 1.1-2.65 2.38-.62v-2l-2.38-.58Z",
+  CONCEPT:      "M9 18h6 M10 22h4 M15.1 14c.18-.98.65-1.74 1.4-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.6 4.6 0 0 1 8.9 14",
+  METRIC:       "M22 12h-4l-3 9L9 3l-3 9H2",
+  TRADEOFF:     "m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z M7 21h10 M12 3v18 M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2",
+  ANTI_PATTERN: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z M12 9v4 M12 17h.01",
+  OTHER:        "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z M12 8v4 M12 16h.01",
+};
+const ICON_PATH2D = {};
+Object.entries(ICON_PATHS).forEach(([k, v]) => { try { ICON_PATH2D[k] = new Path2D(v); } catch (e) { ICON_PATH2D[k] = null; } });
 
-const PRESETS = {
-  models:   { types:["MENTAL_MODEL","TRADEOFF"],                minMentions:1 },
-  patterns: { types:["PATTERN","AZURE_SERVICE"],                minMentions:1 },
-  all:      { types:ALL_TYPES,                                  minMentions:1 }
+const FILTERS = {
+  mental:   n => n.type === "MENTAL_MODEL",
+  patterns: n => n.type === "PATTERN" || n.type === "AZURE_SERVICE" || n.type === "MENTAL_MODEL",
+  all:      _ => true,
 };
 
-// Onboarding
-(function(){
-  const ob = document.getElementById("onboard");
-  if (!localStorage.getItem("kgOnboardingDismissed")) ob.hidden = false;
-  document.getElementById("onboardDismiss").addEventListener("click", () => {
-    ob.hidden = true;
-    localStorage.setItem("kgOnboardingDismissed","1");
+const EDGE_COLORS = {
+  builds_on:      "rgba(245,158,11,0.55)",
+  enables:        "rgba(99,102,241,0.55)",
+  mentioned_with: "rgba(139,148,158,0.18)",
+};
+
+// ─── state ────────────────────────────────────────────────────────────────
+const state = {
+  data: null,
+  idx: new Map(),
+  selected: null,
+  hover: null,
+  breadcrumb: [],
+  filter: "all",
+  search: "",
+  modelOrder: [],
+  transform: d3.zoomIdentity,
+};
+
+// ─── DOM ──────────────────────────────────────────────────────────────────
+const canvas = document.getElementById("graph");
+const ctx = canvas.getContext("2d");
+const overlay = document.getElementById("overlay");
+const sidebar = document.getElementById("sidebar");
+const fpsEl = document.getElementById("fps");
+const searchEl = document.getElementById("search");
+const crumbEl = document.getElementById("breadcrumb");
+const legendEl = document.getElementById("legend");
+
+let W = 0, H = 0, DPR = Math.max(1, window.devicePixelRatio || 1);
+function resize() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  W = Math.max(300, rect.width);
+  H = Math.max(300, rect.height);
+  canvas.width = W * DPR; canvas.height = H * DPR;
+  canvas.style.width = W + "px"; canvas.style.height = H + "px";
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  overlay.setAttribute("viewBox", `0 0 ${W} ${H}`);
+}
+window.addEventListener("resize", resize);
+
+// ─── helpers ──────────────────────────────────────────────────────────────
+function esc(s) { return (s == null ? "" : String(s)).replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
+}[c])); }
+
+function radius(n) {
+  const base = n.type === "MENTAL_MODEL" ? 13 : (n.mission_critical ? 6 : 4);
+  return base + Math.min(10, Math.sqrt(n.centrality || 0) * 0.9);
+}
+
+function nodeColor(n) { return TYPE_COLORS[n.type] || TYPE_COLORS.OTHER; }
+
+function typeClass(n) {
+  return n.type === "MENTAL_MODEL" ? "mm"
+    : n.type === "PATTERN" ? "pattern"
+    : n.type === "AZURE_SERVICE" ? "service"
+    : "";
+}
+
+function visible(n) {
+  if (!FILTERS[state.filter](n)) return false;
+  const q = state.search.trim().toLowerCase();
+  if (q && !n.id.toLowerCase().includes(q)) return false;
+  return true;
+}
+
+// ─── init ─────────────────────────────────────────────────────────────────
+async function init() {
+  resize();
+  try {
+    const r = await fetch("./data/data.json");
+    state.data = await r.json();
+  } catch (e) {
+    sidebar.innerHTML = `<div class="empty">Failed to load <code>data/data.json</code>.<br/><small>${esc(e.message)}</small></div>`;
+    return;
+  }
+
+  // index by id; resolve edge endpoints to objects for the simulation
+  state.data.nodes.forEach(n => { n.type = n.type || "OTHER"; state.idx.set(n.id, n); });
+  const validEdges = [];
+  for (const e of state.data.edges) {
+    const s = state.idx.get(e.source), t = state.idx.get(e.target);
+    if (!s || !t) continue;
+    validEdges.push({ source: s, target: t, relation: e.relation, weight: e.weight });
+  }
+  state.data.edges = validEdges;
+
+  // mental-model ordering for prev/next: layer → centrality desc
+  state.modelOrder = state.data.nodes
+    .filter(n => n.type === "MENTAL_MODEL" && (n.mantra || n.when_to_apply))
+    .sort((a, b) =>
+      (a.layer || "zz").localeCompare(b.layer || "zz")
+      || (b.centrality || 0) - (a.centrality || 0)
+      || a.id.localeCompare(b.id))
+    .map(n => n.id);
+
+  buildLegend();
+  buildSim();
+  bindUI();
+  handleHash();
+}
+
+// ─── legend ───────────────────────────────────────────────────────────────
+function buildLegend() {
+  const counts = state.data.stats?.by_type || {};
+  const types = Object.keys(TYPE_COLORS).filter(t => counts[t]);
+  legendEl.innerHTML = types.map(t =>
+    `<span><span class="dot" style="background:${TYPE_COLORS[t]}"></span>${TYPE_LABELS[t]} <small>(${counts[t]})</small></span>`
+  ).join("");
+}
+
+// ─── simulation ───────────────────────────────────────────────────────────
+let sim;
+function buildSim() {
+  const nodes = state.data.nodes;
+  const edges = state.data.edges;
+
+  // seed positions: MC nodes near center, others on outer ring
+  const cx = W / 2, cy = H / 2;
+  nodes.forEach((n, i) => {
+    if (n.x != null) return;
+    const ring = n.mission_critical ? 100 : 450;
+    const a = (i / nodes.length) * Math.PI * 2 + (n.mission_critical ? 0 : Math.PI);
+    n.x = cx + Math.cos(a) * ring + (Math.random() - 0.5) * 40;
+    n.y = cy + Math.sin(a) * ring + (Math.random() - 0.5) * 40;
   });
-})();
 
-(async function(){
-  const data = await (await fetch("graph.json")).json();
-  document.getElementById("stats").textContent =
-    `${data.meta.docs} docs · ${data.meta.nodes} nodes · ${data.meta.edges} edges`;
+  sim = d3.forceSimulation(nodes)
+    .velocityDecay(0.55)
+    .force("link", d3.forceLink(edges)
+      .id(d => d.id)
+      .distance(d => d.relation === "builds_on" || d.relation === "enables" ? 60 : 140)
+      .strength(d => d.relation === "mentioned_with" ? 0.05 : 0.3))
+    .force("charge", d3.forceManyBody()
+      .strength(d => d.type === "MENTAL_MODEL" ? -260 : (d.mission_critical ? -60 : -18))
+      .distanceMax(500))
+    .force("mc_in",     d3.forceRadial(0,   cx, cy).strength(d => d.mission_critical ? 0.15 : 0))
+    .force("periphery", d3.forceRadial(450, cx, cy).strength(d => d.mission_critical ? 0 : 0.08))
+    .force("collide", d3.forceCollide().radius(d => radius(d) + 1.5).iterations(1))
+    .alpha(0.9)
+    .alphaDecay(0.02);
 
-  const svg = d3.select("svg");
-  const g = svg.append("g");
-  const linkG = g.append("g").attr("class","links");
-  const nodeG = g.append("g").attr("class","nodes");
+  sim.on("tick", render);
 
-  const zoom = d3.zoom().scaleExtent([0.15, 4]).on("zoom", e => g.attr("transform", e.transform));
-  svg.call(zoom);
+  // Pre-bake: run many ticks synchronously, then let the loop run but decay fast
+  for (let i = 0; i < 120 && sim.alpha() > sim.alphaMin(); i++) sim.tick();
+}
 
-  let allNodes = data.nodes.map(d => ({...d}));
-  let allEdges = data.edges.map(d => ({...d}));
+// ─── zoom / pan / pick ────────────────────────────────────────────────────
+const zoom = d3.zoom().scaleExtent([0.2, 6]).on("zoom", (ev) => {
+  state.transform = ev.transform;
+  render();
+});
+d3.select(canvas).call(zoom);
 
-  const state = {
-    types:new Set(PRESETS.all.types),
-    minMentions:1, query:"", showLabels:false, selected:null
-  };
-
-  const sim = d3.forceSimulation()
-    .force("link", d3.forceLink().id(d=>d.id).distance(80).strength(0.4))
-    .force("charge", d3.forceManyBody().strength(-180))
-    .force("center", d3.forceCenter())
-    .force("collide", d3.forceCollide().radius(d => (d.size||6)+4));
-
-  if (PREFERS_REDUCED) {
-    sim.alphaDecay(0.2);
+function nodeAtPointer(x, y) {
+  const [wx, wy] = state.transform.invert([x, y]);
+  let best = null, bestD = 16 / state.transform.k;
+  const nodes = state.data.nodes;
+  for (let i = 0; i < nodes.length; i++) {
+    const n = nodes[i];
+    if (!visible(n)) continue;
+    const r = radius(n) + 3;
+    const dx = n.x - wx, dy = n.y - wy;
+    const d = Math.hypot(dx, dy);
+    if (d < r && d < bestD) { best = n; bestD = d; }
   }
+  return best;
+}
 
-  const tooltip = d3.select("#tooltip");
+canvas.addEventListener("mousemove", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const n = nodeAtPointer(e.clientX - rect.left, e.clientY - rect.top);
+  const id = n ? n.id : null;
+  if (id !== state.hover) { state.hover = id; canvas.style.cursor = id ? "pointer" : "default"; render(); }
+});
+canvas.addEventListener("click", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const n = nodeAtPointer(e.clientX - rect.left, e.clientY - rect.top);
+  if (n) selectNode(n.id, false);
+});
 
-  let linkSel = linkG.selectAll("line");
-  let nodeSel = nodeG.selectAll("g.node");
+// ─── render loop (canvas) ─────────────────────────────────────────────────
+let lastFrame = performance.now();
+let frameTimes = [];
+function render() {
+  const t = state.transform;
+  ctx.save();
+  ctx.clearRect(0, 0, W, H);
+  ctx.translate(t.x, t.y);
+  ctx.scale(t.k, t.k);
 
-  function render(){
-    const w = document.getElementById("graph").clientWidth;
-    const h = document.getElementById("graph").clientHeight;
-    svg.attr("viewBox",[-w/2,-h/2,w,h]);
+  // ── edges ─────────────────────────────────────────────────────────────
+  const selId = state.selected, hovId = state.hover;
+  const emphIds = new Set();
+  if (selId) emphIds.add(selId);
+  if (hovId) emphIds.add(hovId);
 
-    const nodeOk = n => {
-      if(!state.types.has(n.type)) return false;
-      if((n.connections||0) < state.minMentions) return false;
-      if(state.query && !n.label.toLowerCase().includes(state.query)) return false;
-      return true;
-    };
-    const nodes = allNodes.filter(nodeOk);
-    const idset = new Set(nodes.map(n=>n.id));
-    const edges = allEdges.filter(e =>
-      idset.has(typeof e.source==="object"?e.source.id:e.source) &&
-      idset.has(typeof e.target==="object"?e.target.id:e.target));
-
-    linkSel = linkG.selectAll("line").data(edges, d => (d.source.id||d.source)+"->"+(d.target.id||d.target))
-      .join(enter => enter.append("line").attr("class","link")
-        .attr("stroke-width", 0.8));
-
-    nodeSel = nodeG.selectAll("g.node").data(nodes, d=>d.id)
-      .join(enter => {
-        const ge = enter.append("g").attr("class","node").attr("tabindex", 0)
-          .call(d3.drag()
-            .on("start",(e,d)=>{if(!e.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
-            .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
-            .on("end",(e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}))
-          .on("mouseover",(e,d)=>{
-            tooltip.style("opacity",1).html(tooltipHtml(d));
-            highlight(d);
-          })
-          .on("mousemove",(e)=>{
-            const rect = document.getElementById("graph").getBoundingClientRect();
-            tooltip.style("left",(e.clientX-rect.left+12)+"px")
-                   .style("top",(e.clientY-rect.top+12)+"px");
-          })
-          .on("mouseout",()=>{tooltip.style("opacity",0); highlight(null);})
-          .on("focus",(e,d)=>{ highlight(d); })
-          .on("blur",()=>{ highlight(null); })
-          .on("click",(e,d)=>{select(d);})
-          .on("dblclick",(e,d)=>{ if(d.url) window.open(d.url,"_blank"); })
-          .on("keydown",(e,d)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); select(d); } });
-        ge.append("circle")
-          .attr("r", d => Math.max(3, Math.min(22, (d.size||6))))
-          .attr("fill", d => COLORS[d.type] || "#8b949e");
-        ge.append("path")
-          .attr("class","node-icon")
-          .attr("d", d => ICONS[d.type] || ICONS.OTHER)
-          .attr("fill", "none")
-          .attr("stroke", "#fff")
-          .attr("stroke-width", 2)
-          .attr("stroke-linecap", "round")
-          .attr("stroke-linejoin", "round")
-          .attr("opacity", 0.92)
-          .attr("vector-effect", "non-scaling-stroke")
-          .attr("transform", d => {
-            const r = Math.max(3, Math.min(22, (d.size||6)));
-            const iconSize = r * 1.2;
-            return `translate(${-iconSize/2},${-iconSize/2}) scale(${iconSize/24})`;
-          })
-          .style("pointer-events", "none");
-        ge.append("text").attr("dx",10).attr("dy",4).text(d=>d.label);
-        return ge;
-      });
-
-    nodeG.selectAll("g.node").classed("show-label", state.showLabels);
-
-    sim.nodes(nodes).on("tick", ticked);
-    sim.force("link").links(edges);
-    sim.alpha(PREFERS_REDUCED ? 0.4 : 0.8).restart();
+  ctx.lineCap = "round";
+  const edges = state.data.edges;
+  // 1) mentioned_with (faint)
+  ctx.lineWidth = 0.6 / t.k;
+  ctx.strokeStyle = EDGE_COLORS.mentioned_with;
+  ctx.beginPath();
+  for (let i = 0; i < edges.length; i++) {
+    const e = edges[i];
+    if (e.relation !== "mentioned_with") continue;
+    const s = e.source, d = e.target;
+    if (!visible(s) || !visible(d)) continue;
+    ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
   }
-
-  function ticked(){
-    linkSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
-           .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
-    nodeSel.attr("transform",d=>`translate(${d.x},${d.y})`);
-  }
-
-  function tooltipHtml(d){
-    const esc = s => String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
-    const typeLabel = d.type.replace(/_/g," ").toLowerCase();
-    const meta = `${typeLabel} · ${d.connections||0} connections`;
-    const desc = d.description ? `<div class="meta" style="margin-top:4px">${esc(d.description.split("<SEP>")[0].slice(0,160))}…</div>` : "";
-    const linkHint = d.url ? `<div style="font-size:10px;color:var(--accent);margin-top:2px">click to open on Microsoft Learn</div>` : "";
-    return `<h3>${esc(d.label)}</h3><div class="meta">${esc(meta)}</div>${desc}${linkHint}`;
-  }
-
-  function neighborsOf(id){
-    const nb = new Set([id]); const links = new Set();
-    linkSel.each(function(l){
-      const s = l.source.id||l.source, t = l.target.id||l.target;
-      if(s===id||t===id){ nb.add(s); nb.add(t); links.add(l); }
-    });
-    return {nb, links};
-  }
-  function highlight(d){
-    if(!d){
-      nodeSel.classed("dim",false).classed("hover-label",false);
-      linkSel.classed("hi",false).classed("dim",false);
-      return;
+  ctx.stroke();
+  // 2) semantic edges
+  for (const rel of ["builds_on", "enables"]) {
+    ctx.strokeStyle = EDGE_COLORS[rel];
+    ctx.lineWidth = 1.4 / t.k;
+    ctx.beginPath();
+    for (let i = 0; i < edges.length; i++) {
+      const e = edges[i];
+      if (e.relation !== rel) continue;
+      const s = e.source, d = e.target;
+      if (!visible(s) || !visible(d)) continue;
+      ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
     }
-    const {nb,links} = neighborsOf(d.id);
-    nodeSel.classed("dim", n => !nb.has(n.id))
-           .classed("hover-label", n => nb.has(n.id));
-    linkSel.classed("hi", l => links.has(l)).classed("dim", l => !links.has(l));
+    ctx.stroke();
+  }
+  // 3) highlighted edges (selected / hover)
+  if (emphIds.size) {
+    ctx.strokeStyle = "rgba(245,158,11,0.9)";
+    ctx.lineWidth = 1.6 / t.k;
+    ctx.beginPath();
+    for (let i = 0; i < edges.length; i++) {
+      const e = edges[i];
+      const s = e.source, d = e.target;
+      if (!visible(s) || !visible(d)) continue;
+      if (!emphIds.has(s.id) && !emphIds.has(d.id)) continue;
+      ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
+    }
+    ctx.stroke();
   }
 
-  function select(d){
-    state.selected = d;
-    const sel = document.getElementById("sel");
-    const {nb} = neighborsOf(d.id);
-    const neighbors = [...nb].filter(id=>id!==d.id)
-      .map(id => allNodes.find(n=>n.id===id))
-      .filter(Boolean)
-      .sort((a,b)=>a.label.localeCompare(b.label));
-    const link = d.url
-      ? `<div><a href="${d.url}" target="_blank" rel="noopener">open on Microsoft Learn ↗</a></div>` : "";
-    const typeLabel = d.type.replace(/_/g," ").toLowerCase();
-    const desc = d.description ? `<div class="sel-label">Description</div><div>${d.description.split("<SEP>")[0]}</div>` : "";
-    sel.innerHTML = `<div class="sel-title">${d.label}</div>
-      <div class="sel-meta">${typeLabel} · ${d.connections||0} connections</div>
-      ${link}
-      ${desc}
-      <div class="sel-label">Connected (${neighbors.length})</div>
-      <div>${neighbors.slice(0,40).map(n=>`<span class="chip ${n.type}" data-id="${n.id}" tabindex="0" role="button"><span class="swatch" style="background:${COLORS[n.type]}"></span>${n.label}</span>`).join("")}</div>`;
-    sel.querySelectorAll(".chip[data-id]").forEach(el=>{
-      const go = () => { const n = allNodes.find(x=>x.id===el.dataset.id); if(n) select(n); };
-      el.addEventListener("click", go);
-      el.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); go(); }});
-    });
+  // ── nodes ─────────────────────────────────────────────────────────────
+  const nodes = state.data.nodes;
+  for (let i = 0; i < nodes.length; i++) {
+    const n = nodes[i];
+    if (!visible(n)) continue;
+    const r = radius(n);
+    const isSel = n.id === selId;
+    const isHov = n.id === hovId;
+
+    // circle
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+    ctx.fillStyle = nodeColor(n);
+    ctx.fill();
+
+    if (isSel) {
+      ctx.lineWidth = 3 / t.k;
+      ctx.strokeStyle = "#fff";
+      ctx.stroke();
+    } else if (isHov) {
+      ctx.lineWidth = 2 / t.k;
+      ctx.strokeStyle = "#fff";
+      ctx.stroke();
+    } else if (n.type === "MENTAL_MODEL") {
+      ctx.lineWidth = 1.4 / t.k;
+      ctx.strokeStyle = "#b8860b";
+      ctx.stroke();
+    } else {
+      ctx.lineWidth = 0.6 / t.k;
+      ctx.strokeStyle = "rgba(0,0,0,0.55)";
+      ctx.stroke();
+    }
+
+    // icon for larger nodes only (perf): MM always, others when visible size or zoom permits
+    const iconPath = ICON_PATH2D[n.type] || ICON_PATH2D.OTHER;
+    if (iconPath && (n.type === "MENTAL_MODEL" || t.k > 1.2 || r > 7)) {
+      const iconSize = r * 1.25;
+      ctx.save();
+      ctx.translate(n.x - iconSize / 2, n.y - iconSize / 2);
+      ctx.scale(iconSize / 24, iconSize / 24);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "#fff";
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.stroke(iconPath);
+      ctx.restore();
+    }
   }
 
-  // Presets
-  function applyPreset(name){
-    const p = PRESETS[name]; if(!p) return;
-    state.types = new Set(p.types);
-    state.minMentions = p.minMentions;
-    // Sync chip checkboxes
-    document.querySelectorAll("input[data-type]").forEach(el=>{
-      el.checked = state.types.has(el.dataset.type);
-    });
-    const mm = document.getElementById("mm");
-    mm.value = p.minMentions;
-    document.getElementById("mmv").textContent = p.minMentions;
-    document.querySelectorAll(".preset-btn").forEach(b=>{
-      b.classList.toggle("active", b.dataset.preset===name);
-      if (b.dataset.preset===name) b.setAttribute("aria-pressed","true");
-      else b.removeAttribute("aria-pressed");
-    });
-    render();
+  ctx.restore();
+
+  // labels (SVG overlay, on hover/selected + all MMs when zoomed in)
+  renderLabels();
+
+  // fps
+  const now = performance.now();
+  frameTimes.push(now - lastFrame);
+  if (frameTimes.length > 30) frameTimes.shift();
+  lastFrame = now;
+  const avg = frameTimes.reduce((a, b) => a + b, 0) / frameTimes.length;
+  fpsEl.textContent = `${Math.round(1000 / avg)} fps · ${state.data.nodes.length} nodes`;
+}
+
+function renderLabels() {
+  const t = state.transform;
+  const labels = [];
+  const push = (n, emph) => {
+    const x = n.x * t.k + t.x, y = n.y * t.k + t.y;
+    if (x < -20 || y < -20 || x > W + 20 || y > H + 20) return;
+    labels.push({ id: n.id, x, y: y - (radius(n) * t.k + 6), emph, mm: n.type === "MENTAL_MODEL" });
+  };
+  const seen = new Set();
+  const add = (n, emph) => { if (n && !seen.has(n.id) && visible(n)) { seen.add(n.id); push(n, emph); } };
+  if (state.selected) add(state.idx.get(state.selected), true);
+  if (state.hover)    add(state.idx.get(state.hover), true);
+  // MMs when zoomed in
+  if (t.k >= 0.9) {
+    for (const n of state.data.nodes) if (n.type === "MENTAL_MODEL") add(n, false);
   }
-  document.querySelectorAll(".preset-btn").forEach(b=>{
-    b.addEventListener("click", ()=>applyPreset(b.dataset.preset));
+
+  const parts = labels.map(l =>
+    `<text x="${l.x.toFixed(1)}" y="${l.y.toFixed(1)}" text-anchor="middle" class="${l.mm ? "mm" : ""}">${esc(l.id)}</text>`
+  );
+  overlay.innerHTML = parts.join("");
+}
+
+// ─── selection / navigation ───────────────────────────────────────────────
+function selectNode(id, pan) {
+  const n = state.idx.get(id);
+  if (!n) return;
+
+  // bypass filter if needed
+  if (!FILTERS[state.filter](n)) {
+    state.filter = "all";
+    document.querySelectorAll("#filters button").forEach(b => b.classList.toggle("active", b.dataset.f === "all"));
+  }
+
+  if (state.selected && state.selected !== id) {
+    if (state.breadcrumb[state.breadcrumb.length - 1] !== state.selected) {
+      state.breadcrumb.push(state.selected);
+      if (state.breadcrumb.length > 8) state.breadcrumb.shift();
+    }
+  }
+  state.selected = id;
+  try { history.replaceState(null, "", "#" + encodeURIComponent(id)); } catch (_) {}
+
+  renderSidebar(n);
+  renderBreadcrumb();
+  if (pan) panTo(n);
+  render();
+}
+
+function panTo(n) {
+  if (!Number.isFinite(n.x) || !Number.isFinite(n.y)) return;
+  const targetK = Math.max(1.2, state.transform.k);
+  const tx = W / 2 - n.x * targetK;
+  const ty = H / 2 - n.y * targetK;
+  d3.select(canvas).transition().duration(550)
+    .call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(targetK));
+}
+
+function prevNextModel(dir) {
+  const order = state.modelOrder;
+  if (!order.length) return;
+  let i = state.selected ? order.indexOf(state.selected) : -1;
+  i = (i + dir + order.length) % order.length;
+  selectNode(order[i], true);
+}
+
+// ─── sidebar ──────────────────────────────────────────────────────────────
+function renderSidebar(n) {
+  if (!n) { sidebar.innerHTML = `<div class="empty">Select a node to see details.</div>`; return; }
+  sidebar.innerHTML = (n.type === "MENTAL_MODEL" && (n.mantra || n.when_to_apply))
+    ? mentalModelCard(n)
+    : genericCard(n);
+
+  sidebar.querySelectorAll("[data-goto]").forEach(el => {
+    if (el.classList.contains("missing")) return;
+    el.addEventListener("click", () => selectNode(el.dataset.goto, true));
   });
+  const prev = sidebar.querySelector("#prev");
+  const next = sidebar.querySelector("#next");
+  if (prev) prev.addEventListener("click", () => prevNextModel(-1));
+  if (next) next.addEventListener("click", () => prevNextModel(+1));
+}
 
-  // Filter wiring
-  document.querySelectorAll("input[data-type]").forEach(el=>{
-    el.addEventListener("change",()=>{
-      el.checked ? state.types.add(el.dataset.type) : state.types.delete(el.dataset.type);
-      // Invalidate preset highlight since user customized
-      document.querySelectorAll(".preset-btn").forEach(b=>b.classList.remove("active"));
+function iconSvg(n, size = 24) {
+  const path = ICON_PATHS[n.type] || ICON_PATHS.OTHER;
+  const color = nodeColor(n);
+  // a single <path> treating whole string as path data works even with multiple M subpaths
+  return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${path}"/></svg>`;
+}
+
+function chip(id) {
+  const t = state.idx.get(id);
+  if (!t) return `<button class="missing" title="not in graph" disabled>${esc(id)}</button>`;
+  return `<button class="${typeClass(t)}" data-goto="${esc(id)}">${esc(id)}</button>`;
+}
+
+function section(title, items) {
+  const arr = (items || []).filter(Boolean);
+  if (!arr.length) return "";
+  return `<section><h3>${title}</h3><ul>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>`;
+}
+
+function chipRow(title, ids) {
+  const arr = (ids || []).filter(Boolean);
+  if (!arr.length) return "";
+  return `<section><h3>${title}</h3><div class="chips">${arr.map(chip).join("")}</div></section>`;
+}
+
+function relatedIdsFor(n) {
+  // neighbors that are NOT already in builds_on/enables
+  const already = new Set([...(n.builds_on || []), ...(n.enables || []), n.id]);
+  const neighbors = new Map();
+  for (const e of state.data.edges) {
+    let other = null;
+    if (e.source.id === n.id) other = e.target;
+    else if (e.target.id === n.id) other = e.source;
+    if (!other || already.has(other.id)) continue;
+    const prev = neighbors.get(other.id) || { n: other, w: 0 };
+    prev.w += (e.weight || 1) + (e.relation !== "mentioned_with" ? 5 : 0);
+    neighbors.set(other.id, prev);
+  }
+  return [...neighbors.values()]
+    .sort((a, b) => b.w - a.w)
+    .slice(0, 14)
+    .map(x => x.n.id);
+}
+
+function sourceDocsHtml(docs) {
+  if (!docs || !docs.length) return "";
+  return `<section class="sources"><h3>📄 Source docs</h3>${
+    docs.map(d => `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title || d.path)}${
+      d.section ? `<small>${esc(d.section)}</small>` : ""}</a>`).join("")
+  }</section>`;
+}
+
+function mentalModelCard(n) {
+  return `
+    <header class="card">${iconSvg(n)}<h2>${esc(n.id)}</h2>${n.layer ? `<span class="pill">${esc(n.layer)}</span>` : ""}</header>
+    ${n.mantra ? `<blockquote>“${esc(n.mantra)}”</blockquote>` : ""}
+    ${n.description && !n.mantra ? `<p class="desc">${esc(n.description)}</p>` : ""}
+    ${section("🎯 When to apply", n.when_to_apply)}
+    ${section("💥 Without it", n.without_it)}
+    ${n.key_tradeoff ? `<section><h3>⚖️ Key tradeoff</h3><div class="tradeoff">${esc(n.key_tradeoff)}</div></section>` : ""}
+    ${chipRow("🔗 Builds on", n.builds_on)}
+    ${chipRow("🔗 Enables", n.enables)}
+    ${chipRow("📎 Related", relatedIdsFor(n))}
+    ${sourceDocsHtml(n.source_docs)}
+    <footer class="nav">
+      <button id="prev">← prev model</button>
+      <button id="next">next model →</button>
+    </footer>`;
+}
+
+function genericCard(n) {
+  const typeLabel = TYPE_LABELS[n.type] || n.type;
+  return `
+    <header class="card">${iconSvg(n)}<h2>${esc(n.id)}</h2><span class="pill">${esc(typeLabel)}${n.mission_critical ? " · MC" : ""}</span></header>
+    ${n.description ? `<p class="desc">${esc(n.description)}</p>` : ""}
+    ${chipRow("📎 Connected to", relatedIdsFor(n))}
+    ${sourceDocsHtml(n.source_docs)}`;
+}
+
+// ─── breadcrumb ───────────────────────────────────────────────────────────
+function renderBreadcrumb() {
+  const trail = [...state.breadcrumb];
+  if (state.selected) trail.push(state.selected);
+  // dedupe consecutive
+  const dedup = [];
+  for (const id of trail) if (dedup[dedup.length - 1] !== id) dedup.push(id);
+  crumbEl.innerHTML = dedup.map((id, i) =>
+    `${i ? '<span class="sep">›</span>' : ""}<button data-goto="${esc(id)}">${esc(id)}</button>`
+  ).join("");
+  crumbEl.querySelectorAll("[data-goto]").forEach(el =>
+    el.addEventListener("click", () => selectNode(el.dataset.goto, true)));
+}
+
+// ─── UI wiring ────────────────────────────────────────────────────────────
+function bindUI() {
+  // filters
+  const urlFilter = new URLSearchParams(location.search).get("filter");
+  if (urlFilter && FILTERS[urlFilter]) state.filter = urlFilter;
+  document.querySelectorAll("#filters button").forEach(b => {
+    b.classList.toggle("active", b.dataset.f === state.filter);
+    b.addEventListener("click", () => {
+      state.filter = b.dataset.f;
+      document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("active", x === b));
       render();
     });
   });
-  const q = document.getElementById("q");
-  q.addEventListener("input",()=>{ state.query = q.value.trim().toLowerCase(); render(); });
-  const mm = document.getElementById("mm");
-  mm.addEventListener("input",()=>{
-    state.minMentions = +mm.value;
-    document.getElementById("mmv").textContent = mm.value;
-    render();
-  });
-  document.getElementById("lbl").addEventListener("change",e=>{
-    state.showLabels = e.target.checked;
-    nodeG.selectAll("g.node").classed("show-label", state.showLabels);
-  });
-  document.getElementById("reheat").addEventListener("click",()=>sim.alpha(1).restart());
-  document.getElementById("reset").addEventListener("click",()=>{
-    svg.transition().duration(PREFERS_REDUCED?0:500).call(zoom.transform, d3.zoomIdentity);
+
+  // search
+  searchEl.addEventListener("input", (e) => { state.search = e.target.value; render(); });
+  searchEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const q = state.search.trim().toLowerCase();
+      if (!q) return;
+      const hit = state.data.nodes.find(n => n.id.toLowerCase() === q)
+               || state.data.nodes.find(n => n.id.toLowerCase().includes(q));
+      if (hit) selectNode(hit.id, true);
+    } else if (e.key === "Escape") {
+      searchEl.blur();
+    }
   });
 
-  window.addEventListener("resize",()=>{
-    const w=document.getElementById("graph").clientWidth, h=document.getElementById("graph").clientHeight;
-    svg.attr("viewBox",[-w/2,-h/2,w,h]);
-    sim.force("center", d3.forceCenter()).alpha(0.3).restart();
+  // keyboard
+  window.addEventListener("keydown", (e) => {
+    if (e.target.tagName === "INPUT") return;
+    if (e.key === "/") { e.preventDefault(); searchEl.focus(); searchEl.select(); }
+    else if (e.key === "Escape") { state.selected = null; state.hover = null; renderSidebar(null); renderBreadcrumb(); render(); }
+    else if (e.key === "ArrowRight") { prevNextModel(+1); }
+    else if (e.key === "ArrowLeft")  { prevNextModel(-1); }
   });
 
-  render();
+  window.addEventListener("hashchange", handleHash);
+}
+
+// ─── hash routing ─────────────────────────────────────────────────────────
+function handleHash() {
+  let raw = location.hash.slice(1);
+  if (!raw) return;
+  let id;
+  try { id = decodeURIComponent(raw); }
+  catch (e) { console.warn("bad hash", raw, e); return; }
+  if (!id) return;
+  if (state.idx.has(id)) { selectNode(id, true); return; }
+  // case-insensitive fallback
+  const lc = id.toLowerCase();
+  const hit = state.data.nodes.find(n => n.id.toLowerCase() === lc);
+  if (hit) selectNode(hit.id, true);
+}
+
+init();
 })();
 </script>
 </body>
