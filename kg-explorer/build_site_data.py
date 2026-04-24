@@ -85,6 +85,8 @@ def main() -> None:
 
     site = {
         "generated_by": "build_site_data.py",
+        "generated_at": __import__("datetime").datetime.now(__import__("datetime").UTC).isoformat(),
+        "schema_version": 1,
         "stats": stats,
         "cards": cards,
         "taxonomy": dict(categories),
@@ -99,8 +101,8 @@ def main() -> None:
 
     MM.mkdir(exist_ok=True)
     DOCS_MM.mkdir(parents=True, exist_ok=True)
-    (MM / "site-data.json").write_text(payload)
-    (DOCS_MM / "site-data.json").write_text(payload)
+    (MM / "site-data.json").write_text(payload, encoding="utf-8")
+    (DOCS_MM / "site-data.json").write_text(payload, encoding="utf-8")
 
     print(f"Wrote {MM / 'site-data.json'} ({len(payload):,} bytes)")
     print(f"Wrote {DOCS_MM / 'site-data.json'} ({len(payload):,} bytes)")

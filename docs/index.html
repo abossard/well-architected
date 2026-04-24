@@ -129,7 +129,7 @@
     <a class="card" data-kind="graph" href="graph.html">
       <span class="ico" aria-hidden="true">🕸️</span>
       <h2>Graph</h2>
-      <p>Force-directed map of <span id="stat-graph-nodes">…</span> nodes across 8 types. Search, filter, hover to highlight neighbors.</p>
+      <p>Force-directed map of <span id="stat-graph-nodes">…</span> nodes across <span id="stat-graph-types">…</span> types. Search, filter, hover to highlight neighbors.</p>
       <span class="cta">Open graph →</span>
     </a>
     <a class="card" data-kind="cards" href="mental_models/">
@@ -151,11 +151,11 @@
     <div class="body">
       <p>Extracted from the Azure Well-Architected Framework using LightRAG and Claude Opus 4.6 knowledge-graph analysis.</p>
       <ol>
-        <li>Ingested 13 mission-critical + 21 WAF pillar docs into LightRAG.</li>
+        <li>Ingested <span id="stat-about-docs">…</span> WAF docs into LightRAG.</li>
         <li>Extracted entities via Claude Opus 4.6 through <code>copilot-api</code> proxy.</li>
         <li>Generated embeddings with <code>text-embedding-3-small</code> (1536 dims).</li>
         <li>Ranked mental models by graph centrality + bridge score.</li>
-        <li>Classified 4,099 entities into 9 categories via LLM.</li>
+        <li>Classified <span id="stat-about-entities">…</span> entities into <span id="stat-about-cats">…</span> categories via LLM.</li>
         <li>Generated cards with mantras, failure modes, and tradeoffs.</li>
       </ol>
     </div>
@@ -188,10 +188,13 @@ python3 query_lightrag.py "What is blast radius thinking?"</code></pre>
 </main>
 
 <script>
-  // Populate stats from runtime JSON so numbers never go stale.
   (async () => {
     const fmt = n => (typeof n === 'number') ? n.toLocaleString('en-US') : '—';
     const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = fmt(v); };
+    const err = msg => {
+      document.querySelectorAll('[id^="stat-"]').forEach(el => { if (el.textContent === '…') el.textContent = '—'; });
+      console.warn(msg);
+    };
     try {
       const data = await (await fetch('mental_models/site-data.json', { cache: 'no-cache' })).json();
       const s = data.stats || {};
@@ -200,11 +203,17 @@ python3 query_lightrag.py "What is blast radius thinking?"</code></pre>
       set('stat-relations', s.relations);
       set('stat-patterns', s.patterns);
       set('stat-docs', s.docs);
-    } catch (e) { console.warn('site-data.json load failed', e); }
+      set('stat-about-docs', s.docs);
+      set('stat-about-entities', s.entities);
+      const catCount = data.taxonomy ? Object.keys(data.taxonomy).length : s.categories;
+      set('stat-about-cats', catCount);
+    } catch (e) { err('Failed to load site-data.json. Serve via: python -m http.server'); }
     try {
       const g = await (await fetch('graph.json', { cache: 'no-cache' })).json();
       set('stat-graph-nodes', (g.nodes || []).length);
-    } catch (e) { /* optional */ }
+      const types = new Set((g.nodes || []).map(n => n.type));
+      set('stat-graph-types', types.size);
+    } catch (e) { /* graph stats are optional */ }
   })();
 </script>
 </body>

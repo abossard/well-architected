@@ -106,8 +106,8 @@
   <nav aria-label="Primary">
     <a href="./" aria-current="page">Home</a>
     <a href="graph.html">Graph</a>
-    <a href="mental_models/cards/">Cards</a>
-    <a href="mental_models/">Trees</a>
+    <a href="mental_models/">Cards</a>
+    <a href="mental_models/cards/">Trees</a>
     <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" rel="noopener">Source</a>
   </nav>
 </header>
@@ -117,11 +117,11 @@
   <section class="hero" aria-labelledby="tagline">
     <p id="tagline" class="tag"><strong>Three views</strong> into the Azure Well-Architected Framework: a force-directed graph, detailed model cards, and hierarchical mind-map trees.</p>
     <div class="stats" aria-label="Dataset summary">
-      <span class="stat"><span class="n">54</span> mental models</span>
-      <span class="stat"><span class="n">4,099</span> entities</span>
-      <span class="stat"><span class="n">5,896</span> relations</span>
-      <span class="stat"><span class="n">161</span> patterns</span>
-      <span class="stat"><span class="n">34</span> docs</span>
+      <span class="stat"><span class="n" id="stat-cards">…</span> mental models</span>
+      <span class="stat"><span class="n" id="stat-entities">…</span> entities</span>
+      <span class="stat"><span class="n" id="stat-relations">…</span> relations</span>
+      <span class="stat"><span class="n" id="stat-patterns">…</span> patterns</span>
+      <span class="stat"><span class="n" id="stat-docs">…</span> docs</span>
     </div>
   </section>
 
@@ -129,19 +129,19 @@
     <a class="card" data-kind="graph" href="graph.html">
       <span class="ico" aria-hidden="true">🕸️</span>
       <h2>Graph</h2>
-      <p>Force-directed map of 271 nodes across 8 types. Search, filter, hover to highlight neighbors.</p>
+      <p>Force-directed map of <span id="stat-graph-nodes">…</span> nodes across <span id="stat-graph-types">…</span> types. Search, filter, hover to highlight neighbors.</p>
       <span class="cta">Open graph →</span>
     </a>
-    <a class="card" data-kind="cards" href="mental_models/cards/">
+    <a class="card" data-kind="cards" href="mental_models/">
       <span class="ico" aria-hidden="true">🃏</span>
       <h2>Cards</h2>
       <p>Deep dives per model: mantras, failure modes, tradeoffs, anti-patterns, related links.</p>
       <span class="cta">Browse cards →</span>
     </a>
-    <a class="card" data-kind="trees" href="mental_models/">
+    <a class="card" data-kind="trees" href="mental_models/cards/">
       <span class="ico" aria-hidden="true">🌳</span>
       <h2>Trees</h2>
-      <p>Hierarchical taxonomy grouping 54 models by layer: foundational, structural, operational, security.</p>
+      <p>Per-model radial tree diagrams: see each mental model's neighborhood in the knowledge graph.</p>
       <span class="cta">See trees →</span>
     </a>
   </nav>
@@ -151,11 +151,11 @@
     <div class="body">
       <p>Extracted from the Azure Well-Architected Framework using LightRAG and Claude Opus 4.6 knowledge-graph analysis.</p>
       <ol>
-        <li>Ingested 13 mission-critical + 21 WAF pillar docs into LightRAG.</li>
+        <li>Ingested <span id="stat-about-docs">…</span> WAF docs into LightRAG.</li>
         <li>Extracted entities via Claude Opus 4.6 through <code>copilot-api</code> proxy.</li>
         <li>Generated embeddings with <code>text-embedding-3-small</code> (1536 dims).</li>
         <li>Ranked mental models by graph centrality + bridge score.</li>
-        <li>Classified 4,099 entities into 9 categories via LLM.</li>
+        <li>Classified <span id="stat-about-entities">…</span> entities into <span id="stat-about-cats">…</span> categories via LLM.</li>
         <li>Generated cards with mantras, failure modes, and tradeoffs.</li>
       </ol>
     </div>
@@ -186,5 +186,35 @@ python3 query_lightrag.py "What is blast radius thinking?"</code></pre>
     Source: <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" rel="noopener">abossard/well-architected</a>.
   </footer>
 </main>
+
+<script>
+  (async () => {
+    const fmt = n => (typeof n === 'number') ? n.toLocaleString('en-US') : '—';
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = fmt(v); };
+    const err = msg => {
+      document.querySelectorAll('[id^="stat-"]').forEach(el => { if (el.textContent === '…') el.textContent = '—'; });
+      console.warn(msg);
+    };
+    try {
+      const data = await (await fetch('mental_models/site-data.json', { cache: 'no-cache' })).json();
+      const s = data.stats || {};
+      set('stat-cards', s.cards);
+      set('stat-entities', s.entities);
+      set('stat-relations', s.relations);
+      set('stat-patterns', s.patterns);
+      set('stat-docs', s.docs);
+      set('stat-about-docs', s.docs);
+      set('stat-about-entities', s.entities);
+      const catCount = data.taxonomy ? Object.keys(data.taxonomy).length : s.categories;
+      set('stat-about-cats', catCount);
+    } catch (e) { err('Failed to load site-data.json. Serve via: python -m http.server'); }
+    try {
+      const g = await (await fetch('graph.json', { cache: 'no-cache' })).json();
+      set('stat-graph-nodes', (g.nodes || []).length);
+      const types = new Set((g.nodes || []).map(n => n.type));
+      set('stat-graph-types', types.size);
+    } catch (e) { /* graph stats are optional */ }
+  })();
+</script>
 </body>
 </html>
