@@ -39,6 +39,9 @@
     header#toolbar nav button { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 6px 12px; font-size: 0.85rem; border-radius: 6px; cursor: pointer; }
     header#toolbar nav button:hover { color: var(--text); }
     header#toolbar nav button.active { background: var(--accent); color: #0d1117; border-color: var(--accent); font-weight: 600; }
+    header#toolbar .edge-toggle { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 6px 10px; font-size: 0.8rem; border-radius: 6px; cursor: pointer; font-family: inherit; }
+    header#toolbar .edge-toggle:hover { color: var(--text); }
+    header#toolbar .edge-toggle.on { background: var(--accent-2); color: #fff; border-color: var(--accent-2); }
     header#toolbar .spacer { flex: 1; }
     header#toolbar .fps { color: var(--muted); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
     header#toolbar #breadcrumb { display: flex; gap: 4px; align-items: center; overflow-x: auto; max-width: 40vw; font-size: 0.85rem; color: var(--muted); }
@@ -100,6 +103,7 @@
     <button data-f="patterns">Patterns + Services</button>
     <button data-f="all" class="active">Everything</button>
   </nav>
+  <button id="edgeToggle" class="edge-toggle" title="Toggle all 'mentioned_with' edges (may slow rendering)">All edges</button>
   <div id="breadcrumb" aria-label="path"></div>
   <div class="spacer"></div>
   <span class="fps" id="fps" title="frames per second"></span>
@@ -170,8 +174,14 @@ const state = {
   search: "",
   modelOrder: [],
   transform: d3.zoomIdentity,
+  showAllEdges: false,
+  neighborsOf: new Map(),   // id -> Set(neighborId)  (undirected, all relations)
 };
 let visSet = new Set();
+let visNodes = [];           // cached filtered node array
+let visNodesDirty = true;    // recompute visSet/visNodes/quadtree on next render
+let quadtree = null;         // d3.quadtree over visNodes (for fast hit-test)
+let renderQueued = false;    // rAF dirty flag
 
 // ─── DOM ──────────────────────────────────────────────────────────────────
 const canvas = document.getElementById("graph");
@@ -193,7 +203,7 @@ function resize() {
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   overlay.setAttribute("viewBox", `0 0 ${W} ${H}`);
 }
-window.addEventListener("resize", resize);
+window.addEventListener("resize", () => { resize(); requestRender(); });
 
 // ─── helpers ──────────────────────────────────────────────────────────────
 function esc(s) { return (s == null ? "" : String(s)).replace(/[&<>"']/g, c => ({
@@ -252,9 +262,11 @@ async function init() {
     .map(n => n.id);
 
   buildLegend();
-  buildSim();
+  initPositions();
   bindUI();
   handleHash();
+  invalidateVis();
+  requestRender();
 }
 
 // ─── legend ───────────────────────────────────────────────────────────────
@@ -266,70 +278,75 @@ function buildLegend() {
   ).join("");
 }
 
-// ─── simulation ───────────────────────────────────────────────────────────
-let sim;
-function buildSim() {
+// ─── layout (precomputed in build_data.py) ────────────────────────────────
+function initPositions() {
   const nodes = state.data.nodes;
-  const edges = state.data.edges;
-
-  // seed positions: MC nodes near center, others on outer ring
   const cx = W / 2, cy = H / 2;
+  // fallback ring seed if data lacks x/y (older data.json)
   nodes.forEach((n, i) => {
-    if (n.x != null) return;
+    if (Number.isFinite(n.x) && Number.isFinite(n.y)) return;
     const ring = n.mission_critical ? 100 : 450;
     const a = (i / nodes.length) * Math.PI * 2 + (n.mission_critical ? 0 : Math.PI);
-    n.x = cx + Math.cos(a) * ring + (Math.random() - 0.5) * 40;
-    n.y = cy + Math.sin(a) * ring + (Math.random() - 0.5) * 40;
+    n.x = cx + Math.cos(a) * ring;
+    n.y = cy + Math.sin(a) * ring;
   });
 
-  sim = d3.forceSimulation(nodes)
-    .velocityDecay(0.55)
-    .force("link", d3.forceLink(edges)
-      .id(d => d.id)
-      .distance(d => d.relation === "builds_on" || d.relation === "enables" ? 60 : 140)
-      .strength(d => d.relation === "mentioned_with" ? 0.05 : 0.3))
-    .force("charge", d3.forceManyBody()
-      .strength(d => d.type === "MENTAL_MODEL" ? -260 : (d.mission_critical ? -60 : -18))
-      .distanceMax(500))
-    .force("mc_in",     d3.forceRadial(0,   cx, cy).strength(d => d.mission_critical ? 0.15 : 0))
-    .force("periphery", d3.forceRadial(450, cx, cy).strength(d => d.mission_critical ? 0 : 0.08))
-    .force("collide", d3.forceCollide().radius(d => radius(d) + 1.5).iterations(1))
-    .alpha(0.9)
-    .alphaDecay(0.02);
+  // neighbor index for fast focus-edge lookup and related-chip building
+  const idx = state.neighborsOf;
+  for (const n of nodes) idx.set(n.id, new Set());
+  for (const e of state.data.edges) {
+    idx.get(e.source.id)?.add(e.target.id);
+    idx.get(e.target.id)?.add(e.source.id);
+  }
 
-  sim.on("tick", render);
-
-  // Pre-bake: run many ticks synchronously, then let the loop run but decay fast
-  for (let i = 0; i < 120 && sim.alpha() > sim.alphaMin(); i++) sim.tick();
+  // center the world in the viewport on initial load
+  const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
+  const midX = (Math.min(...xs) + Math.max(...xs)) / 2;
+  const midY = (Math.min(...ys) + Math.max(...ys)) / 2;
+  const tx = W / 2 - midX, ty = H / 2 - midY;
+  state.transform = d3.zoomIdentity.translate(tx, ty);
+  d3.select(canvas).call(zoom.transform, state.transform);
 }
 
 // ─── zoom / pan / pick ────────────────────────────────────────────────────
 const zoom = d3.zoom().scaleExtent([0.2, 6]).on("zoom", (ev) => {
   state.transform = ev.transform;
-  render();
+  requestRender();
 });
 d3.select(canvas).call(zoom);
 
-function nodeAtPointer(x, y) {
-  const [wx, wy] = state.transform.invert([x, y]);
-  let best = null, bestD = 16 / state.transform.k;
+function rebuildVis() {
   const nodes = state.data.nodes;
+  visSet = new Set();
+  visNodes = [];
   for (let i = 0; i < nodes.length; i++) {
     const n = nodes[i];
-    if (!visSet.has(n.id)) continue;
-    const r = radius(n) + 3;
-    const dx = n.x - wx, dy = n.y - wy;
-    const d = Math.hypot(dx, dy);
-    if (d < r && d < bestD) { best = n; bestD = d; }
+    if (visible(n)) { visSet.add(n.id); visNodes.push(n); }
   }
-  return best;
+  quadtree = d3.quadtree()
+    .x(d => d.x).y(d => d.y)
+    .addAll(visNodes);
+  visNodesDirty = false;
+}
+function invalidateVis() { visNodesDirty = true; }
+
+function nodeAtPointer(x, y) {
+  if (visNodesDirty) rebuildVis();
+  if (!quadtree) return null;
+  const [wx, wy] = state.transform.invert([x, y]);
+  const searchR = 24 / state.transform.k;
+  const n = quadtree.find(wx, wy, searchR);
+  if (!n) return null;
+  const r = radius(n) + 3;
+  const dx = n.x - wx, dy = n.y - wy;
+  return (dx * dx + dy * dy) <= r * r ? n : null;
 }
 
 canvas.addEventListener("mousemove", (e) => {
   const rect = canvas.getBoundingClientRect();
   const n = nodeAtPointer(e.clientX - rect.left, e.clientY - rect.top);
   const id = n ? n.id : null;
-  if (id !== state.hover) { state.hover = id; canvas.style.cursor = id ? "pointer" : "default"; render(); }
+  if (id !== state.hover) { state.hover = id; canvas.style.cursor = id ? "pointer" : "default"; requestRender(); }
 });
 canvas.addEventListener("click", (e) => {
   const rect = canvas.getBoundingClientRect();
@@ -337,44 +354,61 @@ canvas.addEventListener("click", (e) => {
   if (n) selectNode(n.id, false);
 });
 
-// ─── render loop (canvas) ─────────────────────────────────────────────────
+// ─── render loop (canvas, dirty-flag + viewport culled) ─────────────────
 let lastFrame = performance.now();
 let frameTimes = [];
+
+function requestRender() {
+  if (renderQueued) return;
+  renderQueued = true;
+  requestAnimationFrame(() => { renderQueued = false; render(); });
+}
+
 function render() {
+  if (!state.data) return;
+  if (visNodesDirty) rebuildVis();
+
   const t = state.transform;
   ctx.save();
   ctx.clearRect(0, 0, W, H);
   ctx.translate(t.x, t.y);
   ctx.scale(t.k, t.k);
 
-  // Pre-compute visibility set for fast edge filtering
-  const nodes = state.data.nodes;
-  visSet = new Set();
-  for (let i = 0; i < nodes.length; i++) {
-    if (visible(nodes[i])) visSet.add(nodes[i].id);
-  }
+  // viewport in world coords (for culling)
+  const pad = 40 / t.k;
+  const xMin = (0 - t.x) / t.k - pad;
+  const yMin = (0 - t.y) / t.k - pad;
+  const xMax = (W - t.x) / t.k + pad;
+  const yMax = (H - t.y) / t.k + pad;
 
-  // ── edges ─────────────────────────────────────────────────────────────
   const selId = state.selected, hovId = state.hover;
   const emphIds = new Set();
   if (selId) emphIds.add(selId);
   if (hovId) emphIds.add(hovId);
 
+  // ── edges ────────────────────────────────────────────────────────────
   ctx.lineCap = "round";
   const edges = state.data.edges;
-  // 1) mentioned_with (faint)
-  ctx.lineWidth = 0.6 / t.k;
-  ctx.strokeStyle = EDGE_COLORS.mentioned_with;
-  ctx.beginPath();
-  for (let i = 0; i < edges.length; i++) {
-    const e = edges[i];
-    if (e.relation !== "mentioned_with") continue;
-    const s = e.source, d = e.target;
-    if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
-    ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
+
+  // 1) mentioned_with — only if user toggled "all edges" on
+  if (state.showAllEdges) {
+    ctx.lineWidth = 0.6 / t.k;
+    ctx.strokeStyle = EDGE_COLORS.mentioned_with;
+    ctx.beginPath();
+    for (let i = 0; i < edges.length; i++) {
+      const e = edges[i];
+      if (e.relation !== "mentioned_with") continue;
+      const s = e.source, d = e.target;
+      if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
+      // cheap viewport cull: skip if both endpoints are outside
+      if ((s.x < xMin && d.x < xMin) || (s.x > xMax && d.x > xMax) ||
+          (s.y < yMin && d.y < yMin) || (s.y > yMax && d.y > yMax)) continue;
+      ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
+    }
+    ctx.stroke();
   }
-  ctx.stroke();
-  // 2) semantic edges
+
+  // 2) semantic edges (builds_on / enables) — always drawn (only 250 total)
   for (const rel of ["builds_on", "enables"]) {
     ctx.strokeStyle = EDGE_COLORS[rel];
     ctx.lineWidth = 1.4 / t.k;
@@ -384,34 +418,37 @@ function render() {
       if (e.relation !== rel) continue;
       const s = e.source, d = e.target;
       if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
+      if ((s.x < xMin && d.x < xMin) || (s.x > xMax && d.x > xMax) ||
+          (s.y < yMin && d.y < yMin) || (s.y > yMax && d.y > yMax)) continue;
       ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
     }
     ctx.stroke();
   }
-  // 3) highlighted edges (selected / hover)
+
+  // 3) focus edges — all edges touching selected/hovered, drawn on top
   if (emphIds.size) {
     ctx.strokeStyle = "rgba(245,158,11,0.9)";
     ctx.lineWidth = 1.6 / t.k;
     ctx.beginPath();
     for (let i = 0; i < edges.length; i++) {
       const e = edges[i];
+      if (!emphIds.has(e.source.id) && !emphIds.has(e.target.id)) continue;
       const s = e.source, d = e.target;
       if (!visSet.has(s.id) || !visSet.has(d.id)) continue;
-      if (!emphIds.has(s.id) && !emphIds.has(d.id)) continue;
       ctx.moveTo(s.x, s.y); ctx.lineTo(d.x, d.y);
     }
     ctx.stroke();
   }
 
-  // ── nodes ─────────────────────────────────────────────────────────────
-  for (let i = 0; i < nodes.length; i++) {
-    const n = nodes[i];
-    if (!visSet.has(n.id)) continue;
+  // ── nodes (viewport culled) ──────────────────────────────────────────
+  const showIconsLOD = t.k > 1.2;
+  for (let i = 0; i < visNodes.length; i++) {
+    const n = visNodes[i];
+    if (n.x < xMin || n.x > xMax || n.y < yMin || n.y > yMax) continue;
     const r = radius(n);
     const isSel = n.id === selId;
     const isHov = n.id === hovId;
 
-    // circle
     ctx.beginPath();
     ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
     ctx.fillStyle = nodeColor(n);
@@ -435,9 +472,8 @@ function render() {
       ctx.stroke();
     }
 
-    // icon for larger nodes only (perf): MM always, others when visible size or zoom permits
     const iconPath = ICON_PATH2D[n.type] || ICON_PATH2D.OTHER;
-    if (iconPath && (n.type === "MENTAL_MODEL" || t.k > 1.2 || r > 7)) {
+    if (iconPath && (n.type === "MENTAL_MODEL" || showIconsLOD || r > 7)) {
       const iconSize = r * 1.25;
       ctx.save();
       ctx.translate(n.x - iconSize / 2, n.y - iconSize / 2);
@@ -453,16 +489,14 @@ function render() {
 
   ctx.restore();
 
-  // labels (SVG overlay, on hover/selected + all MMs when zoomed in)
   renderLabels();
 
-  // fps
   const now = performance.now();
   frameTimes.push(now - lastFrame);
   if (frameTimes.length > 30) frameTimes.shift();
   lastFrame = now;
   const avg = frameTimes.reduce((a, b) => a + b, 0) / frameTimes.length;
-  fpsEl.textContent = `${Math.round(1000 / avg)} fps · ${state.data.nodes.length} nodes`;
+  fpsEl.textContent = `${Math.round(1000 / avg)} fps · ${visNodes.length}/${state.data.nodes.length} nodes`;
 }
 
 function renderLabels() {
@@ -474,10 +508,10 @@ function renderLabels() {
     labels.push({ id: n.id, x, y: y - (radius(n) * t.k + 6), emph, mm: n.type === "MENTAL_MODEL" });
   };
   const seen = new Set();
-  const add = (n, emph) => { if (n && !seen.has(n.id) && visible(n)) { seen.add(n.id); push(n, emph); } };
+  const add = (n, emph) => { if (n && !seen.has(n.id) && visSet.has(n.id)) { seen.add(n.id); push(n, emph); } };
   if (state.selected) add(state.idx.get(state.selected), true);
   if (state.hover)    add(state.idx.get(state.hover), true);
-  // MMs when zoomed in
+  // MMs when zoomed in (viewport-culled by push())
   if (t.k >= 0.9) {
     for (const n of state.data.nodes) if (n.type === "MENTAL_MODEL") add(n, false);
   }
@@ -497,6 +531,7 @@ function selectNode(id, pan) {
   if (!FILTERS[state.filter](n)) {
     state.filter = "all";
     document.querySelectorAll("#filters button").forEach(b => b.classList.toggle("active", b.dataset.f === "all"));
+    invalidateVis();
   }
 
   if (state.selected && state.selected !== id) {
@@ -511,7 +546,7 @@ function selectNode(id, pan) {
   renderSidebar(n);
   renderBreadcrumb();
   if (pan) panTo(n);
-  render();
+  requestRender();
 }
 
 function panTo(n) {
@@ -651,12 +686,24 @@ function bindUI() {
     b.addEventListener("click", () => {
       state.filter = b.dataset.f;
       document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("active", x === b));
-      render();
+      invalidateVis();
+      requestRender();
     });
   });
 
+  // edge toggle
+  const edgeBtn = document.getElementById("edgeToggle");
+  const urlEdges = new URLSearchParams(location.search).get("edges");
+  if (urlEdges === "all") state.showAllEdges = true;
+  edgeBtn.classList.toggle("on", state.showAllEdges);
+  edgeBtn.addEventListener("click", () => {
+    state.showAllEdges = !state.showAllEdges;
+    edgeBtn.classList.toggle("on", state.showAllEdges);
+    requestRender();
+  });
+
   // search
-  searchEl.addEventListener("input", (e) => { state.search = e.target.value; render(); });
+  searchEl.addEventListener("input", (e) => { state.search = e.target.value; invalidateVis(); requestRender(); });
   searchEl.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       const q = state.search.trim().toLowerCase();
@@ -673,7 +720,7 @@ function bindUI() {
   window.addEventListener("keydown", (e) => {
     if (e.target.tagName === "INPUT") return;
     if (e.key === "/") { e.preventDefault(); searchEl.focus(); searchEl.select(); }
-    else if (e.key === "Escape") { state.selected = null; state.hover = null; renderSidebar(null); renderBreadcrumb(); render(); }
+    else if (e.key === "Escape") { state.selected = null; state.hover = null; renderSidebar(null); renderBreadcrumb(); requestRender(); }
     else if (e.key === "ArrowRight") { prevNextModel(+1); }
     else if (e.key === "ArrowLeft")  { prevNextModel(-1); }
   });

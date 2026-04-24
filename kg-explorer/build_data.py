@@ -6,10 +6,13 @@ Pure, deterministic, no LLM. Outputs to kg-explorer/data/data.json and docs/data
 from __future__ import annotations
 
 import json
+import math
 import pathlib
+import random
 import re
 import shutil
 import sys
+import time
 import urllib.parse
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
@@ -246,6 +249,78 @@ def compute_centrality(node_ids, edges) -> Counter:
     return c
 
 
+# ─── layout (precomputed, deterministic) ───────────────────────────────────
+
+def compute_layout(nodes: list[dict], edges: list[dict],
+                   scale: float = 900.0,
+                   iterations: int = 80) -> dict[str, tuple[float, float]]:
+    """Run a weighted spring layout once at build time so the browser can
+    just render — no runtime force simulation.
+
+    - Semantic edges (builds_on/enables) pull strongly; mentioned_with pulls
+      weakly, so dense "mentioned_with" fan-outs don't drown out structure.
+    - Mission-critical nodes seed near the center; everything else seeds on
+      an outer ring, matching the previous runtime seed.
+    - Deterministic: fixed seed.
+    """
+    try:
+        import networkx as nx
+    except ImportError:
+        print("  ⚠ networkx not available — skipping layout (browser will fall back)")
+        return {}
+
+    G = nx.Graph()
+    for n in nodes:
+        G.add_node(n["id"])
+    for e in edges:
+        rel = e.get("relation")
+        if rel in ("builds_on", "enables"):
+            w = 5.0
+        else:
+            w = max(0.05, float(e.get("weight", 1.0)) * 0.12)
+        s, t = e["source"], e["target"]
+        if s == t:
+            continue
+        if G.has_edge(s, t):
+            G[s][t]["weight"] += w
+        else:
+            G.add_edge(s, t, weight=w)
+
+    rng = random.Random(42)
+    init: dict[str, tuple[float, float]] = {}
+    mc = [n for n in nodes if n.get("mission_critical")]
+    rest = [n for n in nodes if not n.get("mission_critical")]
+    for i, n in enumerate(mc):
+        a = 2 * math.pi * i / max(1, len(mc))
+        init[n["id"]] = (
+            math.cos(a) * 0.15 + rng.uniform(-0.02, 0.02),
+            math.sin(a) * 0.15 + rng.uniform(-0.02, 0.02),
+        )
+    for i, n in enumerate(rest):
+        a = 2 * math.pi * i / max(1, len(rest)) + math.pi
+        init[n["id"]] = (
+            math.cos(a) * 0.75 + rng.uniform(-0.04, 0.04),
+            math.sin(a) * 0.75 + rng.uniform(-0.04, 0.04),
+        )
+
+    t0 = time.time()
+    pos = nx.spring_layout(
+        G, pos=init, weight="weight",
+        k=None, iterations=iterations, seed=42,
+    )
+    dt = time.time() - t0
+    print(f"  layout: {len(pos)} positions in {dt:.1f}s  ({iterations} iterations)")
+
+    # center + scale to world coords (roughly ±scale)
+    xs = [p[0] for p in pos.values()]
+    ys = [p[1] for p in pos.values()]
+    cx = (min(xs) + max(xs)) / 2
+    cy = (min(ys) + max(ys)) / 2
+    span = max(max(xs) - min(xs), max(ys) - min(ys), 1e-6)
+    k = (2 * scale) / span
+    return {nid: ((x - cx) * k, (y - cy) * k) for nid, (x, y) in pos.items()}
+
+
 # ─── taxonomy merge ────────────────────────────────────────────────────────
 
 def build_taxonomy_index(taxonomy: list) -> dict[str, str]:
@@ -360,6 +435,16 @@ def build() -> dict:
             "relation": "mentioned_with",
             "weight": e.get("weight", 1.0),
         })
+
+    # ─── precomputed layout ──────────────────────────────────────────────
+    print("→ Computing layout (networkx spring_layout, weighted)")
+    pos = compute_layout(nodes_out, edges_out)
+    if pos:
+        for n in nodes_out:
+            p = pos.get(n["id"])
+            if p:
+                n["x"] = round(p[0], 2)
+                n["y"] = round(p[1], 2)
 
     # ─── stats ───────────────────────────────────────────────────────────
     docs_set: set[str] = set()
