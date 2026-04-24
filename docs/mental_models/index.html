@@ -211,7 +211,7 @@
 
   <section id="cards">
     <h2>🃏 Mental Model Cards</h2>
-    <p class="desc">Top 54 mental models ranked by graph centrality. Each card is one screen — mantra first, details on demand.</p>
+    <p class="desc">Top 43 mental models ranked by graph centrality. Each card is one screen — mantra first, details on demand.</p>
 
     <div class="filter-row">
       <span style="color:var(--muted);font-size:12px;">Filter by layer:</span>
@@ -229,27 +229,27 @@
       <div class="card-header">
         <div class="card-title-row">
           <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">7 connections</span>
+          <span class="conn-badge">13 connections</span>
         </div>
         <h3><a href="cards/zero-trust.html" class="model-link">Zero Trust</a></h3>
-        <p class="mantra">"Never trust, always verify every request."</p>
+        <p class="mantra">"Never trust, always verify every request"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing network access policies for cloud workloads</li><li>Protecting mission-critical workloads from lateral movement</li><li>Implementing identity-based access across application layers</li><li>Responding to an assumed-breach security posture</li><li>Segmenting workloads in multi-tenant environments</li></ul>
+          <ul><li>Designing NSG/ASG micro-perimeters for workload traffic</li><li>Implementing Entra ID RBAC across application layers</li><li>When assuming breach posture for mission-critical workloads</li><li>Segmenting PaaS access via Private Link/Endpoints</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Lateral movement after a single breach compromises entire network</li><li>Implicit trust allows unauthorized access between services</li><li>Overly permissive network policies go undetected</li><li>Insider threats exploit flat network topologies</li><li>Compliance failures due to lack of access verification</li></ul>
+          <ul><li>Single breach enables lateral movement across flat network topology</li><li>Implicit service-to-service trust bypasses RBAC and NSG controls</li><li>Overly permissive network policies persist undetected without continuous verification</li><li>Insider threats exploit missing micro-segmentation; compliance audits fail</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger security verification increases complexity and may add latency versus the risk of implicit trust.</p>
+          <p>More verification granularity means more latency and Entra ID/Firewall Premium complexity</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> <a href="cards/defense-in-depth.html" class="model-link">Defense-In-Depth</a>, Micro-Segmentation, Network Security Groups, Security Readiness Plan</div>
-          <div><strong>🔗 Enables:</strong> <a href="cards/microsoft-zero-trust-model.html" class="model-link">Microsoft Zero Trust Model</a>, Mission-Critical Workloads, Micro-Segmentation</div>
+          <div><strong>🔗 Builds on:</strong> <a href="cards/defense-in-depth.html" class="model-link">Defense in Depth</a>, Micro-Segmentation, Network Security Groups, Security Readiness Plan</div>
+          <div><strong>🔗 Enables:</strong> Mission-Critical Workloads, Micro-Segmentation</div>
         </div>
         <a href="cards/zero-trust.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
@@ -261,20 +261,20 @@
           <span class="conn-badge">6 connections</span>
         </div>
         <h3><a href="cards/reliability-design-principles.html" class="model-link">Reliability Design Principles</a></h3>
-        <p class="mantra">"Design every workload to survive failure and keep serving its purpose."</p>
+        <p class="mantra">"Design every workload to survive failure gracefully"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Starting architecture design for a new workload</li><li>Reviewing existing systems for reliability gaps</li><li>Defining SLAs and recovery objectives with stakeholders</li><li>Making tradeoff decisions between cost and uptime</li></ul>
+          <ul><li>Architecting new mission-critical workloads on Azure</li><li>Running failure mode analysis across critical flows</li><li>Defining RTO/RPO/SLA targets with stakeholders</li><li>When trading off redundancy cost against uptime</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Cascading failures from unplanned outages</li><li>No clear recovery strategy when things break</li><li>Misaligned reliability targets with business needs</li><li>Reactive firefighting instead of proactive resilience</li><li>Inconsistent reliability practices across teams</li></ul>
+          <ul><li>Single-zone outage cascades into full workload failure</li><li>No RTO/RPO targets means unbounded recovery time</li><li>Reliability targets misaligned with actual business impact tiers</li><li>Reactive firefighting replaces self-healing and automation</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Higher reliability demands more redundancy and complexity, increasing cost and operational overhead.</p>
+          <p>More redundancy and active/active regions means higher cost and operational complexity</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/design-for-business-requirements.html" class="model-link">Design For Business Requirements</a></div>
@@ -290,24 +290,24 @@
           <span class="conn-badge">6 connections</span>
         </div>
         <h3><a href="cards/assume-breach.html" class="model-link">Assume Breach</a></h3>
-        <p class="mantra">"Design every defense as if the attacker is already inside."</p>
+        <p class="mantra">"Defend every layer as if already compromised"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing network segmentation and containment strategies</li><li>Planning encryption for data at rest and in transit</li><li>Building incident response and disaster recovery plans</li><li>Evaluating whether primary security controls have compensating backups</li><li>Architecting zero trust access policies</li></ul>
+          <ul><li>Designing micro-segmentation and blast radius containment</li><li>Planning encryption for data at-rest and in-transit</li><li>Building incident response and DR runbooks</li><li>Architecting zero-trust access with Entra Conditional Access</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Single perimeter failure leads to total compromise</li><li>Sensitive data exfiltrated due to lack of encryption inside the network</li><li>No containment limits blast radius of an attack</li><li>Missing audit trails make breach detection impossible</li><li>Recovery plans never tested against realistic compromise scenarios</li></ul>
+          <ul><li>Single NSG misconfiguration yields full lateral movement across VNets</li><li>Unencrypted east-west traffic enables silent data exfiltration post-breach</li><li>No micro-segmentation means one compromised pod owns entire cluster</li><li>Missing Log Analytics audit trails delay breach detection beyond RTO</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Increased operational complexity and cost of layered defenses versus the risk of catastrophic loss from a single point of failure.</p>
+          <p>More defense-in-depth layers cost operational complexity and latency</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> <a href="cards/microsoft-zero-trust-model.html" class="model-link">Microsoft Zero Trust Model</a>, Encryption, Audit Trail</div>
-          <div><strong>🔗 Enables:</strong> Confidentiality, Data Exfiltration, Disaster Recovery</div>
+          <div><strong>🔗 Builds on:</strong> <a href="cards/zero-trust.html" class="model-link">Zero Trust</a>, Encryption, Audit Trail</div>
+          <div><strong>🔗 Enables:</strong> Confidentiality, Data Exfiltration Prevention, Disaster Recovery</div>
         </div>
         <a href="cards/assume-breach.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
@@ -319,24 +319,24 @@
           <span class="conn-badge">5 connections</span>
         </div>
         <h3><a href="cards/four-vs-of-big-data.html" class="model-link">Four Vs Of Big Data</a></h3>
-        <p class="mantra">"Know your data's volume, velocity, variety, and veracity before architecting anything."</p>
+        <p class="mantra">"Profile volume, velocity, variety, veracity before selecting services"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing a new big data platform on Azure</li><li>Evaluating data pipeline architecture requirements</li><li>Choosing between storage and processing technologies</li><li>Assessing data quality and governance needs</li></ul>
+          <ul><li>Designing mission-critical data platform on Azure</li><li>Choosing between Cosmos DB, ADLS, Event Hubs</li><li>Defining P50/P99 latency and throughput targets</li><li>Assessing data quality gates for pipeline governance</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Under-provisioned storage or compute that cannot handle data volume</li><li>Pipelines that fail under real-time ingestion demands</li><li>Brittle systems that break when data formats change</li><li>Decisions made on untrustworthy or unvalidated data</li></ul>
+          <ul><li>Cosmos DB partition limits hit causing downtime and data loss</li><li>Pipelines throttled under real-time ingestion; Event Hubs backpressure cascades</li><li>Schema drift breaks downstream consumers across polyglot datastores</li><li>Decisions built on unvalidated data erode reliability SLA compliance</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Optimizing for all four Vs simultaneously increases cost and complexity, so you must prioritize based on workload needs.</p>
+          <p>Optimizing all four Vs simultaneously multiplies cost and complexity; prioritize per workload SLA</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Volume, Velocity, Variety, Veracity</div>
-          <div><strong>🔗 Enables:</strong> Azure</div>
+          <div><strong>🔗 Builds on:</strong> Capacity Planning, Data Tiering, CQRS and Event Sourcing, Data Consistency</div>
+          <div><strong>🔗 Enables:</strong> Health Modeling</div>
         </div>
         <a href="cards/four-vs-of-big-data.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
@@ -348,20 +348,20 @@
           <span class="conn-badge">5 connections</span>
         </div>
         <h3><a href="cards/design-for-recovery.html" class="model-link">Design For Recovery</a></h3>
-        <p class="mantra">"Assume failure will happen and engineer your way back from it."</p>
+        <p class="mantra">"Engineer recovery paths before failure strikes"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Architecting new workloads that require high availability</li><li>Defining RTO and RPO targets for critical systems</li><li>Deploying stateful services where data loss is unacceptable</li><li>Planning for regional or zonal outages</li></ul>
+          <ul><li>Defining RTO/RPO targets per business criticality tier</li><li>Deploying stateful services requiring zone-redundant replication</li><li>Selecting active-passive cold/warm standby DR patterns</li><li>Planning failover across availability zones or regions</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Extended downtime with no clear path to restoration</li><li>Permanent data loss from unrecoverable failures</li><li>Cascading failures spreading across dependent systems</li><li>Panic-driven recovery efforts that worsen the incident</li></ul>
+          <ul><li>RTO breach: no tested restore path extends outage indefinitely</li><li>RPO breach: asynchronous gaps cause permanent data loss</li><li>Cascading failures propagate through undocumented dependency chains</li><li>Ad-hoc recovery attempts trigger split-brain or data corruption</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Recovery capabilities add cost and complexity that must be balanced against the business impact of downtime.</p>
+          <p>More recovery capability (multi-region, warm standby) means higher cost and complexity</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Backups, <a href="cards/disaster-preparedness.html" class="model-link">Disaster Preparedness</a>, Recovery Plans</div>
@@ -374,23 +374,23 @@
       <div class="card-header">
         <div class="card-title-row">
           <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">5 connections</span>
+          <span class="conn-badge">6 connections</span>
         </div>
         <h3><a href="cards/least-privilege.html" class="model-link">Least Privilege</a></h3>
-        <p class="mantra">"Grant only needed access, scope, and time"</p>
+        <p class="mantra">"Grant minimum access, scope, and duration"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Assigning RBAC roles to users, managed identities, or pipelines</li><li>Configuring Entra PIM for production control plane access</li><li>Designing API authorization scopes or Key Vault access policies</li><li>Onboarding workloads, team members, or CD pipelines</li><li>Auditing existing permissions for privilege drift</li></ul>
+          <ul><li>Assigning RBAC roles to identities or pipelines</li><li>Configuring Entra PIM for production control plane</li><li>Designing Key Vault or API authorization scopes</li><li>Auditing existing permissions for privilege drift</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Compromised managed identity escalates across entire subscription</li><li>Malicious admin deletes Key Vault secrets via standing access</li><li>Accidental broad RBAC assignment exposes production data plane</li><li>Audit failure: overprivileged accounts violate SE:05 compliance requirements</li><li>Incident response stalls—cannot isolate blast radius from shared privileges</li></ul>
+          <ul><li>Compromised managed identity escalates across entire subscription</li><li>Standing access enables malicious admin Key Vault secret deletion</li><li>Broad RBAC assignment exposes production data plane to breach</li><li>Overprivileged accounts fail SE:05 audit and block incident isolation</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Tighter RBAC and PIM activation reduce blast radius but add latency, pipeline friction, and Entra ID as a critical dependency.</p>
+          <p>Tighter RBAC and PIM activation reduce blast radius but add latency and Entra ID dependency</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Access Controls</div>
@@ -406,24 +406,24 @@
           <span class="conn-badge">4 connections</span>
         </div>
         <h3><a href="cards/zero-downtime-deployment.html" class="model-link">Zero-Downtime Deployment</a></h3>
-        <p class="mantra">"Ship fearlessly without ever turning off the lights."</p>
+        <p class="mantra">"Deploy beside, shift traffic, decommission old."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Releasing new versions of mission-critical workloads</li><li>Applying infrastructure changes to production scale units</li><li>Rolling out hotfixes under active user traffic</li><li>Migrating backend services with strict SLA requirements</li></ul>
+          <ul><li>Releasing new versions of mission-critical workloads</li><li>Applying infrastructure changes to production scale units</li><li>Rolling out hotfixes under active user traffic</li><li>Migrating backends bound by 99.99%+ SLA targets</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Planned maintenance windows that erode availability targets</li><li>Failed deployments causing full service outages</li><li>Customer-visible errors during release rollouts</li><li>Fear-driven release culture with infrequent, risky big-bang deploys</li></ul>
+          <ul><li>Maintenance windows erode 99.99% composite availability targets</li><li>Failed deployments cause full stamp outages without rollback path</li><li>Customer-visible 5xx errors during release rollouts breach SLOs</li><li>Fear-driven culture produces infrequent high-risk big-bang deploys</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Achieving zero downtime demands additional infrastructure complexity and cost (e.g., blue-green or canary patterns) in exchange for uninterrupted availability.</p>
+          <p>Transient blue/green infrastructure duplication costs more but eliminates deployment-induced downtime.</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Scale-Unit Architecture, Azure</div>
-          <div><strong>🔗 Enables:</strong> Azure Mission-Critical Connected, Mission-Critical Online</div>
+          <div><strong>🔗 Builds on:</strong> Scale-Unit Architecture, Deployment Stamps</div>
+          <div><strong>🔗 Enables:</strong> Health Modeling, Safe Deployment Practices</div>
         </div>
         <a href="cards/zero-downtime-deployment.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
@@ -435,20 +435,20 @@
           <span class="conn-badge">4 connections</span>
         </div>
         <h3><a href="cards/design-for-resilience.html" class="model-link">Design For Resilience</a></h3>
-        <p class="mantra">"Build systems that bend but never break."</p>
+        <p class="mantra">"Bend under failure, never break entirely."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Architecting distributed systems with multiple failure domains</li><li>Defining SLAs and availability targets for critical workloads</li><li>Identifying and hardening the critical path of a workflow</li><li>Planning for partial outages or dependency failures</li></ul>
+          <ul><li>Architecting across multiple Azure failure domains</li><li>Defining SLA/RTO/RPO for critical workload flows</li><li>Hardening critical path after Failure Mode Analysis</li><li>Planning graceful degradation for dependency outages</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Total system outage from a single component failure</li><li>Cascading failures across dependent services</li><li>Users experience hard errors instead of reduced functionality</li><li>No clear understanding of which failures matter most</li></ul>
+          <ul><li>Single component failure cascades into total system outage</li><li>No circuit breakers; dependent service failures propagate everywhere</li><li>Users hit hard 500 errors instead of degraded functionality</li><li>Equal redundancy spend on non-critical and critical paths</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Increased architectural complexity and cost versus the degree of resilience gained under failure conditions.</p>
+          <p>More resilience patterns and redundancy means more architectural complexity and cost.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Critical Path, <a href="cards/reliability-design-principles.html" class="model-link">Reliability Design Principles</a></div>
@@ -464,55 +464,26 @@
           <span class="conn-badge">4 connections</span>
         </div>
         <h3><a href="cards/verify-explicitly.html" class="model-link">Verify Explicitly</a></h3>
-        <p class="mantra">"Never trust, always validate every identity, action, and location."</p>
+        <p class="mantra">"Validate every identity, action, location, every time"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Authenticating users or services accessing resources</li><li>Processing data change requests from any source</li><li>Granting access across network boundaries</li><li>Evaluating requests from unexpected locations or devices</li></ul>
+          <ul><li>Authenticating users or services via Entra ID</li><li>Processing data plane requests from any source</li><li>Granting access across network or trust boundaries</li><li>When requests originate from unexpected locations or devices</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Implicit trust allows lateral movement by attackers</li><li>Compromised credentials go undetected</li><li>Unauthorized data modifications corrupt integrity</li><li>Over-privileged access increases blast radius of breaches</li></ul>
+          <ul><li>Implicit trust enables lateral movement after single credential compromise</li><li>Compromised managed identities persist undetected without continuous validation</li><li>Unauthorized data modifications corrupt integrity, violating RPO guarantees</li><li>Over-privileged access expands blast radius across subscriptions and tenants</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger explicit verification increases security but adds latency and friction to user and service interactions.</p>
+          <p>Stronger per-request verification adds authentication latency and user friction</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> <a href="cards/microsoft-zero-trust-model.html" class="model-link">Microsoft Zero Trust Model</a>, Data Classification</div>
+          <div><strong>🔗 Builds on:</strong> <a href="cards/zero-trust.html" class="model-link">Zero Trust</a>, Data Classification</div>
           <div><strong>🔗 Enables:</strong> Integrity, Availability</div>
         </div>
         <a href="cards/verify-explicitly.html" class="tree-link">🌳 Explore connection tree →</a>
-      </div>
-    </div>
-    <div class="model-card" data-layer="security">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">4 connections</span>
-        </div>
-        <h3><a href="cards/microsoft-zero-trust-model.html" class="model-link">Microsoft Zero Trust Model</a></h3>
-        <p class="mantra">"Never trust, always verify every request."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Designing IAM with Entra ID, PIM, RBAC, or Managed Identities</li><li>Micro-segmenting networks via NSGs, Private Link, micro-perimeters</li><li>Enforcing governance with Azure Policy on control plane</li><li>Migrating on-prem workloads—eliminating implicit trust assumptions</li><li>Running security design reviews (SE:01–SE:12) or threat models</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Lateral movement after single compromise across flat networks</li><li>Standing admin access enables malicious-admin escalation attacks</li><li>Credentials in code leak via compromised service principals</li><li>No Azure Policy: authorized users bypass security configurations unchecked</li><li>Breaches undetected—no assume-breach compensating controls in place</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Reduced blast radius and explicit verification vs. added latency (identity network traversal), complexity (Entra ID as critical dependency), and misconfiguration risk.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> <a href="cards/zero-trust.html" class="model-link">Zero Trust</a>, <a href="cards/assume-breach.html" class="model-link">Assume Breach</a>, Least-Privilege Access, <a href="cards/verify-explicitly.html" class="model-link">Verify Explicitly</a></div>
-          <div><strong>🔗 Enables:</strong> <a href="cards/assume-breach.html" class="model-link">Assume Breach</a>, Least-Privilege Access, <a href="cards/verify-explicitly.html" class="model-link">Verify Explicitly</a></div>
-        </div>
-        <a href="cards/microsoft-zero-trust-model.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
     </div>
     <div class="model-card" data-layer="organizational">
@@ -522,20 +493,20 @@
           <span class="conn-badge">4 connections</span>
         </div>
         <h3><a href="cards/cost-efficiency-mindset.html" class="model-link">Cost-Efficiency Mindset</a></h3>
-        <p class="mantra">"Spend only what you must to maximize every dollar's return."</p>
+        <p class="mantra">"Spend only what workloads need, maximize ROI"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Starting a new cloud workload design</li><li>Reviewing monthly cloud spend reports</li><li>Provisioning SDLC and non-production environments</li><li>Evaluating whether to scale up or optimize existing resources</li></ul>
+          <ul><li>Designing new workload SKU and scaling choices</li><li>Reviewing Azure Cost Management monthly reports</li><li>Provisioning dev/test environments with lower SKUs</li><li>Evaluating scale-up versus right-sizing existing resources</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Unchecked resource sprawl and overprovisioning</li><li>No accountability for cloud spending decisions</li><li>Non-production environments running at production scale</li><li>Reactive cost management instead of proactive governance</li></ul>
+          <ul><li>Overprovisioned VMs and idle resources inflate monthly burn rate</li><li>No chargeback accountability leads to unowned orphaned resources</li><li>Dev/test environments running production-tier SKUs waste 40%+ spend</li><li>Reactive cost alerts fire after budget overruns already occurred</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Minimizing cost aggressively can compromise performance, reliability, or delivery speed if taken too far.</p>
+          <p>Aggressive cost reduction risks degraded reliability, performance, or delivery velocity</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Cost Baseline</div>
@@ -551,20 +522,20 @@
           <span class="conn-badge">4 connections</span>
         </div>
         <h3><a href="cards/design-for-rate-optimization.html" class="model-link">Design For Rate Optimization</a></h3>
-        <p class="mantra">"Squeeze more value from every committed dollar."</p>
+        <p class="mantra">"Squeeze maximum value from every committed dollar."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Reviewing resource spend without changing architecture</li><li>Choosing consumption-based vs fixed-price billing models</li><li>Negotiating Reserved Instances, Savings Plans, or enterprise agreements</li><li>Applying Azure Hybrid Benefit or preproduction subscription pricing</li></ul>
+          <ul><li>Choosing between Reserved Instances and pay-as-you-go</li><li>Negotiating Savings Plans or enterprise agreement renewals</li><li>Applying Azure Hybrid Benefit to eligible workloads</li><li>When Log Analytics ingest patterns become predictable</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Pay-as-you-go defaults waste 30-60% vs Reserved Instance pricing</li><li>Unused Azure Hybrid Benefit entitlements leave license value stranded</li><li>Log Analytics stays on per-GB tier despite predictable ingest volumes</li><li>Single-tenant deployments miss density savings from co-location</li></ul>
+          <ul><li>Pay-as-you-go defaults waste 30-60% vs Reserved Instance pricing</li><li>Unused Azure Hybrid Benefit entitlements strand license value indefinitely</li><li>Log Analytics per-GB tier bleeds cost despite stable daily ingest</li><li>Single-tenant deployments miss co-location density savings across teams</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Commitment-based discount depth versus consumption-based flexibility and zero-waste billing.</p>
+          <p>Deeper commitment discounts cost consumption flexibility and risk underutilization waste.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Consumption-Based Pricing, Fixed-Price Billing, Hybrid Use</div>
@@ -579,21 +550,21 @@
           <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
           <span class="conn-badge">3 connections</span>
         </div>
-        <h3><a href="cards/defense-in-depth.html" class="model-link">Defense-In-Depth</a></h3>
-        <p class="mantra">"Never rely on a single layer of security—stack your defenses."</p>
+        <h3><a href="cards/defense-in-depth.html" class="model-link">Defense in Depth</a></h3>
+        <p class="mantra">"Stack redundant security layers at every boundary"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing network segmentation and boundary controls</li><li>Implementing compensating controls for identified threats</li><li>Architecting multi-tier applications with sensitive data</li><li>Applying Zero Trust principles across workload components</li></ul>
+          <ul><li>Designing NSG, Azure Firewall, and WAF segmentation</li><li>Implementing compensating controls from threat modeling output</li><li>Architecting multi-tier apps handling PII or secrets</li><li>Applying Zero Trust across identity, network, data planes</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Single point of compromise leads to full breach</li><li>Lateral movement goes undetected across flat networks</li><li>One misconfigured control exposes the entire system</li><li>Threat actors bypass the sole security boundary trivially</li></ul>
+          <ul><li>Single WAF bypass grants full access to backend resources</li><li>Lateral movement spreads undetected across flat VNet topologies</li><li>One misconfigured NSG rule exposes entire subnet to internet</li><li>Compromised identity escalates unchecked without layered authorization gates</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Each additional security layer adds complexity and potential latency versus the risk reduction it provides.</p>
+          <p>More security layers means more latency, cost, and operational complexity</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Threat Modeling, <a href="cards/zero-trust.html" class="model-link">Zero Trust</a></div>
@@ -606,23 +577,23 @@
       <div class="card-header">
         <div class="card-title-row">
           <span class="layer-badge" style="background:#3b82f620;color:#3b82f6;border-color:#3b82f640">🏗️ structural</span>
-          <span class="conn-badge">3 connections</span>
+          <span class="conn-badge">4 connections</span>
         </div>
         <h3><a href="cards/blast-radius.html" class="model-link">Blast Radius</a></h3>
-        <p class="mantra">"Contain every failure before it contains you."</p>
+        <p class="mantra">"Contain every failure before it spreads."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing fault isolation boundaries between components</li><li>Evaluating multi-tenant density and co-location risks</li><li>Planning deployment stages and progressive rollouts</li><li>Assessing impact of a single component failure on dependent flows</li></ul>
+          <ul><li>Designing fault isolation via stamps or bulkheads</li><li>Evaluating multi-tenant noisy-neighbor co-location risks</li><li>Planning progressive rollouts across deployment stages</li><li>Mapping single-component failure impact on dependent flows</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>A single fault cascades across the entire workload</li><li>Tenant noisy-neighbor problems cause widespread outages</li><li>Security compromises spread unchecked through co-located resources</li><li>No clear understanding of failure impact during incident response</li></ul>
+          <ul><li>Single AZ fault cascades across entire workload, breaching SLA</li><li>Noisy-neighbor resource exhaustion causes cross-tenant outages</li><li>Security compromise spreads unchecked through co-located subscriptions</li><li>Incident responders lack impact scope, extending MTTR significantly</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Smaller blast radius requires more isolation boundaries, increasing cost and operational complexity.</p>
+          <p>Smaller blast radius costs more isolation boundaries and operational complexity.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Failure Mode Analysis</div>
@@ -635,23 +606,23 @@
       <div class="card-header">
         <div class="card-title-row">
           <span class="layer-badge" style="background:#10b98120;color:#10b981;border-color:#10b98140">⚙️ operational</span>
-          <span class="conn-badge">3 connections</span>
+          <span class="conn-badge">4 connections</span>
         </div>
         <h3><a href="cards/automation.html" class="model-link">Automation</a></h3>
-        <p class="mantra">"Automate everything you'd regret doing by hand twice."</p>
+        <p class="mantra">"Automate everything you'd regret doing twice"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Deploying infrastructure or application changes</li><li>Running repetitive operational tasks</li><li>Scaling workloads to meet demand</li><li>Executing test suites across environments</li><li>Responding to monitoring alerts with remediation</li></ul>
+          <ul><li>Deploying infrastructure or application changes via CI/CD</li><li>Scaling workloads through VMSS or autoscale rules</li><li>Executing progressive exposure rollouts across environments</li><li>Remediating alerts via Azure Functions or runbooks</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Human errors in deployments cause outages</li><li>Inconsistent environments lead to drift and bugs</li><li>Slow response to incidents due to manual steps</li><li>Technical debt accumulates from unscripted processes</li><li>Teams cannot scale operations beyond a few workloads</li></ul>
+          <ul><li>Manual deployments cause configuration drift, outages, and extended RTO</li><li>Inconsistent environments produce unreproducible bugs across stages</li><li>Slow incident response degrades SLA from minutes to hours</li><li>Operations bottleneck—teams cannot scale beyond handful of workloads</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Upfront investment in building and maintaining automation versus the ongoing cost and risk of manual processes.</p>
+          <p>Upfront IaC and pipeline investment costs velocity now; manual processes cost reliability forever</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Monitoring System</div>
@@ -667,20 +638,20 @@
           <span class="conn-badge">3 connections</span>
         </div>
         <h3><a href="cards/cost-management-discipline.html" class="model-link">Cost-Management Discipline</a></h3>
-        <p class="mantra">"Make every dollar visible, owned, and intentional."</p>
+        <p class="mantra">"Make every dollar visible, owned, intentional."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Standing up a new cloud workload or environment</li><li>Monthly or quarterly budget review cycles</li><li>When cloud spend trends upward unexpectedly</li><li>Onboarding new teams to shared infrastructure</li></ul>
+          <ul><li>Standing up new workloads or landing zones</li><li>During monthly/quarterly Cost Management reviews</li><li>When Azure Monitor cost alerts fire unexpectedly</li><li>Onboarding teams to shared subscription infrastructure</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Uncontrolled cloud sprawl and bill shock</li><li>No one owns or explains cost overruns</li><li>Optimization efforts are reactive and ad-hoc</li><li>SLA investments can't be justified against their cost</li></ul>
+          <ul><li>Untagged resource sprawl triggers bill shock across subscriptions</li><li>No owner accountable when Cost Management flags overruns</li><li>Optimization stays reactive—no cost model drives proactive rightsizing</li><li>Cannot justify SLA penalty budget vs. reliability investment spend</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Rigorous cost tracking adds process overhead that must be balanced against team agility and speed of delivery.</p>
+          <p>Rigorous cost tracking overhead costs team delivery velocity and agility.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Accountability Model</div>
@@ -696,20 +667,20 @@
           <span class="conn-badge">3 connections</span>
         </div>
         <h3><a href="cards/design-for-usage-optimization.html" class="model-link">Design For Usage Optimization</a></h3>
-        <p class="mantra">"Squeeze every drop of value from every resource you provision."</p>
+        <p class="mantra">"Eliminate idle capacity, extract maximum resource value"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Workload costs are growing faster than business value</li><li>Resources sit idle during off-peak periods</li><li>Scaling patterns are predictable enough to pre-commit</li><li>Multiple regions or instances serve redundant traffic</li></ul>
+          <ul><li>Costs growing faster than business value delivered</li><li>VMSS or App Service instances idle off-peak</li><li>When usage patterns justify Reserved Instance commits</li><li>Active-passive deployments waste standby capacity</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Chronic overprovisioning and wasted spend</li><li>Idle resources consuming budget with no return</li><li>Missed discount opportunities on predictable workloads</li><li>Inability to meet SLAs despite high spending</li></ul>
+          <ul><li>Overprovisioned VMSS burns budget at 15% CPU utilization</li><li>Idle standby regions cost 100% while serving zero traffic</li><li>Missed 40-72% savings from Reserved Instance commitments</li><li>High spend still breaches SLAs from misallocated resources</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Maximizing utilization increases efficiency but reduces headroom for unexpected demand spikes.</p>
+          <p>Higher utilization targets reduce cost headroom for unexpected demand spikes</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Dynamic Scaling, Active-Active Model</div>
@@ -725,20 +696,20 @@
           <span class="conn-badge">2 connections</span>
         </div>
         <h3><a href="cards/cap-theorem.html" class="model-link">CAP Theorem</a></h3>
-        <p class="mantra">"Pick two: consistency, availability, or partition tolerance—you cannot have all three."</p>
+        <p class="mantra">"Partition happens—choose consistency or availability now"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing distributed databases with multiple replicas</li><li>Choosing between strong and eventual consistency models</li><li>Architecting globally distributed applications</li><li>Evaluating database technologies for resilience requirements</li></ul>
+          <ul><li>Selecting Cosmos DB consistency levels for global distribution</li><li>Architecting multi-region active/active deployment patterns</li><li>Defining RPO/RTO targets for distributed data stores</li><li>Evaluating strong vs eventual consistency per workload</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Assuming a distributed system can be perfectly consistent and always available</li><li>Unexpected data staleness surprising users and downstream systems</li><li>Over-engineering for consistency at the cost of availability</li><li>Choosing databases that don't match actual workload trade-off needs</li></ul>
+          <ul><li>Cosmos DB strong consistency chosen globally, halving write availability</li><li>Eventual consistency surprises cause stale reads in financial workflows</li><li>Multi-region failover assumes zero data loss despite async replication</li><li>Database selection ignores partition behavior, causing split-brain outages</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Consistency versus availability during network partitions, forcing architects to prioritize one over the other.</p>
+          <p>Stronger consistency costs higher latency and reduced availability during partitions</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Veracity</div>
@@ -754,20 +725,20 @@
           <span class="conn-badge">2 connections</span>
         </div>
         <h3><a href="cards/self-preservation.html" class="model-link">Self-Preservation</a></h3>
-        <p class="mantra">"Design every component to protect itself so failures stay local."</p>
+        <p class="mantra">"Every component protects itself; failures stay local."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing service boundaries and modular components</li><li>Implementing retry, circuit-breaker, or bulkhead patterns</li><li>Evaluating cascading failure risks in distributed systems</li><li>Planning for partial outages or dependency degradation</li></ul>
+          <ul><li>Implementing circuit-breaker, bulkhead, or retry patterns</li><li>Designing service boundaries in distributed workloads</li><li>Evaluating cascading failure risks across dependencies</li><li>Planning graceful degradation during partial outages</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Single component failure cascades across the entire workload</li><li>Downstream services overwhelmed by upstream retries</li><li>Total outage from a localized incident</li><li>No graceful degradation under stress</li></ul>
+          <ul><li>Single App Service failure cascades into full workload outage</li><li>Unbounded upstream retries overwhelm downstream services causing retry storms</li><li>Localized dependency timeout triggers correlated multi-region SLA breach</li><li>No graceful degradation; binary healthy-or-dead system behavior</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger isolation and self-preservation patterns add complexity and latency versus simpler but more fragile designs.</p>
+          <p>Stronger isolation via bulkheads and circuit breakers costs added latency and complexity.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/blast-radius.html" class="model-link">Blast Radius</a></div>
@@ -783,20 +754,20 @@
           <span class="conn-badge">2 connections</span>
         </div>
         <h3><a href="cards/design-for-operations.html" class="model-link">Design For Operations</a></h3>
-        <p class="mantra">"Anticipate failure before your customers discover it."</p>
+        <p class="mantra">"Shift left—detect failure before customers do"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Architecting a new production workload</li><li>Defining testing and deployment pipelines</li><li>Establishing monitoring and alerting strategies</li><li>Preparing for incident response readiness</li></ul>
+          <ul><li>Architecting new production workloads on Azure</li><li>Defining CI/CD pipelines with blue/green deployments</li><li>Establishing Azure Monitor and Application Insights alerting</li><li>Preparing incident response runbooks and chaos experiments</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Failures surface only in production via customer complaints</li><li>No telemetry to diagnose issues under pressure</li><li>Slow and chaotic incident response</li><li>Recurring outages with unknown root causes</li><li>Operational toil dominates engineering capacity</li></ul>
+          <ul><li>Failures surface via customer complaints, not Azure Monitor alerts</li><li>Zero telemetry during outages makes MTTR unbounded</li><li>Chaotic incident response without runbooks extends downtime hours</li><li>Recurring outages persist—no root cause data captured</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Investing upfront in observability and failure testing increases initial effort but dramatically reduces mean time to recovery.</p>
+          <p>20-40% sprint capacity for observability costs feature velocity but slashes MTTR</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/observable-systems.html" class="model-link">Observable Systems</a></div>
@@ -812,20 +783,20 @@
           <span class="conn-badge">2 connections</span>
         </div>
         <h3><a href="cards/observable-systems.html" class="model-link">Observable Systems</a></h3>
-        <p class="mantra">"If you can't see it, you can't fix it."</p>
+        <p class="mantra">"Unseen failures become customer-facing outages fast."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing distributed microservices architectures</li><li>Setting up production monitoring and alerting</li><li>Troubleshooting intermittent failures across services</li><li>Onboarding SRE teams to a new system</li><li>Establishing health models for critical workloads</li></ul>
+          <ul><li>Designing distributed microservices across Azure Monitor stack</li><li>Building layered health models for critical workloads</li><li>Troubleshooting correlated failures across service dependencies</li><li>Onboarding SRE teams with alerting and dashboards</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Blind spots in production lead to prolonged outages</li><li>Teams resort to guesswork during incident response</li><li>Correlated failures go undetected until customer impact</li><li>No holistic view of system health across components</li><li>Mean time to recovery increases dramatically</li></ul>
+          <ul><li>Blind spots extend MTTR; SLA breaches cascade silently.</li><li>Incident response degrades to guesswork without correlated traces.</li><li>Transient vs non-transient failures indistinguishable; wrong remediation fires.</li><li>No health model means no automated degradation detection.</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>More telemetry improves visibility but increases cost, complexity, and potential performance overhead.</p>
+          <p>More telemetry depth improves MTTR but increases Monitor ingestion cost and noise.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/design-for-operations.html" class="model-link">Design For Operations</a></div>
@@ -838,23 +809,23 @@
       <div class="card-header">
         <div class="card-title-row">
           <span class="layer-badge" style="background:#f59e0b20;color:#f59e0b;border-color:#f59e0b40">🧠 foundational</span>
-          <span class="conn-badge">2 connections</span>
+          <span class="conn-badge">3 connections</span>
         </div>
         <h3><a href="cards/simplicity.html" class="model-link">Simplicity</a></h3>
-        <p class="mantra">"Reduce the surface area before you try to control it."</p>
+        <p class="mantra">"Shrink surface area before controlling it"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing a new architecture from scratch</li><li>Reviewing systems with frequent misconfigurations</li><li>Consolidating redundant components or services</li><li>Onboarding new teams to an existing platform</li><li>Choosing between competing design approaches</li></ul>
+          <ul><li>Designing greenfield architectures from requirements</li><li>Reviewing systems with recurring misconfigurations</li><li>Choosing between zone-redundant and multi-region patterns</li><li>Consolidating redundant services or components</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Sprawling configurations that no one fully understands</li><li>Increased misconfiguration and outage risk</li><li>Slower incident response due to hidden complexity</li><li>Higher onboarding cost for new engineers</li><li>Drift from standards as teams create workarounds</li></ul>
+          <ul><li>Sprawling ARM/Bicep configs no single engineer fully understands</li><li>Misconfigured NSGs or RBAC causing preventable outages</li><li>Slower MTTR as responders trace hidden dependency chains</li><li>Standards drift as teams build undocumented workarounds</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Simplicity may limit flexibility and feature richness, requiring discipline to resist over-engineering.</p>
+          <p>More simplicity means less flexibility; zone-redundant beats multi-region unless RTO demands otherwise</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/standards.html" class="model-link">Standards</a></div>
@@ -870,24 +841,24 @@
           <span class="conn-badge">2 connections</span>
         </div>
         <h3><a href="cards/segmentation.html" class="model-link">Segmentation</a></h3>
-        <p class="mantra">"Draw boundaries before attackers draw their own."</p>
+        <p class="mantra">"Draw boundaries before attackers draw theirs."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing network topology for a new workload</li><li>Defining team access boundaries and responsibilities</li><li>Isolating sensitive data stores from general compute</li><li>Planning multi-tenant or multi-environment architectures</li><li>Containing blast radius after a security incident</li></ul>
+          <ul><li>Designing VNet topology with NSGs and ASGs</li><li>Isolating sensitive data stores from general compute</li><li>Planning multi-tenant or multi-environment architectures</li><li>Containing blast radius after breach or incident</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Lateral movement across the entire environment after a single breach</li><li>Overly broad access permissions for users and services</li><li>Inability to apply distinct security policies per workload tier</li><li>Compliance failures due to lack of data isolation</li><li>Blast radius of failures or attacks spans the whole system</li></ul>
+          <ul><li>Single breach enables lateral movement across entire environment</li><li>Flat network defeats Zero Trust; NSG/ASG policies unenforced</li><li>No distinct security policies per workload tier blocks compliance</li><li>Blast radius spans all tenants destroying SLA commitments</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Finer-grained isolation increases security posture but raises complexity and total cost of ownership.</p>
+          <p>Finer micro-perimeters increase containment but multiply NSG/policy complexity and cost.</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Security Pillar, Security Readiness Plan</div>
-          <div><strong>🔗 Enables:</strong> Security Pillar, Security Readiness Plan</div>
+          <div><strong>🔗 Builds on:</strong> <a href="cards/zero-trust.html" class="model-link">Zero Trust</a>, Security Readiness Plan</div>
+          <div><strong>🔗 Enables:</strong> Least Privilege Access, Breach Containment</div>
         </div>
         <a href="cards/segmentation.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
@@ -899,55 +870,26 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/pacelc-theorem.html" class="model-link">PACELC Theorem</a></h3>
-        <p class="mantra">"Even when things are fine, you're still trading latency for consistency."</p>
+        <p class="mantra">"No partition? Still trade latency for consistency."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Choosing between eventual and strong consistency for a distributed database</li><li>Evaluating latency-sensitive workloads that also need partition tolerance</li><li>Designing replication strategies across regions</li><li>Comparing managed database offerings and their consistency models</li></ul>
+          <ul><li>Choosing Cosmos DB consistency level for multi-region writes</li><li>Evaluating session vs strong consistency impact on P99</li><li>Designing active/active replication across paired regions</li><li>Comparing bounded-staleness vs eventual for read-heavy workloads</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Assuming CAP fully describes your system's behavior during normal operation</li><li>Unexpected latency spikes from strong consistency you didn't need</li><li>Stale reads in systems where you assumed consistency came for free</li><li>Poor user experience from ignoring the latency-consistency spectrum</li></ul>
+          <ul><li>CAP analysis ignores normal-operation latency penalty from strong consistency</li><li>Strong consistency adds cross-region round-trips destroying sub-100ms P99 targets</li><li>Eventual consistency causes stale reads violating business correctness requirements</li><li>Cosmos DB RU costs spike from unnecessary strong consistency overhead</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>During normal operation (no partition), you must still choose between lower latency and stronger consistency.</p>
+          <p>Lower read latency costs weaker consistency guarantees even without partitions.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/cap-theorem.html" class="model-link">CAP Theorem</a></div>
           <div><strong>🔗 Enables:</strong> —</div>
         </div>
         <a href="cards/pacelc-theorem.html" class="tree-link">🌳 Explore connection tree →</a>
-      </div>
-    </div>
-    <div class="model-card" data-layer="structural">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#3b82f620;color:#3b82f6;border-color:#3b82f640">🏗️ structural</span>
-          <span class="conn-badge">1 connections</span>
-        </div>
-        <h3><a href="cards/blast-radius-reduction-and-fault-isolation.html" class="model-link">Blast Radius Reduction And Fault Isolation</a></h3>
-        <p class="mantra">"Contain every failure before it contains you."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Designing multi-region or multi-zone architectures</li><li>Deploying updates via progressive rollout strategies</li><li>Choosing between shared vs. isolated resource boundaries</li><li>Planning for correlated failures across dependent services</li><li>Defining failure domains for critical workloads</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>A single component failure cascades across the entire system</li><li>Regional outages take down all customers simultaneously</li><li>Deployments become all-or-nothing risky events</li><li>Noisy-neighbor problems degrade unrelated workloads</li><li>Recovery time explodes due to unbounded failure scope</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger isolation increases infrastructure cost and operational complexity in exchange for narrower failure impact.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Reliability</div>
-          <div><strong>🔗 Enables:</strong> Reliability</div>
-        </div>
-        <a href="cards/blast-radius-reduction-and-fault-isolation.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
     </div>
     <div class="model-card" data-layer="operational">
@@ -957,24 +899,24 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/design-for-self-healing.html" class="model-link">Design For Self-Healing</a></h3>
-        <p class="mantra">"Automate remediation before humans even notice failures"</p>
+        <p class="mantra">"Automate remediation before humans notice failures"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Transient failures common across distributed components</li><li>Manual response too slow for SLA recovery targets</li><li>Known failure modes have predictable, automatable remediation</li><li>Scale exceeds human response capacity</li><li>Deploying to environments with variable reliability</li></ul>
+          <ul><li>Transient failures common across distributed components</li><li>Manual response too slow for SLA recovery</li><li>Known failure modes have automatable remediation paths</li><li>Scale exceeds human operator response capacity</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Transient faults cascade into full outages—no circuit breakers or retries</li><li>Alert fatigue buries ops team in repetitive manual fixes</li><li>MTTR explodes waiting for human diagnosis of automatable failures</li><li>SLA breaches from recovery times exceeding targets</li><li>Same known failure causes repeated incidents without automated response</li></ul>
+          <ul><li>Transient faults cascade into full outages without circuit breakers</li><li>Alert fatigue buries ops teams in repetitive manual fixes</li><li>MTTR explodes waiting for human diagnosis of automatable failures</li><li>SLA breaches from recovery times exceeding RTO targets</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Upfront complexity in remediation logic and testing vs. reduced operational toil, faster MTTR, and fewer cascading outages at runtime</p>
+          <p>More upfront remediation logic complexity means less operational toil and faster MTTR</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Reliability</div>
-          <div><strong>🔗 Enables:</strong> Reliability</div>
+          <div><strong>🔗 Builds on:</strong> Health Modeling</div>
+          <div><strong>🔗 Enables:</strong> Deployment Stamps</div>
         </div>
         <a href="cards/design-for-self-healing.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
@@ -986,84 +928,26 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/design-for-scale-out.html" class="model-link">Design For Scale-Out</a></h3>
-        <p class="mantra">"Add more units, not bigger units."</p>
+        <p class="mantra">"Add more units, never bigger units."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Workload demand is unpredictable or spiky</li><li>Single-instance vertical limits are approaching</li><li>You need fault tolerance through redundancy</li><li>Cost optimization requires elastic capacity</li><li>Deploying stateless or partitionable workloads</li></ul>
+          <ul><li>When demand spikes exceed single-instance vertical limits</li><li>Deploy stateless or partitionable workloads across stamps</li><li>Fault tolerance requires redundant parallel instances</li><li>Cost optimization demands elastic VMSS/AKS capacity</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Hard ceilings on throughput when vertical limits are hit</li><li>Single points of failure with no redundancy</li><li>Over-provisioned resources wasting cost during low demand</li><li>Downtime during upgrades to larger instance sizes</li><li>Inability to respond quickly to traffic surges</li></ul>
+          <ul><li>Hard throughput ceiling when VM/AKS node limits hit</li><li>Single-instance failure causes full workload outage, RTO blown</li><li>Over-provisioned SKUs waste spend during low-demand periods</li><li>Upgrade-induced downtime scaling vertically to larger SKUs</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Horizontal scaling gains elasticity and resilience but introduces complexity in state management, data consistency, and load distribution.</p>
+          <p>Scale-out elasticity costs state management and data consistency complexity.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Performance Efficiency</div>
           <div><strong>🔗 Enables:</strong> Performance Efficiency</div>
         </div>
         <a href="cards/design-for-scale-out.html" class="tree-link">🌳 Explore connection tree →</a>
-      </div>
-    </div>
-    <div class="model-card" data-layer="operational">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#10b98120;color:#10b981;border-color:#10b98140">⚙️ operational</span>
-          <span class="conn-badge">1 connections</span>
-        </div>
-        <h3><a href="cards/drive-automation.html" class="model-link">Drive Automation</a></h3>
-        <p class="mantra">"Automate everything so humans never become your single point of failure."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Deploying infrastructure or application changes</li><li>Running repetitive operational tasks prone to human error</li><li>Scaling resources in response to demand</li><li>Executing test suites before releases</li><li>Recovering from failures or incidents</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Configuration drift across environments</li><li>Slow and error-prone deployments</li><li>Inconsistent incident response times</li><li>Undetected regressions reaching production</li><li>Toil consuming engineering capacity</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Upfront investment in building and maintaining automation pipelines versus the ongoing cost and risk of manual operations.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Reliability</div>
-          <div><strong>🔗 Enables:</strong> Reliability</div>
-        </div>
-        <a href="cards/drive-automation.html" class="tree-link">🌳 Explore connection tree →</a>
-      </div>
-    </div>
-    <div class="model-card" data-layer="structural">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#3b82f620;color:#3b82f6;border-color:#3b82f640">🏗️ structural</span>
-          <span class="conn-badge">1 connections</span>
-        </div>
-        <h3><a href="cards/complexity-avoidance.html" class="model-link">Complexity Avoidance</a></h3>
-        <p class="mantra">"Keep it simple or pay the price in outages."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Designing a new workload architecture</li><li>Adding components or dependencies to an existing system</li><li>Defining operational runbooks and processes</li><li>Evaluating build-vs-buy decisions</li><li>Reviewing architecture for reliability improvements</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Cascading failures from poorly understood component interactions</li><li>Longer mean-time-to-recovery due to opaque systems</li><li>Operational toil from convoluted management processes</li><li>Increased blast radius when failures occur</li><li>Knowledge silos where only one person understands the design</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Simplicity may limit feature richness or optimization opportunities, but complexity directly erodes reliability and operability.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Reliability</div>
-          <div><strong>🔗 Enables:</strong> Reliability</div>
-        </div>
-        <a href="cards/complexity-avoidance.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
     </div>
     <div class="model-card" data-layer="structural">
@@ -1073,24 +957,24 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/mission-critical-design.html" class="model-link">Mission-Critical Design</a></h3>
-        <p class="mantra">"Treat every resource as disposable so nothing is irreplaceable."</p>
+        <p class="mantra">"Treat every resource as disposable, nothing irreplaceable."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing systems with zero-downtime requirements</li><li>Building workloads where failure cost is extremely high</li><li>Architecting stateless microservices on AKS</li><li>Planning for multi-region active-active deployments</li></ul>
+          <ul><li>Targeting 99.99%+ SLOs with near-zero RTO/RPO</li><li>Building workloads where failure cost is catastrophic</li><li>Architecting stateless scale-unit stamps on AKS</li><li>Planning multi-region active-active with Front Door</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Single points of failure bring down entire workloads</li><li>Stateful components create recovery bottlenecks</li><li>Inability to rapidly redeploy after regional outages</li><li>Cascading failures from tightly coupled dependencies</li></ul>
+          <ul><li>Single points of failure collapse entire workloads during zonal outages</li><li>Stateful components create recovery bottlenecks exceeding RPO targets</li><li>Regional failure requires manual rebuild instead of automated stamp redeployment</li><li>Tightly coupled dependencies trigger cascading failures across scale units</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Maximum reliability through ephemeral resources demands higher architectural complexity and cost versus simpler stateful designs.</p>
+          <p>Maximum reliability via ephemeral deployment stamps costs higher complexity and spend.</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Azure Kubernetes Service</div>
-          <div><strong>🔗 Enables:</strong> Azure Kubernetes Service</div>
+          <div><strong>🔗 Builds on:</strong> Deployment Stamps</div>
+          <div><strong>🔗 Enables:</strong> Health Modeling</div>
         </div>
         <a href="cards/mission-critical-design.html" class="tree-link">🌳 Explore connection tree →</a>
       </div>
@@ -1102,20 +986,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/design-principles.html" class="model-link">Design Principles</a></h3>
-        <p class="mantra">"Anchor every architectural decision to a principle before reaching for a pattern."</p>
+        <p class="mantra">"Anchor every decision to principles before patterns."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Starting a new mission-critical workload design</li><li>Resolving conflicting requirements across WAF pillars</li><li>Reviewing architecture decisions for consistency</li><li>Onboarding new team members to design rationale</li></ul>
+          <ul><li>Starting new mission-critical workload design</li><li>Resolving conflicts across WAF pillars</li><li>Reviewing architecture decisions for consistency</li><li>Onboarding engineers to design rationale</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Ad-hoc decisions that contradict each other across pillars</li><li>Over-optimizing one quality attribute at the expense of others</li><li>Inability to justify architectural choices during reviews</li><li>Design drift as the system evolves without guiding guardrails</li></ul>
+          <ul><li>Contradictory decisions across pillars degrade reliability and security simultaneously</li><li>Over-optimizing reliability tanks performance via replication latency</li><li>Unjustifiable architecture choices fail stakeholder and compliance reviews</li><li>Design drift emerges as system evolves without principled guardrails</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Strict adherence to principles provides consistency but can reduce flexibility when novel constraints demand pragmatic exceptions.</p>
+          <p>Strict principle adherence costs flexibility when novel constraints demand pragmatic exceptions.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Design Methodology</div>
@@ -1131,20 +1015,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/stride.html" class="model-link">STRIDE</a></h3>
-        <p class="mantra">"Systematically hunt every category of threat before attackers do."</p>
+        <p class="mantra">"Hunt all six threat categories before attackers."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Performing threat modeling on a new or changed architecture</li><li>Reviewing authentication and authorization boundaries</li><li>Assessing data flow diagrams for security gaps</li><li>Preparing for a security design review</li></ul>
+          <ul><li>Threat modeling new or changed architecture components</li><li>Reviewing authentication and authorization trust boundaries</li><li>Assessing data flow diagrams for security gaps</li><li>Preparing for security design reviews</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Entire threat categories go unexamined</li><li>Security analysis becomes ad-hoc and inconsistent</li><li>Elevation of privilege paths are overlooked</li><li>Repudiation risks are ignored due to missing audit trails</li><li>Teams fixate on one threat type while others fester</li></ul>
+          <ul><li>Entire threat categories unexamined; elevation-of-privilege paths persist silently</li><li>Ad-hoc analysis misses repudiation risks lacking Azure Monitor audit trails</li><li>Teams fixate on DDoS while spoofing and tampering vectors fester</li><li>No structured coverage across Entra ID, WAF, DDoS Protection layers</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Breadth of coverage across six threat categories versus depth of analysis in any single category.</p>
+          <p>Breadth across six threat categories costs depth in any single vector.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Threat Modeling</div>
@@ -1160,20 +1044,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/criticality.html" class="model-link">Criticality</a></h3>
-        <p class="mantra">"Know what matters most before you engineer for resilience."</p>
+        <p class="mantra">"Tier every flow before engineering resilience"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing reliability tiers for a new workload</li><li>Allocating budget across components with different SLAs</li><li>Deciding which services get redundancy and failover</li><li>Triaging incidents under pressure</li><li>Planning fault isolation boundaries</li></ul>
+          <ul><li>Rating user/system flows against criticality scale</li><li>Allocating budget across components with different SLAs</li><li>Deciding active/active vs active/passive per flow</li><li>Triaging incidents under pressure</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Over-engineering low-value components wastes budget</li><li>Under-protecting critical paths causes outages</li><li>Flat reliability targets mask real business risk</li><li>Incident response lacks clear prioritization</li><li>Fault isolation boundaries are drawn arbitrarily</li></ul>
+          <ul><li>Active/active multi-region deployed for low-value flows—budget wasted</li><li>Critical paths get single-region; outage cascades to revenue loss</li><li>Flat 99.9% SLO masks flows needing 99.999% composite targets</li><li>Incident response treats batch jobs equal to payment flows</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Higher criticality demands more investment in resilience, but treating everything as critical eliminates the cost savings of tiering.</p>
+          <p>Stricter RTO/RPO per tier costs more regions, replicas, and operational complexity</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> —</div>
@@ -1189,20 +1073,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/fault-isolation.html" class="model-link">Fault Isolation</a></h3>
-        <p class="mantra">"Contain the blast so the system survives the explosion."</p>
+        <p class="mantra">"Contain blast radius, protect critical paths always"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing boundaries between components of different criticality</li><li>Deploying shared infrastructure that serves multiple workloads</li><li>Introducing third-party or unreliable dependencies</li><li>Planning failure modes for distributed systems</li></ul>
+          <ul><li>Drawing boundaries between different-criticality components</li><li>Deploying shared infrastructure serving multiple workloads</li><li>Introducing third-party or unreliable dependencies</li><li>Running Failure Mode Analysis on distributed flows</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>A minor component failure cascades into a full system outage</li><li>Non-critical features drag down mission-critical paths</li><li>Single points of failure propagate errors unpredictably</li><li>Recovery time increases as failures spread across boundaries</li></ul>
+          <ul><li>Single zone failure cascades into full multi-region outage</li><li>Non-critical dependency timeout blocks mission-critical transaction path</li><li>Shared App Gateway fault propagates across all backend workloads</li><li>RTO explodes as correlated failures cross unbounded blast radius</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger isolation increases architectural complexity and cost versus the risk of cascading failures.</p>
+          <p>Stronger isolation via zones/stamps/bulkheads costs more complexity and redundancy spend</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/criticality.html" class="model-link">Criticality</a></div>
@@ -1218,20 +1102,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/disaster-preparedness.html" class="model-link">Disaster Preparedness</a></h3>
-        <p class="mantra">"Plan for the disaster that will happen, not the one you hope won't."</p>
+        <p class="mantra">"Drill recovery before disaster forces improvisation"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing business continuity plans for critical workloads</li><li>Onboarding new regions or availability zones</li><li>After a near-miss incident reveals recovery gaps</li><li>When compliance requires documented recovery procedures</li></ul>
+          <ul><li>Designing BCDR for mission-critical workload tiers</li><li>Onboarding new regions or availability zones</li><li>After near-miss reveals untested recovery gaps</li><li>When compliance mandates documented RTO/RPO procedures</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Unrecoverable data loss during regional outages</li><li>Panicked ad-hoc responses that extend downtime</li><li>Untested backups that fail when actually needed</li><li>Unclear roles and responsibilities during incidents</li><li>False confidence from high-availability designs that still have correlated failure modes</li></ul>
+          <ul><li>Untested ASR runbooks fail during regional outage, exceeding RTO</li><li>Ad-hoc panic responses extend downtime beyond SLA commitments</li><li>Geo-redundant backups corrupt silently, causing unrecoverable data loss</li><li>No defined disaster threshold triggers delayed escalation and role confusion</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Investment in preparation and regular drills versus the cost and effort of maintaining readiness for events that may rarely occur.</p>
+          <p>Regular drill investment costs operational overhead; skipping means unvalidated recovery assumptions</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/design-for-recovery.html" class="model-link">Design For Recovery</a></div>
@@ -1247,20 +1131,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/standards.html" class="model-link">Standards</a></h3>
-        <p class="mantra">"Define the pattern once so every execution follows it."</p>
+        <p class="mantra">"Define pattern once, execute consistently everywhere."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Setting up new code repositories or project templates</li><li>Defining deployment pipelines and release processes</li><li>Onboarding new team members to existing systems</li><li>Troubleshooting production incidents under pressure</li><li>Scaling teams or workloads across multiple regions</li></ul>
+          <ul><li>Establishing repos, IaC templates, or pipeline definitions</li><li>Enforcing baseline config via Azure Policy assignments</li><li>Onboarding engineers to production operational processes</li><li>Troubleshooting incidents requiring predictable system state</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Inconsistent deployments cause environment drift</li><li>Human errors multiply with ad-hoc processes</li><li>Troubleshooting becomes guesswork without predictable patterns</li><li>Onboarding slows as tribal knowledge replaces documentation</li><li>Technical debt accumulates from divergent implementations</li></ul>
+          <ul><li>Environment drift across regions breaks failover, extending RTO</li><li>Ad-hoc deployments bypass quality gates, causing production outages</li><li>Tribal knowledge bottlenecks incident response under pressure</li><li>Divergent Terraform/Bicep modules accumulate ungovernable technical debt</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Rigid standards reduce variability but can stifle innovation and slow adaptation to novel requirements.</p>
+          <p>Rigid standards reduce deployment variance but slow adaptation to novel requirements.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> <a href="cards/simplicity.html" class="model-link">Simplicity</a></div>
@@ -1276,20 +1160,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3><a href="cards/design-for-business-requirements.html" class="model-link">Design For Business Requirements</a></h3>
-        <p class="mantra">"Know what you promised before you build what you deliver."</p>
+        <p class="mantra">"Define SLOs before designing infrastructure"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Starting a new workload design or major redesign</li><li>Defining SLAs, SLOs, or SLIs with stakeholders</li><li>Prioritizing reliability investments under budget constraints</li><li>Onboarding new team members who need to understand 'why'</li><li>Reviewing architecture decisions against actual business needs</li></ul>
+          <ul><li>Starting workload design or major redesign</li><li>Defining SLAs, SLOs, SLIs with stakeholders</li><li>Prioritizing reliability investments under budget constraints</li><li>When RTO/RPO targets drive active-active vs passive patterns</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Over-engineering for uptime nobody asked for</li><li>Under-investing in reliability for critical revenue paths</li><li>Misaligned expectations between engineering and business stakeholders</li><li>Wasted spend on redundancy that doesn't map to real risk</li><li>Inability to justify reliability trade-offs during incidents</li></ul>
+          <ul><li>99.999% design deployed for 99.9% workloads—wasted spend exponentially</li><li>Single-region deployment for revenue-critical path causes regional outage loss</li><li>Engineering promises SLA that architecture cannot physically deliver</li><li>Redundancy spend untraceable to specific business risk tolerance decisions</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Higher reliability targets demand exponentially more cost and complexity, so business requirements must anchor where 'good enough' actually is.</p>
+          <p>Each additional nine of availability doubles cost and operational complexity</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> —</div>
@@ -1305,82 +1189,24 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3>RE:01 - Simplicity and Efficiency in Design</h3>
-        <p class="mantra">"Every unnecessary component is a future failure point."</p>
+        <p class="mantra">"Kill every component you cannot justify."</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>New workload design or major architecture redesign</li><li>Evaluating new components, dependencies, or build-vs-buy</li><li>Assessing complexity creep and technical debt</li><li>Choosing between managed PaaS/SaaS vs self-managed components</li></ul>
+          <ul><li>Designing new workload or major architecture redesign</li><li>Evaluating build-vs-buy or adding dependencies</li><li>When complexity creep inflates failure surface area</li><li>Choosing PaaS/SaaS versus self-managed IaaS components</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Excessive failure surfaces from components nobody justified</li><li>Outages take longer to diagnose due to hidden interdependencies</li><li>Recovery time inflates—more components means more restart sequences</li><li>Cost overruns from over-engineered architecture exceeding business requirements</li></ul>
+          <ul><li>Unjustified components multiply failure surfaces, degrading composite SLA</li><li>Hidden interdependencies extend MTTR beyond RTO targets</li><li>Restart sequencing across excess components inflates recovery time</li><li>Over-provisioned multi-region deployments burn budget without SLO justification</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Simplicity vs capability: managed services and fewer components improve reliability but may limit advanced performance patterns, security segmentation (SE:04), or redundancy (RE:05).</p>
+          <p>Fewer components improve reliability but may limit segmentation (SE:04) or redundancy (RE:05).</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> —</div>
           <div><strong>🔗 Enables:</strong> Design Review Checklist For Reliability</div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="model-card" data-layer="security">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">1 connections</span>
-        </div>
-        <h3>Least-Privilege Access</h3>
-        <p class="mantra">"Grant only what's needed, only when needed, and nothing more."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Assigning roles or permissions to users or services</li><li>Configuring service accounts or managed identities</li><li>Reviewing existing access policies during audits</li><li>Onboarding new workloads or team members</li><li>Designing CI/CD pipeline credentials</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Lateral movement after a single credential compromise</li><li>Accidental data deletion or modification by over-privileged users</li><li>Audit failures and compliance violations</li><li>Blast radius of breaches grows unchecked</li><li>Difficulty tracing who did what due to shared broad permissions</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Tighter permissions increase security but add friction and complexity to access management workflows.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> <a href="cards/microsoft-zero-trust-model.html" class="model-link">Microsoft Zero Trust Model</a></div>
-          <div><strong>🔗 Enables:</strong> <a href="cards/microsoft-zero-trust-model.html" class="model-link">Microsoft Zero Trust Model</a></div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="model-card" data-layer="security">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">1 connections</span>
-        </div>
-        <h3>Zero Trust Model</h3>
-        <p class="mantra">"Never trust, always verify — every request, every time."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Designing network and identity boundaries for cloud workloads</li><li>Reviewing security posture during architecture design reviews</li><li>Granting access to resources across trust boundaries</li><li>Implementing least-privilege access controls</li><li>Evaluating lateral movement risk within a workload</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Implicit trust allows lateral movement after a single breach</li><li>Over-privileged identities expand blast radius</li><li>Perimeter-only security fails against insider threats</li><li>Unverified requests reach sensitive resources</li><li>Security reviews lack a coherent guiding principle</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger verification at every layer increases security but adds complexity and potential friction to developer and user experience.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> —</div>
-          <div><strong>🔗 Enables:</strong> Security Design Review Checklist</div>
         </div>
         
       </div>
@@ -1392,20 +1218,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3>Shift Left</h3>
-        <p class="mantra">"Find and fix problems before they find your customers."</p>
+        <p class="mantra">"Catch defects early, fix cheaply, ship confidently"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing CI/CD pipelines for new services</li><li>Recurring production incidents trace back to preventable defects</li><li>Setting up quality gates for infrastructure changes</li><li>Building observability into a new workload from the start</li></ul>
+          <ul><li>Designing Azure DevOps or GitHub Actions pipelines</li><li>Production incidents trace to preventable code defects</li><li>Setting quality gates for Bicep/ARM deployments</li><li>Building health models into new workloads</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Defects discovered only in production at high cost</li><li>Slow feedback loops that delay remediation</li><li>Security vulnerabilities caught after deployment</li><li>Reactive firefighting replaces proactive engineering</li><li>Quality treated as someone else's problem downstream</li></ul>
+          <ul><li>Defects reach production; MTTR spikes, SLA breaches cascade</li><li>Security vulnerabilities deploy to AKS/App Service undetected</li><li>Slow feedback loops delay remediation by days or weeks</li><li>Reactive firefighting replaces proactive engineering culture</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Investing more time and tooling early in the pipeline versus accepting cheaper upfront costs with expensive late-stage failures.</p>
+          <p>Early pipeline investment in testing/tooling costs velocity now, saves costly production failures later</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> DevOps</div>
@@ -1421,20 +1247,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3>Transparent Communication</h3>
-        <p class="mantra">"Make everything visible so nobody flies blind."</p>
+        <p class="mantra">"Share status, context, decisions—nobody flies blind"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Multiple teams collaborate on shared infrastructure</li><li>Incident response requires cross-team coordination</li><li>Deploying changes across multiple environments</li><li>Onboarding new team members to operational workflows</li><li>Aligning development and operations on system health</li></ul>
+          <ul><li>When cross-team DR war rooms coordinate failover</li><li>Deploying changes across shared Azure landing zones</li><li>Incident response requires real-time situational awareness</li><li>Onboarding engineers to operational runbooks and escalation paths</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Teams duplicate effort or work at cross-purposes</li><li>Incidents escalate due to lack of situational awareness</li><li>Knowledge silos create single points of failure</li><li>Blame culture emerges from hidden context</li><li>Slow decision-making from information hoarding</li></ul>
+          <ul><li>Duplicate deployments conflict across teams causing outages</li><li>DR escalations stall—RTO breached from missing stakeholder routing</li><li>Knowledge silos create human single points of failure</li><li>Blame culture emerges when incident context stays hidden</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Maximizing visibility across teams increases information noise, requiring disciplined tooling and signal curation.</p>
+          <p>More shared signals means more noise—requires disciplined curation via dashboards and alerts</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> DevOps</div>
@@ -1455,15 +1281,15 @@
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Post-deployment once real usage patterns emerge in Azure Monitor</li><li>Periodic cost-performance reviews using Log Analytics trends</li><li>Workload demand shifts from business or platform changes</li><li>Before/after major releases or migrations as quality gates</li><li>Unexpected cost spikes in Azure billing data</li></ul>
+          <ul><li>Post-deployment once real usage patterns emerge</li><li>Periodic cost-performance reviews via Log Analytics trends</li><li>Workload demand shifts from business or platform changes</li><li>Before/after major releases as pipeline quality gates</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Over-provisioned VMs/databases drain budget undetected for months</li><li>Under-provisioned tiers cause latency spikes and SLA breaches</li><li>Stale performance assumptions persist without Application Insights baselines</li><li>No cost-to-value visibility—teams cannot justify or cut spend</li><li>Observability gaps prevent AIOps from predicting failures</li></ul>
+          <ul><li>Over-provisioned VMs/databases drain budget undetected for months</li><li>Under-provisioned tiers cause latency spikes and SLA breaches</li><li>Stale baselines persist without Application Insights regression detection</li><li>No cost-to-value visibility—teams cannot justify or cut spend</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Continuous optimization overhead (monitoring costs, team effort) versus silent resource drift inflating spend and degrading performance.</p>
+          <p>Continuous optimization overhead (monitoring costs, team effort) versus silent resource drift inflating spend.</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> SDLC</div>
@@ -1478,54 +1304,25 @@
           <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
           <span class="conn-badge">1 connections</span>
         </div>
-        <h3>Zero-Trust Architecture</h3>
-        <p class="mantra">"Never trust, always verify — every request, every time."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Designing authentication and authorization flows</li><li>Allowing access from outside the corporate network</li><li>Protecting sensitive workloads in multi-tenant environments</li><li>Migrating from perimeter-based security models</li><li>Granting service-to-service communication rights</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Lateral movement after a single credential compromise</li><li>Over-privileged identities accumulating unchecked access</li><li>Implicit trust zones hiding undetected breaches</li><li>Insider threats exploiting flat network trust</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger security posture at the cost of increased complexity, latency from continuous verification, and higher operational overhead.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Security</div>
-          <div><strong>🔗 Enables:</strong> —</div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="model-card" data-layer="security">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">1 connections</span>
-        </div>
         <h3>Shared Responsibility Principle</h3>
-        <p class="mantra">"Your duty starts where Microsoft's management ends"</p>
+        <p class="mantra">"Own everything Microsoft does not manage"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Migrating workloads—map IaaS/PaaS/SaaS responsibility boundaries first</li><li>Defining security controls per service deployment model</li><li>Choosing zonal vs zone-redundant deployment strategies</li><li>Auditing compliance ownership gaps across shared boundaries</li><li>Triaging incidents—identify accountable party before escalating</li></ul>
+          <ul><li>Mapping IaaS/PaaS/SaaS responsibility boundaries during migration</li><li>Choosing zonal-pinned vs zone-redundant deployment models</li><li>Auditing compliance ownership gaps across shared boundaries</li><li>Triaging incidents—identify accountable party before escalating</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Unpatched OS on IaaS VMs assumed Microsoft-managed → breach</li><li>Redundant failover logic built atop zone-redundant PaaS wasting engineering cycles</li><li>Compliance audit failure: no owner documented for data replication in zonal VMSS</li><li>Incident MTTR spikes when teams debate provider vs customer accountability mid-outage</li><li>Budget spent on managed-failover tooling Azure SQL already provides</li></ul>
+          <ul><li>Unpatched IaaS VM OS assumed Microsoft-managed triggers breach</li><li>Redundant failover code duplicates zone-redundant PaaS built-in capabilities</li><li>Compliance audit fails—no owner for zonal VMSS data replication</li><li>Incident MTTR spikes from provider-vs-customer accountability debates mid-outage</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>PaaS/SaaS shrinks responsibility surface but surrenders granular control; IaaS grants full control but owns all operational burden.</p>
+          <p>PaaS shrinks responsibility surface but surrenders granular infrastructure control</p>
         </div>
         <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> Microsoft</div>
-          <div><strong>🔗 Enables:</strong> Microsoft</div>
+          <div><strong>🔗 Builds on:</strong> Microsoft Cloud Adoption Framework</div>
+          <div><strong>🔗 Enables:</strong> <a href="cards/defense-in-depth.html" class="model-link">Defense in Depth</a></div>
         </div>
         
       </div>
@@ -1537,20 +1334,20 @@
           <span class="conn-badge">1 connections</span>
         </div>
         <h3>Risk Tolerance</h3>
-        <p class="mantra">"Know exactly how much failure your business can stomach before designing anything."</p>
+        <p class="mantra">"Quantify acceptable failure before architecting anything"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Defining RTO and RPO targets for a workload</li><li>Prioritizing which systems get higher resiliency investment</li><li>Evaluating cost vs. reliability tradeoffs</li><li>Onboarding a new workload to production</li></ul>
+          <ul><li>Defining RTO/RPO/SLO targets per workload</li><li>Prioritizing resiliency investment across workload portfolio</li><li>Evaluating cost versus reliability tradeoffs</li><li>When onboarding new workloads to production</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Over-engineering low-value workloads with expensive redundancy</li><li>Under-protecting critical systems due to assumed safety</li><li>Misaligned expectations between business and engineering teams</li><li>Inconsistent disaster recovery strategies across workloads</li><li>Surprise stakeholder escalations during outages</li></ul>
+          <ul><li>Zone-redundant deployments wasted on low-value internal tools</li><li>Critical workloads left single-region due to assumed safety</li><li>Stakeholder escalations during outages from misaligned SLOs</li><li>Inconsistent DR strategies: some workloads multi-region, peers unprotected</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Higher risk tolerance reduces cost and complexity but increases exposure to business-impacting failures.</p>
+          <p>Higher risk tolerance cuts cost and complexity but increases business-impact exposure</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> Disaster Recovery</div>
@@ -1566,49 +1363,20 @@
           <span class="conn-badge">0 connections</span>
         </div>
         <h3>Identity As A Security Perimeter</h3>
-        <p class="mantra">"Authenticate every service call—identity is the new firewall."</p>
+        <p class="mantra">"Authenticate every call, trust no network path"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Microservices communicating across trust boundaries</li><li>Cloud-native architectures without traditional network perimeters</li><li>Zero-trust security adoption</li><li>Replacing VPN/firewall-only access controls</li><li>Multi-cloud or hybrid deployments</li></ul>
+          <ul><li>Microservices communicating across public endpoints</li><li>Replacing VPN/firewall-only controls with zero-trust</li><li>When services lack VNet integration by design</li><li>Deploying multi-cloud or hybrid workloads</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Lateral movement after network breach goes unchecked</li><li>Over-reliance on network controls that don't exist in cloud</li><li>Shared credentials and ambient authority between services</li><li>No auditability of service-to-service access</li><li>Flat network compromise escalates to full breach</li></ul>
+          <ul><li>Lateral movement after network breach escalates to full compromise</li><li>Shared connection strings leak, granting ambient authority across services</li><li>No audit trail for service-to-service access patterns</li><li>Flat network compromise bypasses nonexistent perimeter controls</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger per-call security and flexibility versus added complexity in credential management, token lifecycle, and identity infrastructure.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> —</div>
-          <div><strong>🔗 Enables:</strong> —</div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="model-card" data-layer="security">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">0 connections</span>
-        </div>
-        <h3>Zero-Trust Model</h3>
-        <p class="mantra">"Trust nothing, automate everything, grant no standing access."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Designing access controls for production critical systems</li><li>Implementing CI/CD pipelines that modify infrastructure</li><li>Handling sensitive data in regulated environments</li><li>Reducing blast radius of compromised credentials</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Standing privileged access leads to insider threats or credential theft</li><li>Manual operations introduce human error in production</li><li>Lateral movement goes unchecked after initial breach</li><li>Audit trails lack granularity for compliance requirements</li><li>Over-provisioned identities become attack vectors</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger security posture and reduced attack surface come at the cost of operational agility and increased automation complexity.</p>
+          <p>Per-call identity verification costs token lifecycle and Entra ID infrastructure complexity</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> —</div>
@@ -1624,49 +1392,20 @@
           <span class="conn-badge">0 connections</span>
         </div>
         <h3>Configuration As Code</h3>
-        <p class="mantra">"Define every setting in code so nothing drifts in the dark."</p>
+        <p class="mantra">"Define every setting in version-controlled code"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Deploying workloads across multiple environments</li><li>Configuration drift is causing production incidents</li><li>Scaling infrastructure that requires repeatable setup</li><li>Auditing or compliance demands traceability of changes</li><li>Onboarding new team members who need to understand system state</li></ul>
+          <ul><li>Deploying workloads across multiple environments via CI/CD</li><li>Configuration drift causing production incidents</li><li>Compliance requires full change traceability and audit trails</li><li>Scaling infrastructure needing repeatable Bicep/Terraform provisioning</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Configuration drift between environments causes mysterious failures</li><li>Manual changes are lost or forgotten after incidents</li><li>No audit trail for who changed what and when</li><li>Inconsistent deployments lead to works-on-my-machine problems</li><li>Rollbacks become painful or impossible</li></ul>
+          <ul><li>Environment drift causes silent failures; RTO extends during incident response</li><li>Manual portal changes lost; no rollback path after failed deployments</li><li>Audit gaps violate compliance; no proof of who changed what</li><li>Inconsistent deployments across stamps break multi-region reliability</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Requires upfront engineering investment and discipline in exchange for consistency, repeatability, and auditability.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> —</div>
-          <div><strong>🔗 Enables:</strong> —</div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="model-card" data-layer="security">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">0 connections</span>
-        </div>
-        <h3>Zero Trust Architecture</h3>
-        <p class="mantra">"Never trust, always verify — even when it's tempting to simplify."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Designing network segmentation and access controls</li><li>Balancing reliability configurations with security policies</li><li>Reviewing overly broad firewall or IAM rules</li><li>Onboarding new workloads into a cloud environment</li><li>Assessing lateral movement risk across services</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Overly permissive rules create large blast radius on breach</li><li>Lateral movement goes unchecked across services</li><li>Reliability shortcuts silently erode security posture</li><li>Implicit trust assumptions lead to undetected compromise</li><li>Compliance violations from insufficient access controls</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Granular, least-privilege security rules increase configuration complexity and can conflict with reliability simplicity.</p>
+          <p>Upfront DevOps engineering investment costs velocity now, buys consistency and auditability later</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> —</div>
@@ -1682,20 +1421,20 @@
           <span class="conn-badge">0 connections</span>
         </div>
         <h3>Security Design Principles</h3>
-        <p class="mantra">"Bake security into every design decision before writing a single line of code."</p>
+        <p class="mantra">"Bake Zero Trust into every architecture decision"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Starting architecture design for a new workload</li><li>Reviewing existing designs for security gaps</li><li>Evaluating trade-offs between features and security posture</li><li>Onboarding new team members to security expectations</li><li>Preparing for compliance or threat modeling exercises</li></ul>
+          <ul><li>Starting workload architecture with STRIDE threat modeling</li><li>Reviewing designs for CIA triad gaps</li><li>Evaluating feature velocity against security posture tradeoffs</li><li>Preparing compliance audits or penetration testing cycles</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Security becomes an afterthought bolted on late</li><li>Inconsistent security decisions across teams and components</li><li>Increased attack surface from ad-hoc design choices</li><li>Costly rework when vulnerabilities are discovered in production</li><li>Compliance failures due to missing foundational controls</li></ul>
+          <ul><li>Bolt-on security multiplies attack surface across WAF/DDoS/endpoint layers</li><li>Ad-hoc privilege grants violate least-privilege, enabling lateral movement</li><li>Unencrypted data at rest/transit causes compliance failures and breach exposure</li><li>Production vulnerability rework costs 10-100x versus design-phase mitigation</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Stronger upfront security rigor can slow initial design velocity and constrain architectural flexibility.</p>
+          <p>Stronger upfront security rigor costs initial design velocity and architectural flexibility</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> —</div>
@@ -1711,78 +1450,20 @@
           <span class="conn-badge">0 connections</span>
         </div>
         <h3>Azure Well-Architected Pillars</h3>
-        <p class="mantra">"Balance every pillar or watch one optimization break another."</p>
+        <p class="mantra">"Balance five pillars or cascade failures across workloads"</p>
       </div>
       <div class="card-body">
         <div class="card-section">
           <h4>🎯 When to apply</h4>
-          <ul><li>Designing a new cloud workload from scratch</li><li>Optimizing one quality attribute and assessing ripple effects</li><li>Conducting an architecture review or assessment</li><li>Resolving resource contention after a recent change</li></ul>
+          <ul><li>Designing new workload across reliability/cost/security/performance/ops</li><li>When single-pillar optimization triggers cross-pillar regression</li><li>Conducting WAF assessment or architecture review</li><li>Resolving resource contention after deployment changes</li></ul>
         </div>
         <div class="card-section">
           <h4>💥 Without it</h4>
-          <ul><li>Optimizing cost collapses reliability</li><li>Security hardening degrades performance</li><li>Siloed teams improve their pillar at the expense of others</li><li>Unplanned resource strain from unbalanced trade-offs</li></ul>
+          <ul><li>Cost-optimized SKUs breach RTO/RPO targets during regional failover</li><li>NSG hardening adds latency breaking P99 performance baselines</li><li>Siloed teams over-optimize one pillar degrading Cosmos DB SLA tiers</li><li>Unbalanced trade-offs cause cascading resource exhaustion across regions</li></ul>
         </div>
         <div class="card-section">
           <h4>⚖️ Key tradeoff</h4>
-          <p>Improving one pillar (e.g., security or cost) inevitably strains resources or degrades outcomes in another pillar.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> —</div>
-          <div><strong>🔗 Enables:</strong> —</div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="model-card" data-layer="security">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#ef444420;color:#ef4444;border-color:#ef444440">🔒 security</span>
-          <span class="conn-badge">0 connections</span>
-        </div>
-        <h3><a href="cards/defense-in-depth.html" class="model-link">Defense In Depth</a></h3>
-        <p class="mantra">"Layer your defenses so no single failure leaves you exposed."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Designing network security architecture</li><li>Protecting sensitive data across multiple tiers</li><li>Evaluating if performance optimizations weaken security controls</li><li>Building zero-trust environments</li><li>Reviewing existing security posture for single points of failure</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Single compromised layer leads to full breach</li><li>Over-reliance on perimeter security alone</li><li>Performance tuning silently removes critical controls</li><li>Lateral movement goes undetected after initial compromise</li><li>Compliance gaps from missing redundant safeguards</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Redundant security layers increase protection but can degrade performance and add operational complexity.</p>
-        </div>
-        <div class="card-section card-links">
-          <div><strong>🔗 Builds on:</strong> —</div>
-          <div><strong>🔗 Enables:</strong> —</div>
-        </div>
-        <a href="cards/defense-in-depth.html" class="tree-link">🌳 Explore connection tree →</a>
-      </div>
-    </div>
-    <div class="model-card" data-layer="foundational">
-      <div class="card-header">
-        <div class="card-title-row">
-          <span class="layer-badge" style="background:#f59e0b20;color:#f59e0b;border-color:#f59e0b40">🧠 foundational</span>
-          <span class="conn-badge">0 connections</span>
-        </div>
-        <h3>Principle Of Simplicity</h3>
-        <p class="mantra">"Simple architecture fails less. Complexity compounds risk."</p>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <h4>🎯 When to apply</h4>
-          <ul><li>Choosing single-region multi-zone vs active-active multi-region</li><li>Reviewing dependency chains with load balancers, message buses, CDNs</li><li>Selecting PaaS (App Service, AKS) over custom IaaS builds</li><li>Refactoring systems with frequent outages or slow MTTR</li><li>Adding security controls, replication, or observability components</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>💥 Without it</h4>
-          <ul><li>Cascading failures from interdependencies no one fully understands</li><li>Misconfigurations multiply—each component (firewall, identity, CDN) is a risk surface</li><li>MTTR increases: engineers can't diagnose what they can't mentally model</li><li>Bloated architectures drain budgets on redundant multi-region resources</li><li>Azure Policy drift undetected across inconsistent manual configurations</li></ul>
-        </div>
-        <div class="card-section">
-          <h4>⚖️ Key tradeoff</h4>
-          <p>Simplicity limits multi-region redundancy, advanced security segmentation, and performance optimization — but complexity multiplies failure probability, MTTR, misconfiguration risk, and operational cost.</p>
+          <p>Strengthening one pillar (security, cost) directly taxes budget or degrades another pillar's SLA</p>
         </div>
         <div class="card-section card-links">
           <div><strong>🔗 Builds on:</strong> —</div>
