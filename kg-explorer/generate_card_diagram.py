@@ -252,7 +252,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <button id="btn-reset">⟲ Reset view</button>
       <button id="btn-expand">⤢ Expand all</button>
       <button id="btn-collapse">⤡ Collapse</button>
-      <a href="index.html" style="text-decoration:none;"><button>← All cards</button></a>
+      <button onclick="history.back()">← Back</button>
     </div>
     <svg id="chart"></svg>
     <div class="legend" id="legend"></div>
@@ -322,14 +322,19 @@ function radius() {
 
 let currentRoot = root;
 
+function centerTransform() {
+  const bbox = svg.node().getBoundingClientRect();
+  return d3.zoomIdentity.translate(bbox.width / 2, bbox.height / 2);
+}
+
 function render() {
   const R = radius();
   const treeLayout = d3.cluster().size([2 * Math.PI, R])
     .separation((a, b) => (a.parent === b.parent ? 1 : 2) / Math.max(a.depth, 1));
   treeLayout(currentRoot);
 
-  const bbox = svg.node().getBoundingClientRect();
-  container.attr('transform', `translate(${bbox.width/2},${bbox.height/2})`);
+  // Center via zoom transform so reset works correctly
+  svg.call(zoom.transform, centerTransform());
 
   // Links
   const linkGen = d3.linkRadial().angle(d => d.x).radius(d => d.y);
@@ -409,7 +414,7 @@ function moveTooltip(e) {
 function hideTooltip() { tooltip.style('opacity', 0); }
 
 document.getElementById('btn-reset').onclick = () => {
-  svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+  svg.transition().duration(500).call(zoom.transform, centerTransform());
 };
 document.getElementById('btn-expand').onclick = () => {
   root.descendants().forEach(d => { if (d._kids) { d.children = d._kids; d._kids = null; } });
