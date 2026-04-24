@@ -2,531 +2,210 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>Knowledge Graph — Mission-Critical Azure Well-Architected</title>
+<title>Mission-Critical Mental Models — Azure Well-Architected Framework</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Mental models, knowledge graph, and mind-map trees extracted from the Azure Well-Architected Framework."/>
 <style>
   :root {
-    --bg:#0d1117; --surface:#161b22; --panel:#161b22; --border:#30363d;
-    --fg:#c9d1d9; --muted:#8b949e; --accent:#58a6ff; --gold:#f59e0b;
+    --bg:#0d1117; --surface:#161b22; --border:#30363d; --fg:#c9d1d9;
+    --muted:#8b949e; --accent:#58a6ff; --gold:#f59e0b;
     --fs-body:15px; --fs-small:13px; --fs-micro:12px;
-    --doc:#f78166; --h2:#a371f7; --h3:#d2a8ff;
-    --product:#79c0ff; --pattern:#ffa657; --process:#d2a8ff;
-    --concept:#3fb950; --metric:#ff7b72;
-    --edge:#30363d; --edge-hi:#ffd33d;
+    --c-info:#58a6ff; --c-good:#10b981; --c-warn:#f87171;
+    --c-tradeoff:#7dd3fc; --c-foundational:#f59e0b;
   }
   * { box-sizing:border-box; }
-  html, body { margin:0; padding:0; height:100%; background:var(--bg); color:var(--fg);
+  html { background:var(--bg); color:var(--fg);
     font:var(--fs-body)/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+  body { margin:0; padding:0; }
+  a { color:var(--accent); }
 
-  :focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
-
-  /* Sticky mini nav */
+  /* Sticky minimal nav — one line */
   .topbar { position:sticky; top:0; z-index:100; background:var(--bg);
-    border-bottom:1px solid var(--border); padding:8px 16px;
-    display:flex; align-items:center; gap:12px; height:44px; }
-  .topbar h1 { font-size:15px; margin:0; font-weight:600; white-space:nowrap; }
+    border-bottom:1px solid var(--border);
+    padding:8px 20px; display:flex; align-items:center; gap:16px; }
+  .topbar h1 { font-size:16px; margin:0; white-space:nowrap; font-weight:600; }
   .topbar h1 span { color:var(--gold); }
-  .topbar nav { display:flex; gap:4px; margin-left:auto; font-size:var(--fs-small); }
-  .topbar nav a { color:var(--muted); text-decoration:none; padding:4px 10px;
-    border-radius:6px; transition:color .15s, background .15s; }
+  .topbar nav { display:flex; gap:4px; margin-left:auto; }
+  .topbar nav a { color:var(--muted); text-decoration:none;
+    font-size:var(--fs-small); padding:4px 10px; border-radius:6px;
+    transition:color .15s, background .15s; }
   .topbar nav a:hover { color:var(--accent); background:var(--surface); }
+  .topbar nav a[aria-current="page"] { color:var(--fg); background:var(--surface); }
 
-  #app { display:flex; height:calc(100vh - 45px); }
+  .container { max-width:1200px; margin:0 auto; padding:20px; }
 
-  /* Sidebar */
-  #sidebar { width:320px; flex-shrink:0; background:var(--panel);
-    border-right:1px solid var(--border); padding:16px; overflow-y:auto;
-    font-size:var(--fs-body); line-height:1.65; }
-  #sidebar > * { max-width:66ch; }
+  /* Hero — visible in top 40% */
+  .hero { padding:8px 0 16px; }
+  .hero .tag { color:var(--muted); font-size:var(--fs-body);
+    margin:0; max-width:66ch; }
+  .hero .tag strong { color:var(--fg); font-weight:600; }
+  .hero .stats { display:flex; gap:20px; flex-wrap:wrap;
+    margin:14px 0 0; font-size:var(--fs-small); }
+  .stat { display:inline-flex; align-items:baseline; gap:6px; color:var(--muted); }
+  .stat .n { font-size:20px; font-weight:700; color:var(--accent); }
 
-  .section { margin-bottom:20px; }
-  .section h2 { font-size:var(--fs-small); text-transform:uppercase;
-    letter-spacing:.06em; color:var(--muted); margin:0 0 8px; font-weight:600; }
+  /* Cards — 3 in a row */
+  .cards { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin:8px 0 24px; }
+  @media (max-width: 900px) { .cards { grid-template-columns:1fr; } }
 
-  /* Onboarding banner */
-  .onboard { background:var(--surface); border:1px solid var(--border);
-    border-left:3px solid var(--gold); border-radius:8px;
-    padding:12px 14px; margin-bottom:16px; position:relative;
-    font-size:var(--fs-small); line-height:1.5; }
-  .onboard strong { color:var(--gold); display:block; margin-bottom:2px; font-size:var(--fs-body); }
-  .onboard p { margin:0; color:var(--fg); }
-  .onboard button.dismiss { position:absolute; top:6px; right:6px;
-    background:transparent; border:none; color:var(--muted); cursor:pointer;
-    font-size:18px; line-height:1; padding:4px 8px; border-radius:4px; }
-  .onboard button.dismiss:hover { color:var(--fg); background:var(--border); }
+  .card { background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--c-info); border-radius:10px;
+    padding:18px 18px 16px; text-decoration:none; color:inherit;
+    display:flex; flex-direction:column; gap:8px;
+    transition:border-color .15s, transform .15s; }
+  .card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .card:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .card[data-kind="graph"] { border-left-color:var(--c-info); }
+  .card[data-kind="cards"] { border-left-color:var(--c-good); }
+  .card[data-kind="trees"] { border-left-color:var(--c-foundational); }
 
-  /* Preset buttons */
-  .presets { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:8px; }
-  .preset-btn { flex:1; min-width:fit-content; background:var(--surface);
-    color:var(--fg); border:1px solid var(--border); border-radius:8px;
-    padding:8px 10px; font-size:var(--fs-small); cursor:pointer;
-    transition:border-color .15s, background .15s; font-weight:500; }
-  .preset-btn:hover { border-color:var(--accent); }
-  .preset-btn.active { border-color:var(--accent); background:rgba(88,166,255,.12); color:var(--accent); }
+  .card .ico { font-size:22px; line-height:1; }
+  .card h2 { margin:0; font-size:16px; font-weight:600; }
+  .card p { margin:0; color:var(--muted); font-size:var(--fs-small); line-height:1.55;
+    max-width:46ch; }
+  .card .cta { margin-top:auto; color:var(--accent); font-size:var(--fs-small);
+    font-weight:600; padding-top:6px; }
+  .card .meta { font-size:var(--fs-micro); color:var(--muted); }
 
-  input[type=search], input[type=text] { width:100%; background:var(--bg);
-    border:1px solid var(--border); color:var(--fg); padding:8px 10px;
-    border-radius:8px; font-size:var(--fs-body); }
-  input[type=search]:focus { border-color:var(--accent); outline:2px solid var(--accent); outline-offset:1px; }
+  /* Collapsible about/dev sections */
+  details { background:var(--surface); border:1px solid var(--border);
+    border-left:3px solid var(--muted); border-radius:10px;
+    padding:12px 16px; margin:10px 0; }
+  details[open] { border-left-color:var(--accent); }
+  details summary { cursor:pointer; font-size:var(--fs-body); font-weight:600;
+    color:var(--fg); list-style:none; display:flex; align-items:center; gap:8px; }
+  details summary::-webkit-details-marker { display:none; }
+  details summary::before { content:"▸"; color:var(--muted); transition:transform .15s; display:inline-block; }
+  details[open] summary::before { transform:rotate(90deg); }
+  details summary:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+  details .body { margin-top:10px; color:var(--muted); font-size:var(--fs-small); max-width:72ch; }
+  details .body ol, details .body ul { padding-left:20px; margin:6px 0; }
+  details .body li { margin:4px 0; color:var(--fg); }
+  details .body li::marker { color:var(--muted); }
+  code { background:#21262d; padding:2px 6px; border-radius:4px; font-size:var(--fs-small); }
+  pre { background:#0b0f14; border:1px solid var(--border); padding:12px;
+    border-radius:8px; overflow-x:auto; font-size:var(--fs-small); margin:8px 0; }
+  pre code { background:transparent; padding:0; }
 
-  /* Chips */
-  .chip { display:inline-flex; align-items:center; gap:6px; margin:2px 4px 2px 0;
-    padding:3px 8px; background:#21262d; border:1px solid var(--border);
-    border-radius:12px; font-size:var(--fs-micro); cursor:pointer; user-select:none; }
-  .chip input { margin:0; }
-  .chip.doc     { border-color:var(--doc); }
-  .chip.h2      { border-color:var(--h2); }
-  .chip.h3      { border-color:var(--h3); }
-  .chip.product { border-color:var(--product); }
-  .chip.pattern { border-color:var(--pattern); }
-  .chip.process { border-color:var(--process); }
-  .chip.concept { border-color:var(--concept); }
-  .chip.metric  { border-color:var(--metric); }
-  .swatch { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  footer { color:var(--muted); font-size:var(--fs-small); margin-top:32px;
+    border-top:1px solid var(--border); padding-top:14px; max-width:66ch; }
+  footer a { color:var(--accent); text-decoration:none; }
+  footer a:hover { text-decoration:underline; }
 
-  /* Advanced details */
-  details.advanced { margin-top:8px; border:1px solid var(--border);
-    border-radius:8px; background:var(--surface); }
-  details.advanced > summary { cursor:pointer; padding:10px 12px;
-    font-size:var(--fs-small); color:var(--accent); font-weight:500;
-    list-style:none; user-select:none; }
-  details.advanced > summary::-webkit-details-marker { display:none; }
-  details.advanced > summary::before { content:"▸ "; display:inline-block;
-    transition:transform .15s; }
-  details.advanced[open] > summary::before { transform:rotate(90deg); }
-  details.advanced .inner { padding:4px 12px 12px; border-top:1px solid var(--border); }
-  details.advanced .inner .section:last-child { margin-bottom:0; }
-
-  .slider { width:100%; }
-
-  button { background:var(--surface); color:var(--fg); border:1px solid var(--border);
-    border-radius:6px; padding:5px 12px; font-size:var(--fs-small); cursor:pointer; }
-  button:hover { border-color:var(--accent); }
-
-  /* Selection panel */
-  #sel { font-size:var(--fs-body); line-height:1.55; }
-  #sel .sel-empty { color:var(--muted); font-style:normal; border-left:2px solid var(--border);
-    padding-left:10px; }
-  #sel .sel-title { color:var(--fg); font-weight:600; font-size:var(--fs-body); }
-  #sel .sel-meta { color:var(--muted); font-size:var(--fs-small); margin:2px 0 8px; }
-  #sel .sel-label { color:var(--muted); font-size:var(--fs-small); margin-top:8px; }
-  #sel a, #sel a:visited { color:var(--accent); }
-
-  #stats { color:var(--muted); font-size:var(--fs-micro); margin-top:12px;
-    padding-top:12px; border-top:1px solid var(--border); }
-
-  /* Graph */
-  #graph { flex:1; position:relative; min-width:0; }
-  svg { width:100%; height:100%; display:block; cursor:grab; }
-  svg:active { cursor:grabbing; }
-  .node circle { stroke:#0d1117; stroke-width:1.5; cursor:pointer; }
-  .node:focus-visible circle { stroke:var(--accent); stroke-width:2.5; }
-  .node text { fill:var(--fg); font-size:10px; pointer-events:none;
-    paint-order:stroke; stroke:#0d1117; stroke-width:3px; stroke-linejoin:round;
-    display:none; }
-  .node.show-label text, .node.hover-label text { display:block; }
-  .node.dim { opacity:0.08; }
-  .link { stroke:var(--edge); stroke-opacity:0.5; }
-  .link.hi { stroke:var(--edge-hi); stroke-opacity:0.95; }
-  .link.dim { stroke-opacity:0.05; }
-
-  #tooltip { position:absolute; pointer-events:none; background:var(--surface);
-    border:1px solid var(--border); border-radius:8px; padding:8px 10px;
-    font-size:var(--fs-small); max-width:320px; box-shadow:0 6px 16px rgba(0,0,0,.5);
-    opacity:0; transition:opacity .1s; z-index:20; }
-  #tooltip h3 { margin:0 0 4px; font-size:var(--fs-body); color:var(--accent); }
-  #tooltip .meta { color:var(--muted); font-size:var(--fs-micro); }
-
-  #legend { position:absolute; right:12px; top:12px; background:rgba(22,27,34,.92);
-    border:1px solid var(--border); border-radius:8px; padding:10px 12px;
-    font-size:var(--fs-micro); z-index:10; }
-  #legend .row { display:flex; align-items:center; gap:8px; margin:3px 0; }
-
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     * { transition:none !important; animation:none !important; }
-    svg { cursor:default; }
-  }
-
-  @media (max-width: 800px) {
-    #app { flex-direction:column; height:auto; }
-    #sidebar { width:100%; max-height:40vh; border-right:none;
-      border-bottom:1px solid var(--border); }
-    #graph { height:60vh; }
+    .card:hover { transform:none; }
   }
 </style>
 </head>
 <body>
 
 <header class="topbar">
-  <h1>Knowledge <span>Graph</span></h1>
+  <h1>🧠 <span>Mission-Critical</span> Mental Models</h1>
   <nav aria-label="Primary">
-    <a href="mental_models/">← Home</a>
-    <a href="#" aria-current="page" style="color:var(--fg);">Graph Explorer</a>
-    <a href="mental_models/#cards">Mental Models →</a>
+    <a href="./" aria-current="page">Home</a>
+    <a href="graph.html">Graph</a>
+    <a href="mental_models/">Cards</a>
+    <a href="mental_models/cards/">Trees</a>
+    <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" rel="noopener">Source</a>
   </nav>
 </header>
 
-<div id="app">
-  <aside id="sidebar" aria-label="Graph controls">
+<main class="container">
 
-    <div class="onboard" id="onboard" role="note" hidden>
-      <button class="dismiss" id="onboardDismiss" aria-label="Dismiss tip">×</button>
-      <strong><span aria-hidden="true">👋 </span>Start here</strong>
-      <p>Click any <strong>large node</strong> to inspect it. Hover to highlight neighbors. Use the presets below to focus.</p>
+  <section class="hero" aria-labelledby="tagline">
+    <p id="tagline" class="tag"><strong>Three views</strong> into the Azure Well-Architected Framework: a force-directed graph, detailed model cards, and hierarchical mind-map trees.</p>
+    <div class="stats" aria-label="Dataset summary">
+      <span class="stat"><span class="n" id="stat-cards">…</span> mental models</span>
+      <span class="stat"><span class="n" id="stat-entities">…</span> entities</span>
+      <span class="stat"><span class="n" id="stat-relations">…</span> relations</span>
+      <span class="stat"><span class="n" id="stat-patterns">…</span> patterns</span>
+      <span class="stat"><span class="n" id="stat-docs">…</span> docs</span>
     </div>
+  </section>
 
-    <div class="section">
-      <h2>Views</h2>
-      <div class="presets" role="group" aria-label="Preset views">
-        <button class="preset-btn" data-preset="models">Concepts + Patterns</button>
-        <button class="preset-btn" data-preset="patterns">Products + Processes</button>
-        <button class="preset-btn active" data-preset="all">Everything</button>
-      </div>
+  <nav class="cards" aria-label="Explore">
+    <a class="card" data-kind="graph" href="graph.html">
+      <span class="ico" aria-hidden="true">🕸️</span>
+      <h2>Graph</h2>
+      <p>Force-directed map of <span id="stat-graph-nodes">…</span> nodes across 8 types. Search, filter, hover to highlight neighbors.</p>
+      <span class="cta">Open graph →</span>
+    </a>
+    <a class="card" data-kind="cards" href="mental_models/">
+      <span class="ico" aria-hidden="true">🃏</span>
+      <h2>Cards</h2>
+      <p>Deep dives per model: mantras, failure modes, tradeoffs, anti-patterns, related links.</p>
+      <span class="cta">Browse cards →</span>
+    </a>
+    <a class="card" data-kind="trees" href="mental_models/cards/">
+      <span class="ico" aria-hidden="true">🌳</span>
+      <h2>Trees</h2>
+      <p>Per-model radial tree diagrams: see each mental model's neighborhood in the knowledge graph.</p>
+      <span class="cta">See trees →</span>
+    </a>
+  </nav>
+
+  <details>
+    <summary>About this project</summary>
+    <div class="body">
+      <p>Extracted from the Azure Well-Architected Framework using LightRAG and Claude Opus 4.6 knowledge-graph analysis.</p>
+      <ol>
+        <li>Ingested 13 mission-critical + 21 WAF pillar docs into LightRAG.</li>
+        <li>Extracted entities via Claude Opus 4.6 through <code>copilot-api</code> proxy.</li>
+        <li>Generated embeddings with <code>text-embedding-3-small</code> (1536 dims).</li>
+        <li>Ranked mental models by graph centrality + bridge score.</li>
+        <li>Classified 4,099 entities into 9 categories via LLM.</li>
+        <li>Generated cards with mantras, failure modes, and tradeoffs.</li>
+      </ol>
     </div>
+  </details>
 
-    <div class="section">
-      <h2>Search</h2>
-      <input id="q" type="search" placeholder="Filter nodes by label…" aria-label="Filter nodes"/>
+  <details>
+    <summary>Run locally</summary>
+    <div class="body">
+      <p>Requires a GitHub Copilot subscription for the proxy.</p>
+<pre><code># Start copilot-api proxy
+npx copilot-api start --port 11435
+
+# Install dependencies
+cd kg-explorer &amp;&amp; python3 -m venv .venv &amp;&amp; source .venv/bin/activate
+pip install lightrag-hku
+
+# Ingest, mine, query
+python3 ingest_lightrag.py
+python3 mine_mental_models.py --top 25
+python3 query_lightrag.py "What is blast radius thinking?"</code></pre>
     </div>
+  </details>
 
-    <div class="section">
-      <h2>Selection</h2>
-      <div id="sel"><div class="sel-empty">No node selected yet. Click one on the graph.</div></div>
-    </div>
+  <footer>
+    Built with <a href="https://github.com/HKUDS/LightRAG" rel="noopener">LightRAG</a>,
+    <a href="https://d3js.org" rel="noopener">D3.js</a>, and
+    <a href="https://github.com/ericc-ch/copilot-api" rel="noopener">copilot-api</a>.
+    Source: <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" rel="noopener">abossard/well-architected</a>.
+  </footer>
+</main>
 
-    <details class="advanced">
-      <summary>Advanced filters</summary>
-      <div class="inner">
-
-        <div class="section">
-          <h2>Node types</h2>
-          <label class="chip doc"><input type="checkbox" data-type="doc" checked/><span class="swatch" style="background:var(--doc)"></span>Document</label>
-          <label class="chip h2"><input type="checkbox" data-type="h2" checked/><span class="swatch" style="background:var(--h2)"></span>Section</label>
-          <label class="chip h3"><input type="checkbox" data-type="h3" checked/><span class="swatch" style="background:var(--h3)"></span>Subsection</label>
-          <label class="chip product"><input type="checkbox" data-type="product" checked/><span class="swatch" style="background:var(--product)"></span>Product</label>
-          <label class="chip pattern"><input type="checkbox" data-type="pattern" checked/><span class="swatch" style="background:var(--pattern)"></span>Pattern</label>
-          <label class="chip process"><input type="checkbox" data-type="process" checked/><span class="swatch" style="background:var(--process)"></span>Process</label>
-          <label class="chip concept"><input type="checkbox" data-type="concept" checked/><span class="swatch" style="background:var(--concept)"></span>Concept</label>
-          <label class="chip metric"><input type="checkbox" data-type="metric" checked/><span class="swatch" style="background:var(--metric)"></span>Metric</label>
-        </div>
-
-        <div class="section">
-          <h2>Edge types</h2>
-          <label class="chip"><input type="checkbox" data-edge="contains" checked/>contains</label>
-          <label class="chip"><input type="checkbox" data-edge="links" checked/>links</label>
-          <label class="chip"><input type="checkbox" data-edge="mentions" checked/>mentions</label>
-          <label class="chip"><input type="checkbox" data-edge="related" checked/>related</label>
-        </div>
-
-        <div class="section">
-          <h2>Min concept mentions: <span id="mmv">1</span></h2>
-          <input id="mm" class="slider" type="range" min="1" max="20" value="1" aria-label="Minimum concept mentions"/>
-        </div>
-
-        <div class="section">
-          <h2>Display</h2>
-          <label class="chip"><input id="lbl" type="checkbox"/>always show labels</label>
-          <div style="margin-top:6px; display:flex; gap:6px;">
-            <button id="reheat">Reheat layout</button>
-            <button id="reset">Reset view</button>
-          </div>
-        </div>
-
-      </div>
-    </details>
-
-    <div id="stats"></div>
-  </aside>
-
-  <div id="graph">
-    <svg role="img" aria-label="Knowledge graph visualization"></svg>
-    <div id="tooltip" role="tooltip"></div>
-    <div id="legend" aria-label="Legend">
-      <div class="row"><span class="swatch" style="background:var(--doc)"></span>Document</div>
-      <div class="row"><span class="swatch" style="background:var(--h2)"></span>Section</div>
-      <div class="row"><span class="swatch" style="background:var(--h3)"></span>Subsection</div>
-      <div class="row"><span class="swatch" style="background:var(--product)"></span>Product</div>
-      <div class="row"><span class="swatch" style="background:var(--pattern)"></span>Pattern</div>
-      <div class="row"><span class="swatch" style="background:var(--process)"></span>Process</div>
-      <div class="row"><span class="swatch" style="background:var(--concept)"></span>Concept</div>
-      <div class="row"><span class="swatch" style="background:var(--metric)"></span>Metric</div>
-    </div>
-  </div>
-</div>
-
-<script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:"#ffa657",process:"#d2a8ff",concept:"#3fb950",metric:"#ff7b72",MENTAL_MODEL:"#f1c40f",ANTI_PATTERN:"#dc2626",TRADEOFF:"#f97316"};
-// Lucide icons (MIT, lucide.dev). 24x24 viewBox, stroke-based. Rendered white inside colored circles.
-const ICONS={
-  doc:"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8",
-  h2:"M4 12h16 M4 18h16 M4 6h16 M10 3L8 21 M16 3l-2 18",
-  h3:"M3 8l4 4-4 4 M21 12H11 M21 6H11 M21 18H11",
-  product:"M17.5 19a4.5 4.5 0 1 0-1.41-8.775 5.5 5.5 0 0 0-10.796 2.08A4.002 4.002 0 0 0 6 19h11.5Z",
-  pattern:"M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 1.998 12c0-.617.236-1.234.706-1.704L4.23 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.525A2.402 2.402 0 0 1 12 1.998c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z",
-  process:"M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62v-1.993l-2.378-.59Z",
-  concept:"M9 18h6 M10 22h4 M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14",
-  metric:"M22 12h-4l-3 9L9 3l-3 9H2",
-  MENTAL_MODEL:"M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 0 0 12 18Z M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 0 1 12 18Z M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4",
-  ANTI_PATTERN:"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z M12 9v4 M12 17h.01",
-  TRADEOFF:"m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z M7 21h10 M12 3v18 M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"
-};
-const PREFERS_REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-const PRESETS = {
-  models:   { types:["concept","metric","pattern"],                     minMentions:1 },
-  patterns: { types:["pattern","product","process"],                    minMentions:1 },
-  all:      { types:["doc","h2","h3","product","pattern","process","concept","metric"], minMentions:1 }
-};
-
-// Onboarding
-(function(){
-  const ob = document.getElementById("onboard");
-  if (!localStorage.getItem("kgOnboardingDismissed")) ob.hidden = false;
-  document.getElementById("onboardDismiss").addEventListener("click", () => {
-    ob.hidden = true;
-    localStorage.setItem("kgOnboardingDismissed","1");
-  });
-})();
-
-(async function(){
-  const data = await (await fetch("graph.json")).json();
-  document.getElementById("stats").textContent =
-    `${data.meta.docs} docs · ${data.meta.nodes} nodes · ${data.meta.edges} edges`;
-
-  const svg = d3.select("svg");
-  const g = svg.append("g");
-  const linkG = g.append("g").attr("class","links");
-  const nodeG = g.append("g").attr("class","nodes");
-
-  const zoom = d3.zoom().scaleExtent([0.15, 4]).on("zoom", e => g.attr("transform", e.transform));
-  svg.call(zoom);
-
-  let allNodes = data.nodes.map(d => ({...d}));
-  let allEdges = data.edges.map(d => ({...d}));
-
-  const state = {
-    types:new Set(PRESETS.all.types),
-    edgeTypes:new Set(["contains","links","mentions","related"]),
-    minMentions:1, query:"", showLabels:false, selected:null
-  };
-
-  const sim = d3.forceSimulation()
-    .force("link", d3.forceLink().id(d=>d.id)
-      .distance(l => l.type==="contains"?40 : l.type==="links"?90 : l.type==="related"?120:70)
-      .strength(l => l.type==="contains"?0.9 : l.type==="links"?0.5 : 0.3))
-    .force("charge", d3.forceManyBody().strength(-180))
-    .force("center", d3.forceCenter())
-    .force("collide", d3.forceCollide().radius(d => (d.size||6)+4));
-
-  if (PREFERS_REDUCED) {
-    sim.alphaDecay(0.2);
-  }
-
-  const tooltip = d3.select("#tooltip");
-
-  let linkSel = linkG.selectAll("line");
-  let nodeSel = nodeG.selectAll("g.node");
-
-  function render(){
-    const w = document.getElementById("graph").clientWidth;
-    const h = document.getElementById("graph").clientHeight;
-    svg.attr("viewBox",[-w/2,-h/2,w,h]);
-
-    const termTypes = new Set(["product","pattern","process","concept","metric"]);
-    const nodeOk = n => {
-      if(!state.types.has(n.type)) return false;
-      if(termTypes.has(n.type) && (n.total||0) < state.minMentions) return false;
-      if(state.query && !n.label.toLowerCase().includes(state.query)) return false;
-      return true;
-    };
-    const nodes = allNodes.filter(nodeOk);
-    const idset = new Set(nodes.map(n=>n.id));
-    const edges = allEdges.filter(e =>
-      state.edgeTypes.has(e.type) &&
-      idset.has(typeof e.source==="object"?e.source.id:e.source) &&
-      idset.has(typeof e.target==="object"?e.target.id:e.target));
-
-    linkSel = linkG.selectAll("line").data(edges, d => (d.source.id||d.source)+"->"+(d.target.id||d.target)+":"+d.type)
-      .join(enter => enter.append("line").attr("class","link")
-        .attr("stroke-width", d => Math.max(0.4, Math.min(3, Math.log2(1+d.weight)))));
-
-    nodeSel = nodeG.selectAll("g.node").data(nodes, d=>d.id)
-      .join(enter => {
-        const ge = enter.append("g").attr("class","node").attr("tabindex", 0)
-          .call(d3.drag()
-            .on("start",(e,d)=>{if(!e.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
-            .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
-            .on("end",(e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}))
-          .on("mouseover",(e,d)=>{
-            tooltip.style("opacity",1).html(tooltipHtml(d));
-            highlight(d);
-          })
-          .on("mousemove",(e)=>{
-            const rect = document.getElementById("graph").getBoundingClientRect();
-            tooltip.style("left",(e.clientX-rect.left+12)+"px")
-                   .style("top",(e.clientY-rect.top+12)+"px");
-          })
-          .on("mouseout",()=>{tooltip.style("opacity",0); highlight(null);})
-          .on("focus",(e,d)=>{ highlight(d); })
-          .on("blur",()=>{ highlight(null); })
-          .on("click",(e,d)=>{select(d);})
-          .on("dblclick",(e,d)=>{ if(d.url) window.open(d.url,"_blank"); })
-          .on("keydown",(e,d)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); select(d); } });
-        ge.append("circle")
-          .attr("r", d => Math.max(3, Math.min(22, (d.size||6))))
-          .attr("fill", d => COLORS[d.type] || "#8b949e");
-        ge.append("path")
-          .attr("class","node-icon")
-          .attr("d", d => ICONS[d.type] || ICONS.concept)
-          .attr("fill", "none")
-          .attr("stroke", "#fff")
-          .attr("stroke-width", 2)
-          .attr("stroke-linecap", "round")
-          .attr("stroke-linejoin", "round")
-          .attr("opacity", 0.92)
-          .attr("vector-effect", "non-scaling-stroke")
-          .attr("transform", d => {
-            const r = Math.max(3, Math.min(22, (d.size||6)));
-            const iconSize = r * 1.2;
-            return `translate(${-iconSize/2},${-iconSize/2}) scale(${iconSize/24})`;
-          })
-          .style("pointer-events", "none");
-        ge.append("text").attr("dx",10).attr("dy",4).text(d=>d.label);
-        return ge;
-      });
-
-    nodeG.selectAll("g.node").classed("show-label", state.showLabels);
-
-    sim.nodes(nodes).on("tick", ticked);
-    sim.force("link").links(edges);
-    sim.alpha(PREFERS_REDUCED ? 0.4 : 0.8).restart();
-  }
-
-  function ticked(){
-    linkSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
-           .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
-    nodeSel.attr("transform",d=>`translate(${d.x},${d.y})`);
-  }
-
-  function tooltipHtml(d){
-    const esc = s => String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
-    let meta = "";
-    if(d.type==="doc") meta = `document · ${d.file}`;
-    else if(d.type==="h2") meta = `section in ${d.file}`;
-    else if(d.type==="h3") meta = `subsection in ${d.file}`;
-    else meta = `${d.type} · ${d.total} mentions across ${d.docs} docs`;
-    const linkHint = d.url ? `<div style="font-size:10px;color:var(--accent);margin-top:2px">click to open on Microsoft Learn</div>` : "";
-    return `<h3>${esc(d.label)}</h3><div class="meta">${esc(meta)}</div>${linkHint}`;
-  }
-
-  function neighborsOf(id){
-    const nb = new Set([id]); const links = new Set();
-    linkSel.each(function(l){
-      const s = l.source.id||l.source, t = l.target.id||l.target;
-      if(s===id||t===id){ nb.add(s); nb.add(t); links.add(l); }
-    });
-    return {nb, links};
-  }
-  function highlight(d){
-    if(!d){
-      nodeSel.classed("dim",false).classed("hover-label",false);
-      linkSel.classed("hi",false).classed("dim",false);
-      return;
-    }
-    const {nb,links} = neighborsOf(d.id);
-    nodeSel.classed("dim", n => !nb.has(n.id))
-           .classed("hover-label", n => nb.has(n.id));
-    linkSel.classed("hi", l => links.has(l)).classed("dim", l => !links.has(l));
-  }
-
-  function select(d){
-    state.selected = d;
-    const sel = document.getElementById("sel");
-    const {nb} = neighborsOf(d.id);
-    const neighbors = [...nb].filter(id=>id!==d.id)
-      .map(id => allNodes.find(n=>n.id===id))
-      .filter(Boolean)
-      .sort((a,b)=>a.label.localeCompare(b.label));
-    const link = d.url
-      ? `<div><a href="${d.url}" target="_blank" rel="noopener">open on Microsoft Learn ↗</a></div>` : "";
-    sel.innerHTML = `<div class="sel-title">${d.label}</div>
-      <div class="sel-meta">${d.type}${d.file?" · "+d.file:""}</div>
-      ${link}
-      <div class="sel-label">Connected (${neighbors.length})</div>
-      <div>${neighbors.slice(0,40).map(n=>`<span class="chip ${n.type}" data-id="${n.id}" tabindex="0" role="button"><span class="swatch" style="background:${COLORS[n.type]}"></span>${n.label}</span>`).join("")}</div>`;
-    sel.querySelectorAll(".chip[data-id]").forEach(el=>{
-      const go = () => { const n = allNodes.find(x=>x.id===el.dataset.id); if(n) select(n); };
-      el.addEventListener("click", go);
-      el.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); go(); }});
-    });
-  }
-
-  // Presets
-  function applyPreset(name){
-    const p = PRESETS[name]; if(!p) return;
-    state.types = new Set(p.types);
-    state.minMentions = p.minMentions;
-    // Sync chip checkboxes
-    document.querySelectorAll("input[data-type]").forEach(el=>{
-      el.checked = state.types.has(el.dataset.type);
-    });
-    const mm = document.getElementById("mm");
-    mm.value = p.minMentions;
-    document.getElementById("mmv").textContent = p.minMentions;
-    document.querySelectorAll(".preset-btn").forEach(b=>{
-      b.classList.toggle("active", b.dataset.preset===name);
-      if (b.dataset.preset===name) b.setAttribute("aria-pressed","true");
-      else b.removeAttribute("aria-pressed");
-    });
-    render();
-  }
-  document.querySelectorAll(".preset-btn").forEach(b=>{
-    b.addEventListener("click", ()=>applyPreset(b.dataset.preset));
-  });
-
-  // Filter wiring
-  document.querySelectorAll("input[data-type]").forEach(el=>{
-    el.addEventListener("change",()=>{
-      el.checked ? state.types.add(el.dataset.type) : state.types.delete(el.dataset.type);
-      // Invalidate preset highlight since user customized
-      document.querySelectorAll(".preset-btn").forEach(b=>b.classList.remove("active"));
-      render();
-    });
-  });
-  document.querySelectorAll("input[data-edge]").forEach(el=>{
-    el.addEventListener("change",()=>{
-      el.checked ? state.edgeTypes.add(el.dataset.edge) : state.edgeTypes.delete(el.dataset.edge);
-      render();
-    });
-  });
-  const q = document.getElementById("q");
-  q.addEventListener("input",()=>{ state.query = q.value.trim().toLowerCase(); render(); });
-  const mm = document.getElementById("mm");
-  mm.addEventListener("input",()=>{
-    state.minMentions = +mm.value;
-    document.getElementById("mmv").textContent = mm.value;
-    render();
-  });
-  document.getElementById("lbl").addEventListener("change",e=>{
-    state.showLabels = e.target.checked;
-    nodeG.selectAll("g.node").classed("show-label", state.showLabels);
-  });
-  document.getElementById("reheat").addEventListener("click",()=>sim.alpha(1).restart());
-  document.getElementById("reset").addEventListener("click",()=>{
-    svg.transition().duration(PREFERS_REDUCED?0:500).call(zoom.transform, d3.zoomIdentity);
-  });
-
-  window.addEventListener("resize",()=>{
-    const w=document.getElementById("graph").clientWidth, h=document.getElementById("graph").clientHeight;
-    svg.attr("viewBox",[-w/2,-h/2,w,h]);
-    sim.force("center", d3.forceCenter()).alpha(0.3).restart();
-  });
-
-  render();
-})();
+  // Populate stats from runtime JSON so numbers never go stale.
+  (async () => {
+    const fmt = n => (typeof n === 'number') ? n.toLocaleString('en-US') : '—';
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = fmt(v); };
+    try {
+      const data = await (await fetch('mental_models/site-data.json', { cache: 'no-cache' })).json();
+      const s = data.stats || {};
+      set('stat-cards', s.cards);
+      set('stat-entities', s.entities);
+      set('stat-relations', s.relations);
+      set('stat-patterns', s.patterns);
+      set('stat-docs', s.docs);
+    } catch (e) { console.warn('site-data.json load failed', e); }
+    try {
+      const g = await (await fetch('graph.json', { cache: 'no-cache' })).json();
+      set('stat-graph-nodes', (g.nodes || []).length);
+    } catch (e) { /* optional */ }
+  })();
 </script>
 </body>
 </html>

@@ -117,11 +117,11 @@
   <section class="hero" aria-labelledby="tagline">
     <p id="tagline" class="tag"><strong>Three views</strong> into the Azure Well-Architected Framework: a force-directed graph, detailed model cards, and hierarchical mind-map trees.</p>
     <div class="stats" aria-label="Dataset summary">
-      <span class="stat"><span class="n">54</span> mental models</span>
-      <span class="stat"><span class="n">4,099</span> entities</span>
-      <span class="stat"><span class="n">5,896</span> relations</span>
-      <span class="stat"><span class="n">161</span> patterns</span>
-      <span class="stat"><span class="n">34</span> docs</span>
+      <span class="stat"><span class="n" id="stat-cards">…</span> mental models</span>
+      <span class="stat"><span class="n" id="stat-entities">…</span> entities</span>
+      <span class="stat"><span class="n" id="stat-relations">…</span> relations</span>
+      <span class="stat"><span class="n" id="stat-patterns">…</span> patterns</span>
+      <span class="stat"><span class="n" id="stat-docs">…</span> docs</span>
     </div>
   </section>
 
@@ -129,7 +129,7 @@
     <a class="card" data-kind="graph" href="graph.html">
       <span class="ico" aria-hidden="true">🕸️</span>
       <h2>Graph</h2>
-      <p>Force-directed map of 271 nodes across 8 types. Search, filter, hover to highlight neighbors.</p>
+      <p>Force-directed map of <span id="stat-graph-nodes">…</span> nodes across 8 types. Search, filter, hover to highlight neighbors.</p>
       <span class="cta">Open graph →</span>
     </a>
     <a class="card" data-kind="cards" href="mental_models/">
@@ -186,5 +186,26 @@ python3 query_lightrag.py "What is blast radius thinking?"</code></pre>
     Source: <a href="https://github.com/abossard/well-architected/tree/mental-models/kg-explorer" rel="noopener">abossard/well-architected</a>.
   </footer>
 </main>
+
+<script>
+  // Populate stats from runtime JSON so numbers never go stale.
+  (async () => {
+    const fmt = n => (typeof n === 'number') ? n.toLocaleString('en-US') : '—';
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = fmt(v); };
+    try {
+      const data = await (await fetch('mental_models/site-data.json', { cache: 'no-cache' })).json();
+      const s = data.stats || {};
+      set('stat-cards', s.cards);
+      set('stat-entities', s.entities);
+      set('stat-relations', s.relations);
+      set('stat-patterns', s.patterns);
+      set('stat-docs', s.docs);
+    } catch (e) { console.warn('site-data.json load failed', e); }
+    try {
+      const g = await (await fetch('graph.json', { cache: 'no-cache' })).json();
+      set('stat-graph-nodes', (g.nodes || []).length);
+    } catch (e) { /* optional */ }
+  })();
+</script>
 </body>
 </html>
