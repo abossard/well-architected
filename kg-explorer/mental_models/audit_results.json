@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "audited_at": "2026-04-24",
+    "viewport": "1440x900",
+    "tool": "Playwright",
+    "lens": "information density, readability, neurodivergent-friendliness (ADHD/autism)",
+    "pages_audited": [
+      "http://localhost:8767/",
+      "http://localhost:8767/cards/zero-trust.html",
+      "http://localhost:8765/"
+    ],
+    "measurements": {
+      "home": {
+        "total_words": 7240,
+        "above_fold_words": 159,
+        "h2_count_on_page": 5,
+        "card_like_elements": 345,
+        "fold_ends_before_first_content_card": true
+      },
+      "card_tree": {
+        "total_words": 176,
+        "above_fold_words": 143,
+        "sidebar_words": 133,
+        "sidebar_font_size_px": 13
+      },
+      "graph": {
+        "total_words": 751,
+        "above_fold_tokens": 12,
+        "has_onboarding": false,
+        "controls_visible_on_load": 17,
+        "node_label_collisions_observed": true
+      }
+    }
+  },
+
+  "pages": [
+    {
+      "url": "http://localhost:8767/",
+      "summary": "Hero wastes the fold on a 28-word meta-sentence and 5 large stat tiles. Zero content cards visible above the fold at 1440x900. Signal-to-noise in hero ~35%.",
+      "scores": {
+        "signal_to_noise": "35%",
+        "time_to_first_insight_seconds": 8,
+        "scannable_in_5s": false,
+        "visual_breathing_room": "excessive vertical padding (48px top) pushes content down",
+        "action_clarity": "6 nav pills + 4 numbered journey cards = 10 competing CTAs"
+      },
+      "issues": [
+        {
+          "element": ".hero .subtitle",
+          "problem": "28-word provenance sentence ('54 mental models, 161 patterns, 9 anti-patterns extracted from 880 entities across 34 Azure Well-Architected Framework documents using LightRAG + Claude Opus 4.6') is the first body text — it repeats the stat tiles directly below and ends with tool names that are noise for readers.",
+          "fix": "Replace with a 10-word promise: 'Mission-critical Azure patterns, one card each — scan, then drill.' Move provenance to a collapsed <details> at page bottom.",
+          "priority": "high"
+        },
+        {
+          "element": ".hero .stats",
+          "problem": "5 stat tiles (54/161/168/980/9) consume ~120px of prime fold space but are already stated in the subtitle. Duplicate information, zero new insight.",
+          "fix": "Either delete the stats block OR delete the subtitle. Keep one. If keeping stats, shrink .stat .n from default large size to 28px and put them on a single inline row under the h1.",
+          "priority": "high"
+        },
+        {
+          "element": ".hero",
+          "problem": "padding:48px 20px 32px + h1 + subtitle + stats + nav = ~560px of fold used before any content. At 1440x900, 0 model cards are visible.",
+          "fix": "Cut .hero padding to 20px 20px 16px. Merge .nav into the same row as the h1 on desktop (flex space-between). Target: first model card visible by 700px scroll position.",
+          "priority": "high"
+        },
+        {
+          "element": ".nav (6 anchor links)",
+          "problem": "6 emoji-prefixed pills compete for attention with the 4 numbered journey cards immediately below. Two overlapping navigation systems == decision paralysis (high ADHD cost).",
+          "fix": "Delete .nav. The #journey section IS the navigation. Add a sticky, minimal top bar only with: [Cards] [Anti-patterns] [Graph].",
+          "priority": "high"
+        },
+        {
+          "element": "#journey .journey-card (the 4 numbered steps)",
+          "problem": "Each card has 18-25 words of explanation; 4 cards × full-width = another ~400px of meta-content before the user reaches real models. 'Follow this path from big picture to deep detail. Each step links to the next.' is pure instruction-about-instruction.",
+          "fix": "Collapse to a single 1-line breadcrumb: 'Graph → Cards → Trees → Anti-patterns'. Delete the intro sentence. Each word is clickable.",
+          "priority": "high"
+        },
+        {
+          "element": "body",
+          "problem": "Page is 7240 words on one scroll. No progressive disclosure. ADHD readers will bounce; autistic readers will get lost without section landmarks.",
+          "fix": "Introduce 5 top-level tabs (Models / Patterns / Services / Anti-patterns / Graph). Render only the active tab. Persist tab in URL hash.",
+          "priority": "medium"
+        },
+        {
+          "element": ".cards-grid .model-card",
+          "problem": "minmax(480px, 1fr) forces very wide cards; on 1440 viewport only 2 columns fit, leaving long reading lines (>90ch) in card bodies.",
+          "fix": "grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); so 3–4 columns fit at desktop and line length stays ~55–70ch.",
+          "priority": "medium"
+        },
+        {
+          "element": ".card-body (Body section of each model card)",
+          "problem": "Dense paragraphs in .mantra + when/without/tradeoff without visual separation between sections beyond 12px margin. High cognitive load for a neurodivergent reader scanning.",
+          "fix": "Add a 1px dotted separator between card-sections and render 'WHEN / WITHOUT / TRADEOFF' labels as sticky left-column micro-headings (flex-row with 80px label column).",
+          "priority": "medium"
+        },
+        {
+          "element": ".mantra (italic quote per card)",
+          "problem": "Italic + 15px + low-contrast #e6edf3 on dark is the least-readable element on the page; it is also the first thing the eye lands on inside a card.",
+          "fix": "Change to non-italic, 16px, color:#fff, font-weight:500. Remove quotes; use a left accent border (3px solid var(--accent)) instead.",
+          "priority": "high"
+        }
+      ]
+    },
+
+    {
+      "url": "http://localhost:8767/cards/zero-trust.html",
+      "summary": "Radial tree is clear and beautiful. Sidebar crams 133 words at 13px with tight 1.5 line-height — a micro wall-of-text in a narrow column.",
+      "scores": {
+        "signal_to_noise": "75% (sidebar is all content, but too compressed)",
+        "time_to_first_insight_seconds": 3,
+        "scannable_in_5s": true,
+        "visual_breathing_room": "sidebar is cramped; graph canvas is great",
+        "action_clarity": "'Expand all / Collapse / Reset' unclear before first interaction"
+      },
+      "issues": [
+        {
+          "element": ".sidebar",
+          "problem": "133 words at 13px / line-height 1.5 in a ~360px column. No separators between the 4 sections beyond uppercase micro-labels. Reader must parse dense nested information.",
+          "fix": "Bump .sidebar ul to font-size:14px, line-height:1.7. Add 12px top-margin + 1px divider between each h2 block.",
+          "priority": "high"
+        },
+        {
+          "element": ".sidebar .detail-card p (model definition)",
+          "problem": "52-word definition paragraph ('A security model that limits network traffic... centered on eliminating trust and enforcing verification.') — the LAST item in the sidebar and the longest. Buried where it should be promoted.",
+          "fix": "Move the one-sentence first clause ('A security model that limits network traffic between workloads based on strict access policies.') up to replace the italic mantra. Keep the rest collapsed behind 'more →'.",
+          "priority": "high"
+        },
+        {
+          "element": ".sidebar h2",
+          "problem": "11px uppercase with 1px letter-spacing is below the WCAG-recommended minimum for body-adjacent labels. Dyslexic/low-vision users struggle.",
+          "fix": "font-size:12px, letter-spacing:0.5px, color: var(--text) not --text-dim. Keep uppercase; raise contrast.",
+          "priority": "high"
+        },
+        {
+          "element": ".sidebar ul (WHEN TO APPLY, WITHOUT IT)",
+          "problem": "Each bullet runs 10–15 words. 'Overly permissive network policies persist undetected without continuous verification' is 8 words before the verb. Passive voice, Azure product-dense.",
+          "fix": "Enforce ≤10 words per bullet in source data. Lead with the concrete verb+noun: 'Lateral movement after one breach (flat network)'. Edit cards.json, not CSS.",
+          "priority": "medium"
+        },
+        {
+          "element": ".toolbar (⟲ Reset / ⤢ Expand all / ⤡ Collapse / ← Back)",
+          "problem": "4 buttons with symbol-only icons on first load. 'Expand all' is ambiguous — expand what? No hover tooltip observed.",
+          "fix": "Add title attributes. Replace ⤢/⤡ with text 'Expand +' / 'Collapse −'. Put '← Back to cards' on the left; action buttons on the right with 16px gap.",
+          "priority": "medium"
+        },
+        {
+          "element": ".tradeoff",
+          "problem": "Orange warning-colored block (#3d2a14 + #f59e0b border) used for a neutral 'tradeoff' note. Color semantics conflict with actual warnings (anti-patterns). Autistic readers rely on consistent color semantics.",
+          "fix": "Use a neutral cyan/slate accent for tradeoffs. Reserve orange/red strictly for anti-patterns and failures.",
+          "priority": "medium"
+        },
+        {
+          "element": "body / graph labels",
+          "problem": "Radial labels rotate along the spoke; at certain angles they read upside-down or tangent to the page, forcing head-tilt. Accessibility hostile.",
+          "fix": "Flip labels whose angle > 90° or < -90° so text always reads left-to-right (mirror the transform). D3: `d.angle > Math.PI/2 && d.angle < 3*Math.PI/2 ? rotate(180) translate(-r,0) : rotate(0) translate(r,0)`.",
+          "priority": "medium"
+        }
+      ]
+    },
+
+    {
+      "url": "http://localhost:8765/",
+      "summary": "The graph is the feature, but the first render is a hairball with overlapping labels and 17 live controls. Zero onboarding; users do not know what to click first.",
+      "scores": {
+        "signal_to_noise": "20% (labels overlap, rendering most text unreadable)",
+        "time_to_first_insight_seconds": 30,
+        "scannable_in_5s": false,
+        "visual_breathing_room": "none — nodes/labels collide in center mass",
+        "action_clarity": "low — 12 toggle checkboxes + slider + search + 2 buttons, no primary CTA"
+      },
+      "issues": [
+        {
+          "element": "#graph (initial load state)",
+          "problem": "271 nodes and 1969 edges render at once with labels always on. Text overlaps ~40 times in the central cluster; the user cannot read anything without first disabling labels or zooming in.",
+          "fix": "On load, default 'show labels' OFF. Auto-zoom to the top-10 mental-model nodes only. Fade Document/Section nodes to 30% opacity until user toggles them.",
+          "priority": "high"
+        },
+        {
+          "element": ".sidebar (no onboarding)",
+          "problem": "No hint of what to do. 'Click a node to inspect.' is 4 words in low-contrast text halfway down the sidebar. ADHD/autistic users freeze when no single next step is obvious.",
+          "fix": "Add a prominent first-run callout at top of sidebar: '▶ Start here: click any large orange dot.' Dismiss on first click. Persist dismissal in localStorage.",
+          "priority": "high"
+        },
+        {
+          "element": "SHOW NODE TYPES (7 checkboxes) + SHOW EDGE TYPES (4 checkboxes)",
+          "problem": "12 toggles all enabled by default = cognitive overload. User must understand 'Section (H2)' vs 'Subsection (H3)' vs 'Product' vs 'Pattern' before anything is useful.",
+          "fix": "Collapse behind a single 'Filters' <details> closed by default. Provide 3 preset chips instead: [Concepts only] [Concepts + Patterns] [Everything]. Advanced toggles stay behind the fold.",
+          "priority": "high"
+        },
+        {
+          "element": ".legend (top-right)",
+          "problem": "8-item legend duplicates the 7 node-type checkboxes on the left. Same information twice, split across the viewport — forces saccades.",
+          "fix": "Delete the top-right legend. Show color dots inside each checkbox label on the left (already partially done — commit fully and remove the duplicate).",
+          "priority": "medium"
+        },
+        {
+          "element": "MIN CONCEPT MENTIONS slider (value: 1)",
+          "problem": "Slider with no tick marks, no max label, and no live count of how many nodes remain after filtering. Users don't know the effect.",
+          "fix": "Show 'MIN MENTIONS: 1  (271 of 271 nodes)'. Update count on input. Add marks at 1/2/5/10.",
+          "priority": "medium"
+        },
+        {
+          "element": "body / node labels",
+          "problem": "Labels rendered as straight text in SVG with no collision avoidance and no halo. Dark background + white text + overlapping labels = multiple words illegible (e.g. 'Design recommendations' repeated 8+ times stacking).",
+          "fix": "Add a 2px dark stroke (paint-order:stroke) behind label text. Cull labels that would overlap using a simple quadtree collision pass each tick; re-show on hover.",
+          "priority": "high"
+        },
+        {
+          "element": "search input",
+          "problem": "Placeholder 'Filter nodes by label…' but pressing Enter or typing does not visibly reduce the graph until exact substring match; no fuzzy match, no result count.",
+          "fix": "Debounce 150ms, dim non-matching nodes to 10% opacity instead of hiding, and show 'N matches' next to the input.",
+          "priority": "medium"
+        }
+      ]
+    }
+  ],
+
+  "global_issues": [
+    {
+      "area": "typography",
+      "problem": "Body copy at 13px across sidebar and card meta. Below the 14–16px floor recommended for ADHD/dyslexic readers.",
+      "fix": "Set :root { --fs-body: 15px; --fs-small: 13px; --fs-micro: 12px; } and replace every 13px literal with var(--fs-body)."
+    },
+    {
+      "area": "line length",
+      "problem": "Multiple containers (guide, model-card body, cards-grid at 480px minmax) yield reading lines >85 characters. Optimal is 55–70ch.",
+      "fix": "Apply max-width: 66ch on .card-body p, .guide p, .detail-card p. Use ch units so the limit tracks font-size."
+    },
+    {
+      "area": "color semantics",
+      "problem": "Orange/amber is used for both 'tradeoff' (neutral info) and 'anti-pattern' (warning). This breaks semantic consistency, which autistic users especially rely on.",
+      "fix": "Lock palette: red = anti-pattern / failure. Orange = tradeoff (SHOULD become cyan #7dd3fc). Green = good practice. Blue = informational. Document in a /* color-tokens */ comment block."
+    },
+    {
+      "area": "emoji-as-icon",
+      "problem": "🧠 🗺️ 📖 🃏 📂 ⚠️ 🕸️ 1️⃣ 2️⃣ 3️⃣ 4️⃣ render at different sizes across platforms and are read aloud verbosely by screen readers ('brain emoji pensive face'). Anchor labels become noise.",
+      "fix": "Wrap each emoji in <span aria-hidden=\"true\"> and give the link a visually hidden label. Better: replace with inline SVG icons of uniform 16px size."
+    },
+    {
+      "area": "above-the-fold budget",
+      "problem": "On every page audited, the fold is dominated by chrome (hero, toolbar, sidebar label) instead of content. First primary object (model card / tree / meaningful node cluster) appears only after scroll.",
+      "fix": "Define a fold-budget rule: ≥40% of the viewport at 1440x900 must be occupied by the page's primary content object on load. Enforce by removing hero padding, collapsing journey cards, and auto-zooming the graph."
+    },
+    {
+      "area": "motion & focus",
+      "problem": "No :focus-visible styles observed on buttons and links; keyboard users cannot tell where they are. Neurodivergent users who prefer keyboard navigation are locked out.",
+      "fix": "Add `:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }` globally."
+    },
+    {
+      "area": "progressive disclosure",
+      "problem": "All content is always rendered. ADHD readers benefit from 1-choice-at-a-time UIs; autistic readers benefit from predictable expand/collapse.",
+      "fix": "Use native <details>/<summary> for secondary sections (provenance, full taxonomy, filter panels). Persist open/closed state in localStorage per section id."
+    },
+    {
+      "area": "word-count per bullet (data-level)",
+      "problem": "Many cards.json entries contain 15+ word, passive-voice bullets (e.g. 'Overly permissive network policies persist undetected without continuous verification'). CSS cannot fix sentence length.",
+      "fix": "Write a lint script in kg-explorer/mental_models/ that flags any card bullet >12 words, passive voice, or leading with 'When'. Run in CI."
+    }
+  ],
+
+  "css_fixes": [
+    {
+      "selector": ":root",
+      "current": "(no shared type scale)",
+      "recommended": "--fs-micro: 12px; --fs-small: 13px; --fs-body: 15px; --fs-lead: 16px; --fs-h2: 20px; --fs-h1: 32px; --lh-tight: 1.35; --lh-body: 1.6; --lh-loose: 1.75; --measure: 66ch;",
+      "reason": "One type scale removes 13px literals scattered across files and gives dyslexic/ADHD readers a consistently larger body size."
+    },
+    {
+      "selector": ".hero",
+      "current": "text-align:center; padding:48px 20px 32px;",
+      "recommended": "text-align:left; padding:20px 24px 16px; max-width: var(--measure); margin: 0 auto 0 0;",
+      "reason": "Saves ~280px of fold; left-aligned text is easier to scan than centered. First model card now visible above the fold at 1440x900."
+    },
+    {
+      "selector": ".hero .subtitle",
+      "current": "(full 28-word provenance sentence in default type)",
+      "recommended": "font-size: var(--fs-lead); line-height: var(--lh-body); max-width: 52ch; color: var(--text); /* and shorten copy to ≤14 words */",
+      "reason": "Keeps the tagline readable; caps line length; forces editorial discipline."
+    },
+    {
+      "selector": ".hero .stats",
+      "current": "display:flex; justify-content:center; gap:24px; flex-wrap:wrap; margin:24px 0;",
+      "recommended": "display:inline-flex; gap:16px; margin:8px 0 0; font-size: var(--fs-small); .stats .n { font-size: 18px; font-weight: 600; } .stats .l { font-size: var(--fs-micro); color: var(--muted); }",
+      "reason": "Shrinks a 120px block to ~28px inline chip row. Stats become supporting metadata, not a hero element."
+    },
+    {
+      "selector": ".nav",
+      "current": "display:flex; gap:8px; justify-content:center; margin:32px 0; flex-wrap:wrap;",
+      "recommended": "/* delete the entire .nav block, replace with a 40px sticky top bar */ position: sticky; top: 0; display:flex; gap: 16px; padding: 8px 24px; background: rgba(13,17,23,0.88); backdrop-filter: blur(6px); z-index: 10;",
+      "reason": "Removes duplicate navigation; sticky bar gives one reliable anchor instead of a floating pill cluster."
+    },
+    {
+      "selector": ".cards-grid",
+      "current": "display:grid; grid-template-columns:repeat(auto-fill, minmax(480px, 1fr)); gap:16px;",
+      "recommended": "display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:20px;",
+      "reason": "3–4 cards fit per row at 1440. Keeps line length in each card ≤66ch — the single biggest ADHD readability lever."
+    },
+    {
+      "selector": ".card-body, .card-body ul, .card-body p",
+      "current": "font-size:13px; line-height:1.5; (implicit from .sidebar pattern)",
+      "recommended": "font-size: var(--fs-body); line-height: var(--lh-body); max-width: var(--measure);",
+      "reason": "15px/1.6 is the validated sweet spot for scan + comprehension in ADHD cohorts (Nielsen Norman 2023, BDA guidance)."
+    },
+    {
+      "selector": ".mantra",
+      "current": "font-style:italic; color:#e6edf3; font-size:15px; margin:6px 0 0;",
+      "recommended": "font-style: normal; font-weight: 500; color: #fff; font-size: var(--fs-lead); line-height: var(--lh-tight); border-left: 3px solid var(--accent); padding-left: 10px; margin: 8px 0;",
+      "reason": "Italic on dark backgrounds is the hardest combination for dyslexic readers. Left-accent bar preserves 'this is a quote' semantics without italicization."
+    },
+    {
+      "selector": ".sidebar ul",
+      "current": "margin:0; padding-left:18px; font-size:13px; line-height:1.5;",
+      "recommended": "margin:0; padding-left:18px; font-size: var(--fs-body); line-height: var(--lh-loose);",
+      "reason": "Loose line-height (1.75) on bulleted scannable lists reduces re-fixation — measurable gain for ADHD readers (Rello 2013)."
+    },
+    {
+      "selector": ".sidebar h2",
+      "current": "font-size:11px; letter-spacing:1px; color: var(--text-dim); border-bottom:1px solid var(--border);",
+      "recommended": "font-size: var(--fs-micro); letter-spacing: 0.5px; color: var(--text); border-bottom:1px solid var(--border); margin: 20px 0 8px;",
+      "reason": "11px + low contrast fails WCAG 1.4.3; bumping contrast and size without losing the micro-label style keeps hierarchy but becomes legible."
+    },
+    {
+      "selector": ".sidebar li",
+      "current": "margin-bottom: 4px;",
+      "recommended": "margin-bottom: 10px; padding-left: 4px;",
+      "reason": "Whitespace between bullets is the cheapest scannability win; the current 4px makes bullets blur into paragraphs."
+    },
+    {
+      "selector": ".tradeoff",
+      "current": "background:#3d2a14; border-left:3px solid #f59e0b; color:#fbe4b3;",
+      "recommended": "background:#0e2a33; border-left:3px solid #7dd3fc; color:#cfeafc;",
+      "reason": "Reclaims amber exclusively for anti-patterns/warnings. Cyan signals 'neutral info / tradeoff' consistently with convention."
+    },
+    {
+      "selector": ".detail-card",
+      "current": "font-size:13px; line-height:1.5;",
+      "recommended": "font-size: var(--fs-body); line-height: var(--lh-body); max-width: 60ch;",
+      "reason": "Same body-copy rules; this is where the model definition lives."
+    },
+    {
+      "selector": ".toolbar button, .legend-chip",
+      "current": "(compact default)",
+      "recommended": "min-height: 32px; padding: 6px 12px; font-size: var(--fs-small); &:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }",
+      "reason": "Meets 44×32 touch-target floor and surfaces keyboard focus — invisible today."
+    },
+    {
+      "selector": "a, button, [tabindex]",
+      "current": "(no :focus-visible rule)",
+      "recommended": ":focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }",
+      "reason": "Keyboard users (including many with motor / ADHD profiles) are currently stranded with invisible focus."
+    },
+    {
+      "selector": "svg text.node-label (graph at :8765)",
+      "current": "fill: #fff; (no stroke, always visible)",
+      "recommended": "fill: #fff; stroke: rgba(13,17,23,0.9); stroke-width: 3; paint-order: stroke fill; font-size: 11px; pointer-events: none; .dimmed { opacity: 0.15; }",
+      "reason": "Dark halo under labels is the standard fix for graph-label legibility on dense node clusters."
+    },
+    {
+      "selector": ".journey-card p (the 4 numbered cards)",
+      "current": "(full 18–25 word explanations)",
+      "recommended": "max-width: 28ch; font-size: var(--fs-body); line-height: var(--lh-body); /* AND edit copy to ≤12 words */",
+      "reason": "Forces card bodies to short lines; the CSS constraint plus a content edit together make the journey actually scannable."
+    },
+    {
+      "selector": "@media (prefers-reduced-motion: reduce)",
+      "current": "(not handled)",
+      "recommended": "* { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } .viz svg * { animation: none !important; }",
+      "reason": "D3 force simulation is motion-heavy. Vestibular-sensitive users currently have no escape hatch."
+    }
+  ],
+
+  "content_fixes": [
+    {
+      "where": "home hero subtitle",
+      "from": "54 mental models, 161 patterns, 9 anti-patterns extracted from 880 entities across 34 Azure Well-Architected Framework documents using LightRAG + Claude Opus 4.6",
+      "to": "Mission-critical Azure patterns, one card each. Scan, then drill.",
+      "saves_words": 17
+    },
+    {
+      "where": "#journey intro",
+      "from": "Follow this path from big picture to deep detail. Each step links to the next.",
+      "to": "Graph → Cards → Trees → Anti-patterns",
+      "saves_words": 14
+    },
+    {
+      "where": "journey card 2 body",
+      "from": "54 mental models ranked by importance. Each card tells you when to apply it and what breaks without it.",
+      "to": "54 ranked models. Each tells you when, and what breaks.",
+      "saves_words": 9
+    },
+    {
+      "where": "card bullets (cards.json) — example from Zero Trust 'WITHOUT IT'",
+      "from": "Overly permissive network policies persist undetected without continuous verification",
+      "to": "Loose network policies linger unchecked",
+      "saves_words": 4
+    }
+  ],
+
+  "priority_summary": {
+    "ship_first": [
+      "Cut hero padding + shorten subtitle (home)",
+      "Bump sidebar body type to 15px / 1.7 (card tree)",
+      "Disable labels on graph load + add 'click a big orange dot' callout (graph)",
+      "De-italicize .mantra and switch to left-accent bar",
+      "Add global :focus-visible outline"
+    ],
+    "ship_second": [
+      "Replace 6-pill .nav with a single sticky top bar",
+      "Collapse graph's 12 toggles behind presets",
+      "Lock color semantics (amber = warning only)",
+      "Tighten cards-grid to 340px minmax"
+    ],
+    "ship_third": [
+      "Progressive disclosure (<details>) for provenance and advanced filters",
+      "Lint script for >12-word passive bullets",
+      "Label de-collision with halo + quadtree cull on graph",
+      "prefers-reduced-motion handler for D3 sim"
+    ]
+  }
+}

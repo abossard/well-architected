@@ -1,23 +1,73 @@
 {
-  "total_entities": 880,
-  "total_edges": 980,
-  "classified": 880,
+  "total_entities": 4099,
+  "total_edges": 5896,
+  "classified": 4099,
   "categories": {
-    "CONCEPT": 235,
-    "AZURE_SERVICE": 168,
-    "PATTERN": 161,
-    "PROCESS": 156,
-    "OTHER": 63,
-    "MENTAL_MODEL": 54,
-    "METRIC": 29,
-    "ANTI_PATTERN": 9,
-    "TRADEOFF": 5
+    "CONCEPT": 1378,
+    "AZURE_SERVICE": 715,
+    "PATTERN": 643,
+    "PROCESS": 598,
+    "OTHER": 436,
+    "MENTAL_MODEL": 137,
+    "METRIC": 124,
+    "ANTI_PATTERN": 59,
+    "TRADEOFF": 9
   },
   "top_mental_models": [
     {
       "name": "Zero Trust",
+      "centrality": 19,
+      "bridge_score": 0.924
+    },
+    {
+      "name": "Energy Efficiency",
+      "centrality": 13,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Reducing Demand",
+      "centrality": 12,
+      "bridge_score": 0.97
+    },
+    {
+      "name": "Sustainable Workload",
+      "centrality": 11,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Least Privilege",
+      "centrality": 9,
+      "bridge_score": 0.917
+    },
+    {
+      "name": "Hardware Efficiency",
+      "centrality": 9,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Self-Preservation",
+      "centrality": 8,
+      "bridge_score": 0.929
+    },
+    {
+      "name": "Blast Radius",
+      "centrality": 7,
+      "bridge_score": 0.905
+    },
+    {
+      "name": "Assume Breach",
       "centrality": 7,
       "bridge_score": 0.952
+    },
+    {
+      "name": "Maturity Model",
+      "centrality": 7,
+      "bridge_score": 0.952
+    },
+    {
+      "name": "Responsible AI",
+      "centrality": 7,
+      "bridge_score": 0.857
     },
     {
       "name": "Reliability Design Principles",
@@ -25,9 +75,19 @@
       "bridge_score": 1.0
     },
     {
-      "name": "Assume Breach",
+      "name": "Defense In Depth",
       "centrality": 6,
-      "bridge_score": 0.933
+      "bridge_score": 0.8
+    },
+    {
+      "name": "Performance Efficiency Pillar",
+      "centrality": 6,
+      "bridge_score": 0.8
+    },
+    {
+      "name": "Shared Responsibility Model",
+      "centrality": 6,
+      "bridge_score": 0.533
     },
     {
       "name": "Four Vs Of Big Data",
@@ -40,12 +100,37 @@
       "bridge_score": 1.0
     },
     {
-      "name": "Least Privilege",
+      "name": "Least-Privilege Access",
+      "centrality": 5,
+      "bridge_score": 0.9
+    },
+    {
+      "name": "Principle Of Least Privilege",
+      "centrality": 5,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Decoupling Components",
+      "centrality": 5,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Culture Of Financial Responsibility",
+      "centrality": 5,
+      "bridge_score": 0.9
+    },
+    {
+      "name": "Sustainable AI Design",
       "centrality": 5,
       "bridge_score": 0.8
     },
     {
-      "name": "Zero-Downtime Deployment",
+      "name": "PACELC Theorem",
+      "centrality": 4,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Defense-In-Depth",
       "centrality": 4,
       "bridge_score": 1.0
     },
@@ -62,7 +147,7 @@
     {
       "name": "Microsoft Zero Trust Model",
       "centrality": 4,
-      "bridge_score": 1.0
+      "bridge_score": 0.833
     },
     {
       "name": "Cost-Efficiency Mindset",
@@ -75,19 +160,19 @@
       "bridge_score": 1.0
     },
     {
-      "name": "Defense-In-Depth",
-      "centrality": 3,
+      "name": "Test Pyramid",
+      "centrality": 4,
       "bridge_score": 1.0
     },
     {
-      "name": "Blast Radius",
-      "centrality": 3,
+      "name": "Carbon Awareness",
+      "centrality": 4,
       "bridge_score": 1.0
     },
     {
-      "name": "Automation",
+      "name": "RE:01",
       "centrality": 3,
-      "bridge_score": 1.0
+      "bridge_score": 0.667
     },
     {
       "name": "Cost-Management Discipline",
@@ -100,12 +185,37 @@
       "bridge_score": 1.0
     },
     {
+      "name": "Just In Time",
+      "centrality": 3,
+      "bridge_score": 0.667
+    },
+    {
+      "name": "Architecture Strategies For Consolidation",
+      "centrality": 3,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Consolidation",
+      "centrality": 3,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Transparency",
+      "centrality": 3,
+      "bridge_score": 1.0
+    },
+    {
       "name": "CAP Theorem",
       "centrality": 2,
       "bridge_score": 1.0
     },
     {
-      "name": "Self-Preservation",
+      "name": "Design Principles",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Criticality",
       "centrality": 2,
       "bridge_score": 1.0
     },
@@ -125,12 +235,77 @@
       "bridge_score": 1.0
     },
     {
-      "name": "Segmentation",
+      "name": "CIA Triad",
       "centrality": 2,
       "bridge_score": 1.0
     },
     {
-      "name": "PACELC Theorem",
+      "name": "Shift Left",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Stateless Design",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Identity-Based Access Control",
+      "centrality": 2,
+      "bridge_score": 0.0
+    },
+    {
+      "name": "Deny-By-Default",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Security Maturity Model",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Least-Privilege",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Infrastructure To Scale",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Consolidate Responsibilities",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Cost Optimization Maturity Model",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "MLOps Maturity Model",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Well-Architected Framework Security Pillar",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "Deterministic Behavior",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "SCI Model",
+      "centrality": 2,
+      "bridge_score": 1.0
+    },
+    {
+      "name": "End-To-End Automation",
       "centrality": 1,
       "bridge_score": 0.0
     },
@@ -141,21 +316,75 @@
     }
   ],
   "tradeoffs": [
+    "Reliability Costs",
+    "Inspection Security Controls",
     "Reliability Tradeoffs",
     "Security Tradeoffs",
     "Performance Efficiency Tradeoffs",
     "Culture Stress",
-    "Underprovisioned Resources"
+    "Cost Optimization Tradeoffs",
+    "Build Or Buy Decision",
+    "Large Subnets"
   ],
   "anti_patterns": [
+    "Singleton",
     "SNAT Port Exhaustion",
     "Misconfiguration",
+    "Configuration Drift",
+    "Flapping",
+    "Noisy Neighbor",
+    "Noisy Neighbor Problem",
     "TCP Port Exhaustion",
+    "Test Technical Debt",
+    "Monitoring Antipatterns",
+    "Cold Starts",
+    "Data Versioning And Consistency",
+    "Bias",
     "Noisy Neighbor Antipattern",
     "SlowLoris",
-    "Configuration Drift",
+    "Cross-Site Scripting",
+    "SQL Injection",
+    "Performance Bottlenecks",
+    "Pool Fragmentation",
+    "Brute Force",
+    "Memory Leaks",
+    "Data Skew",
+    "Client Pinning",
+    "Alert Fatigue",
+    "Orphaned Resources",
+    "Flaky Tests",
+    "Poison Message",
+    "Poison Messages",
+    "Throttling Errors",
+    "Cross-Partition Joins",
+    "Hot Partitions",
+    "Hot Partition",
+    "Busy Front End",
+    "MySQL Bug 102586",
+    "Disk Throttling",
+    "Subdomain Takeover",
+    "Prompt Injection Attacks",
+    "Over-Customization",
+    "Crypto Mining",
+    "Botnets",
     "Centralized Data Services",
-    "Technical Debt",
-    "Lack Of Optimization Over Time"
+    "Underprovisioned Resources",
+    "Lack Of Optimization Over Time",
+    "Customization Lock-In",
+    "Dead Code",
+    "Memory Leak",
+    "Cross-Cutting Implementation",
+    "N+1 Query Problem",
+    "State Affinity",
+    "Mutable Infrastructure",
+    "Resource Contention",
+    "No Caching",
+    "SQL Injections",
+    "SMB 1",
+    "Data Leakage",
+    "Prompt Injection",
+    "Embedding Inversion",
+    "Data Poisoning",
+    "Cross-Tenant Data Leakage"
   ]
 }

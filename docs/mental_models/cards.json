@@ -1,50 +1,378 @@
 [
   {
     "name": "Zero Trust",
-    "mantra": "Never trust, always verify every request",
+    "mantra": "Never trust, always verify\u2014assume breach everywhere.",
     "layer": "security",
     "when_to_apply": [
-      "Designing NSG/ASG micro-perimeters for workload traffic",
-      "Implementing Entra ID RBAC across application layers",
-      "When assuming breach posture for mission-critical workloads",
-      "Segmenting PaaS access via Private Link/Endpoints"
+      "Designing network security for cloud workloads",
+      "Handling internal east-west traffic between services",
+      "Architecting mission-critical systems",
+      "Establishing access controls for sensitive resources",
+      "Building a security readiness plan"
     ],
     "without_it": [
-      "Single breach enables lateral movement across flat network topology",
-      "Implicit service-to-service trust bypasses RBAC and NSG controls",
-      "Overly permissive network policies persist undetected without continuous verification",
-      "Insider threats exploit missing micro-segmentation; compliance audits fail"
+      "Lateral movement after a single breach",
+      "Over-trusted internal traffic becomes attack vector",
+      "Implicit access grants expose sensitive data",
+      "Flat networks with no segmentation",
+      "Delayed breach detection due to lack of continuous verification"
     ],
-    "key_tradeoff": "More verification granularity means more latency and Entra ID/Firewall Premium complexity",
+    "key_tradeoff": "Stronger security posture at the cost of increased complexity, latency from continuous verification, and operational overhead.",
     "builds_on": [
-      "Defense in Depth",
-      "Micro-Segmentation",
-      "Network Security Groups",
-      "Security Readiness Plan"
+      "Defense-In-Depth",
+      "Least-Privilege Access",
+      "Network Perimeter",
+      "Security",
+      "Segmentation Strategy"
     ],
     "enables": [
+      "Micro-Segmentation",
+      "Network Security Groups",
+      "Azure Firewall",
       "Mission-Critical Workloads",
-      "Micro-Segmentation"
+      "Security Readiness Plan",
+      "Traffic Analytics",
+      "Network Filtering"
+    ],
+    "connections": 19
+  },
+  {
+    "name": "Energy Efficiency",
+    "mantra": "Use the least energy possible\u2014every watt matters.",
+    "layer": "foundational",
+    "when_to_apply": [
+      "Designing new workloads with sustainability goals",
+      "Optimizing CPU and compute resource utilization",
+      "Choosing between client-side and server-side rendering",
+      "Selecting storage tiers and data access patterns",
+      "Setting up CI/CD pipelines and quality gates"
+    ],
+    "without_it": [
+      "Wasteful over-provisioning of compute resources",
+      "Unnecessary energy consumption from idle workloads",
+      "Unoptimized network traffic inflating carbon footprint",
+      "No baseline to measure or improve energy use",
+      "Sustainability goals remain aspirational with no actionable design guidance"
+    ],
+    "key_tradeoff": "Minimizing energy consumption may conflict with performance, availability, or development velocity.",
+    "builds_on": [
+      "Green Software Foundation",
+      "CPU Utilization Baseline"
+    ],
+    "enables": [
+      "Ampere Altra Arm-Based Processors",
+      "Client-Side Rendering",
+      "Server-Side Rendering",
+      "Network File Compression",
+      "Storage Access Tier",
+      "UX Design For Sustainability",
+      "Quality Gates",
+      "Circuit Breaker Pattern",
+      "Microservice Architecture"
     ],
     "connections": 13
   },
   {
-    "name": "Reliability Design Principles",
-    "mantra": "Design every workload to survive failure gracefully",
-    "layer": "foundational",
+    "name": "Reducing Demand",
+    "mantra": "Use less so you need less\u2014cut waste before adding capacity.",
+    "layer": "operational",
     "when_to_apply": [
-      "Architecting new mission-critical workloads on Azure",
-      "Running failure mode analysis across critical flows",
-      "Defining RTO/RPO/SLA targets with stakeholders",
-      "When trading off redundancy cost against uptime"
+      "Costs are climbing due to overprovisioned resources",
+      "Traffic spikes threaten service stability",
+      "Backend systems are saturated under peak load",
+      "You want to optimize before scaling out"
     ],
     "without_it": [
-      "Single-zone outage cascades into full workload failure",
-      "No RTO/RPO targets means unbounded recovery time",
-      "Reliability targets misaligned with actual business impact tiers",
-      "Reactive firefighting replaces self-healing and automation"
+      "Unnecessary overprovisioning and inflated costs",
+      "Cascading failures under unexpected load",
+      "Poor response times from saturated backends",
+      "Wasted compute on work that could be offloaded or cached"
     ],
-    "key_tradeoff": "More redundancy and active/active regions means higher cost and operational complexity",
+    "key_tradeoff": "Reducing demand adds architectural complexity (caching, queuing, offloading) in exchange for lower resource consumption and cost.",
+    "builds_on": [
+      "Cache Aside",
+      "Throttling",
+      "Queue-Based Load Leveling",
+      "Static Content Hosting"
+    ],
+    "enables": [
+      "Competing Consumers",
+      "Compute Resource Consolidation",
+      "Deployment Stamps",
+      "Sharding",
+      "Gateway Offloading",
+      "Valet Key"
+    ],
+    "connections": 12
+  },
+  {
+    "name": "Sustainable Workload",
+    "mantra": "Maximize utilization, minimize environmental footprint.",
+    "layer": "operational",
+    "when_to_apply": [
+      "Designing new cloud workloads on Azure",
+      "Optimizing existing applications for energy efficiency",
+      "Evaluating architecture decisions for carbon impact",
+      "Right-sizing infrastructure to reduce waste",
+      "Setting organizational sustainability targets for IT"
+    ],
+    "without_it": [
+      "Over-provisioned resources wasting energy and money",
+      "Untracked carbon emissions from cloud workloads",
+      "Inefficient code consuming unnecessary compute cycles",
+      "No accountability for environmental impact of IT decisions"
+    ],
+    "key_tradeoff": "Balancing performance and feature richness against reduced resource consumption and carbon emissions.",
+    "builds_on": [
+      "Cloud Efficiency",
+      "Application Design",
+      "Microsoft Azure Well-Architected Framework",
+      "Green Software Foundation"
+    ],
+    "enables": [
+      "Application Platform",
+      "Network And Connectivity",
+      "Storage",
+      "Testing"
+    ],
+    "connections": 11
+  },
+  {
+    "name": "Least Privilege",
+    "mantra": "Grant only what's needed, only when it's needed, and nothing more.",
+    "layer": "security",
+    "when_to_apply": [
+      "Assigning roles and permissions to users or services",
+      "Configuring service accounts or managed identities",
+      "Designing access policies for sensitive resources",
+      "Onboarding or offboarding identities in the organization",
+      "Reviewing and auditing existing access rights"
+    ],
+    "without_it": [
+      "Lateral movement by attackers through over-privileged accounts",
+      "Accidental data deletion or modification by authorized users",
+      "Blast radius of a compromised identity is unnecessarily large",
+      "Compliance violations from excessive standing permissions",
+      "Difficulty tracing accountability due to broad shared access"
+    ],
+    "key_tradeoff": "Tighter access restrictions increase security but add friction and operational overhead for users requesting elevated permissions.",
+    "builds_on": [
+      "Access Controls",
+      "Identity Lifecycle Management",
+      "RBAC"
+    ],
+    "enables": [
+      "Just-Enough-Access",
+      "Just-In-Time Access",
+      "Integrity",
+      "Availability"
+    ],
+    "connections": 9
+  },
+  {
+    "name": "Hardware Efficiency",
+    "mantra": "Use every piece of hardware to its fullest before reaching for more.",
+    "layer": "operational",
+    "when_to_apply": [
+      "Rightsizing VMs and compute resources",
+      "Evaluating whether to replace or extend existing hardware",
+      "Designing software to support older devices",
+      "Choosing between dedicated and shared infrastructure",
+      "Optimizing storage with compression techniques"
+    ],
+    "without_it": [
+      "Overprovisioned resources driving unnecessary embodied carbon",
+      "Premature hardware retirement and e-waste",
+      "Low utilization rates across compute fleet",
+      "Excluding users on older devices needlessly",
+      "Inflated cloud costs from idle resources"
+    ],
+    "key_tradeoff": "Maximizing hardware utilization and longevity versus adopting newer, potentially more energy-efficient hardware.",
+    "builds_on": [
+      "Green Software Foundation",
+      "Storage Compression",
+      "Backward Software Compatibility"
+    ],
+    "enables": [
+      "Spot VMs",
+      "Containerization",
+      "Platform As A Service",
+      "Microservice Architecture",
+      "CI/CD"
+    ],
+    "connections": 9
+  },
+  {
+    "name": "Self-Preservation",
+    "mantra": "Build every component to survive its neighbors' failures.",
+    "layer": "structural",
+    "when_to_apply": [
+      "Designing distributed systems with multiple dependencies",
+      "Workload components face unpredictable load spikes",
+      "Deploying services that must remain available during partial outages",
+      "Introducing new components into an existing architecture"
+    ],
+    "without_it": [
+      "Single component failure cascades across the entire system",
+      "Uncontained blast radius takes down unrelated services",
+      "Transient faults escalate into full outages",
+      "Recovery requires manual intervention across all layers"
+    ],
+    "key_tradeoff": "Increased isolation and resilience patterns add architectural complexity and resource cost.",
+    "builds_on": [
+      "Bulkhead Pattern",
+      "Redundancy",
+      "Microservices",
+      "Blast Radius"
+    ],
+    "enables": [
+      "Autoscaling",
+      "Deployment Stamps Pattern",
+      "RE:07"
+    ],
+    "connections": 8
+  },
+  {
+    "name": "Blast Radius",
+    "mantra": "Contain the damage before it contains you.",
+    "layer": "structural",
+    "when_to_apply": [
+      "Designing fault isolation boundaries for critical workloads",
+      "Deploying updates or changes incrementally",
+      "Architecting multitenant systems with shared resources",
+      "Evaluating co-location and resource density decisions"
+    ],
+    "without_it": [
+      "Single failure cascades across the entire system",
+      "Security breach compromises all tenants and data",
+      "Deployments cause widespread outages",
+      "No clear boundaries for incident containment"
+    ],
+    "key_tradeoff": "Minimizing blast radius increases resource cost and architectural complexity through isolation and redundancy.",
+    "builds_on": [
+      "Failure Mode Analysis",
+      "Partitioning",
+      "Microservices"
+    ],
+    "enables": [
+      "Bulkheads",
+      "Containment",
+      "Self-Preservation"
+    ],
+    "connections": 7
+  },
+  {
+    "name": "Assume Breach",
+    "mantra": "Design every layer as if the attacker is already inside.",
+    "layer": "security",
+    "when_to_apply": [
+      "Designing network segmentation and blast radius controls",
+      "Evaluating whether perimeter-only defenses are sufficient",
+      "Planning encryption strategies for data at rest and in transit",
+      "Conducting threat modeling exercises",
+      "Building incident response and disaster recovery plans"
+    ],
+    "without_it": [
+      "Over-reliance on perimeter defenses leads to catastrophic breaches",
+      "Lateral movement goes undetected across flat networks",
+      "Data exfiltration occurs unchecked after initial compromise",
+      "No containment strategy limits blast radius",
+      "Delayed detection due to missing audit trails and monitoring"
+    ],
+    "key_tradeoff": "Investing in layered internal defenses increases complexity and cost versus the risk of catastrophic loss from a single point of failure.",
+    "builds_on": [
+      "Threat Modeling",
+      "Microsoft Zero Trust Model",
+      "Encryption"
+    ],
+    "enables": [
+      "Audit Trail",
+      "Confidentiality",
+      "Data Exfiltration",
+      "Disaster Recovery"
+    ],
+    "connections": 7
+  },
+  {
+    "name": "Maturity Model",
+    "mantra": "Know where you stand so you can plan where to go.",
+    "layer": "organizational",
+    "when_to_apply": [
+      "Assessing current workload capabilities across pillars",
+      "Planning incremental improvement roadmaps",
+      "Prioritizing investment across competing architectural concerns",
+      "Onboarding teams to Well-Architected practices",
+      "Benchmarking progress over time"
+    ],
+    "without_it": [
+      "Ad-hoc improvements with no clear progression path",
+      "Over-investing in advanced capabilities before foundations are solid",
+      "Inability to communicate architectural readiness to stakeholders",
+      "Blind spots across pillars due to uneven attention",
+      "No measurable way to track architectural improvement"
+    ],
+    "key_tradeoff": "Structured phasing provides clarity but can slow teams that need to leap ahead in a single pillar to meet urgent demands.",
+    "builds_on": [
+      "Well-Architected Framework",
+      "Azure"
+    ],
+    "enables": [
+      "Cost Optimization Maturity Model",
+      "Operational Excellence Maturity Model",
+      "Performance Efficiency Maturity Model",
+      "Reliability Maturity Model",
+      "Security Maturity Model"
+    ],
+    "connections": 7
+  },
+  {
+    "name": "Responsible AI",
+    "mantra": "Build AI that earns trust through fairness, transparency, and safety by design.",
+    "layer": "foundational",
+    "when_to_apply": [
+      "Designing or deploying any AI-powered workload",
+      "Implementing agentic AI with autonomous decision-making",
+      "Building content generation or moderation systems",
+      "Preprocessing data that may contain biases",
+      "Offering AI capabilities in SaaS products"
+    ],
+    "without_it": [
+      "Biased or discriminatory AI outputs harming users",
+      "Lack of transparency eroding stakeholder trust",
+      "Unsafe content generation causing reputational damage",
+      "Regulatory non-compliance and legal exposure",
+      "Uncontrolled agentic AI behavior"
+    ],
+    "key_tradeoff": "Stronger ethical safeguards and human oversight increase latency and cost while reducing the speed of AI capability deployment.",
+    "builds_on": [
+      "Azure Well-Architected Framework",
+      "Design Methodology For AI Workloads",
+      "Data Preprocessing"
+    ],
+    "enables": [
+      "Content Moderation",
+      "Design Methodology For AI Workloads",
+      "SaaS"
+    ],
+    "connections": 7
+  },
+  {
+    "name": "Reliability Design Principles",
+    "mantra": "Design every workload to survive failure and keep serving its purpose.",
+    "layer": "foundational",
+    "when_to_apply": [
+      "Starting architecture design for a new workload",
+      "Reviewing existing systems for reliability gaps",
+      "Defining SLAs and recovery objectives",
+      "Making tradeoff decisions between cost and uptime"
+    ],
+    "without_it": [
+      "Cascading failures from unplanned outages",
+      "No clear recovery strategy when things break",
+      "Misaligned reliability targets with business needs",
+      "Reactive firefighting instead of proactive design"
+    ],
+    "key_tradeoff": "Higher reliability demands greater complexity and cost, requiring deliberate balance against business value.",
     "builds_on": [
       "Design For Business Requirements"
     ],
@@ -58,162 +386,374 @@
     "connections": 6
   },
   {
-    "name": "Assume Breach",
-    "mantra": "Defend every layer as if already compromised",
+    "name": "Defense In Depth",
+    "mantra": "Layer your defenses so no single breach breaks you.",
     "layer": "security",
     "when_to_apply": [
-      "Designing micro-segmentation and blast radius containment",
-      "Planning encryption for data at-rest and in-transit",
-      "Building incident response and DR runbooks",
-      "Architecting zero-trust access with Entra Conditional Access"
+      "Designing network architecture for sensitive workloads",
+      "Implementing Zero Trust segmentation strategies",
+      "Controlling east-west traffic between internal segments",
+      "Hardening multi-tier application environments",
+      "Evaluating security vs performance tradeoffs"
     ],
     "without_it": [
-      "Single NSG misconfiguration yields full lateral movement across VNets",
-      "Unencrypted east-west traffic enables silent data exfiltration post-breach",
-      "No micro-segmentation means one compromised pod owns entire cluster",
-      "Missing Log Analytics audit trails delay breach detection beyond RTO"
+      "Single point of compromise exposes entire network",
+      "Lateral movement goes undetected between segments",
+      "Over-reliance on perimeter security alone",
+      "Internal traffic treated as inherently trusted",
+      "Performance optimizations silently erode security controls"
     ],
-    "key_tradeoff": "More defense-in-depth layers cost operational complexity and latency",
+    "key_tradeoff": "Adding redundant security layers increases protection but can degrade performance and add operational complexity.",
     "builds_on": [
-      "Zero Trust",
-      "Encryption",
-      "Audit Trail"
+      "Segmentation",
+      "Segmentation Strategy",
+      "Network Segmentation"
     ],
     "enables": [
-      "Confidentiality",
-      "Data Exfiltration Prevention",
-      "Disaster Recovery"
+      "Azure Firewall",
+      "East-West Traffic",
+      "Network Security Groups"
+    ],
+    "connections": 6
+  },
+  {
+    "name": "Performance Efficiency Pillar",
+    "mantra": "Make every resource count by relentlessly optimizing workload performance.",
+    "layer": "structural",
+    "when_to_apply": [
+      "Designing new workloads for cloud deployment",
+      "Scaling systems to meet growing demand",
+      "Evaluating performance bottlenecks in production",
+      "Balancing cost against performance requirements",
+      "Establishing performance testing and monitoring practices"
+    ],
+    "without_it": [
+      "Over-provisioned resources wasting budget",
+      "Sluggish user experiences under load",
+      "No baseline to detect performance regressions",
+      "Reactive firefighting instead of proactive optimization",
+      "Inability to scale effectively with demand"
+    ],
+    "key_tradeoff": "Pushing for maximum performance efficiency often conflicts with cost optimization and may increase architectural complexity.",
+    "builds_on": [
+      "Well-Architected Framework",
+      "Baseline Metrics",
+      "Performance Monitoring"
+    ],
+    "enables": [
+      "Capacity Planning",
+      "Cloud Design Patterns",
+      "Cost Optimization Pillar"
+    ],
+    "connections": 6
+  },
+  {
+    "name": "Shared Responsibility Model",
+    "mantra": "Know exactly what you own and what your provider owns.",
+    "layer": "security",
+    "when_to_apply": [
+      "Migrating workloads to any cloud service",
+      "Defining security controls for a new deployment",
+      "Evaluating compliance requirements",
+      "Onboarding Azure Virtual Desktop or Azure VMware Solution",
+      "Incident response planning"
+    ],
+    "without_it": [
+      "Security gaps where neither party patches or monitors",
+      "Duplicate effort on provider-managed components",
+      "Compliance failures from unclear accountability",
+      "Misconfigured services assumed to be managed by the provider",
+      "Delayed incident response due to ownership confusion"
+    ],
+    "key_tradeoff": "More managed services reduce your operational burden but also reduce your control and customization options.",
+    "builds_on": [
+      "Microsoft Azure",
+      "Security"
+    ],
+    "enables": [
+      "Azure Virtual Desktop",
+      "Azure VMware Solution",
+      "VMware"
     ],
     "connections": 6
   },
   {
     "name": "Four Vs Of Big Data",
-    "mantra": "Profile volume, velocity, variety, veracity before selecting services",
+    "mantra": "Characterize your data by Volume, Velocity, Variety, and Veracity before designing your platform.",
     "layer": "data",
     "when_to_apply": [
-      "Designing mission-critical data platform on Azure",
-      "Choosing between Cosmos DB, ADLS, Event Hubs",
-      "Defining P50/P99 latency and throughput targets",
-      "Assessing data quality gates for pipeline governance"
+      "Designing a new big data architecture on Azure",
+      "Evaluating data platform technology choices",
+      "Assessing high-availability requirements for data workloads",
+      "Scaling an existing data pipeline that is underperforming"
     ],
     "without_it": [
-      "Cosmos DB partition limits hit causing downtime and data loss",
-      "Pipelines throttled under real-time ingestion; Event Hubs backpressure cascades",
-      "Schema drift breaks downstream consumers across polyglot datastores",
-      "Decisions built on unvalidated data erode reliability SLA compliance"
+      "Over- or under-provisioned storage and compute",
+      "Choosing tools that cannot handle data ingestion speed",
+      "Ignoring mixed data formats leading to integration failures",
+      "Trusting unreliable data for critical decisions"
     ],
-    "key_tradeoff": "Optimizing all four Vs simultaneously multiplies cost and complexity; prioritize per workload SLA",
+    "key_tradeoff": "Optimizing for one V (e.g., velocity) often increases cost or complexity for another (e.g., veracity).",
     "builds_on": [
-      "Capacity Planning",
-      "Data Tiering",
-      "CQRS and Event Sourcing",
-      "Data Consistency"
+      "Volume",
+      "Velocity",
+      "Variety",
+      "Veracity"
     ],
     "enables": [
-      "Health Modeling"
+      "Azure"
     ],
     "connections": 5
   },
   {
     "name": "Design For Recovery",
-    "mantra": "Engineer recovery paths before failure strikes",
+    "mantra": "Assume failure will happen and engineer your way back from it.",
     "layer": "operational",
     "when_to_apply": [
-      "Defining RTO/RPO targets per business criticality tier",
-      "Deploying stateful services requiring zone-redundant replication",
-      "Selecting active-passive cold/warm standby DR patterns",
-      "Planning failover across availability zones or regions"
+      "Architecting new workloads with availability requirements",
+      "Defining RTO and RPO targets for critical systems",
+      "Deploying stateful services that must survive outages",
+      "Planning for regional or zonal failures",
+      "Introducing changes that could cause cascading failures"
     ],
     "without_it": [
-      "RTO breach: no tested restore path extends outage indefinitely",
-      "RPO breach: asynchronous gaps cause permanent data loss",
-      "Cascading failures propagate through undocumented dependency chains",
-      "Ad-hoc recovery attempts trigger split-brain or data corruption"
+      "Extended downtime with no clear path to restoration",
+      "Data loss from unrecoverable failures",
+      "Manual heroics replacing systematic recovery processes",
+      "Cascading failures spreading across dependent services",
+      "Violated SLAs due to unpredictable recovery times"
     ],
-    "key_tradeoff": "More recovery capability (multi-region, warm standby) means higher cost and complexity",
+    "key_tradeoff": "Recovery capabilities add cost and complexity that must be balanced against the business impact of downtime.",
     "builds_on": [
       "Backups",
       "Disaster Preparedness",
-      "Recovery Plans"
+      "Self-Healing"
     ],
     "enables": [
-      "Self-Healing",
+      "Recovery Plans",
       "Immutable Ephemeral Units"
     ],
     "connections": 5
   },
   {
-    "name": "Least Privilege",
-    "mantra": "Grant minimum access, scope, and duration",
+    "name": "Least-Privilege Access",
+    "mantra": "Grant only what's needed, nothing more, never longer than necessary.",
     "layer": "security",
     "when_to_apply": [
-      "Assigning RBAC roles to identities or pipelines",
-      "Configuring Entra PIM for production control plane",
-      "Designing Key Vault or API authorization scopes",
-      "Auditing existing permissions for privilege drift"
+      "Assigning permissions to users or service accounts",
+      "Designing role-based access for new workloads",
+      "Reviewing existing access rights during audits",
+      "Provisioning temporary access for incident response",
+      "Onboarding third-party integrations"
     ],
     "without_it": [
-      "Compromised managed identity escalates across entire subscription",
-      "Standing access enables malicious admin Key Vault secret deletion",
-      "Broad RBAC assignment exposes production data plane to breach",
-      "Overprivileged accounts fail SE:05 audit and block incident isolation"
+      "Compromised identity leads to broad lateral movement",
+      "Excessive standing permissions accumulate over time",
+      "Blast radius of breaches grows unchecked",
+      "Compliance violations from over-privileged accounts",
+      "Difficulty tracing actions to specific permissions"
     ],
-    "key_tradeoff": "Tighter RBAC and PIM activation reduce blast radius but add latency and Entra ID dependency",
+    "key_tradeoff": "Tighter permissions increase security but add friction and operational complexity in managing granular access.",
     "builds_on": [
-      "Access Controls"
+      "Zero Trust",
+      "Microsoft Zero Trust Model",
+      "Identity Perimeter"
     ],
     "enables": [
-      "Just-Enough-Access",
-      "Just-In-Time Access",
-      "Integrity",
-      "Availability"
+      "Role-Based Access Control",
+      "Time-Limited Access"
     ],
-    "connections": 6
+    "connections": 5
   },
   {
-    "name": "Zero-Downtime Deployment",
-    "mantra": "Deploy beside, shift traffic, decommission old.",
-    "layer": "operational",
+    "name": "Principle Of Least Privilege",
+    "mantra": "Grant only the access needed\u2014nothing more, nothing less.",
+    "layer": "security",
     "when_to_apply": [
-      "Releasing new versions of mission-critical workloads",
-      "Applying infrastructure changes to production scale units",
-      "Rolling out hotfixes under active user traffic",
-      "Migrating backends bound by 99.99%+ SLA targets"
+      "Assigning permissions to user or service accounts",
+      "Designing role-based access for new workloads",
+      "Reviewing existing access policies during audits",
+      "Onboarding new team members or applications",
+      "Configuring access to sensitive data or resources"
     ],
     "without_it": [
-      "Maintenance windows erode 99.99% composite availability targets",
-      "Failed deployments cause full stamp outages without rollback path",
-      "Customer-visible 5xx errors during release rollouts breach SLOs",
-      "Fear-driven culture produces infrequent high-risk big-bang deploys"
+      "Over-privileged accounts become attack vectors",
+      "Lateral movement across systems after a breach",
+      "Accidental data deletion or modification by users",
+      "Compliance violations from excessive access",
+      "Difficulty tracing actions to responsible parties"
     ],
-    "key_tradeoff": "Transient blue/green infrastructure duplication costs more but eliminates deployment-induced downtime.",
+    "key_tradeoff": "Tighter access controls increase security but add friction and operational overhead for users and administrators.",
     "builds_on": [
-      "Scale-Unit Architecture",
-      "Deployment Stamps"
+      "RBAC",
+      "Security Baseline"
     ],
     "enables": [
-      "Health Modeling",
-      "Safe Deployment Practices"
+      "Conditional Access",
+      "Just-In-Time Access",
+      "Remoteapp Application Groups"
+    ],
+    "connections": 5
+  },
+  {
+    "name": "Decoupling Components",
+    "mantra": "Break it apart so each piece can stand on its own.",
+    "layer": "structural",
+    "when_to_apply": [
+      "Components have different scaling requirements",
+      "Teams need to deploy independently",
+      "A single failure cascades across the entire system",
+      "You need to replace or upgrade parts without full redeployment"
+    ],
+    "without_it": [
+      "Single point of failure brings down the whole application",
+      "Scaling requires scaling everything together wastefully",
+      "Deployments become risky big-bang events",
+      "Teams block each other on shared codebases",
+      "Technology choices are locked across the entire system"
+    ],
+    "key_tradeoff": "Independence and resilience come at the cost of increased operational complexity and distributed-system challenges.",
+    "builds_on": [
+      "Separation Of Concerns",
+      "Loose Coupling"
+    ],
+    "enables": [
+      "Asynchronous Communication",
+      "Infrastructure To Scale",
+      "Microservices"
+    ],
+    "connections": 5
+  },
+  {
+    "name": "Culture Of Financial Responsibility",
+    "mantra": "Make every team member an owner of the cloud bill.",
+    "layer": "organizational",
+    "when_to_apply": [
+      "Standing up a new workload team",
+      "Cloud costs are growing without clear accountability",
+      "Teams routinely over-provision resources without consequence",
+      "Preparing for organizational cost optimization initiatives"
+    ],
+    "without_it": [
+      "Unchecked resource sprawl and waste",
+      "No ownership over cost decisions at the team level",
+      "Budget overruns discovered only at month-end",
+      "Engineering and finance teams operating in silos",
+      "Cost optimization treated as a one-time project rather than habit"
+    ],
+    "key_tradeoff": "Investing time in financial awareness and governance versus letting teams move fast without cost guardrails.",
+    "builds_on": [
+      "Budget Transparency",
+      "In-House Skill Development"
+    ],
+    "enables": [
+      "Cost Optimization",
+      "Continuous Improvement",
+      "CO:01"
+    ],
+    "connections": 5
+  },
+  {
+    "name": "Sustainable AI Design",
+    "mantra": "Design AI workloads that minimize energy consumption and carbon footprint from day one.",
+    "layer": "organizational",
+    "when_to_apply": [
+      "Selecting AI model architectures and training strategies",
+      "Choosing Azure regions and compute resources for AI workloads",
+      "Designing data pipelines for AI training and inference",
+      "Operationalizing AI models in production",
+      "Evaluating tradeoffs between model performance and environmental impact"
+    ],
+    "without_it": [
+      "Excessive energy consumption from oversized models and infrastructure",
+      "Unnecessary carbon emissions from poorly chosen regions or compute",
+      "Wasteful data processing pipelines with redundant operations",
+      "No visibility into environmental cost of AI workloads",
+      "Misalignment with organizational sustainability goals"
+    ],
+    "key_tradeoff": "Balancing AI model performance and capability against energy efficiency and carbon footprint reduction.",
+    "builds_on": [
+      "Azure Well-Architected Framework",
+      "Green Software Foundation"
+    ],
+    "enables": [
+      "Data Design Phase",
+      "Model Design Phase",
+      "Operations Design Phase"
+    ],
+    "connections": 5
+  },
+  {
+    "name": "PACELC Theorem",
+    "mantra": "Even when the network is fine, you must choose between latency and consistency.",
+    "layer": "data",
+    "when_to_apply": [
+      "Designing globally distributed databases",
+      "Choosing between strong and eventual consistency for read replicas",
+      "Evaluating latency-sensitive architectures with replication",
+      "Deciding CQRS read-side consistency guarantees"
+    ],
+    "without_it": [
+      "Unexpected high latency from demanding strong consistency at scale",
+      "Stale reads surprising users when latency was silently prioritized",
+      "Architects only planning for partition scenarios and ignoring normal-state tradeoffs",
+      "Poor database technology choices misaligned with actual consistency needs"
+    ],
+    "key_tradeoff": "In normal operation, lower latency requires relaxing consistency, while strong consistency demands accepting higher latency.",
+    "builds_on": [
+      "CAP Theorem"
+    ],
+    "enables": [
+      "CQRS Pattern",
+      "Eventual Consistency",
+      "Read Replicas"
+    ],
+    "connections": 4
+  },
+  {
+    "name": "Defense-In-Depth",
+    "mantra": "Layer your defenses so no single failure compromises the system.",
+    "layer": "security",
+    "when_to_apply": [
+      "Designing network security boundaries",
+      "Implementing controls after threat modeling",
+      "Hardening workloads against assume-breach scenarios",
+      "Protecting critical assets with multiple independent controls"
+    ],
+    "without_it": [
+      "Single point of compromise takes down entire system",
+      "Lateral movement goes unchecked after perimeter breach",
+      "Over-reliance on one security control",
+      "Gaps between security layers exploited by attackers"
+    ],
+    "key_tradeoff": "Each additional security layer adds complexity and cost versus the incremental protection it provides.",
+    "builds_on": [
+      "Threat Modeling",
+      "Zero Trust"
+    ],
+    "enables": [
+      "SE:06",
+      "Security Hardening"
     ],
     "connections": 4
   },
   {
     "name": "Design For Resilience",
-    "mantra": "Bend under failure, never break entirely.",
+    "mantra": "Build systems that bend but never break.",
     "layer": "structural",
     "when_to_apply": [
-      "Architecting across multiple Azure failure domains",
-      "Defining SLA/RTO/RPO for critical workload flows",
-      "Hardening critical path after Failure Mode Analysis",
-      "Planning graceful degradation for dependency outages"
+      "Designing distributed workloads with multiple failure points",
+      "Defining SLAs and availability targets for critical services",
+      "Architecting systems that depend on external or shared resources",
+      "Planning for partial outages or degraded operating conditions"
     ],
     "without_it": [
-      "Single component failure cascades into total system outage",
-      "No circuit breakers; dependent service failures propagate everywhere",
-      "Users hit hard 500 errors instead of degraded functionality",
-      "Equal redundancy spend on non-critical and critical paths"
+      "Total outage from a single component failure",
+      "Cascading failures across dependent services",
+      "Users experience hard errors instead of reduced functionality",
+      "No recovery path when faults inevitably occur"
     ],
-    "key_tradeoff": "More resilience patterns and redundancy means more architectural complexity and cost.",
+    "key_tradeoff": "Increased architectural complexity and cost versus the ability to maintain operations during failures.",
     "builds_on": [
       "Critical Path",
       "Reliability Design Principles"
@@ -226,48 +766,81 @@
   },
   {
     "name": "Verify Explicitly",
-    "mantra": "Validate every identity, action, location, every time",
+    "mantra": "Never trust, always verify every identity, device, and action.",
     "layer": "security",
     "when_to_apply": [
-      "Authenticating users or services via Entra ID",
-      "Processing data plane requests from any source",
-      "Granting access across network or trust boundaries",
-      "When requests originate from unexpected locations or devices"
+      "Authenticating users or services accessing resources",
+      "Processing data modification requests",
+      "Granting access from new locations or devices",
+      "Evaluating cross-network boundary requests",
+      "Implementing API or service-to-service communication"
     ],
     "without_it": [
-      "Implicit trust enables lateral movement after single credential compromise",
-      "Compromised managed identities persist undetected without continuous validation",
-      "Unauthorized data modifications corrupt integrity, violating RPO guarantees",
-      "Over-privileged access expands blast radius across subscriptions and tenants"
+      "Lateral movement by attackers exploiting implicit trust",
+      "Unauthorized data access from compromised credentials",
+      "Undetected insider threats operating unchecked",
+      "Privilege escalation through unverified assumptions",
+      "Compliance violations from insufficient access controls"
     ],
-    "key_tradeoff": "Stronger per-request verification adds authentication latency and user friction",
+    "key_tradeoff": "Stronger explicit verification increases security but adds latency and friction to user and system interactions.",
     "builds_on": [
-      "Zero Trust",
+      "Microsoft Zero Trust Model",
       "Data Classification"
     ],
     "enables": [
-      "Integrity",
-      "Availability"
+      "Availability",
+      "Integrity"
+    ],
+    "connections": 4
+  },
+  {
+    "name": "Microsoft Zero Trust Model",
+    "mantra": "Never trust, always verify \u2014 treat every request as if it originates from a hostile network.",
+    "layer": "security",
+    "when_to_apply": [
+      "Designing authentication and authorization for any workload",
+      "Evaluating network segmentation and access controls",
+      "Onboarding new services or third-party integrations",
+      "Responding to a security incident or breach",
+      "Reviewing existing architecture for security posture gaps"
+    ],
+    "without_it": [
+      "Implicit trust allows lateral movement after a single compromise",
+      "Over-privileged identities expand the blast radius of breaches",
+      "Unverified requests bypass critical security controls",
+      "Security becomes perimeter-only, ignoring insider threats",
+      "Lack of segmentation turns one vulnerability into full compromise"
+    ],
+    "key_tradeoff": "Stronger security verification at every layer increases operational complexity and can add latency to user and service interactions.",
+    "builds_on": [
+      "Zero Trust"
+    ],
+    "enables": [
+      "Assume Breach",
+      "Least-Privilege Access",
+      "Verify Explicitly"
     ],
     "connections": 4
   },
   {
     "name": "Cost-Efficiency Mindset",
-    "mantra": "Spend only what workloads need, maximize ROI",
+    "mantra": "Spend only on what earns its keep.",
     "layer": "organizational",
     "when_to_apply": [
-      "Designing new workload SKU and scaling choices",
-      "Reviewing Azure Cost Management monthly reports",
-      "Provisioning dev/test environments with lower SKUs",
-      "Evaluating scale-up versus right-sizing existing resources"
+      "Starting a new cloud workload design",
+      "Reviewing monthly Azure spend reports",
+      "Choosing between service tiers or SKUs",
+      "Provisioning SDLC and non-production environments",
+      "Evaluating feature ROI before implementation"
     ],
     "without_it": [
-      "Overprovisioned VMs and idle resources inflate monthly burn rate",
-      "No chargeback accountability leads to unowned orphaned resources",
-      "Dev/test environments running production-tier SKUs waste 40%+ spend",
-      "Reactive cost alerts fire after budget overruns already occurred"
+      "Uncontrolled cloud spend with no accountability",
+      "Over-provisioned resources sitting idle",
+      "No baseline to measure cost improvements against",
+      "Non-production environments running at production scale",
+      "Investments that deliver minimal business value"
     ],
-    "key_tradeoff": "Aggressive cost reduction risks degraded reliability, performance, or delivery velocity",
+    "key_tradeoff": "Minimizing cost while ensuring sufficient investment to meet performance, reliability, and security requirements.",
     "builds_on": [
       "Cost Baseline"
     ],
@@ -280,21 +853,23 @@
   },
   {
     "name": "Design For Rate Optimization",
-    "mantra": "Squeeze maximum value from every committed dollar.",
+    "mantra": "Pay less for what you already use by optimizing every rate lever available.",
     "layer": "operational",
     "when_to_apply": [
-      "Choosing between Reserved Instances and pay-as-you-go",
-      "Negotiating Savings Plans or enterprise agreement renewals",
-      "Applying Azure Hybrid Benefit to eligible workloads",
-      "When Log Analytics ingest patterns become predictable"
+      "Reviewing cloud bills for savings opportunities",
+      "Choosing between consumption-based and fixed-price models",
+      "Committing to reserved instances or savings plans",
+      "Leveraging existing licenses through hybrid use benefits",
+      "Negotiating enterprise agreements"
     ],
     "without_it": [
-      "Pay-as-you-go defaults waste 30-60% vs Reserved Instance pricing",
-      "Unused Azure Hybrid Benefit entitlements strand license value indefinitely",
-      "Log Analytics per-GB tier bleeds cost despite stable daily ingest",
-      "Single-tenant deployments miss co-location density savings across teams"
+      "Overpaying for resources at on-demand rates",
+      "Missing reservation and commitment discounts",
+      "Unused hybrid use benefits leaving money on the table",
+      "Mismatched pricing models for workload patterns",
+      "Cost creep with no structured rate review process"
     ],
-    "key_tradeoff": "Deeper commitment discounts cost consumption flexibility and risk underutilization waste.",
+    "key_tradeoff": "Commitment-based discounts lower rates but reduce flexibility to scale down or change services.",
     "builds_on": [
       "Consumption-Based Pricing",
       "Fixed-Price Billing",
@@ -308,100 +883,105 @@
     "connections": 4
   },
   {
-    "name": "Defense in Depth",
-    "mantra": "Stack redundant security layers at every boundary",
-    "layer": "security",
+    "name": "Test Pyramid",
+    "mantra": "Build a broad base of fast unit tests and narrow the slow, expensive tests to the top.",
+    "layer": "operational",
     "when_to_apply": [
-      "Designing NSG, Azure Firewall, and WAF segmentation",
-      "Implementing compensating controls from threat modeling output",
-      "Architecting multi-tier apps handling PII or secrets",
-      "Applying Zero Trust across identity, network, data planes"
+      "Designing a test automation strategy for a new service",
+      "Test suites are slow and flaky, needing restructuring",
+      "Balancing test coverage against CI/CD pipeline speed",
+      "Onboarding teams to sustainable testing practices"
     ],
     "without_it": [
-      "Single WAF bypass grants full access to backend resources",
-      "Lateral movement spreads undetected across flat VNet topologies",
-      "One misconfigured NSG rule exposes entire subnet to internet",
-      "Compromised identity escalates unchecked without layered authorization gates"
+      "Over-reliance on slow end-to-end tests creating bottlenecks",
+      "Gaps in coverage where integration issues slip through",
+      "High maintenance costs from brittle UI-heavy test suites",
+      "False confidence from too few or poorly distributed tests",
+      "Slow feedback loops delaying developer productivity"
     ],
-    "key_tradeoff": "More security layers means more latency, cost, and operational complexity",
+    "key_tradeoff": "More unit tests maximize speed and coverage but can miss integration flaws, while more end-to-end tests catch real-world issues but are slow and expensive to maintain.",
     "builds_on": [
-      "Threat Modeling",
-      "Zero Trust"
+      "Unit Testing",
+      "Integration Testing",
+      "End-To-End Testing"
     ],
     "enables": [
-      "SE:06"
+      "Layered Test Coverage"
+    ],
+    "connections": 4
+  },
+  {
+    "name": "Carbon Awareness",
+    "mantra": "Run your workloads when and where the grid is greenest.",
+    "layer": "operational",
+    "when_to_apply": [
+      "Scheduling batch jobs that have flexible execution windows",
+      "Designing applications with deferrable or shiftable workloads",
+      "Choosing regions for workload placement across multiple datacenters",
+      "Building sustainability metrics into operational dashboards"
+    ],
+    "without_it": [
+      "Workloads run during peak carbon-intensity periods unnecessarily",
+      "No alignment between energy consumption and renewable availability",
+      "Sustainability goals remain abstract with no actionable scheduling strategy",
+      "Missed opportunities to reduce operational carbon footprint at zero cost"
+    ],
+    "key_tradeoff": "Optimizing for lower carbon intensity may conflict with latency requirements and immediate processing demands.",
+    "builds_on": [
+      "Green Software Foundation"
+    ],
+    "enables": [
+      "Batch Processing",
+      "Demand Shaping",
+      "Demand Shifting"
+    ],
+    "connections": 4
+  },
+  {
+    "name": "RE:01 - Simplicity and Efficiency in Workload Design",
+    "mantra": "Keep it simple\u2014every unnecessary component is a future failure point.",
+    "layer": "foundational",
+    "when_to_apply": [
+      "Starting a new workload architecture design",
+      "Reviewing existing systems for reliability improvements",
+      "Evaluating whether to add new components or dependencies",
+      "Refactoring overly complex solutions"
+    ],
+    "without_it": [
+      "Cascading failures from unnecessary interdependencies",
+      "Increased mean time to recovery due to opaque complexity",
+      "Higher operational burden and toil",
+      "More surface area for bugs and misconfigurations"
+    ],
+    "key_tradeoff": "Simplicity may limit feature richness or flexibility, but complexity directly erodes reliability.",
+    "builds_on": [
+      "Azure Well-Architected Framework",
+      "Workload"
+    ],
+    "enables": [
+      "Design Review Checklist For Reliability"
     ],
     "connections": 3
   },
   {
-    "name": "Blast Radius",
-    "mantra": "Contain every failure before it spreads.",
-    "layer": "structural",
-    "when_to_apply": [
-      "Designing fault isolation via stamps or bulkheads",
-      "Evaluating multi-tenant noisy-neighbor co-location risks",
-      "Planning progressive rollouts across deployment stages",
-      "Mapping single-component failure impact on dependent flows"
-    ],
-    "without_it": [
-      "Single AZ fault cascades across entire workload, breaching SLA",
-      "Noisy-neighbor resource exhaustion causes cross-tenant outages",
-      "Security compromise spreads unchecked through co-located subscriptions",
-      "Incident responders lack impact scope, extending MTTR significantly"
-    ],
-    "key_tradeoff": "Smaller blast radius costs more isolation boundaries and operational complexity.",
-    "builds_on": [
-      "Failure Mode Analysis"
-    ],
-    "enables": [
-      "Self-Preservation",
-      "Multitenancy"
-    ],
-    "connections": 4
-  },
-  {
-    "name": "Automation",
-    "mantra": "Automate everything you'd regret doing twice",
-    "layer": "operational",
-    "when_to_apply": [
-      "Deploying infrastructure or application changes via CI/CD",
-      "Scaling workloads through VMSS or autoscale rules",
-      "Executing progressive exposure rollouts across environments",
-      "Remediating alerts via Azure Functions or runbooks"
-    ],
-    "without_it": [
-      "Manual deployments cause configuration drift, outages, and extended RTO",
-      "Inconsistent environments produce unreproducible bugs across stages",
-      "Slow incident response degrades SLA from minutes to hours",
-      "Operations bottleneck\u2014teams cannot scale beyond handful of workloads"
-    ],
-    "key_tradeoff": "Upfront IaC and pipeline investment costs velocity now; manual processes cost reliability forever",
-    "builds_on": [
-      "Monitoring System"
-    ],
-    "enables": [
-      "Reliability",
-      "Well-Architected Framework"
-    ],
-    "connections": 4
-  },
-  {
     "name": "Cost-Management Discipline",
-    "mantra": "Make every dollar visible, owned, intentional.",
+    "mantra": "Make every dollar visible, owned, and intentional.",
     "layer": "organizational",
     "when_to_apply": [
-      "Standing up new workloads or landing zones",
-      "During monthly/quarterly Cost Management reviews",
-      "When Azure Monitor cost alerts fire unexpectedly",
-      "Onboarding teams to shared subscription infrastructure"
+      "Starting a new cloud project with shared budgets",
+      "Cloud spending is growing without clear ownership",
+      "Teams lack visibility into their resource costs",
+      "Preparing for financial reviews or audits",
+      "Establishing governance for multi-team environments"
     ],
     "without_it": [
-      "Untagged resource sprawl triggers bill shock across subscriptions",
-      "No owner accountable when Cost Management flags overruns",
-      "Optimization stays reactive\u2014no cost model drives proactive rightsizing",
-      "Cannot justify SLA penalty budget vs. reliability investment spend"
+      "Uncontrolled cloud spend surprises",
+      "No accountability for overprovisioned resources",
+      "Budget overruns discovered too late",
+      "Teams unaware of cost impact of their decisions",
+      "Inability to forecast or plan capacity spending"
     ],
-    "key_tradeoff": "Rigorous cost tracking overhead costs team delivery velocity and agility.",
+    "key_tradeoff": "Investing in cost tracking culture and tooling versus moving fast without financial guardrails.",
     "builds_on": [
       "Accountability Model"
     ],
@@ -413,21 +993,21 @@
   },
   {
     "name": "Design For Usage Optimization",
-    "mantra": "Eliminate idle capacity, extract maximum resource value",
+    "mantra": "Squeeze maximum value from every resource you provision.",
     "layer": "operational",
     "when_to_apply": [
-      "Costs growing faster than business value delivered",
-      "VMSS or App Service instances idle off-peak",
-      "When usage patterns justify Reserved Instance commits",
-      "Active-passive deployments waste standby capacity"
+      "Workload has variable or unpredictable demand patterns",
+      "Cloud costs are growing faster than business value",
+      "Resources are consistently underutilized",
+      "Planning commitment-based purchasing decisions"
     ],
     "without_it": [
-      "Overprovisioned VMSS burns budget at 15% CPU utilization",
-      "Idle standby regions cost 100% while serving zero traffic",
-      "Missed 40-72% savings from Reserved Instance commitments",
-      "High spend still breaches SLAs from misallocated resources"
+      "Chronic overprovisioning and wasted spend",
+      "Underutilized resources sitting idle",
+      "Missed discount opportunities from lack of usage awareness",
+      "Inability to meet nonfunctional requirements efficiently"
     ],
-    "key_tradeoff": "Higher utilization targets reduce cost headroom for unexpected demand spikes",
+    "key_tradeoff": "Maximizing utilization increases complexity and risk of insufficient capacity during demand spikes.",
     "builds_on": [
       "Dynamic Scaling",
       "Active-Active Model"
@@ -438,22 +1018,130 @@
     "connections": 3
   },
   {
-    "name": "CAP Theorem",
-    "mantra": "Partition happens\u2014choose consistency or availability now",
-    "layer": "data",
+    "name": "Just In Time",
+    "mantra": "Grant privileges only at the moment they are needed, never before.",
+    "layer": "security",
     "when_to_apply": [
-      "Selecting Cosmos DB consistency levels for global distribution",
-      "Architecting multi-region active/active deployment patterns",
-      "Defining RPO/RTO targets for distributed data stores",
-      "Evaluating strong vs eventual consistency per workload"
+      "Administering critical impact accounts that require elevated privileges",
+      "Accessing production environments for troubleshooting",
+      "Performing sensitive operations on infrastructure resources",
+      "Granting temporary access to security groups for time-bound tasks"
     ],
     "without_it": [
-      "Cosmos DB strong consistency chosen globally, halving write availability",
-      "Eventual consistency surprises cause stale reads in financial workflows",
-      "Multi-region failover assumes zero data loss despite async replication",
-      "Database selection ignores partition behavior, causing split-brain outages"
+      "Standing privileges become targets for credential theft",
+      "Lateral movement by attackers through always-on admin accounts",
+      "Excessive permissions accumulate over time (privilege creep)",
+      "Audit trails lack clarity on why access was granted",
+      "Blast radius of compromised accounts is unnecessarily large"
     ],
-    "key_tradeoff": "Stronger consistency costs higher latency and reduced availability during partitions",
+    "key_tradeoff": "Reduced attack surface versus increased operational friction and access request latency.",
+    "builds_on": [
+      "Conditional Access",
+      "Security Groups",
+      "Critical Impact Accounts"
+    ],
+    "enables": [
+      "Conditional Access",
+      "Critical Impact Accounts"
+    ],
+    "connections": 3
+  },
+  {
+    "name": "Architecture Strategies For Consolidation",
+    "mantra": "Combine resources and responsibilities to eliminate waste and reduce cost.",
+    "layer": "structural",
+    "when_to_apply": [
+      "Multiple workloads share similar infrastructure needs",
+      "Underutilized resources are driving up costs",
+      "Teams maintain redundant services across environments",
+      "Scaling efficiency plateaus with current resource layout"
+    ],
+    "without_it": [
+      "Resource sprawl with low utilization rates",
+      "Redundant infrastructure inflating operational costs",
+      "Fragmented ownership leading to inefficient management",
+      "Missed economies of scale opportunities"
+    ],
+    "key_tradeoff": "Consolidation reduces cost but increases blast radius and coupling between workloads.",
+    "builds_on": [
+      "Azure Well-Architected Framework",
+      "CO:14"
+    ],
+    "enables": [
+      "CO:14"
+    ],
+    "connections": 3
+  },
+  {
+    "name": "Consolidation",
+    "mantra": "Pack workloads together deliberately to maximize every dollar spent.",
+    "layer": "operational",
+    "when_to_apply": [
+      "Multiple underutilized resources are running independently",
+      "Cloud bills are growing faster than workload demand",
+      "Teams manage redundant infrastructure for similar services",
+      "You need to simplify operational overhead across environments"
+    ],
+    "without_it": [
+      "Sprawling underutilized resources drain budget",
+      "Operational complexity multiplies with each isolated component",
+      "Inconsistent configurations across duplicate infrastructure",
+      "Missed economies of scale in licensing and management"
+    ],
+    "key_tradeoff": "Higher resource density cuts costs but increases the risk of noisy neighbor issues and broader blast radius during failures.",
+    "builds_on": [
+      "Resource Density",
+      "Centralized Resource"
+    ],
+    "enables": [
+      "Noisy Neighbor"
+    ],
+    "connections": 3
+  },
+  {
+    "name": "Transparency",
+    "mantra": "Show your work so users never have to guess.",
+    "layer": "organizational",
+    "when_to_apply": [
+      "Building AI systems that generate natural language responses",
+      "Implementing retrieval-augmented generation pipelines",
+      "Deploying autonomous agentic AI workflows",
+      "Designing user-facing AI chat or decision-support tools"
+    ],
+    "without_it": [
+      "Users blindly trust incorrect AI outputs",
+      "No auditability of agent decisions or actions",
+      "Inability to diagnose hallucinations or data quality issues",
+      "Erosion of user trust over time",
+      "Regulatory and compliance failures"
+    ],
+    "key_tradeoff": "More transparency increases user trust and debuggability but adds complexity and may expose proprietary system internals.",
+    "builds_on": [
+      "Retrieval-Augmented Application",
+      "Agentic AI Safeguards"
+    ],
+    "enables": [
+      "Feedback Mechanism"
+    ],
+    "connections": 3
+  },
+  {
+    "name": "CAP Theorem",
+    "mantra": "Pick two: consistency, availability, or partition tolerance\u2014you cannot have all three.",
+    "layer": "data",
+    "when_to_apply": [
+      "Designing distributed databases or data stores",
+      "Choosing between strong and eventual consistency",
+      "Architecting multi-region replicated systems",
+      "Evaluating trade-offs during network partition scenarios"
+    ],
+    "without_it": [
+      "Assuming a distributed system can be perfectly consistent and always available",
+      "Unexpected data staleness or conflicts under network partitions",
+      "Over-engineering for consistency at the cost of availability",
+      "Poor SLA decisions due to misunderstood replication trade-offs"
+    ],
+    "key_tradeoff": "Consistency versus availability when network partitions are unavoidable.",
     "builds_on": [
       "Veracity"
     ],
@@ -463,72 +1151,105 @@
     "connections": 2
   },
   {
-    "name": "Self-Preservation",
-    "mantra": "Every component protects itself; failures stay local.",
-    "layer": "structural",
+    "name": "Design Principles",
+    "mantra": "Ground every architecture decision in principled alignment with Well-Architected pillars.",
+    "layer": "foundational",
     "when_to_apply": [
-      "Implementing circuit-breaker, bulkhead, or retry patterns",
-      "Designing service boundaries in distributed workloads",
-      "Evaluating cascading failure risks across dependencies",
-      "Planning graceful degradation during partial outages"
+      "Starting a new workload design",
+      "Evaluating tradeoffs between pillars",
+      "Onboarding teams to a design methodology",
+      "Reviewing architecture for mission-critical or SaaS scenarios",
+      "Aligning HPC or specialized workloads with framework guidance"
     ],
     "without_it": [
-      "Single App Service failure cascades into full workload outage",
-      "Unbounded upstream retries overwhelm downstream services causing retry storms",
-      "Localized dependency timeout triggers correlated multi-region SLA breach",
-      "No graceful degradation; binary healthy-or-dead system behavior"
+      "Ad-hoc decisions with no consistent rationale",
+      "Pillar priorities ignored or misbalanced",
+      "Design methodology disconnected from quality attributes",
+      "Inconsistent architectural standards across teams",
+      "Reactive fixes instead of proactive design"
     ],
-    "key_tradeoff": "Stronger isolation via bulkheads and circuit breakers costs added latency and complexity.",
+    "key_tradeoff": "Strict adherence to principles adds upfront rigor but may slow initial delivery velocity.",
     "builds_on": [
-      "Blast Radius"
+      "Design Methodology",
+      "Well-Architected Framework"
     ],
     "enables": [
-      "RE:07"
+      "Design Methodology",
+      "Well-Architected Framework"
+    ],
+    "connections": 2
+  },
+  {
+    "name": "Criticality",
+    "mantra": "Know what matters most before you engineer for resilience.",
+    "layer": "foundational",
+    "when_to_apply": [
+      "Classifying workload flows by business importance",
+      "Setting SLAs and reliability targets per component",
+      "Allocating budget across reliability investments",
+      "Designing fault isolation boundaries",
+      "Prioritizing incident response efforts"
+    ],
+    "without_it": [
+      "Over-engineering low-value components wastes budget",
+      "Under-engineering critical paths causes outages",
+      "Incident teams lack triage priority guidance",
+      "Uniform reliability targets misallocate resources",
+      "Fault isolation boundaries drawn arbitrarily"
+    ],
+    "key_tradeoff": "Higher criticality demands greater reliability investment, increasing cost and complexity for components that may not all warrant it.",
+    "builds_on": [
+      "Business Impact"
+    ],
+    "enables": [
+      "Fault Isolation"
     ],
     "connections": 2
   },
   {
     "name": "Design For Operations",
-    "mantra": "Shift left\u2014detect failure before customers do",
+    "mantra": "Anticipate failure before your users do.",
     "layer": "operational",
     "when_to_apply": [
-      "Architecting new production workloads on Azure",
-      "Defining CI/CD pipelines with blue/green deployments",
-      "Establishing Azure Monitor and Application Insights alerting",
-      "Preparing incident response runbooks and chaos experiments"
+      "Architecting new services or features",
+      "Building CI/CD pipelines with pre-production validation",
+      "Defining observability and alerting strategies",
+      "Planning chaos engineering or fault injection tests"
     ],
     "without_it": [
-      "Failures surface via customer complaints, not Azure Monitor alerts",
-      "Zero telemetry during outages makes MTTR unbounded",
-      "Chaotic incident response without runbooks extends downtime hours",
-      "Recurring outages persist\u2014no root cause data captured"
+      "Failures surface first in production through customer complaints",
+      "Lack of telemetry makes incidents opaque and slow to resolve",
+      "Repeated incidents with no clear root cause",
+      "Operational concerns bolted on as afterthoughts"
     ],
-    "key_tradeoff": "20-40% sprint capacity for observability costs feature velocity but slashes MTTR",
+    "key_tradeoff": "Investing in upfront operational instrumentation and testing increases development effort but dramatically reduces mean time to detect and recover.",
     "builds_on": [
-      "Observable Systems"
+      "Observable Systems",
+      "Root Cause Analysis"
     ],
     "enables": [
+      "Observable Systems",
       "Root Cause Analysis"
     ],
     "connections": 2
   },
   {
     "name": "Observable Systems",
-    "mantra": "Unseen failures become customer-facing outages fast.",
+    "mantra": "If you can't see it, you can't fix it.",
     "layer": "operational",
     "when_to_apply": [
-      "Designing distributed microservices across Azure Monitor stack",
-      "Building layered health models for critical workloads",
-      "Troubleshooting correlated failures across service dependencies",
-      "Onboarding SRE teams with alerting and dashboards"
+      "Designing distributed systems that need end-to-end visibility",
+      "Troubleshooting production incidents across multiple services",
+      "Building health dashboards for stakeholder communication",
+      "Establishing SLIs and SLOs for reliability tracking"
     ],
     "without_it": [
-      "Blind spots extend MTTR; SLA breaches cascade silently.",
-      "Incident response degrades to guesswork without correlated traces.",
-      "Transient vs non-transient failures indistinguishable; wrong remediation fires.",
-      "No health model means no automated degradation detection."
+      "Blind spots in production lead to prolonged outages",
+      "Teams resort to guesswork during incident response",
+      "Correlated failures go undetected until customer impact",
+      "No data-driven basis for capacity planning or optimization"
     ],
-    "key_tradeoff": "More telemetry depth improves MTTR but increases Monitor ingestion cost and noise.",
+    "key_tradeoff": "Richer telemetry improves diagnosis but increases cost, complexity, and potential performance overhead.",
     "builds_on": [
       "Design For Operations"
     ],
@@ -539,549 +1260,291 @@
   },
   {
     "name": "Simplicity",
-    "mantra": "Shrink surface area before controlling it",
+    "mantra": "Reduce the surface area so there is less to break and less to misunderstand.",
     "layer": "foundational",
     "when_to_apply": [
-      "Designing greenfield architectures from requirements",
-      "Reviewing systems with recurring misconfigurations",
-      "Choosing between zone-redundant and multi-region patterns",
-      "Consolidating redundant services or components"
+      "Designing a new service or component architecture",
+      "Reviewing existing systems for operational overhead",
+      "Choosing between multiple implementation approaches",
+      "Onboarding new team members who must understand the system",
+      "Investigating recurring misconfigurations or outages"
     ],
     "without_it": [
-      "Sprawling ARM/Bicep configs no single engineer fully understands",
-      "Misconfigured NSGs or RBAC causing preventable outages",
-      "Slower MTTR as responders trace hidden dependency chains",
-      "Standards drift as teams build undocumented workarounds"
+      "Sprawling architectures with redundant or unused components",
+      "Frequent misconfigurations due to excessive complexity",
+      "Longer incident resolution times from unclear dependencies",
+      "Higher operational costs from managing unnecessary surface area",
+      "Difficulty enforcing consistent standards across teams"
     ],
-    "key_tradeoff": "More simplicity means less flexibility; zone-redundant beats multi-region unless RTO demands otherwise",
+    "key_tradeoff": "Simplicity may limit flexibility and feature richness, requiring deliberate trade-offs against evolving requirements.",
     "builds_on": [
       "Standards"
     ],
     "enables": [
       "Reliability"
     ],
-    "connections": 3
+    "connections": 2
   },
   {
-    "name": "Segmentation",
-    "mantra": "Draw boundaries before attackers draw theirs.",
+    "name": "CIA Triad",
+    "mantra": "Protect confidentiality, integrity, and availability in every decision you make.",
     "layer": "security",
     "when_to_apply": [
-      "Designing VNet topology with NSGs and ASGs",
-      "Isolating sensitive data stores from general compute",
-      "Planning multi-tenant or multi-environment architectures",
-      "Containing blast radius after breach or incident"
+      "Designing access controls for sensitive data",
+      "Evaluating threats during security reviews",
+      "Planning disaster recovery and redundancy",
+      "Assessing impact of a security incident",
+      "Defining security requirements for a new workload"
     ],
     "without_it": [
-      "Single breach enables lateral movement across entire environment",
-      "Flat network defeats Zero Trust; NSG/ASG policies unenforced",
-      "No distinct security policies per workload tier blocks compliance",
-      "Blast radius spans all tenants destroying SLA commitments"
+      "Data breaches from neglected confidentiality controls",
+      "Corrupted or tampered data due to missing integrity checks",
+      "Service outages from ignored availability planning",
+      "Unbalanced security investments favoring one pillar over others",
+      "Inability to reason about attack impact systematically"
     ],
-    "key_tradeoff": "Finer micro-perimeters increase containment but multiply NSG/policy complexity and cost.",
-    "builds_on": [
-      "Zero Trust",
-      "Security Readiness Plan"
-    ],
+    "key_tradeoff": "Strengthening one assurance (e.g., confidentiality via encryption) can introduce latency or complexity that challenges availability or operational simplicity.",
+    "builds_on": [],
     "enables": [
-      "Least Privilege Access",
-      "Breach Containment"
+      "Security Posture",
+      "Security Readiness Plan"
     ],
     "connections": 2
   },
   {
-    "name": "PACELC Theorem",
-    "mantra": "No partition? Still trade latency for consistency.",
-    "layer": "data",
-    "when_to_apply": [
-      "Choosing Cosmos DB consistency level for multi-region writes",
-      "Evaluating session vs strong consistency impact on P99",
-      "Designing active/active replication across paired regions",
-      "Comparing bounded-staleness vs eventual for read-heavy workloads"
-    ],
-    "without_it": [
-      "CAP analysis ignores normal-operation latency penalty from strong consistency",
-      "Strong consistency adds cross-region round-trips destroying sub-100ms P99 targets",
-      "Eventual consistency causes stale reads violating business correctness requirements",
-      "Cosmos DB RU costs spike from unnecessary strong consistency overhead"
-    ],
-    "key_tradeoff": "Lower read latency costs weaker consistency guarantees even without partitions.",
-    "builds_on": [
-      "CAP Theorem"
-    ],
-    "enables": [],
-    "connections": 1
-  },
-  {
-    "name": "Design For Self-Healing",
-    "mantra": "Automate remediation before humans notice failures",
-    "layer": "operational",
-    "when_to_apply": [
-      "Transient failures common across distributed components",
-      "Manual response too slow for SLA recovery",
-      "Known failure modes have automatable remediation paths",
-      "Scale exceeds human operator response capacity"
-    ],
-    "without_it": [
-      "Transient faults cascade into full outages without circuit breakers",
-      "Alert fatigue buries ops teams in repetitive manual fixes",
-      "MTTR explodes waiting for human diagnosis of automatable failures",
-      "SLA breaches from recovery times exceeding RTO targets"
-    ],
-    "key_tradeoff": "More upfront remediation logic complexity means less operational toil and faster MTTR",
-    "builds_on": [
-      "Health Modeling"
-    ],
-    "enables": [
-      "Deployment Stamps"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "Design For Scale-Out",
-    "mantra": "Add more units, never bigger units.",
-    "layer": "structural",
-    "when_to_apply": [
-      "When demand spikes exceed single-instance vertical limits",
-      "Deploy stateless or partitionable workloads across stamps",
-      "Fault tolerance requires redundant parallel instances",
-      "Cost optimization demands elastic VMSS/AKS capacity"
-    ],
-    "without_it": [
-      "Hard throughput ceiling when VM/AKS node limits hit",
-      "Single-instance failure causes full workload outage, RTO blown",
-      "Over-provisioned SKUs waste spend during low-demand periods",
-      "Upgrade-induced downtime scaling vertically to larger SKUs"
-    ],
-    "key_tradeoff": "Scale-out elasticity costs state management and data consistency complexity.",
-    "builds_on": [
-      "Performance Efficiency"
-    ],
-    "enables": [
-      "Performance Efficiency"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "Mission-Critical Design",
-    "mantra": "Treat every resource as disposable, nothing irreplaceable.",
-    "layer": "structural",
-    "when_to_apply": [
-      "Targeting 99.99%+ SLOs with near-zero RTO/RPO",
-      "Building workloads where failure cost is catastrophic",
-      "Architecting stateless scale-unit stamps on AKS",
-      "Planning multi-region active-active with Front Door"
-    ],
-    "without_it": [
-      "Single points of failure collapse entire workloads during zonal outages",
-      "Stateful components create recovery bottlenecks exceeding RPO targets",
-      "Regional failure requires manual rebuild instead of automated stamp redeployment",
-      "Tightly coupled dependencies trigger cascading failures across scale units"
-    ],
-    "key_tradeoff": "Maximum reliability via ephemeral deployment stamps costs higher complexity and spend.",
-    "builds_on": [
-      "Deployment Stamps"
-    ],
-    "enables": [
-      "Health Modeling"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "Design Principles",
-    "mantra": "Anchor every decision to principles before patterns.",
-    "layer": "foundational",
-    "when_to_apply": [
-      "Starting new mission-critical workload design",
-      "Resolving conflicts across WAF pillars",
-      "Reviewing architecture decisions for consistency",
-      "Onboarding engineers to design rationale"
-    ],
-    "without_it": [
-      "Contradictory decisions across pillars degrade reliability and security simultaneously",
-      "Over-optimizing reliability tanks performance via replication latency",
-      "Unjustifiable architecture choices fail stakeholder and compliance reviews",
-      "Design drift emerges as system evolves without principled guardrails"
-    ],
-    "key_tradeoff": "Strict principle adherence costs flexibility when novel constraints demand pragmatic exceptions.",
-    "builds_on": [
-      "Design Methodology"
-    ],
-    "enables": [
-      "Design Methodology"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "STRIDE",
-    "mantra": "Hunt all six threat categories before attackers.",
-    "layer": "security",
-    "when_to_apply": [
-      "Threat modeling new or changed architecture components",
-      "Reviewing authentication and authorization trust boundaries",
-      "Assessing data flow diagrams for security gaps",
-      "Preparing for security design reviews"
-    ],
-    "without_it": [
-      "Entire threat categories unexamined; elevation-of-privilege paths persist silently",
-      "Ad-hoc analysis misses repudiation risks lacking Azure Monitor audit trails",
-      "Teams fixate on DDoS while spoofing and tampering vectors fester",
-      "No structured coverage across Entra ID, WAF, DDoS Protection layers"
-    ],
-    "key_tradeoff": "Breadth across six threat categories costs depth in any single vector.",
-    "builds_on": [
-      "Threat Modeling"
-    ],
-    "enables": [
-      "Threat Modeling"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "Criticality",
-    "mantra": "Tier every flow before engineering resilience",
-    "layer": "foundational",
-    "when_to_apply": [
-      "Rating user/system flows against criticality scale",
-      "Allocating budget across components with different SLAs",
-      "Deciding active/active vs active/passive per flow",
-      "Triaging incidents under pressure"
-    ],
-    "without_it": [
-      "Active/active multi-region deployed for low-value flows\u2014budget wasted",
-      "Critical paths get single-region; outage cascades to revenue loss",
-      "Flat 99.9% SLO masks flows needing 99.999% composite targets",
-      "Incident response treats batch jobs equal to payment flows"
-    ],
-    "key_tradeoff": "Stricter RTO/RPO per tier costs more regions, replicas, and operational complexity",
-    "builds_on": [],
-    "enables": [
-      "Fault Isolation"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "Fault Isolation",
-    "mantra": "Contain blast radius, protect critical paths always",
-    "layer": "structural",
-    "when_to_apply": [
-      "Drawing boundaries between different-criticality components",
-      "Deploying shared infrastructure serving multiple workloads",
-      "Introducing third-party or unreliable dependencies",
-      "Running Failure Mode Analysis on distributed flows"
-    ],
-    "without_it": [
-      "Single zone failure cascades into full multi-region outage",
-      "Non-critical dependency timeout blocks mission-critical transaction path",
-      "Shared App Gateway fault propagates across all backend workloads",
-      "RTO explodes as correlated failures cross unbounded blast radius"
-    ],
-    "key_tradeoff": "Stronger isolation via zones/stamps/bulkheads costs more complexity and redundancy spend",
-    "builds_on": [
-      "Criticality"
-    ],
-    "enables": [],
-    "connections": 1
-  },
-  {
-    "name": "Disaster Preparedness",
-    "mantra": "Drill recovery before disaster forces improvisation",
-    "layer": "operational",
-    "when_to_apply": [
-      "Designing BCDR for mission-critical workload tiers",
-      "Onboarding new regions or availability zones",
-      "After near-miss reveals untested recovery gaps",
-      "When compliance mandates documented RTO/RPO procedures"
-    ],
-    "without_it": [
-      "Untested ASR runbooks fail during regional outage, exceeding RTO",
-      "Ad-hoc panic responses extend downtime beyond SLA commitments",
-      "Geo-redundant backups corrupt silently, causing unrecoverable data loss",
-      "No defined disaster threshold triggers delayed escalation and role confusion"
-    ],
-    "key_tradeoff": "Regular drill investment costs operational overhead; skipping means unvalidated recovery assumptions",
-    "builds_on": [
-      "Design For Recovery"
-    ],
-    "enables": [],
-    "connections": 1
-  },
-  {
-    "name": "Standards",
-    "mantra": "Define pattern once, execute consistently everywhere.",
-    "layer": "operational",
-    "when_to_apply": [
-      "Establishing repos, IaC templates, or pipeline definitions",
-      "Enforcing baseline config via Azure Policy assignments",
-      "Onboarding engineers to production operational processes",
-      "Troubleshooting incidents requiring predictable system state"
-    ],
-    "without_it": [
-      "Environment drift across regions breaks failover, extending RTO",
-      "Ad-hoc deployments bypass quality gates, causing production outages",
-      "Tribal knowledge bottlenecks incident response under pressure",
-      "Divergent Terraform/Bicep modules accumulate ungovernable technical debt"
-    ],
-    "key_tradeoff": "Rigid standards reduce deployment variance but slow adaptation to novel requirements.",
-    "builds_on": [
-      "Simplicity"
-    ],
-    "enables": [],
-    "connections": 1
-  },
-  {
-    "name": "Design For Business Requirements",
-    "mantra": "Define SLOs before designing infrastructure",
-    "layer": "foundational",
-    "when_to_apply": [
-      "Starting workload design or major redesign",
-      "Defining SLAs, SLOs, SLIs with stakeholders",
-      "Prioritizing reliability investments under budget constraints",
-      "When RTO/RPO targets drive active-active vs passive patterns"
-    ],
-    "without_it": [
-      "99.999% design deployed for 99.9% workloads\u2014wasted spend exponentially",
-      "Single-region deployment for revenue-critical path causes regional outage loss",
-      "Engineering promises SLA that architecture cannot physically deliver",
-      "Redundancy spend untraceable to specific business risk tolerance decisions"
-    ],
-    "key_tradeoff": "Each additional nine of availability doubles cost and operational complexity",
-    "builds_on": [],
-    "enables": [
-      "Reliability Design Principles"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "RE:01 - Simplicity and Efficiency in Design",
-    "mantra": "Kill every component you cannot justify.",
-    "layer": "foundational",
-    "when_to_apply": [
-      "Designing new workload or major architecture redesign",
-      "Evaluating build-vs-buy or adding dependencies",
-      "When complexity creep inflates failure surface area",
-      "Choosing PaaS/SaaS versus self-managed IaaS components"
-    ],
-    "without_it": [
-      "Unjustified components multiply failure surfaces, degrading composite SLA",
-      "Hidden interdependencies extend MTTR beyond RTO targets",
-      "Restart sequencing across excess components inflates recovery time",
-      "Over-provisioned multi-region deployments burn budget without SLO justification"
-    ],
-    "key_tradeoff": "Fewer components improve reliability but may limit segmentation (SE:04) or redundancy (RE:05).",
-    "builds_on": [],
-    "enables": [
-      "Design Review Checklist For Reliability"
-    ],
-    "connections": 1
-  },
-  {
     "name": "Shift Left",
-    "mantra": "Catch defects early, fix cheaply, ship confidently",
+    "mantra": "Find and fix problems before they become expensive.",
     "layer": "operational",
     "when_to_apply": [
-      "Designing Azure DevOps or GitHub Actions pipelines",
-      "Production incidents trace to preventable code defects",
-      "Setting quality gates for Bicep/ARM deployments",
-      "Building health models into new workloads"
+      "Designing CI/CD pipelines for new services",
+      "Establishing quality assurance processes",
+      "Setting up observability and monitoring strategies",
+      "Planning deployment validation gates"
     ],
     "without_it": [
-      "Defects reach production; MTTR spikes, SLA breaches cascade",
-      "Security vulnerabilities deploy to AKS/App Service undetected",
-      "Slow feedback loops delay remediation by days or weeks",
-      "Reactive firefighting replaces proactive engineering culture"
+      "Defects discovered in production cause costly outages",
+      "Security vulnerabilities slip through to deployed workloads",
+      "Feedback loops are slow and expensive to act on",
+      "Teams spend more time firefighting than building"
     ],
-    "key_tradeoff": "Early pipeline investment in testing/tooling costs velocity now, saves costly production failures later",
+    "key_tradeoff": "Investing more upfront in early testing and automation versus shipping faster with less initial validation.",
     "builds_on": [
-      "DevOps"
+      "DevOps",
+      "Unit Testing"
     ],
     "enables": [
       "DevOps"
     ],
-    "connections": 1
+    "connections": 2
   },
   {
-    "name": "Transparent Communication",
-    "mantra": "Share status, context, decisions\u2014nobody flies blind",
+    "name": "Stateless Design",
+    "mantra": "Store nothing locally\u2014let any instance handle any request.",
+    "layer": "structural",
+    "when_to_apply": [
+      "Designing services that need to scale horizontally",
+      "Building cloud-native microservices",
+      "Eliminating single-instance bottlenecks",
+      "Preparing for load-balanced traffic distribution"
+    ],
+    "without_it": [
+      "Sticky sessions create uneven load and single points of failure",
+      "Scaling out fails because new instances lack session context",
+      "Instance failures cause user session loss",
+      "Deployments require complex session draining strategies"
+    ],
+    "key_tradeoff": "Simplicity of local state access is traded for the latency and complexity of external state stores.",
+    "builds_on": [
+      "Client Affinity"
+    ],
+    "enables": [
+      "Horizontal Scaling"
+    ],
+    "connections": 2
+  },
+  {
+    "name": "Identity-Based Access Control",
+    "mantra": "Prove who you are, not what you know.",
+    "layer": "security",
+    "when_to_apply": [
+      "Connecting services to Azure resources like databases or storage",
+      "Replacing connection strings and API keys in application code",
+      "Setting up service-to-service authentication",
+      "Onboarding new workloads that need access to shared resources"
+    ],
+    "without_it": [
+      "Secrets sprawl across config files and repositories",
+      "Credential rotation becomes a manual, error-prone burden",
+      "Leaked keys lead to unauthorized access and breaches",
+      "Audit trails lack clear attribution to specific identities"
+    ],
+    "key_tradeoff": "Reduced secret management overhead versus dependency on identity provider availability and correct role assignments.",
+    "builds_on": [
+      "Microsoft Entra ID",
+      "Managed Identities"
+    ],
+    "enables": [
+      "Managed Identities"
+    ],
+    "connections": 2
+  },
+  {
+    "name": "Deny-By-Default",
+    "mantra": "Block everything, then justify every exception.",
+    "layer": "security",
+    "when_to_apply": [
+      "Designing network security groups or firewall rules",
+      "Configuring access policies for new workloads",
+      "Hardening an existing environment with overly permissive rules",
+      "Segmenting networks between trust boundaries"
+    ],
+    "without_it": [
+      "Lateral movement across network segments goes unchecked",
+      "Unknown or forgotten open ports become attack vectors",
+      "Compliance violations from overly permissive access",
+      "Blast radius of a breach expands uncontrollably"
+    ],
+    "key_tradeoff": "Stronger security posture at the cost of slower onboarding and higher operational overhead for managing allowlist exceptions.",
+    "builds_on": [
+      "Network Segmentation",
+      "Security Hardening"
+    ],
+    "enables": [
+      "Network Segmentation",
+      "Security Hardening"
+    ],
+    "connections": 2
+  },
+  {
+    "name": "Security Maturity Model",
+    "mantra": "Progress your security posture deliberately through defined maturity levels.",
+    "layer": "security",
+    "when_to_apply": [
+      "Assessing current security posture of a workload",
+      "Planning security improvement roadmaps",
+      "Benchmarking security practices across teams",
+      "Prioritizing security investments with limited resources"
+    ],
+    "without_it": [
+      "Ad-hoc security improvements with no clear progression",
+      "Over-investing in advanced controls while missing fundamentals",
+      "Inability to measure security posture improvement over time",
+      "No shared language for communicating security readiness"
+    ],
+    "key_tradeoff": "Advancing maturity levels requires increasing investment and organizational discipline versus the diminishing marginal risk reduction at higher levels.",
+    "builds_on": [
+      "Maturity Model",
+      "Level 1: Core Security"
+    ],
+    "enables": [
+      "Level 1: Core Security"
+    ],
+    "connections": 2
+  },
+  {
+    "name": "Least-Privilege",
+    "mantra": "Grant only what's needed, nothing more.",
+    "layer": "security",
+    "when_to_apply": [
+      "Configuring service account permissions for build and deployment pipelines",
+      "Assigning user roles within teams or functions",
+      "Granting access to production environments",
+      "Designing API authorization scopes"
+    ],
+    "without_it": [
+      "Lateral movement by attackers through over-permissioned accounts",
+      "Accidental deletion or modification of critical resources",
+      "Compliance violations from excessive access",
+      "Blast radius expansion when credentials are compromised"
+    ],
+    "key_tradeoff": "Tighter access improves security but increases operational friction and access-request overhead.",
+    "builds_on": [
+      "Function-Based Grouping"
+    ],
+    "enables": [
+      "Build And Deployment Pipelines"
+    ],
+    "connections": 2
+  },
+  {
+    "name": "Infrastructure To Scale",
+    "mantra": "Build every layer to stretch before it breaks.",
+    "layer": "structural",
+    "when_to_apply": [
+      "Traffic patterns are unpredictable or spiky",
+      "You are designing a new service expected to grow",
+      "Current resources are regularly hitting capacity limits",
+      "Migrating from monolith to distributed architecture"
+    ],
+    "without_it": [
+      "Outages under unexpected load spikes",
+      "Costly over-provisioning to compensate for rigid architecture",
+      "Singletons become bottlenecks that block horizontal scaling",
+      "Cascading failures when one component saturates"
+    ],
+    "key_tradeoff": "Scalability increases architectural complexity and cost versus the risk of capacity ceilings and downtime.",
+    "builds_on": [
+      "Decoupling Components",
+      "Singleton"
+    ],
+    "enables": [
+      "Decoupling Components"
+    ],
+    "connections": 2
+  },
+  {
+    "name": "Consolidate Responsibilities",
+    "mantra": "Stop owning what others can run better and cheaper.",
     "layer": "organizational",
     "when_to_apply": [
-      "When cross-team DR war rooms coordinate failover",
-      "Deploying changes across shared Azure landing zones",
-      "Incident response requires real-time situational awareness",
-      "Onboarding engineers to operational runbooks and escalation paths"
+      "Team is stretched thin managing undifferentiated infrastructure",
+      "Multiple teams duplicate the same operational capabilities",
+      "Costs are rising without proportional value delivery",
+      "Shared services or platform teams exist in the organization",
+      "Managed service alternatives are available for current workloads"
     ],
     "without_it": [
-      "Duplicate deployments conflict across teams causing outages",
-      "DR escalations stall\u2014RTO breached from missing stakeholder routing",
-      "Knowledge silos create human single points of failure",
-      "Blame culture emerges when incident context stays hidden"
+      "Teams reinvent the wheel across the organization",
+      "Operational overhead consumes budget meant for innovation",
+      "Skill gaps lead to poorly managed components",
+      "Inconsistent implementations increase total cost of ownership",
+      "Team burnout from excessive breadth of responsibilities"
     ],
-    "key_tradeoff": "More shared signals means more noise\u2014requires disciplined curation via dashboards and alerts",
+    "key_tradeoff": "Reduced cost and operational burden versus loss of direct control and potential dependency on external teams' priorities.",
     "builds_on": [
-      "DevOps"
+      "External Centralized Resources",
+      "Offload Responsibilities"
     ],
     "enables": [
-      "DevOps"
+      "External Centralized Resources",
+      "Offload Responsibilities"
     ],
-    "connections": 1
+    "connections": 2
   },
   {
-    "name": "Monitor And Optimize Over Time",
-    "mantra": "Right-size continuously\u2014workloads drift, budgets follow.",
-    "layer": "operational",
-    "when_to_apply": [
-      "Post-deployment once real usage patterns emerge",
-      "Periodic cost-performance reviews via Log Analytics trends",
-      "Workload demand shifts from business or platform changes",
-      "Before/after major releases as pipeline quality gates"
-    ],
-    "without_it": [
-      "Over-provisioned VMs/databases drain budget undetected for months",
-      "Under-provisioned tiers cause latency spikes and SLA breaches",
-      "Stale baselines persist without Application Insights regression detection",
-      "No cost-to-value visibility\u2014teams cannot justify or cut spend"
-    ],
-    "key_tradeoff": "Continuous optimization overhead (monitoring costs, team effort) versus silent resource drift inflating spend.",
-    "builds_on": [
-      "SDLC"
-    ],
-    "enables": [
-      "SDLC"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "Shared Responsibility Principle",
-    "mantra": "Own everything Microsoft does not manage",
-    "layer": "security",
-    "when_to_apply": [
-      "Mapping IaaS/PaaS/SaaS responsibility boundaries during migration",
-      "Choosing zonal-pinned vs zone-redundant deployment models",
-      "Auditing compliance ownership gaps across shared boundaries",
-      "Triaging incidents\u2014identify accountable party before escalating"
-    ],
-    "without_it": [
-      "Unpatched IaaS VM OS assumed Microsoft-managed triggers breach",
-      "Redundant failover code duplicates zone-redundant PaaS built-in capabilities",
-      "Compliance audit fails\u2014no owner for zonal VMSS data replication",
-      "Incident MTTR spikes from provider-vs-customer accountability debates mid-outage"
-    ],
-    "key_tradeoff": "PaaS shrinks responsibility surface but surrenders granular infrastructure control",
-    "builds_on": [
-      "Microsoft Cloud Adoption Framework"
-    ],
-    "enables": [
-      "Defense in Depth"
-    ],
-    "connections": 1
-  },
-  {
-    "name": "Risk Tolerance",
-    "mantra": "Quantify acceptable failure before architecting anything",
+    "name": "Cost Optimization Maturity Model",
+    "mantra": "Evolve from counting coins to commanding costs.",
     "layer": "organizational",
     "when_to_apply": [
-      "Defining RTO/RPO/SLO targets per workload",
-      "Prioritizing resiliency investment across workload portfolio",
-      "Evaluating cost versus reliability tradeoffs",
-      "When onboarding new workloads to production"
+      "Assessing current cloud cost management capabilities",
+      "Building a roadmap for FinOps adoption",
+      "Justifying investment in cost optimization tooling",
+      "Benchmarking cost practices across teams"
     ],
     "without_it": [
-      "Zone-redundant deployments wasted on low-value internal tools",
-      "Critical workloads left single-region due to assumed safety",
-      "Stakeholder escalations during outages from misaligned SLOs",
-      "Inconsistent DR strategies: some workloads multi-region, peers unprotected"
+      "Ad-hoc cost management with no improvement trajectory",
+      "No clear accountability for cloud spend",
+      "Reactive bill shock instead of proactive optimization",
+      "Inability to measure cost governance progress"
     ],
-    "key_tradeoff": "Higher risk tolerance cuts cost and complexity but increases business-impact exposure",
+    "key_tradeoff": "Moving up maturity levels requires investment in people, process, and tooling that must be balanced against the optimization savings gained.",
     "builds_on": [
-      "Disaster Recovery"
+      "Maturity Model",
+      "Level 1: Cost Ownership"
     ],
     "enables": [
-      "Disaster Recovery"
+      "Level 1: Cost Ownership"
     ],
-    "connections": 1
-  },
-  {
-    "name": "Identity As A Security Perimeter",
-    "mantra": "Authenticate every call, trust no network path",
-    "layer": "security",
-    "when_to_apply": [
-      "Microservices communicating across public endpoints",
-      "Replacing VPN/firewall-only controls with zero-trust",
-      "When services lack VNet integration by design",
-      "Deploying multi-cloud or hybrid workloads"
-    ],
-    "without_it": [
-      "Lateral movement after network breach escalates to full compromise",
-      "Shared connection strings leak, granting ambient authority across services",
-      "No audit trail for service-to-service access patterns",
-      "Flat network compromise bypasses nonexistent perimeter controls"
-    ],
-    "key_tradeoff": "Per-call identity verification costs token lifecycle and Entra ID infrastructure complexity",
-    "builds_on": [],
-    "enables": [],
-    "connections": 0
-  },
-  {
-    "name": "Configuration As Code",
-    "mantra": "Define every setting in version-controlled code",
-    "layer": "operational",
-    "when_to_apply": [
-      "Deploying workloads across multiple environments via CI/CD",
-      "Configuration drift causing production incidents",
-      "Compliance requires full change traceability and audit trails",
-      "Scaling infrastructure needing repeatable Bicep/Terraform provisioning"
-    ],
-    "without_it": [
-      "Environment drift causes silent failures; RTO extends during incident response",
-      "Manual portal changes lost; no rollback path after failed deployments",
-      "Audit gaps violate compliance; no proof of who changed what",
-      "Inconsistent deployments across stamps break multi-region reliability"
-    ],
-    "key_tradeoff": "Upfront DevOps engineering investment costs velocity now, buys consistency and auditability later",
-    "builds_on": [],
-    "enables": [],
-    "connections": 0
-  },
-  {
-    "name": "Security Design Principles",
-    "mantra": "Bake Zero Trust into every architecture decision",
-    "layer": "security",
-    "when_to_apply": [
-      "Starting workload architecture with STRIDE threat modeling",
-      "Reviewing designs for CIA triad gaps",
-      "Evaluating feature velocity against security posture tradeoffs",
-      "Preparing compliance audits or penetration testing cycles"
-    ],
-    "without_it": [
-      "Bolt-on security multiplies attack surface across WAF/DDoS/endpoint layers",
-      "Ad-hoc privilege grants violate least-privilege, enabling lateral movement",
-      "Unencrypted data at rest/transit causes compliance failures and breach exposure",
-      "Production vulnerability rework costs 10-100x versus design-phase mitigation"
-    ],
-    "key_tradeoff": "Stronger upfront security rigor costs initial design velocity and architectural flexibility",
-    "builds_on": [],
-    "enables": [],
-    "connections": 0
-  },
-  {
-    "name": "Azure Well-Architected Pillars",
-    "mantra": "Balance five pillars or cascade failures across workloads",
-    "layer": "foundational",
-    "when_to_apply": [
-      "Designing new workload across reliability/cost/security/performance/ops",
-      "When single-pillar optimization triggers cross-pillar regression",
-      "Conducting WAF assessment or architecture review",
-      "Resolving resource contention after deployment changes"
-    ],
-    "without_it": [
-      "Cost-optimized SKUs breach RTO/RPO targets during regional failover",
-      "NSG hardening adds latency breaking P99 performance baselines",
-      "Siloed teams over-optimize one pillar degrading Cosmos DB SLA tiers",
-      "Unbalanced trade-offs cause cascading resource exhaustion across regions"
-    ],
-    "key_tradeoff": "Strengthening one pillar (security, cost) directly taxes budget or degrades another pillar's SLA",
-    "builds_on": [],
-    "enables": [],
-    "connections": 0
+    "connections": 2
   }
 ]

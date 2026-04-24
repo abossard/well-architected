@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Least Privilege · Mental Model Map</title>
+<title>Least-Privilege · Mental Model Map</title>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <style>
   :root {
@@ -181,7 +181,7 @@
 <div class="app">
   <nav class="mininav" aria-label="Card navigation">
     <button type="button" onclick="history.back()" aria-label="Go back">← Back</button>
-    <span class="title">Least Privilege</span>
+    <span class="title">Least-Privilege</span>
     <a href="../../" aria-label="Home">Home</a>
     <a href="index.html" aria-label="All trees">All trees →</a>
   </nav>
@@ -196,7 +196,7 @@
     <div class="tooltip" id="tooltip"></div>
   </div>
   <aside class="sidebar" aria-label="Card details">
-    <h1>Least Privilege</h1>
+    <h1>Least-Privilege</h1>
     <p class="definition" id="definition"></p>
     <p class="mantra" id="mantra"></p>
 
@@ -220,8 +220,8 @@
 </div>
 
 <script>
-const DATA = {"name": "Least Privilege", "category": "ROOT", "mantra": "Grant minimum access, scope, and duration", "description": "Least privilege is a security principle where access is granted only on a need-to-know basis, minimizing access permissions and exposure time. Least privilege is a security principle that minimizes access based on privilege, scope, and time to limit potential damage.", "children": [{"name": "Patterns", "category": "PATTERN", "isGroup": true, "children": [{"name": "Just-Enough-Access", "category": "PATTERN", "description": "Just-enough-access (JEA) is a security mode that limits access scope to only what is necessary for a task.", "weight": 2.0, "relations": ["enables", "graph"]}, {"name": "Just-In-Time Access", "category": "PATTERN", "description": "Just-in-time (JIT) access is a time-based security mode that replaces standing permissions to minimize risk exposure.", "weight": 2.0, "relations": ["enables", "graph"]}]}, {"name": "Concepts", "category": "CONCEPT", "isGroup": true, "children": [{"name": "Access Controls", "category": "CONCEPT", "description": "Access controls are mechanisms that grant access only on a need-to-know basis to protect workloads from unauthorized access. Strong access controls authenticate and authorize access to systems, minimizing access based on privilege, scope, and time.", "weight": 2.0, "relations": ["builds_on", "graph"]}, {"name": "Integrity", "category": "CONCEPT", "description": "Integrity is a security principle aimed at preventing corruption of design, implementation, operations, and data throughout the workload lifecycle.", "weight": 2.0, "relations": ["enables", "graph"]}]}, {"name": "Metrics", "category": "METRIC", "isGroup": true, "children": [{"name": "Availability", "category": "METRIC", "description": "Ensuring users can access the workload during the promised time period at the promised quality level. Availability is a security principle focused on preventing or minimizing system downtime and degradation during security incidents.", "weight": 2.0, "relations": ["enables", "graph"]}]}]};
-const CARD = {"name": "Least Privilege", "mantra": "Grant minimum access, scope, and duration", "layer": "security", "when_to_apply": ["Assigning RBAC roles to identities or pipelines", "Configuring Entra PIM for production control plane", "Designing Key Vault or API authorization scopes", "Auditing existing permissions for privilege drift"], "without_it": ["Compromised managed identity escalates across entire subscription", "Standing access enables malicious admin Key Vault secret deletion", "Broad RBAC assignment exposes production data plane to breach", "Overprivileged accounts fail SE:05 audit and block incident isolation"], "key_tradeoff": "Tighter RBAC and PIM activation reduce blast radius but add latency and Entra ID dependency", "builds_on": ["Access Controls"], "enables": ["Just-Enough-Access", "Just-In-Time Access", "Integrity", "Availability"], "connections": 6};
+const DATA = {"name": "Least-Privilege", "category": "ROOT", "mantra": "Grant only what's needed, nothing more.", "description": "Least-privilege is an access control principle where access is granted on a need-to-know basis with minimal permissions. Least-privilege is a security principle where users are granted only the minimum access necessary to perform their duties.", "children": [{"name": "Patterns", "category": "PATTERN", "isGroup": true, "children": [{"name": "Function-Based Grouping", "category": "PATTERN", "description": "Function-based grouping organizes security groups by discrete work functions rather than team structure, maintaining strict least-privilege access.", "weight": 2.0, "relations": ["builds_on", "graph"]}]}, {"name": "Concepts", "category": "CONCEPT", "isGroup": true, "children": [{"name": "Build And Deployment Pipelines", "category": "CONCEPT", "description": "Build and deployment pipelines are prime targets for attackers who may tamper with them, inject malicious code, or access secrets.", "weight": 2.0, "relations": ["enables", "graph"]}]}]};
+const CARD = {"name": "Least-Privilege", "mantra": "Grant only what's needed, nothing more.", "layer": "security", "when_to_apply": ["Configuring service account permissions for build and deployment pipelines", "Assigning user roles within teams or functions", "Granting access to production environments", "Designing API authorization scopes"], "without_it": ["Lateral movement by attackers through over-permissioned accounts", "Accidental deletion or modification of critical resources", "Compliance violations from excessive access", "Blast radius expansion when credentials are compromised"], "key_tradeoff": "Tighter access improves security but increases operational friction and access-request overhead.", "builds_on": ["Function-Based Grouping"], "enables": ["Build And Deployment Pipelines"], "connections": 2};
 const COLORS = {"MENTAL_MODEL": "#f1c40f", "PATTERN": "#3b82f6", "AZURE_SERVICE": "#6366f1", "PROCESS": "#22c55e", "CONCEPT": "#9ca3af", "METRIC": "#ef4444", "OTHER": "#64748b", "ROOT": "#f1c40f"};
 
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m =>

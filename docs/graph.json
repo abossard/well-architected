@@ -1545,20 +1545,20 @@
       "docs": 9
     },
     {
+      "id": "concept:availability",
+      "type": "concept",
+      "label": "availability",
+      "size": 24,
+      "total": 100,
+      "docs": 13
+    },
+    {
       "id": "pattern:health-model",
       "type": "pattern",
       "label": "health model",
       "size": 24,
       "total": 36,
       "docs": 7
-    },
-    {
-      "id": "pattern:auto-scaling",
-      "type": "pattern",
-      "label": "auto-scaling",
-      "size": 5,
-      "total": 1,
-      "docs": 1
     },
     {
       "id": "product:landing-zone",
@@ -1569,14 +1569,6 @@
       "docs": 6
     },
     {
-      "id": "concept:availability",
-      "type": "concept",
-      "label": "availability",
-      "size": 24,
-      "total": 100,
-      "docs": 13
-    },
-    {
       "id": "product:subscription",
       "type": "product",
       "label": "subscription",
@@ -1585,12 +1577,12 @@
       "docs": 7
     },
     {
-      "id": "concept:scalability",
-      "type": "concept",
-      "label": "scalability",
-      "size": 24,
-      "total": 26,
-      "docs": 8
+      "id": "pattern:auto-scaling",
+      "type": "pattern",
+      "label": "auto-scaling",
+      "size": 5,
+      "total": 1,
+      "docs": 1
     },
     {
       "id": "pattern:scale-units",
@@ -1609,12 +1601,12 @@
       "docs": 13
     },
     {
-      "id": "pattern:autoscaling",
-      "type": "pattern",
-      "label": "autoscaling",
-      "size": 10,
-      "total": 6,
-      "docs": 4
+      "id": "concept:scalability",
+      "type": "concept",
+      "label": "scalability",
+      "size": 24,
+      "total": 26,
+      "docs": 8
     },
     {
       "id": "concept:performance",
@@ -1623,6 +1615,14 @@
       "size": 24,
       "total": 108,
       "docs": 11
+    },
+    {
+      "id": "pattern:autoscaling",
+      "type": "pattern",
+      "label": "autoscaling",
+      "size": 10,
+      "total": 6,
+      "docs": 4
     },
     {
       "id": "pattern:throttling",
@@ -1665,6 +1665,14 @@
       "docs": 5
     },
     {
+      "id": "pattern:rollback",
+      "type": "pattern",
+      "label": "rollback",
+      "size": 6,
+      "total": 2,
+      "docs": 2
+    },
+    {
       "id": "concept:workload",
       "type": "concept",
       "label": "workload",
@@ -1681,12 +1689,12 @@
       "docs": 1
     },
     {
-      "id": "pattern:rollback",
-      "type": "pattern",
-      "label": "rollback",
-      "size": 6,
-      "total": 2,
-      "docs": 2
+      "id": "process:logging",
+      "type": "process",
+      "label": "logging",
+      "size": 14,
+      "total": 10,
+      "docs": 6
     },
     {
       "id": "process:tracing",
@@ -1711,14 +1719,6 @@
       "size": 24,
       "total": 49,
       "docs": 7
-    },
-    {
-      "id": "process:logging",
-      "type": "process",
-      "label": "logging",
-      "size": 14,
-      "total": 10,
-      "docs": 6
     },
     {
       "id": "process:ci-cd",
@@ -1753,14 +1753,6 @@
       "docs": 5
     },
     {
-      "id": "product:azure-kubernetes-service",
-      "type": "product",
-      "label": "azure kubernetes service",
-      "size": 11,
-      "total": 7,
-      "docs": 5
-    },
-    {
       "id": "product:web-application-firewall",
       "type": "product",
       "label": "web application firewall",
@@ -1775,6 +1767,14 @@
       "size": 9,
       "total": 5,
       "docs": 2
+    },
+    {
+      "id": "product:azure-kubernetes-service",
+      "type": "product",
+      "label": "azure kubernetes service",
+      "size": 11,
+      "total": 7,
+      "docs": 5
     },
     {
       "id": "process:operational-excellence",
@@ -1801,20 +1801,20 @@
       "docs": 3
     },
     {
-      "id": "concept:least-privilege",
-      "type": "concept",
-      "label": "least privilege",
-      "size": 9,
-      "total": 5,
-      "docs": 3
-    },
-    {
       "id": "product:virtual-network",
       "type": "product",
       "label": "virtual network",
       "size": 24,
       "total": 30,
       "docs": 4
+    },
+    {
+      "id": "concept:least-privilege",
+      "type": "concept",
+      "label": "least privilege",
+      "size": 9,
+      "total": 5,
+      "docs": 3
     },
     {
       "id": "product:api-management",
@@ -1833,20 +1833,20 @@
       "docs": 1
     },
     {
-      "id": "product:log-analytics",
-      "type": "product",
-      "label": "log analytics",
-      "size": 24,
-      "total": 70,
-      "docs": 5
-    },
-    {
       "id": "pattern:paired-region",
       "type": "pattern",
       "label": "paired region",
       "size": 7,
       "total": 3,
       "docs": 2
+    },
+    {
+      "id": "product:log-analytics",
+      "type": "product",
+      "label": "log analytics",
+      "size": 24,
+      "total": 70,
+      "docs": 5
     },
     {
       "id": "product:azure-monitor",
@@ -1921,6 +1921,14 @@
       "docs": 4
     },
     {
+      "id": "metric:slo",
+      "type": "metric",
+      "label": "slo",
+      "size": 15,
+      "total": 11,
+      "docs": 5
+    },
+    {
       "id": "metric:rto",
       "type": "metric",
       "label": "rto",
@@ -1935,14 +1943,6 @@
       "size": 10,
       "total": 6,
       "docs": 4
-    },
-    {
-      "id": "metric:slo",
-      "type": "metric",
-      "label": "slo",
-      "size": 15,
-      "total": 11,
-      "docs": 5
     },
     {
       "id": "process:disaster-recovery",
@@ -1977,19 +1977,19 @@
       "docs": 2
     },
     {
-      "id": "process:chaos-testing",
-      "type": "process",
-      "label": "chaos testing",
-      "size": 9,
-      "total": 5,
-      "docs": 3
-    },
-    {
       "id": "pattern:active-active",
       "type": "pattern",
       "label": "active-active",
       "size": 13,
       "total": 9,
+      "docs": 3
+    },
+    {
+      "id": "process:chaos-testing",
+      "type": "process",
+      "label": "chaos testing",
+      "size": 9,
+      "total": 5,
       "docs": 3
     },
     {
@@ -2041,20 +2041,20 @@
       "docs": 1
     },
     {
-      "id": "product:azure-front-door",
-      "type": "product",
-      "label": "azure front door",
-      "size": 24,
-      "total": 63,
-      "docs": 5
-    },
-    {
       "id": "pattern:data-replication",
       "type": "pattern",
       "label": "data replication",
       "size": 5,
       "total": 1,
       "docs": 1
+    },
+    {
+      "id": "product:azure-front-door",
+      "type": "product",
+      "label": "azure front door",
+      "size": 24,
+      "total": 63,
+      "docs": 5
     },
     {
       "id": "pattern:health-modeling",
@@ -3504,15 +3504,15 @@
     },
     {
       "source": "doc:mission-critical-application-design.md",
-      "target": "pattern:health-model",
+      "target": "concept:availability",
       "type": "mentions",
-      "weight": 3
+      "weight": 6
     },
     {
       "source": "doc:mission-critical-application-design.md",
-      "target": "pattern:auto-scaling",
+      "target": "pattern:health-model",
       "type": "mentions",
-      "weight": 1
+      "weight": 3
     },
     {
       "source": "doc:mission-critical-application-design.md",
@@ -3522,21 +3522,15 @@
     },
     {
       "source": "doc:mission-critical-application-design.md",
-      "target": "concept:availability",
-      "type": "mentions",
-      "weight": 6
-    },
-    {
-      "source": "doc:mission-critical-application-design.md",
       "target": "product:subscription",
       "type": "mentions",
       "weight": 5
     },
     {
       "source": "doc:mission-critical-application-design.md",
-      "target": "concept:scalability",
+      "target": "pattern:auto-scaling",
       "type": "mentions",
-      "weight": 2
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-application-design.md",
@@ -3552,15 +3546,21 @@
     },
     {
       "source": "doc:mission-critical-application-design.md",
-      "target": "pattern:autoscaling",
+      "target": "concept:scalability",
       "type": "mentions",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-application-design.md",
       "target": "concept:performance",
       "type": "mentions",
       "weight": 8
+    },
+    {
+      "source": "doc:mission-critical-application-design.md",
+      "target": "pattern:autoscaling",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-application-design.md",
@@ -3594,6 +3594,12 @@
     },
     {
       "source": "doc:mission-critical-application-design.md",
+      "target": "pattern:rollback",
+      "type": "mentions",
+      "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-application-design.md",
       "target": "concept:workload",
       "type": "mentions",
       "weight": 5
@@ -3606,9 +3612,9 @@
     },
     {
       "source": "doc:mission-critical-application-design.md",
-      "target": "pattern:rollback",
+      "target": "process:logging",
       "type": "mentions",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-application-design.md",
@@ -3625,12 +3631,6 @@
     {
       "source": "doc:mission-critical-application-design.md",
       "target": "metric:metrics",
-      "type": "mentions",
-      "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-application-design.md",
-      "target": "process:logging",
       "type": "mentions",
       "weight": 2
     },
@@ -3660,12 +3660,6 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "product:azure-kubernetes-service",
-      "type": "mentions",
-      "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-application-platform.md",
       "target": "product:web-application-firewall",
       "type": "mentions",
       "weight": 1
@@ -3675,6 +3669,12 @@
       "target": "product:azure-container-registry",
       "type": "mentions",
       "weight": 4
+    },
+    {
+      "source": "doc:mission-critical-application-platform.md",
+      "target": "product:azure-kubernetes-service",
+      "type": "mentions",
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-application-platform.md",
@@ -3720,13 +3720,13 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "concept:least-privilege",
+      "target": "product:virtual-network",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "product:virtual-network",
+      "target": "concept:least-privilege",
       "type": "mentions",
       "weight": 1
     },
@@ -3744,13 +3744,13 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "product:log-analytics",
+      "target": "pattern:paired-region",
       "type": "mentions",
       "weight": 2
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "pattern:paired-region",
+      "target": "product:log-analytics",
       "type": "mentions",
       "weight": 2
     },
@@ -3768,15 +3768,15 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "product:landing-zone",
-      "type": "mentions",
-      "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-application-platform.md",
       "target": "concept:availability",
       "type": "mentions",
       "weight": 18
+    },
+    {
+      "source": "doc:mission-critical-application-platform.md",
+      "target": "product:landing-zone",
+      "type": "mentions",
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-application-platform.md",
@@ -3786,27 +3786,27 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "concept:scalability",
-      "type": "mentions",
-      "weight": 8
-    },
-    {
-      "source": "doc:mission-critical-application-platform.md",
       "target": "pattern:scale-units",
       "type": "mentions",
       "weight": 2
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "product:app-service",
-      "type": "mentions",
-      "weight": 14
-    },
-    {
-      "source": "doc:mission-critical-application-platform.md",
       "target": "concept:reliability",
       "type": "mentions",
       "weight": 31
+    },
+    {
+      "source": "doc:mission-critical-application-platform.md",
+      "target": "concept:scalability",
+      "type": "mentions",
+      "weight": 8
+    },
+    {
+      "source": "doc:mission-critical-application-platform.md",
+      "target": "product:app-service",
+      "type": "mentions",
+      "weight": 14
     },
     {
       "source": "doc:mission-critical-application-platform.md",
@@ -3822,13 +3822,13 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "product:event-hubs",
+      "target": "concept:resilience",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "concept:resilience",
+      "target": "product:event-hubs",
       "type": "mentions",
       "weight": 1
     },
@@ -3852,12 +3852,6 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "concept:workload",
-      "type": "mentions",
-      "weight": 19
-    },
-    {
-      "source": "doc:mission-critical-application-platform.md",
       "target": "pattern:sharding",
       "type": "mentions",
       "weight": 1
@@ -3870,7 +3864,13 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "pattern:rollout",
+      "target": "concept:workload",
+      "type": "mentions",
+      "weight": 19
+    },
+    {
+      "source": "doc:mission-critical-application-platform.md",
+      "target": "process:logging",
       "type": "mentions",
       "weight": 2
     },
@@ -3882,13 +3882,7 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "metric:metrics",
-      "type": "mentions",
-      "weight": 11
-    },
-    {
-      "source": "doc:mission-critical-application-platform.md",
-      "target": "process:logging",
+      "target": "pattern:rollout",
       "type": "mentions",
       "weight": 2
     },
@@ -3897,6 +3891,12 @@
       "target": "pattern:caching",
       "type": "mentions",
       "weight": 4
+    },
+    {
+      "source": "doc:mission-critical-application-platform.md",
+      "target": "metric:metrics",
+      "type": "mentions",
+      "weight": 11
     },
     {
       "source": "doc:mission-critical-application-platform.md",
@@ -3912,9 +3912,9 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "metric:rto",
+      "target": "metric:slo",
       "type": "mentions",
-      "weight": 1
+      "weight": 5
     },
     {
       "source": "doc:mission-critical-application-platform.md",
@@ -3924,15 +3924,15 @@
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "metric:rpo",
+      "target": "metric:rto",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-application-platform.md",
-      "target": "metric:slo",
+      "target": "metric:rpo",
       "type": "mentions",
-      "weight": 5
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-architecture-pattern.md",
@@ -3954,15 +3954,15 @@
     },
     {
       "source": "doc:mission-critical-architecture-pattern.md",
-      "target": "product:landing-zone",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-architecture-pattern.md",
       "target": "concept:availability",
       "type": "mentions",
       "weight": 6
+    },
+    {
+      "source": "doc:mission-critical-architecture-pattern.md",
+      "target": "product:landing-zone",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-architecture-pattern.md",
@@ -3984,15 +3984,15 @@
     },
     {
       "source": "doc:mission-critical-architecture-pattern.md",
-      "target": "concept:workload",
-      "type": "mentions",
-      "weight": 5
-    },
-    {
-      "source": "doc:mission-critical-architecture-pattern.md",
       "target": "pattern:failover",
       "type": "mentions",
       "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-architecture-pattern.md",
+      "target": "concept:workload",
+      "type": "mentions",
+      "weight": 5
     },
     {
       "source": "doc:mission-critical-architecture-pattern.md",
@@ -4062,15 +4062,9 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "product:log-analytics",
+      "target": "pattern:active-active",
       "type": "mentions",
-      "weight": 3
-    },
-    {
-      "source": "doc:mission-critical-data-platform.md",
-      "target": "process:chaos-testing",
-      "type": "mentions",
-      "weight": 1
+      "weight": 4
     },
     {
       "source": "doc:mission-critical-data-platform.md",
@@ -4080,27 +4074,27 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "pattern:active-active",
-      "type": "mentions",
-      "weight": 4
-    },
-    {
-      "source": "doc:mission-critical-data-platform.md",
       "target": "pattern:paired-region",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "product:azure-monitor",
+      "target": "process:chaos-testing",
       "type": "mentions",
-      "weight": 6
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "pattern:health-model",
+      "target": "product:log-analytics",
       "type": "mentions",
-      "weight": 2
+      "weight": 3
+    },
+    {
+      "source": "doc:mission-critical-data-platform.md",
+      "target": "product:azure-monitor",
+      "type": "mentions",
+      "weight": 6
     },
     {
       "source": "doc:mission-critical-data-platform.md",
@@ -4116,21 +4110,21 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "product:private-link",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-data-platform.md",
       "target": "concept:availability",
       "type": "mentions",
       "weight": 29
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "concept:scalability",
+      "target": "pattern:health-model",
       "type": "mentions",
-      "weight": 7
+      "weight": 2
+    },
+    {
+      "source": "doc:mission-critical-data-platform.md",
+      "target": "product:private-link",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-data-platform.md",
@@ -4146,15 +4140,27 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "pattern:autoscaling",
+      "target": "concept:scalability",
       "type": "mentions",
-      "weight": 1
+      "weight": 7
     },
     {
       "source": "doc:mission-critical-data-platform.md",
       "target": "concept:performance",
       "type": "mentions",
       "weight": 46
+    },
+    {
+      "source": "doc:mission-critical-data-platform.md",
+      "target": "pattern:autoscaling",
+      "type": "mentions",
+      "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-data-platform.md",
+      "target": "metric:throughput",
+      "type": "mentions",
+      "weight": 48
     },
     {
       "source": "doc:mission-critical-data-platform.md",
@@ -4176,21 +4182,9 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "metric:throughput",
-      "type": "mentions",
-      "weight": 48
-    },
-    {
-      "source": "doc:mission-critical-data-platform.md",
       "target": "product:key-vault",
       "type": "mentions",
       "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-data-platform.md",
-      "target": "product:azure-sql",
-      "type": "mentions",
-      "weight": 17
     },
     {
       "source": "doc:mission-critical-data-platform.md",
@@ -4200,15 +4194,15 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "concept:security",
+      "target": "product:azure-sql",
       "type": "mentions",
       "weight": 17
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "concept:workload",
+      "target": "concept:security",
       "type": "mentions",
-      "weight": 18
+      "weight": 17
     },
     {
       "source": "doc:mission-critical-data-platform.md",
@@ -4224,21 +4218,27 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
+      "target": "concept:workload",
+      "type": "mentions",
+      "weight": 18
+    },
+    {
+      "source": "doc:mission-critical-data-platform.md",
       "target": "metric:latency",
       "type": "mentions",
       "weight": 18
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "metric:metrics",
-      "type": "mentions",
-      "weight": 4
-    },
-    {
-      "source": "doc:mission-critical-data-platform.md",
       "target": "pattern:caching",
       "type": "mentions",
       "weight": 9
+    },
+    {
+      "source": "doc:mission-critical-data-platform.md",
+      "target": "metric:metrics",
+      "type": "mentions",
+      "weight": 4
     },
     {
       "source": "doc:mission-critical-data-platform.md",
@@ -4260,9 +4260,9 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "metric:rto",
+      "target": "metric:slo",
       "type": "mentions",
-      "weight": 6
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-data-platform.md",
@@ -4272,15 +4272,15 @@
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "metric:rpo",
+      "target": "metric:rto",
       "type": "mentions",
-      "weight": 3
+      "weight": 6
     },
     {
       "source": "doc:mission-critical-data-platform.md",
-      "target": "metric:slo",
+      "target": "metric:rpo",
       "type": "mentions",
-      "weight": 1
+      "weight": 3
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
@@ -4302,21 +4302,15 @@
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "pattern:deployment-stamps",
-      "type": "mentions",
-      "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-deployment-testing.md",
       "target": "process:disaster-recovery",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "product:azure-front-door",
+      "target": "pattern:deployment-stamps",
       "type": "mentions",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
@@ -4332,15 +4326,21 @@
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
+      "target": "product:azure-front-door",
+      "type": "mentions",
+      "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-deployment-testing.md",
       "target": "pattern:health-modeling",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "process:chaos-testing",
+      "target": "process:observability",
       "type": "mentions",
-      "weight": 3
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
@@ -4350,9 +4350,9 @@
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "process:observability",
+      "target": "process:chaos-testing",
       "type": "mentions",
-      "weight": 2
+      "weight": 3
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
@@ -4374,21 +4374,9 @@
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "concept:scalability",
-      "type": "mentions",
-      "weight": 5
-    },
-    {
-      "source": "doc:mission-critical-deployment-testing.md",
       "target": "pattern:scale-units",
       "type": "mentions",
       "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-deployment-testing.md",
-      "target": "product:app-service",
-      "type": "mentions",
-      "weight": 1
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
@@ -4398,9 +4386,15 @@
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "pattern:autoscaling",
+      "target": "concept:scalability",
       "type": "mentions",
-      "weight": 2
+      "weight": 5
+    },
+    {
+      "source": "doc:mission-critical-deployment-testing.md",
+      "target": "product:app-service",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
@@ -4410,15 +4404,21 @@
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "process:monitoring",
+      "target": "pattern:autoscaling",
       "type": "mentions",
-      "weight": 3
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
       "target": "metric:throughput",
       "type": "mentions",
       "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-deployment-testing.md",
+      "target": "process:monitoring",
+      "type": "mentions",
+      "weight": 3
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
@@ -4434,12 +4434,6 @@
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "concept:workload",
-      "type": "mentions",
-      "weight": 6
-    },
-    {
-      "source": "doc:mission-critical-deployment-testing.md",
       "target": "pattern:rollback",
       "type": "mentions",
       "weight": 1
@@ -4452,15 +4446,21 @@
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
-      "target": "metric:metrics",
+      "target": "concept:workload",
       "type": "mentions",
-      "weight": 2
+      "weight": 6
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
       "target": "process:logging",
       "type": "mentions",
       "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-deployment-testing.md",
+      "target": "metric:metrics",
+      "type": "mentions",
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-deployment-testing.md",
@@ -4500,12 +4500,6 @@
     },
     {
       "source": "doc:mission-critical-design-methodology.md",
-      "target": "pattern:health-model",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-design-methodology.md",
       "target": "pattern:multi-region",
       "type": "mentions",
       "weight": 1
@@ -4515,6 +4509,12 @@
       "target": "concept:availability",
       "type": "mentions",
       "weight": 3
+    },
+    {
+      "source": "doc:mission-critical-design-methodology.md",
+      "target": "pattern:health-model",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-design-methodology.md",
@@ -4554,6 +4554,12 @@
     },
     {
       "source": "doc:mission-critical-design-methodology.md",
+      "target": "metric:slo",
+      "type": "mentions",
+      "weight": 2
+    },
+    {
+      "source": "doc:mission-critical-design-methodology.md",
       "target": "metric:rto",
       "type": "mentions",
       "weight": 1
@@ -4565,22 +4571,16 @@
       "weight": 1
     },
     {
-      "source": "doc:mission-critical-design-methodology.md",
-      "target": "metric:slo",
+      "source": "doc:mission-critical-design-principles.md",
+      "target": "process:infrastructure-as-code",
       "type": "mentions",
-      "weight": 2
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-design-principles.md",
       "target": "process:operational-excellence",
       "type": "mentions",
       "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-design-principles.md",
-      "target": "process:infrastructure-as-code",
-      "type": "mentions",
-      "weight": 1
     },
     {
       "source": "doc:mission-critical-design-principles.md",
@@ -4608,13 +4608,13 @@
     },
     {
       "source": "doc:mission-critical-design-principles.md",
-      "target": "pattern:deployment-stamps",
+      "target": "process:disaster-recovery",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-design-principles.md",
-      "target": "process:disaster-recovery",
+      "target": "pattern:deployment-stamps",
       "type": "mentions",
       "weight": 1
     },
@@ -4638,19 +4638,13 @@
     },
     {
       "source": "doc:mission-critical-design-principles.md",
-      "target": "pattern:health-model",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-design-principles.md",
       "target": "concept:availability",
       "type": "mentions",
       "weight": 5
     },
     {
       "source": "doc:mission-critical-design-principles.md",
-      "target": "concept:scalability",
+      "target": "pattern:health-model",
       "type": "mentions",
       "weight": 1
     },
@@ -4659,6 +4653,12 @@
       "target": "concept:reliability",
       "type": "mentions",
       "weight": 11
+    },
+    {
+      "source": "doc:mission-critical-design-principles.md",
+      "target": "concept:scalability",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-design-principles.md",
@@ -4710,13 +4710,19 @@
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
+      "target": "process:disaster-recovery",
+      "type": "mentions",
+      "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-health-modeling.md",
       "target": "pattern:deployment-stamps",
       "type": "mentions",
       "weight": 3
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
-      "target": "process:disaster-recovery",
+      "target": "pattern:deployment-stamp",
       "type": "mentions",
       "weight": 1
     },
@@ -4728,27 +4734,9 @@
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
-      "target": "pattern:deployment-stamp",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-health-modeling.md",
       "target": "pattern:health-modeling",
       "type": "mentions",
       "weight": 4
-    },
-    {
-      "source": "doc:mission-critical-health-modeling.md",
-      "target": "product:log-analytics",
-      "type": "mentions",
-      "weight": 61
-    },
-    {
-      "source": "doc:mission-critical-health-modeling.md",
-      "target": "process:chaos-testing",
-      "type": "mentions",
-      "weight": 1
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
@@ -4758,9 +4746,27 @@
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
+      "target": "process:chaos-testing",
+      "type": "mentions",
+      "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-health-modeling.md",
+      "target": "product:log-analytics",
+      "type": "mentions",
+      "weight": 61
+    },
+    {
+      "source": "doc:mission-critical-health-modeling.md",
       "target": "product:azure-monitor",
       "type": "mentions",
       "weight": 18
+    },
+    {
+      "source": "doc:mission-critical-health-modeling.md",
+      "target": "concept:availability",
+      "type": "mentions",
+      "weight": 6
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
@@ -4776,21 +4782,9 @@
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
-      "target": "concept:availability",
-      "type": "mentions",
-      "weight": 6
-    },
-    {
-      "source": "doc:mission-critical-health-modeling.md",
       "target": "product:subscription",
       "type": "mentions",
       "weight": 7
-    },
-    {
-      "source": "doc:mission-critical-health-modeling.md",
-      "target": "product:app-service",
-      "type": "mentions",
-      "weight": 3
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
@@ -4800,9 +4794,21 @@
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
+      "target": "product:app-service",
+      "type": "mentions",
+      "weight": 3
+    },
+    {
+      "source": "doc:mission-critical-health-modeling.md",
       "target": "concept:performance",
       "type": "mentions",
       "weight": 7
+    },
+    {
+      "source": "doc:mission-critical-health-modeling.md",
+      "target": "metric:throughput",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
@@ -4824,19 +4830,13 @@
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
-      "target": "metric:throughput",
+      "target": "product:cosmos-db",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
       "target": "product:azure-sql",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-health-modeling.md",
-      "target": "product:cosmos-db",
       "type": "mentions",
       "weight": 1
     },
@@ -4851,6 +4851,12 @@
       "target": "concept:workload",
       "type": "mentions",
       "weight": 5
+    },
+    {
+      "source": "doc:mission-critical-health-modeling.md",
+      "target": "process:logging",
+      "type": "mentions",
+      "weight": 3
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
@@ -4872,12 +4878,6 @@
     },
     {
       "source": "doc:mission-critical-health-modeling.md",
-      "target": "process:logging",
-      "type": "mentions",
-      "weight": 3
-    },
-    {
-      "source": "doc:mission-critical-health-modeling.md",
       "target": "process:ci-cd",
       "type": "mentions",
       "weight": 6
@@ -4896,15 +4896,15 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "product:azure-kubernetes-service",
-      "type": "mentions",
-      "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-networking-connectivity.md",
       "target": "product:web-application-firewall",
       "type": "mentions",
       "weight": 8
+    },
+    {
+      "source": "doc:mission-critical-networking-connectivity.md",
+      "target": "product:azure-kubernetes-service",
+      "type": "mentions",
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
@@ -4932,27 +4932,15 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "product:azure-front-door",
-      "type": "mentions",
-      "weight": 58
-    },
-    {
-      "source": "doc:mission-critical-networking-connectivity.md",
       "target": "pattern:deployment-stamp",
       "type": "mentions",
       "weight": 8
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "pattern:health-modeling",
+      "target": "product:azure-front-door",
       "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "product:traffic-manager",
-      "type": "mentions",
-      "weight": 17
+      "weight": 58
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
@@ -4962,9 +4950,21 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
+      "target": "product:traffic-manager",
+      "type": "mentions",
+      "weight": 17
+    },
+    {
+      "source": "doc:mission-critical-networking-connectivity.md",
       "target": "product:virtual-network",
       "type": "mentions",
       "weight": 22
+    },
+    {
+      "source": "doc:mission-critical-networking-connectivity.md",
+      "target": "pattern:health-modeling",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
@@ -4986,7 +4986,13 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "product:log-analytics",
+      "target": "pattern:active-active",
+      "type": "mentions",
+      "weight": 4
+    },
+    {
+      "source": "doc:mission-critical-networking-connectivity.md",
+      "target": "process:observability",
       "type": "mentions",
       "weight": 1
     },
@@ -4998,21 +5004,21 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "process:observability",
+      "target": "product:log-analytics",
       "type": "mentions",
       "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "pattern:active-active",
-      "type": "mentions",
-      "weight": 4
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
       "target": "pattern:multi-region",
       "type": "mentions",
       "weight": 3
+    },
+    {
+      "source": "doc:mission-critical-networking-connectivity.md",
+      "target": "concept:availability",
+      "type": "mentions",
+      "weight": 8
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
@@ -5028,27 +5034,21 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "concept:availability",
-      "type": "mentions",
-      "weight": 8
-    },
-    {
-      "source": "doc:mission-critical-networking-connectivity.md",
       "target": "product:subscription",
       "type": "mentions",
       "weight": 3
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "product:app-service",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-networking-connectivity.md",
       "target": "concept:reliability",
       "type": "mentions",
       "weight": 11
+    },
+    {
+      "source": "doc:mission-critical-networking-connectivity.md",
+      "target": "product:app-service",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
@@ -5082,27 +5082,27 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "concept:workload",
-      "type": "mentions",
-      "weight": 7
-    },
-    {
-      "source": "doc:mission-critical-networking-connectivity.md",
       "target": "pattern:failover",
       "type": "mentions",
       "weight": 5
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "metric:latency",
+      "target": "concept:workload",
       "type": "mentions",
-      "weight": 18
+      "weight": 7
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
       "target": "process:logging",
       "type": "mentions",
       "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-networking-connectivity.md",
+      "target": "metric:latency",
+      "type": "mentions",
+      "weight": 18
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
@@ -5136,9 +5136,9 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "metric:tls",
+      "target": "metric:slo",
       "type": "mentions",
-      "weight": 9
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
@@ -5148,19 +5148,19 @@
     },
     {
       "source": "doc:mission-critical-networking-connectivity.md",
-      "target": "metric:slo",
+      "target": "metric:tls",
+      "type": "mentions",
+      "weight": 9
+    },
+    {
+      "source": "doc:mission-critical-operational-procedures.md",
+      "target": "product:azure-container-registry",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
       "target": "product:azure-kubernetes-service",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-operational-procedures.md",
-      "target": "product:azure-container-registry",
       "type": "mentions",
       "weight": 1
     },
@@ -5178,13 +5178,13 @@
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
-      "target": "product:azure-front-door",
+      "target": "pattern:deployment-stamp",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
-      "target": "pattern:deployment-stamp",
+      "target": "product:azure-front-door",
       "type": "mentions",
       "weight": 1
     },
@@ -5196,19 +5196,13 @@
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
-      "target": "pattern:health-model",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-operational-procedures.md",
       "target": "concept:availability",
       "type": "mentions",
       "weight": 4
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
-      "target": "concept:scalability",
+      "target": "pattern:health-model",
       "type": "mentions",
       "weight": 1
     },
@@ -5226,15 +5220,21 @@
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
-      "target": "pattern:autoscaling",
+      "target": "concept:scalability",
       "type": "mentions",
-      "weight": 2
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
       "target": "concept:performance",
       "type": "mentions",
       "weight": 1
+    },
+    {
+      "source": "doc:mission-critical-operational-procedures.md",
+      "target": "pattern:autoscaling",
+      "type": "mentions",
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
@@ -5250,15 +5250,15 @@
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
-      "target": "product:terraform",
-      "type": "mentions",
-      "weight": 3
-    },
-    {
-      "source": "doc:mission-critical-operational-procedures.md",
       "target": "product:cosmos-db",
       "type": "mentions",
       "weight": 2
+    },
+    {
+      "source": "doc:mission-critical-operational-procedures.md",
+      "target": "product:terraform",
+      "type": "mentions",
+      "weight": 3
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
@@ -5268,15 +5268,15 @@
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
-      "target": "concept:workload",
-      "type": "mentions",
-      "weight": 4
-    },
-    {
-      "source": "doc:mission-critical-operational-procedures.md",
       "target": "pattern:failover",
       "type": "mentions",
       "weight": 3
+    },
+    {
+      "source": "doc:mission-critical-operational-procedures.md",
+      "target": "concept:workload",
+      "type": "mentions",
+      "weight": 4
     },
     {
       "source": "doc:mission-critical-operational-procedures.md",
@@ -5328,19 +5328,13 @@
     },
     {
       "source": "doc:mission-critical-overview.md",
-      "target": "pattern:health-model",
-      "type": "mentions",
-      "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-overview.md",
       "target": "concept:availability",
       "type": "mentions",
       "weight": 2
     },
     {
       "source": "doc:mission-critical-overview.md",
-      "target": "concept:scalability",
+      "target": "pattern:health-model",
       "type": "mentions",
       "weight": 1
     },
@@ -5349,6 +5343,12 @@
       "target": "concept:reliability",
       "type": "mentions",
       "weight": 7
+    },
+    {
+      "source": "doc:mission-critical-overview.md",
+      "target": "concept:scalability",
+      "type": "mentions",
+      "weight": 1
     },
     {
       "source": "doc:mission-critical-overview.md",
@@ -5388,7 +5388,7 @@
     },
     {
       "source": "doc:mission-critical-security.md",
-      "target": "product:private-endpoint",
+      "target": "pattern:deployment-stamp",
       "type": "mentions",
       "weight": 1
     },
@@ -5400,21 +5400,21 @@
     },
     {
       "source": "doc:mission-critical-security.md",
-      "target": "pattern:deployment-stamp",
+      "target": "product:private-endpoint",
       "type": "mentions",
       "weight": 1
-    },
-    {
-      "source": "doc:mission-critical-security.md",
-      "target": "concept:least-privilege",
-      "type": "mentions",
-      "weight": 2
     },
     {
       "source": "doc:mission-critical-security.md",
       "target": "product:virtual-network",
       "type": "mentions",
       "weight": 6
+    },
+    {
+      "source": "doc:mission-critical-security.md",
+      "target": "concept:least-privilege",
+      "type": "mentions",
+      "weight": 2
     },
     {
       "source": "doc:mission-critical-security.md",
@@ -5430,6 +5430,12 @@
     },
     {
       "source": "doc:mission-critical-security.md",
+      "target": "concept:availability",
+      "type": "mentions",
+      "weight": 8
+    },
+    {
+      "source": "doc:mission-critical-security.md",
       "target": "product:landing-zone",
       "type": "mentions",
       "weight": 9
@@ -5442,15 +5448,15 @@
     },
     {
       "source": "doc:mission-critical-security.md",
-      "target": "concept:availability",
-      "type": "mentions",
-      "weight": 8
-    },
-    {
-      "source": "doc:mission-critical-security.md",
       "target": "product:subscription",
       "type": "mentions",
       "weight": 4
+    },
+    {
+      "source": "doc:mission-critical-security.md",
+      "target": "concept:reliability",
+      "type": "mentions",
+      "weight": 14
     },
     {
       "source": "doc:mission-critical-security.md",
@@ -5463,12 +5469,6 @@
       "target": "product:app-service",
       "type": "mentions",
       "weight": 2
-    },
-    {
-      "source": "doc:mission-critical-security.md",
-      "target": "concept:reliability",
-      "type": "mentions",
-      "weight": 14
     },
     {
       "source": "doc:mission-critical-security.md",
@@ -5508,25 +5508,25 @@
     },
     {
       "source": "doc:mission-critical-security.md",
-      "target": "concept:workload",
-      "type": "mentions",
-      "weight": 4
-    },
-    {
-      "source": "doc:mission-critical-security.md",
       "target": "pattern:failover",
       "type": "mentions",
       "weight": 3
     },
     {
       "source": "doc:mission-critical-security.md",
-      "target": "metric:latency",
+      "target": "concept:workload",
+      "type": "mentions",
+      "weight": 4
+    },
+    {
+      "source": "doc:mission-critical-security.md",
+      "target": "process:logging",
       "type": "mentions",
       "weight": 1
     },
     {
       "source": "doc:mission-critical-security.md",
-      "target": "process:logging",
+      "target": "metric:latency",
       "type": "mentions",
       "weight": 1
     },

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Defense in Depth · Mental Model Map</title>
+<title>Defense-In-Depth · Mental Model Map</title>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <style>
   :root {
@@ -181,7 +181,7 @@
 <div class="app">
   <nav class="mininav" aria-label="Card navigation">
     <button type="button" onclick="history.back()" aria-label="Go back">← Back</button>
-    <span class="title">Defense in Depth</span>
+    <span class="title">Defense-In-Depth</span>
     <a href="../../" aria-label="Home">Home</a>
     <a href="index.html" aria-label="All trees">All trees →</a>
   </nav>
@@ -196,7 +196,7 @@
     <div class="tooltip" id="tooltip"></div>
   </div>
   <aside class="sidebar" aria-label="Card details">
-    <h1>Defense in Depth</h1>
+    <h1>Defense-In-Depth</h1>
     <p class="definition" id="definition"></p>
     <p class="mantra" id="mantra"></p>
 
@@ -220,8 +220,8 @@
 </div>
 
 <script>
-const DATA = {"name": "Defense in Depth", "category": "ROOT", "mantra": "Stack redundant security layers at every boundary", "description": "", "children": [{"name": "Mental Models", "category": "MENTAL_MODEL", "isGroup": true, "children": [{"name": "Zero Trust", "category": "MENTAL_MODEL", "description": "A security model that limits network traffic between workloads based on strict access policies. Zero Trust is a Microsoft security model providing a proactive and integrated approach to applying security across all layers of an application, centered on eliminating trust and enforcing verification.", "weight": 2.0, "relations": ["builds_on"]}]}, {"name": "Processes", "category": "PROCESS", "isGroup": true, "children": [{"name": "SE:06", "category": "PROCESS", "description": "Recommendation to isolate, filter, and control network traffic using defense-in-depth principles.", "weight": 2.0, "relations": ["enables"]}, {"name": "Threat Modeling", "category": "PROCESS", "description": "Threat modeling provides a risk-based approach to security design using identified potential threats to develop security mitigations. Threat modeling is a method to identify and mitigate potential threats, producing a report of attack vectors prioritized by severity.", "weight": 2.0, "relations": ["builds_on"]}]}]};
-const CARD = {"name": "Defense in Depth", "mantra": "Stack redundant security layers at every boundary", "layer": "security", "when_to_apply": ["Designing NSG, Azure Firewall, and WAF segmentation", "Implementing compensating controls from threat modeling output", "Architecting multi-tier apps handling PII or secrets", "Applying Zero Trust across identity, network, data planes"], "without_it": ["Single WAF bypass grants full access to backend resources", "Lateral movement spreads undetected across flat VNet topologies", "One misconfigured NSG rule exposes entire subnet to internet", "Compromised identity escalates unchecked without layered authorization gates"], "key_tradeoff": "More security layers means more latency, cost, and operational complexity", "builds_on": ["Threat Modeling", "Zero Trust"], "enables": ["SE:06"], "connections": 3};
+const DATA = {"name": "Defense-In-Depth", "category": "ROOT", "mantra": "Layer your defenses so no single failure compromises the system.", "description": "Defense-in-depth is a layered security approach applied to define and implement compensating mitigations for modeled threats. A security principle applied by using localized network controls at all available network boundaries.", "children": [{"name": "Mental Models", "category": "MENTAL_MODEL", "isGroup": true, "children": [{"name": "Zero Trust", "category": "MENTAL_MODEL", "description": "Zero Trust is a security model, strategy, and guiding principle that assumes a breached state and eliminates implicit trust across all layers of an application and network. It treats all processes, operations, and network requests—including internal traffic—as potential attack vectors, enforcing explicit, continuous verification of all available data points.\n\nCore principles of Zero Trust include explicit verification, least-privilege access, defense in depth, and deny-by-default access contr…", "weight": 2.0, "relations": ["builds_on", "graph"]}]}, {"name": "Processes", "category": "PROCESS", "isGroup": true, "children": [{"name": "Security Hardening", "category": "PROCESS", "description": "Security hardening is an intentional self-preservation exercise focused on reducing attack surfaces and increasing attacker costs through configuration tuning with assume-breach and defense-in-depth mentality.", "weight": 2.0, "relations": ["enables", "graph"]}, {"name": "Threat Modeling", "category": "PROCESS", "description": "Threat Modeling is a structured, proactive engineering discipline and design practice used to identify, evaluate, and mitigate potential security threats to a system. It provides a risk-based approach to security design by systematically analyzing potential threats, attacks, vulnerabilities, and attack vectors that may affect a workload or application.\n\nAs a method, Threat Modeling produces reports of attack vectors prioritized by severity, enabling teams to develop appropriate security mitig…", "weight": 2.0, "relations": ["builds_on", "graph"]}]}, {"name": "Other", "category": "OTHER", "isGroup": true, "children": [{"name": "SE:06", "category": "OTHER", "description": "Recommendation to isolate, filter, and control network traffic using defense-in-depth principles. SE:06 is a security checklist recommendation about isolating, filtering, and controlling network traffic across ingress and egress flows.", "weight": 2.0, "relations": ["enables", "graph"]}]}]};
+const CARD = {"name": "Defense-In-Depth", "mantra": "Layer your defenses so no single failure compromises the system.", "layer": "security", "when_to_apply": ["Designing network security boundaries", "Implementing controls after threat modeling", "Hardening workloads against assume-breach scenarios", "Protecting critical assets with multiple independent controls"], "without_it": ["Single point of compromise takes down entire system", "Lateral movement goes unchecked after perimeter breach", "Over-reliance on one security control", "Gaps between security layers exploited by attackers"], "key_tradeoff": "Each additional security layer adds complexity and cost versus the incremental protection it provides.", "builds_on": ["Threat Modeling", "Zero Trust"], "enables": ["SE:06", "Security Hardening"], "connections": 4};
 const COLORS = {"MENTAL_MODEL": "#f1c40f", "PATTERN": "#3b82f6", "AZURE_SERVICE": "#6366f1", "PROCESS": "#22c55e", "CONCEPT": "#9ca3af", "METRIC": "#ef4444", "OTHER": "#64748b", "ROOT": "#f1c40f"};
 
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m =>
