@@ -114,15 +114,11 @@
   <a class="home" href="index.html">← Home</a>
   <input id="search" placeholder="Search… (/)" autocomplete="off" />
   <nav id="filters" role="group" aria-label="filters">
-    <button data-f="focus" class="active" title="Depth-based: nodes within N hops of mental models">Focus</button>
-    <label class="depth-ctrl" title="Distance from mental models">
+    <label class="depth-ctrl" title="Distance from mental models (0 = MMs only, higher = more context)">
       <span>Depth</span>
       <input id="depthSlider" type="range" min="0" max="5" value="3" />
       <span id="depthVal">3</span>
     </label>
-    <button data-f="mental" title="Mental Models only">Mental Models</button>
-    <button data-f="patterns" title="Patterns + Services + MMs">Patterns + Services</button>
-    <button data-f="all" title="All 4099 nodes (slower)">Everything</button>
   </nav>
   <button id="edgeToggle" class="edge-toggle" title="Toggle all 'mentioned_with' edges (may slow rendering)">All edges</button>
   <div id="breadcrumb" aria-label="path"></div>
@@ -188,10 +184,7 @@ const ICON_PATH2D = {};
 Object.entries(ICON_PATHS).forEach(([k, v]) => { try { ICON_PATH2D[k] = new Path2D(v); } catch (e) { ICON_PATH2D[k] = null; } });
 
 const FILTERS = {
-  focus:    n => n.d <= state.maxDepth,
-  mental:   n => n.type === "MENTAL_MODEL",
-  patterns: n => n.type === "PATTERN" || n.type === "AZURE_SERVICE" || n.type === "MENTAL_MODEL",
-  all:      _ => true,
+  focus: n => n.d <= state.maxDepth,
 };
 
 const EDGE_COLORS = {
@@ -657,12 +650,13 @@ function selectNode(id, pan) {
   const n = state.idx.get(id);
   if (!n) return;
 
-  // In Focus mode, always show the selected node even if it's Tier 1 — no need
-  // to switch filters. In other filter modes, only bypass when the filter
-  // actively excludes this node.
-  if (!FILTERS[state.filter](n) && state.filter !== "focus") {
-    state.filter = "focus";
-    document.querySelectorAll("#filters button").forEach(b => b.classList.toggle("active", b.dataset.f === "focus"));
+  // If selected node is beyond current depth, expand depth to include it
+  if (!FILTERS.focus(n)) {
+    state.maxDepth = n.d;
+    const slider = document.getElementById("depthSlider");
+    const val = document.getElementById("depthVal");
+    if (slider) { slider.value = state.maxDepth; }
+    if (val) { val.textContent = state.maxDepth; }
   }
   invalidateVis();
 
@@ -830,22 +824,15 @@ function renderBreadcrumb() {
 // ─── UI wiring ────────────────────────────────────────────────────────────
 function bindUI() {
   // filters
-  const urlFilter = new URLSearchParams(location.search).get("filter");
-  if (urlFilter && FILTERS[urlFilter]) state.filter = urlFilter;
-  const helpWarn = document.getElementById("help-warn");
-  const updateWarn = () => { if (helpWarn) helpWarn.hidden = state.filter !== "all"; };
-  document.querySelectorAll("#filters button").forEach(b => {
-    b.classList.toggle("active", b.dataset.f === state.filter);
-    b.addEventListener("click", () => {
-      state.filter = b.dataset.f;
-      document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("active", x === b));
-      updateWarn();
-      invalidateVis();
-      requestRender();
-    });
-  });
-  updateWarn();
-
+  // URL params: ?depth=N
+  const urlDepth = new URLSearchParams(location.search).get("depth");
+  if (urlDepth) {
+    state.maxDepth = Math.max(0, Math.min(parseInt(urlDepth) || 3, 8));
+    const slider = document.getElementById("depthSlider");
+    const val = document.getElementById("depthVal");
+    if (slider) slider.value = state.maxDepth;
+    if (val) val.textContent = state.maxDepth;
+  }
   // depth slider
   const depthSlider = document.getElementById("depthSlider");
   const depthVal = document.getElementById("depthVal");
@@ -857,10 +844,6 @@ function bindUI() {
     depthSlider.addEventListener("input", () => {
       state.maxDepth = parseInt(depthSlider.value);
       depthVal.textContent = state.maxDepth;
-      if (state.filter !== "focus") {
-        state.filter = "focus";
-        document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("active", x.dataset.f === "focus"));
-      }
       invalidateVis();
       requestRender();
     });
