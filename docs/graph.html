@@ -162,9 +162,9 @@
 <header class="topbar">
   <h1>Knowledge <span>Graph</span></h1>
   <nav aria-label="Primary">
-    <a href="mental_models/">← Home</a>
+    <a href="./">← Home</a>
     <a href="#" aria-current="page" style="color:var(--fg);">Graph Explorer</a>
-    <a href="mental_models/#cards">Mental Models →</a>
+    <a href="mental_models/">Cards →</a>
   </nav>
 </header>
 
@@ -258,7 +258,21 @@
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:"#ffa657",process:"#d2a8ff",concept:"#3fb950",metric:"#ff7b72"};
+const COLORS={doc:"#f78166",h2:"#a371f7",h3:"#d2a8ff",product:"#79c0ff",pattern:"#ffa657",process:"#d2a8ff",concept:"#3fb950",metric:"#ff7b72",MENTAL_MODEL:"#f1c40f",ANTI_PATTERN:"#dc2626",TRADEOFF:"#f97316"};
+// Lucide icons (MIT, lucide.dev). 24x24 viewBox, stroke-based. Rendered white inside colored circles.
+const ICONS={
+  doc:"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8",
+  h2:"M4 12h16 M4 18h16 M4 6h16 M10 3L8 21 M16 3l-2 18",
+  h3:"M3 8l4 4-4 4 M21 12H11 M21 6H11 M21 18H11",
+  product:"M17.5 19a4.5 4.5 0 1 0-1.41-8.775 5.5 5.5 0 0 0-10.796 2.08A4.002 4.002 0 0 0 6 19h11.5Z",
+  pattern:"M19.439 7.85c-.049.322.059.648.289.878l1.568 1.568c.47.47.706 1.087.706 1.704s-.235 1.233-.706 1.704l-1.611 1.611a.98.98 0 0 1-.837.276c-.47-.07-.802-.48-.968-.925a2.501 2.501 0 1 0-3.214 3.214c.446.166.855.497.925.968a.979.979 0 0 1-.276.837l-1.61 1.61a2.404 2.404 0 0 1-1.705.707 2.402 2.402 0 0 1-1.704-.706l-1.568-1.568a1.026 1.026 0 0 0-.877-.29c-.493.074-.84.504-1.02.968a2.5 2.5 0 1 1-3.237-3.237c.464-.18.894-.527.967-1.02a1.026 1.026 0 0 0-.289-.877l-1.568-1.568A2.402 2.402 0 0 1 1.998 12c0-.617.236-1.234.706-1.704L4.23 8.77c.24-.24.581-.353.917-.303.515.077.877.528 1.073 1.01a2.5 2.5 0 1 0 3.259-3.259c-.482-.196-.933-.558-1.01-1.073-.05-.336.062-.676.303-.917l1.525-1.525A2.402 2.402 0 0 1 12 1.998c.617 0 1.234.236 1.704.706l1.568 1.568c.23.23.556.338.877.29.493-.074.84-.504 1.02-.968a2.5 2.5 0 1 1 3.237 3.237c-.464.18-.894.527-.967 1.02Z",
+  process:"M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.789-1.08 2.657L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 18.831 18 20 18 20l2-2-1.484-1.75 1.098-2.652 2.386-.62v-1.993l-2.378-.59Z",
+  concept:"M9 18h6 M10 22h4 M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14",
+  metric:"M22 12h-4l-3 9L9 3l-3 9H2",
+  MENTAL_MODEL:"M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 0 0 12 18Z M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 0 1 12 18Z M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4",
+  ANTI_PATTERN:"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z M12 9v4 M12 17h.01",
+  TRADEOFF:"m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z M7 21h10 M12 3v18 M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"
+};
 const PREFERS_REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const PRESETS = {
@@ -363,7 +377,23 @@ const PRESETS = {
           .on("keydown",(e,d)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); select(d); } });
         ge.append("circle")
           .attr("r", d => Math.max(3, Math.min(22, (d.size||6))))
-          .attr("fill", d => COLORS[d.type]);
+          .attr("fill", d => COLORS[d.type] || "#8b949e");
+        ge.append("path")
+          .attr("class","node-icon")
+          .attr("d", d => ICONS[d.type] || ICONS.concept)
+          .attr("fill", "none")
+          .attr("stroke", "#fff")
+          .attr("stroke-width", 2)
+          .attr("stroke-linecap", "round")
+          .attr("stroke-linejoin", "round")
+          .attr("opacity", 0.92)
+          .attr("vector-effect", "non-scaling-stroke")
+          .attr("transform", d => {
+            const r = Math.max(3, Math.min(22, (d.size||6)));
+            const iconSize = r * 1.2;
+            return `translate(${-iconSize/2},${-iconSize/2}) scale(${iconSize/24})`;
+          })
+          .style("pointer-events", "none");
         ge.append("text").attr("dx",10).attr("dy",4).text(d=>d.label);
         return ge;
       });
