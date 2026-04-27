@@ -1,0 +1,4750 @@
+[
+  {
+    "entity": "Azure Cosmos DB",
+    "fact": "Azure Cosmos DB is a globally distributed, highly available NoSQL database service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Cosmos DB documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB",
+    "fact": "Azure Cosmos DB supports both transactional and analytical workloads",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB feature documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Well-Architected Framework",
+    "fact": "The Azure Well-Architected Framework is organized around five core pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check WAF documentation for pillar changes",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Front Door",
+    "fact": "Azure Front Door leverages Anycast protocol with split TCP for optimized connectivity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door architecture docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Front Door",
+    "fact": "Azure Front Door provides edge caching for both static and dynamic content",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door features",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Front Door",
+    "fact": "Azure Front Door is a globally distributed service functioning as a global load balancer, traffic routing platform, and content delivery solution for HTTP/HTTPS",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Mission-Critical Workload",
+    "fact": "Mission-critical workloads require zero-downtime deployments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Mission-Critical Workload",
+    "fact": "Failure of a mission-critical workload has severe business consequences",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure",
+    "fact": "Azure offers both Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) solutions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure service categories",
+    "confidence": "high"
+  },
+  {
+    "entity": "AKS",
+    "fact": "AKS has a scale limit of 1,000 nodes per cluster",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check AKS quotas and limits documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "AKS",
+    "fact": "AKS has a hard requirement for an underlying virtual network",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS networking requirements",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Entra ID",
+    "fact": "Microsoft Entra ID is a platform dependency for almost all Azure services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Microsoft Entra ID documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Entra ID",
+    "fact": "Microsoft Entra ID provides an alternative to connection strings for authentication",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Entra ID auth docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Policy",
+    "fact": "Azure Policy supplements RBAC by restricting actions that authorized users can perform",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Policy",
+    "fact": "Azure Policy is a governance service within the Azure Resource Manager control plane",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Policy architecture docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Availability Zones",
+    "fact": "Availability Zones are physically separate locations within an Azure region, each typically corresponding to distinct datacenters",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure regions and AZ documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Log Analytics Workspace",
+    "fact": "Log Analytics workspace is deployed into a specified Azure region",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Log Analytics docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Monitor",
+    "fact": "Azure Monitor is enabled by default for all Azure subscriptions",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Monitor default behavior docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Monitor",
+    "fact": "Azure Monitor supports three core types of observability data: logs, metrics, and distributed traces",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Monitor data types documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Health Model",
+    "fact": "A health model defines healthy and unhealthy states for each component to enable fast failure detection and recovery",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure SQL Database",
+    "fact": "Azure SQL Database is a fully managed relational database service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure SQL Database docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Key Vault",
+    "fact": "Azure Key Vault supports expiry settings, key rotation, and alerting for upcoming expirations",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Key Vault feature docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure App Service",
+    "fact": "Azure App Service serves as a low-friction container platform and alternative to AKS",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check App Service container support docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Container Registry",
+    "fact": "Azure Container Registry supports geo-replication, Microsoft Entra authentication, and vulnerability scanning",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ACR feature docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Infrastructure As Code",
+    "fact": "Infrastructure as code treats infrastructure definitions as source code that is version controlled",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Infrastructure As Code",
+    "fact": "IaC promotes consistency and eliminates manual configuration drift",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Reliability",
+    "fact": "Reliability is the primary focus pillar for mission-critical workloads within the Well-Architected Framework",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check WAF mission-critical guidance",
+    "confidence": "high"
+  },
+  {
+    "entity": "Reliability",
+    "fact": "Reliability encompasses resiliency, availability, and recoverability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Firewall",
+    "fact": "Azure Firewall can be deployed as dedicated or centralized",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Firewall deployment models",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Application Insights",
+    "fact": "Application Insights is a feature of Azure Monitor that provides APM and distributed tracing",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Application Insights docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Private Link",
+    "fact": "Azure Private Link provides dedicated access to Azure PaaS resources using private endpoints",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Private Link docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft",
+    "fact": "Microsoft operates the backbone network over which Azure Front Door traffic flows",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door networking docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Continuous Validation And Testing",
+    "fact": "Continuous validation and testing covers reliability, performance, and security aspects of mission-critical workloads",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Operational Excellence",
+    "fact": "Operational Excellence encompasses DevOps practices, holistic observability, automation, and loosely coupled component design",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB Analytical Store",
+    "fact": "Uses a column-oriented data format for optimized analytical queries",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB Analytical Store",
+    "fact": "Fully isolated from transactional workloads",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB analytical store docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB Analytical Store",
+    "fact": "Supports multi-region availability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB analytical store docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB Analytical Store",
+    "fact": "Auto-sync latency connects transactional to analytical store",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB auto-sync latency specs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Security",
+    "fact": "Security is one of the five pillars of the Azure Well-Architected Framework",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check WAF pillar list",
+    "confidence": "high"
+  },
+  {
+    "entity": "Security",
+    "fact": "Focuses on protecting confidentiality, integrity, availability, and reliability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Performance Efficiency",
+    "fact": "Performance Efficiency is one of the five pillars of the Azure Well-Architected Framework",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check WAF docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Performance Efficiency",
+    "fact": "Focused on scalability and accomplishing purpose within acceptable timeframes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Grafana",
+    "fact": "Available as Azure Managed Grafana",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Managed Grafana service page",
+    "confidence": "high"
+  },
+  {
+    "entity": "Grafana",
+    "fact": "Used to represent aggregated health scores as dependency charts",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Maturity Model",
+    "fact": "Has five levels categorized by pillars",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check WAF maturity model docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Maturity Model",
+    "fact": "Provides phased guidance from foundation to future-proofing",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Deployment Stamp",
+    "fact": "A deployment stamp is a pattern for horizontally scaling a solution as regional units",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Deployment Stamp",
+    "fact": "Contains both infrastructure and application components",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Entra",
+    "fact": "Provides authentication for Azure Container Registry push and pull operations",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ACR authentication docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Entra",
+    "fact": "Provides RBAC for Azure Cosmos DB authentication",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB RBAC docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Private Endpoints",
+    "fact": "Restrict access to private virtual networks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Private Endpoints",
+    "fact": "Help prevent data exfiltration risks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Global Traffic Routing",
+    "fact": "Distributes traffic across multiple active regional deployment stamps using global routing services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "App Service",
+    "fact": "Azure App Service supports autoscaling, per-app scaling, and diagnostic logging",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check App Service feature list",
+    "confidence": "high"
+  },
+  {
+    "entity": "Change Feed",
+    "fact": "Provides a time-ordered feed of insert and update operations, excluding deletes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB change feed docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Change Feed",
+    "fact": "Writes data to a separate store",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB change feed architecture",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Continuous Backup Mode",
+    "fact": "Allows point-in-time restore with one-second granularity within the last 30 days",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB continuous backup docs for retention period",
+    "confidence": "high"
+  },
+  {
+    "entity": "Continuous Backup Mode",
+    "fact": "Supports self-service restore",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB backup docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Synapse Analytics",
+    "fact": "Provides SQL Serverless pools and Spark pools",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Synapse Analytics docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Synapse Analytics",
+    "fact": "Can query Azure Cosmos DB Analytical Store",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Synapse Link docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Synapse Link",
+    "fact": "Analytical store data is not included in Azure Cosmos DB backups",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB backup scope docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Synapse Link",
+    "fact": "Enables no-ETL Hybrid Transactional-Analytical Processing (HTAP)",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Synapse Link docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Data Factory",
+    "fact": "Supports manual, schedule, tumbling window, and event-based triggers for Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ADF Cosmos DB connector docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Data Factory",
+    "fact": "Is a batch-oriented orchestration service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ADF docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Four Vs Of Big Data",
+    "fact": "Framework comprises Volume, Velocity, Variety, and Veracity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Zero Trust",
+    "fact": "Eliminates implicit trust and enforces verification at every layer",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Zero Trust",
+    "fact": "Is a Microsoft security model",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Zero Trust predates Microsoft; check branding",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Landing Zone",
+    "fact": "Provides Azure policies ensuring consistent reliability and security",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ALZ docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Landing Zone",
+    "fact": "Recommends dedicated subscriptions for mission-critical workloads",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ALZ guidance",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Functions",
+    "fact": "Serverless compute platform where logic runs as distinct functions in response to events",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Functions docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Functions",
+    "fact": "Can bind to Azure Cosmos DB change feed",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Functions Cosmos DB bindings",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Virtual Machines",
+    "fact": "Serve as the primary IaaS hosting model for constrained migrations from on-premises",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Virtual Machines",
+    "fact": "Require management of operating systems and software packages",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Load Testing",
+    "fact": "Validates scalability by increasing load until a predetermined threshold is reached",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Load Testing",
+    "fact": "Typically performed in parallel with chaos testing",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "medium"
+  },
+  {
+    "entity": "Blue/Green Deployment",
+    "fact": "Requires at least two identical deployments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Blue/Green Deployment",
+    "fact": "Traffic is gradually transitioned from blue to green deployment enabling zero-downtime upgrades",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Network Security Groups",
+    "fact": "Provide IP ACL-based security at subnet or network interface level",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check NSG docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Network Security Groups",
+    "fact": "Used for micro-segmentation of application traffic",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Health Modeling",
+    "fact": "Maps quantified application health states through observability and operational constructs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB For Nosql",
+    "fact": "Offers the most comprehensive feature set among Cosmos DB APIs, particularly for performance tuning",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB API comparison docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB For Nosql",
+    "fact": "Supports continuous backup configuration",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB NoSQL backup docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Cost Optimization",
+    "fact": "Is one of the five pillars of the Azure Well-Architected Framework",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check WAF docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Cost Optimization",
+    "fact": "Encompasses cost modeling, budgets, rate optimization, dynamic scaling, and resource utilization",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "CI/CD Pipelines",
+    "fact": "CI/CD pipelines emit telemetry data",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "medium"
+  },
+  {
+    "entity": "CI/CD Pipelines",
+    "fact": "CI/CD pipelines can be supplemented with AIOps methodologies",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "DevOps",
+    "fact": "DevOps combines development and operational processes into a single engineering function",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "DevOps",
+    "fact": "DevOps encompasses the entire application lifecycle with automation and CI/CD",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Zero-Downtime Deployment",
+    "fact": "Zero-downtime deployment involves deploying new infrastructure alongside existing infrastructure, testing it, transitioning traffic, then decommissioning old infrastructure",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure CDN",
+    "fact": "Azure CDN supports Azure WAF enablement in public preview",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure CDN WAF integration GA status",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure CDN",
+    "fact": "Azure CDN is more cost effective than Azure Front Door but with fewer advanced routing and WAF capabilities",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Compare Azure CDN vs Front Door pricing and features",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Virtual Network",
+    "fact": "A virtual network is a fundamental networking construct in Azure that enables private connectivity between resources",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Scale-Unit Architecture",
+    "fact": "Scale-unit architecture optimizes end-to-end scalability through compartmentalization, allowing logical units to be scaled independently",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Scale Unit",
+    "fact": "A scale unit comprises code components, hosting platforms, deployment stamps, and subscriptions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Global Distribution",
+    "fact": "Global distribution deploys applications across multiple regions in an active/active model to withstand regional and zone failures",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Active/Active Model",
+    "fact": "Active/active deployment provides a higher composite SLA by distributing load among all regions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Microservices Architecture",
+    "fact": "Microservices architecture facilitates high availability by preventing cascading failures",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Microservices Architecture",
+    "fact": "Programming languages and frameworks can be optimized at the microservice level",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Container Registry",
+    "fact": "Azure Container Registry supports geo-replication, zone redundancy, image locking, and private endpoints",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check ACR feature documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Event Hubs",
+    "fact": "Azure Event Hubs export destination must be in the same region as the Log Analytics workspace",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Log Analytics export region requirements",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Core Architecture Pattern",
+    "fact": "The core architecture pattern for mission-critical applications consists of global resources, regional stamp resources, and regional resources",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Periodic Backup Mode",
+    "fact": "Periodic backup mode is the default backup mode for Azure Cosmos DB",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB backup documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Periodic Backup Mode",
+    "fact": "Periodic backup mode stores backups in Geo-Redundant Storage",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB backup storage docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Periodic Backup Mode",
+    "fact": "Restoring from periodic backup requires a support request",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB restore process",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cache For Redis",
+    "fact": "Azure Cache for Redis is based on open source Redis",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check if Azure Cache for Redis still uses open source Redis vs fork",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Cache For Redis",
+    "fact": "Azure Cache for Redis offers Premium, Enterprise, and Enterprise Flash tiers",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Cache for Redis pricing tiers",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Database For PostgreSQL",
+    "fact": "Azure Database for PostgreSQL is offered in Single Server, Flexible Server, and Hyperscale (Citus) deployment options",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Single Server is being retired; check current deployment options",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Recovery Time Objective",
+    "fact": "Azure Cosmos DB provides an RTO of approximately 10-15 minutes for regional failover",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB SLA and failover documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Recovery Time Objective",
+    "fact": "Azure Cosmos DB has a strategic direction to reduce RTO to approximately 5 minutes",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB roadmap",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Traffic Manager",
+    "fact": "Azure Traffic Manager is a DNS redirection service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Traffic Manager",
+    "fact": "Azure Traffic Manager has built-in multi-region redundancy and availability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Traffic Manager SLA docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure WAF",
+    "fact": "Azure WAF provides out-of-the-box protection against the top 10 OWASP vulnerabilities using managed rule sets",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure WAF managed rule sets documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure WAF",
+    "fact": "Azure WAF supports custom rules",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure WAF features",
+    "confidence": "high"
+  },
+  {
+    "entity": "DevSecOps",
+    "fact": "DevSecOps expands DevOps by integrating security monitoring, application audits, and quality assurance throughout the application lifecycle",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Virtual Machines",
+    "fact": "Virtual Machines require specific security considerations including hardening, update management, and access control",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Recoverability",
+    "fact": "Recoverability focuses on restoration within RTO and RPO targets",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Workload Team",
+    "fact": "A workload team includes members from various technical and business disciplines focused on workload success throughout its lifecycle",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure SDKs",
+    "fact": "Azure SDKs have built-in resiliency capabilities for connecting to Azure services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure SDK documentation for retry/resiliency features",
+    "confidence": "high"
+  },
+  {
+    "entity": "Deployment Stamps",
+    "fact": "Deployment stamps are regional scale units used to distribute workloads across regions or within a single region for fault tolerance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "GitHub",
+    "fact": "GitHub is recommended for storing source code for mission-critical workloads",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "medium"
+  },
+  {
+    "entity": "Performance Testing",
+    "fact": "Performance testing combines aspects of load and stress testing to validate performance under load and establish benchmark behaviors",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Disaster Recovery",
+    "fact": "Disaster recovery is distinguished from routine incident management",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Application Gateway",
+    "fact": "Azure Application Gateway is a regional Azure service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check if App Gateway has cross-region capabilities now",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Application Gateway",
+    "fact": "Azure Application Gateway v2 is a web traffic load balancer with WAF capabilities",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check App Gateway v2 docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "App Service Plan",
+    "fact": "An App Service plan defines the set of compute resources for apps hosted in Azure App Service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "App Service Plan",
+    "fact": "App Service Plan supports configurable scaling rules, instance limits, and availability zone support",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure App Service Plan docs for current features",
+    "confidence": "high"
+  },
+  {
+    "entity": "Chaos Experiments",
+    "fact": "Chaos experiments inject faults into application components to validate fault mitigation capabilities",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Chaos Experiments",
+    "fact": "Chaos experiments are run alongside load tests",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure CNI",
+    "fact": "Azure CNI enables Azure or Calico network policies for controlling traffic within AKS clusters",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS networking docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Autoscale",
+    "fact": "Autoscale scales out when any rule in a profile is met and scales in when all rules are met",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Autoscale",
+    "fact": "Autoscale automatically adjusts throughput between 10% and 100% of a configured maximum",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB autoscale docs for current range",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Calico",
+    "fact": "Calico has a richer feature set than Azure network policies including Windows node support",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check AKS network policy comparison docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Calico",
+    "fact": "Calico has broader community adoption and support compared to Azure network policies",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Calico community metrics",
+    "confidence": "medium"
+  },
+  {
+    "entity": "SNAT Port Exhaustion",
+    "fact": "SNAT port exhaustion occurs when outbound connections to public IP addresses exceed available SNAT ports, preventing new outbound connections",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "SNAT Port Exhaustion",
+    "fact": "SNAT port exhaustion is a common failure scenario in App Service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check App Service networking troubleshooting docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Global Resources",
+    "fact": "Global resources are long-living, globally distributed resources shared across regions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Global Resources",
+    "fact": "Global resources are responsible for traffic distribution, permanent state storage, and monitoring",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB For NoSQL",
+    "fact": "Azure Cosmos DB for NoSQL is the first-party API where new capabilities typically become available first",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB API comparison docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB For NoSQL",
+    "fact": "Azure Cosmos DB for NoSQL supports custom numerical properties for conflict resolution and custom resolution policies",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB conflict resolution docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Time-To-Live",
+    "fact": "TTL enables automatic deletion of expired data in Azure Cosmos DB after it has been reflected in the change feed",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB TTL docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Key Vault",
+    "fact": "Key Vault supports both server-side and client-side encryption scenarios",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Key Vault docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Key Vault",
+    "fact": "Key Vault provides zone and regional redundancy",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Key Vault SLA and redundancy docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Key Vault",
+    "fact": "Key Vault integrates with Microsoft Entra ID",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Key Vault authentication docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Veracity",
+    "fact": "Veracity is one of the Four Vs of Big Data, referring to data provenance, curation, governance, and quality assurance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Recovery Point Objective",
+    "fact": "RPO defines the acceptable amount of data loss measured in time",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Recovery Point Objective",
+    "fact": "RPO minimum is 0 for strong consistency with single-write region in Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB consistency and RPO docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Consistency Levels",
+    "fact": "Azure Cosmos DB offers five consistency levels",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB consistency levels docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Consistency Levels",
+    "fact": "Consistency levels affect RPO, RTO, data durability, and throughput trade-offs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Data Tiering",
+    "fact": "Data tiering classifies datasets into hot, warm, and cold tiers based on usage and criticality",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Caching",
+    "fact": "Caching is implemented for hot data scenarios to minimize response times",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Caching",
+    "fact": "Caching static content at the edge reduces backend load and lowers costs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Penetration Testing",
+    "fact": "Penetration testing identifies security vulnerabilities to ensure an application meets expected security posture",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Pipelines",
+    "fact": "Azure Pipelines is an Azure-native toolset recommended for mission-critical deployments",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure DevOps product docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure DevOps",
+    "fact": "Azure DevOps capabilities overlap with GitHub and can be used together",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Microsoft DevOps strategy docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure DevOps",
+    "fact": "Azure DevOps uses service connections and is recommended for mission-critical deployments",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure DevOps docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Stress Testing",
+    "fact": "Stress testing applies activities that overload existing resources to determine solution limits and verify graceful recovery",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Mission-Critical Online",
+    "fact": "Mission-Critical Online is a reference implementation available on GitHub",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check GitHub for the repository",
+    "confidence": "high"
+  },
+  {
+    "entity": "Mission-Critical Online",
+    "fact": "Mission-Critical Online illustrates zero-downtime deployment approaches for Azure",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check the GitHub repo README",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Dashboards",
+    "fact": "Azure Dashboards provides integrated out-of-the-box representation of operational data within Azure Monitor",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Monitor visualization docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Data Explorer",
+    "fact": "Azure Data Explorer is the underlying technology on which Log Analytics workspaces are based",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Monitor/Log Analytics architecture docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Data Explorer",
+    "fact": "Azure Data Explorer uses Kusto Query Language",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ADX docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Kusto Query Language",
+    "fact": "KQL is used by Log Analytics, Application Insights, and Azure Data Explorer",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check KQL docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cognitive Services",
+    "fact": "Azure Cognitive Services provides pre-built AI capabilities for predictive scenarios with low administrative overhead",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure AI Services docs (rebranded)",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Bastion",
+    "fact": "Azure Bastion is a fully platform-managed PaaS service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Bastion docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Bastion",
+    "fact": "Azure Bastion provides secure RDP/SSH connectivity to VMs without requiring public IP addresses",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Bastion docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "ExpressRoute",
+    "fact": "ExpressRoute supports bandwidths up to 100 Gbps",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check ExpressRoute SKU and bandwidth docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "ExpressRoute",
+    "fact": "ExpressRoute can access Azure PaaS services from on-premises via private peering",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ExpressRoute peering docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Virtual WAN",
+    "fact": "Azure Virtual WAN supports hub-and-spoke network designs and VPN connectivity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Virtual WAN docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Network Policies",
+    "fact": "Network Policies is a Kubernetes specification defining access policies for communication between pods using label selectors",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Availability Zone",
+    "fact": "Availability Zones are physically separate data center locations within an Azure region",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Availability Zone",
+    "fact": "Availability Zones provide guaranteed sub-2ms inter-zone latency",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Availability Zone SLA documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Mission-Critical Design",
+    "fact": "Mission-critical design endorses ephemeral stateless application resources",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Threat Modeling",
+    "fact": "Threat modeling provides a risk-based approach to security design using identified potential threats",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Well-Architected Review",
+    "fact": "The Azure Well-Architected Review is a free assessment tool",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure WAF review pricing page",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Well-Architected Review",
+    "fact": "The tool consists of questionnaires tied to pillar checklists",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check the Azure Well-Architected Review tool",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Advisor",
+    "fact": "Azure Advisor analyzes resource configuration and usage telemetry and provides recommendations based on the core pillars",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Advisor documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Service Bus",
+    "fact": "Azure Service Bus supports PeekLock mode and duplicate detection",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Service Bus feature documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Service Bus",
+    "fact": "Azure Service Bus supports zone redundancy and geo-disaster recovery",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Service Bus reliability documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Service Bus",
+    "fact": "Azure Service Bus supports Microsoft Entra ID authentication",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Service Bus security docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "SAP Workloads",
+    "fact": "Resiliency and recoverability are distinct concepts and should not be treated as synonymous",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Disk Storage",
+    "fact": "Azure Disk Storage variants include Premium SSD, Ultra Disk Storage, Standard SSD, and Standard HDD",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Disk Storage SKU offerings",
+    "confidence": "high"
+  },
+  {
+    "entity": "Capacity Model",
+    "fact": "A capacity model defines the scope and relationships between scale units based on performance and non-functional requirements",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Circuit Breaker",
+    "fact": "Circuit Breaker provides stability by waiting for recovery or quickly rejecting requests rather than blocking",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Retry",
+    "fact": "Retry pattern handles transient failures through cancel, immediate retry, or retry after delay strategies with suitable back-off",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Distributed Tracing",
+    "fact": "Distributed tracing provides correlation IDs for error messages across services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Loosely Coupled Event-Driven Architecture",
+    "fact": "Components operate independently using asynchronous messaging via well-defined interfaces",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Serverless Computing",
+    "fact": "Serverless computing provides resources on demand with automatic provisioning and scaling, eliminating infrastructure management",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Web Application Firewall",
+    "fact": "WAF provides protection from common web exploits including SQL injection",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Virtual Machine Scale Sets",
+    "fact": "Azure VMSS provide automatic scaling, health monitoring, automatic repair of unhealthy instances, flexible orchestration, and fault domain management",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check VMSS feature documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Auto Heal",
+    "fact": "Auto Heal automatically recycles unhealthy workers in Azure App Service",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure App Service Auto Heal docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Auto Heal",
+    "fact": "Auto Heal is available for Azure App Service Linux",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check App Service Linux feature list",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Containerization",
+    "fact": "Containerization is an abstraction layer enabling portability and consistent execution across platforms",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Regional Pairs",
+    "fact": "Azure regional pairs benefit from serialized deployment (SDP) rollouts for planned maintenance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure regional pairs documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Regional Pairs",
+    "fact": "Regional pairs receive regional prioritization for unplanned outages",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure regional pairs documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Marketplace",
+    "fact": "Azure Marketplace provides standard images for VM deployment",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Marketplace offerings",
+    "confidence": "high"
+  },
+  {
+    "entity": "Kubernetes",
+    "fact": "Kubernetes supports RBAC, metrics API, and has version release cycles",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Kubernetes release documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Kubernetes",
+    "fact": "Kubernetes secrets can be injected as environment variables into deployments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Regional Stamp Resources",
+    "fact": "Regional stamp resources are ephemeral, stateless, and can be added or removed dynamically",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "CQRS",
+    "fact": "CQRS separates command and query responsibilities to optimize data throughput",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "IaaS",
+    "fact": "IaaS uses virtual machines as the primary application hosting model",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Multi-Region Write",
+    "fact": "Multi-region write synchronizes and merges changes across writeable replicas with conflict resolution",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Multi-Region Write",
+    "fact": "Azure Cosmos DB supports multi-region write configuration with a write replica in each deployment region",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Cosmos DB documentation for multi-region write support",
+    "confidence": "high"
+  },
+  {
+    "entity": "Direct Connectivity Mode",
+    "fact": "Direct mode uses TCP connections to backend Azure Cosmos DB replica nodes with fewer network hops",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB SDK connectivity modes documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Chaos Testing",
+    "fact": "Chaos testing injects artificial failures into an application under load to understand failure responses",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Chaos Testing",
+    "fact": "Chaos testing is used to validate backup, restore capabilities, and failover operations",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Customer-Managed Keys",
+    "fact": "Customer-managed keys require appropriate key management procedures for availability, backup, and rotation",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Customer-Managed Keys",
+    "fact": "Customer-managed keys should be used when clear regulatory requirements stipulate their use",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Soft-Delete Pattern",
+    "fact": "Soft-delete flags records as deleted rather than removing them, using a boolean property and TTL for automatic deletion",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Soft-Delete Pattern",
+    "fact": "Soft-delete pattern is required for handling deletes in Azure Cosmos DB change feed",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check if Cosmos DB change feed now natively supports deletes",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Point-In-Time Restore",
+    "fact": "PITR allows restoring Azure Cosmos DB data with one-second granularity within continuous backup mode",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB PITR documentation for granularity details",
+    "confidence": "high"
+  },
+  {
+    "entity": "Point-In-Time Restore",
+    "fact": "Point-in-time restore is available for Azure SQL Database as an operational recovery method",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure SQL Database backup documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Resource Locks",
+    "fact": "Resource Locks in Azure Cosmos DB apply only to control plane operations",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Cosmos DB resource locks documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Hyperscale (Citus)",
+    "fact": "Hyperscale (Citus) provides 99.95% SLA when High Availability is enabled",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Database for PostgreSQL Hyperscale SLA page",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Hyperscale (Citus)",
+    "fact": "Hyperscale (Citus) provides dynamic scalability through sharding",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Database for PostgreSQL deployment options",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB Change Feed",
+    "fact": "Change feed provides a log of changes that can maintain a separate secondary data store for analytical scenarios",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB change feed documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Flexible Server",
+    "fact": "Flexible Server offers Availability Zone redundancy with 99.99% SLA",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Database for PostgreSQL Flexible Server SLA",
+    "confidence": "high"
+  },
+  {
+    "entity": "Flexible Server",
+    "fact": "Flexible Server offers stop/start capability and burstable compute tier",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Flexible Server feature documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Sharding",
+    "fact": "Sharding distributes data and processing across multiple identical structured databases by partitioning horizontally",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Synapse Studio",
+    "fact": "Azure Synapse Studio provides a unified experience for ingestion and querying tasks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Synapse Analytics documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Custom Resolution Policies",
+    "fact": "Custom resolution policies are available only with Azure Cosmos DB for NoSQL",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB conflict resolution documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Custom Resolution Policies",
+    "fact": "Custom resolution policies use a registered merge stored procedure",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB conflict resolution documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Hub Region",
+    "fact": "The hub region is the first configured region and handles all conflict resolutions in multi-region write",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB multi-region write conflict resolution docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Role-Based Access Control",
+    "fact": "RBAC provides built-in and custom roles for Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB RBAC documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Common Vulnerabilities And Exposures",
+    "fact": "CVE is a system for identifying known security vulnerabilities in software",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Dependabot",
+    "fact": "Dependabot is a GitHub tool that automatically keeps dependencies up to date",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check GitHub Dependabot documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "GitHub Actions",
+    "fact": "GitHub Actions is described as an Azure-native toolset provided by Microsoft",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check GitHub Actions and Azure integration docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Subscription-Scoped Deployment",
+    "fact": "Multiple Azure subscriptions are used as scale units to avoid single subscription scale limits",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "DDoS",
+    "fact": "DDoS attacks can have catastrophic impact on availability and performance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Active/Active Design",
+    "fact": "Active/active distributes components across multiple Availability Zones and regions for regional fault tolerance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Design For Self-Healing",
+    "fact": "Self-healing systems recover automatically from failures through pre-defined remediation protocols",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Drive Automation",
+    "fact": "Minimize human error by striving for automation in testing, deployment, and management",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Loosely Coupled Components",
+    "fact": "Loosely coupled components enable independent testing, deployments, and updates while minimizing inter-team dependencies",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Service Level Objective",
+    "fact": "SLO distinguishes between service degradation and unavailability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "KQL",
+    "fact": "KQL provides the 'union' operator to aggregate queries and mitigate Log Analytics query limits",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check KQL documentation and Log Analytics limits",
+    "confidence": "high"
+  },
+  {
+    "entity": "Health Score",
+    "fact": "A health score is calculated automatically based on underlying metrics",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Layered Application Health",
+    "fact": "Layered application health defines health by quantifying healthy and unhealthy states across components, user flows, and overall application",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Query Packs",
+    "fact": "Query packs are Azure Resource Manager resources that store log queries as JSON",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Monitor documentation for query packs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Query Packs",
+    "fact": "Query packs can be shared across subscriptions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Monitor documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Monitor Alerts API",
+    "fact": "Azure Monitor Alerts API has throttling limits for extreme usage scenarios",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Monitor Alerts API documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Micro-Segmentation",
+    "fact": "Micro-segmentation employs distributed ingress/egress micro-perimeters",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Micro-Segmentation",
+    "fact": "Micro-segmentation is based on a Zero Trust model",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Kubenet",
+    "fact": "Kubenet is suitable for scenarios with limited available IP addresses",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS networking documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Kubenet",
+    "fact": "Pods in Kubenet exist in a virtual overlay network",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS networking docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure NAT Gateway",
+    "fact": "Azure NAT Gateway supports 64,000 connections per assigned outbound IP address",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure NAT Gateway documentation for limits",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure NAT Gateway",
+    "fact": "Azure NAT Gateway supports up to 16 IP addresses per gateway",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure NAT Gateway limits",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Web Application Firewall",
+    "fact": "Azure WAF can be deployed on Azure Front Door at network edge locations to inspect every incoming request",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door WAF documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Front Door Premium",
+    "fact": "Azure Front Door Premium supports private endpoints enabling direct internet-to-VNet traffic flow without public IPs",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Front Door Premium documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Standard Load Balancer",
+    "fact": "Azure Standard Load Balancer cross-region capability is available in preview and not recommended for mission-critical workloads",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Load Balancer cross-region GA status",
+    "confidence": "medium"
+  },
+  {
+    "entity": "WAF",
+    "fact": "WAF is configurable in Prevention or Detection mode",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure WAF documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Traffic Manager",
+    "fact": "Traffic Manager is used for non-HTTP/S scenarios as a replacement to Azure Front Door",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Traffic Manager documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Application Gateway",
+    "fact": "Application Gateway is a Level 7 gateway",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Application Gateway docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "RBAC",
+    "fact": "RBAC is recommended over resource locks for most resources",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Secret Management",
+    "fact": "Secret management involves handling key, secret, and certificate rotation to prevent application outages",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Virtual Machine Scale Sets",
+    "fact": "Virtual Machine Scale Sets enable scale, autoscale, and zone redundancy capabilities",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check VMSS documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Application-Startup Retrieval",
+    "fact": "Application-startup secret retrieval creates a runtime dependency on the secret store",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Managed Identities",
+    "fact": "Azure managed identities eliminate the need to store secrets or manage service principal credentials",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check managed identities documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Entra Privileged Identity Management",
+    "fact": "Microsoft Entra PIM revokes sustained control plane access to production environments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Microsoft Entra PIM documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "FIPS 140",
+    "fact": "FIPS 140 Level 3 compliance is available via Azure Key Vault managed HSM",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Key Vault managed HSM certifications",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Key Vault Managed HSM",
+    "fact": "Azure Key Vault Managed HSM offers FIPS 140-2 Level 3 compliance",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Key Vault managed HSM documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "MSAL",
+    "fact": "MSAL typically handles token caching automatically",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check MSAL documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Infrastructure-As-Code",
+    "fact": "Infrastructure-as-Code is recommended for automating scaling operations",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Defense-In-Depth",
+    "fact": "Defense-in-depth is a layered approach to define and implement compensating mitigations for modeled threats",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Managed Identities",
+    "fact": "Azure Managed Identities facilitate removal of credentials from application code for service-to-service communication",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check managed identities docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Network Virtual Appliances",
+    "fact": "Inline Network Virtual Appliances for Next-Generation Firewall capabilities such as deep packet inspection introduce performance penalties and operational complexity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Design Guides",
+    "fact": "Design guides provide prescriptive guidance translating the Azure Well-Architected Framework's key strategies into actionable steps, focusing on single practices or decision points",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Advisor Score",
+    "fact": "Azure Advisor Score aggregates Advisor recommendations into a score categorized by the core pillars",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Advisor documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Strangler Fig Pattern",
+    "fact": "The Strangler Fig pattern supports safe decommissioning by removing legacy endpoints after replacement flows meet reliability and observability targets",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Safe Decommissioning",
+    "fact": "Safe decommissioning treats deletions as irreversible with steps: validating inactivity, preserving state, disabling before deleting, and monitoring through a watch window",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Resiliency",
+    "fact": "Resiliency emphasizes withstanding faults and maintaining acceptable user experience during disruptions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Network Security Perimeter",
+    "fact": "Azure Network Security Perimeter provides defense-in-depth and PaaS service isolation capabilities",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Network Security Perimeter docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Microsoft Security Copilot",
+    "fact": "Microsoft Security Copilot is an AI-powered tool for threat investigation, analysis, and web application firewall event analysis",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Microsoft Security Copilot product page",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Maturity Models",
+    "fact": "Maturity models were introduced in June 2025 to assess workload architecture across the five pillars of the Azure Well-Architected Framework",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure WAF documentation for maturity models",
+    "confidence": "high"
+  },
+  {
+    "entity": "Noisy Neighbor Antipattern",
+    "fact": "The Noisy Neighbor antipattern can be avoided by dedicating landing zone subscriptions to specific applications",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Sentinel",
+    "fact": "When Sentinel is enabled, free data retention in Log Analytics workspace extends to 90 days",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Microsoft Sentinel pricing/data retention docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Polly",
+    "fact": "Polly is a standardized package for C# that implements resiliency patterns",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Polly GitHub repository",
+    "confidence": "high"
+  },
+  {
+    "entity": "Sentinel",
+    "fact": "Sentinel is a standardized package for Java that implements resiliency patterns",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Sentinel Java resilience library",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Premium Plan",
+    "fact": "The Premium plan for Azure Functions allows configuring compute instance size for maximizing reliability and performance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Functions hosting options docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Image Locking",
+    "fact": "Image locking prevents changes or deletions to container image versions or repositories in Container Registry",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Container Registry docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Zone Redundancy",
+    "fact": "Zone redundancy is available in the Premium Container Registry tier and provides protection against availability zone failures",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Container Registry tier features",
+    "confidence": "high"
+  },
+  {
+    "entity": "Saga",
+    "fact": "The Saga pattern manages data consistency across microservices with independent datastores through event or message channels and compensating transactions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Event-Driven Design",
+    "fact": "Event-driven design uses asynchronous message processing through an intermediary to build resiliency and support loose coupling",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Retries With Backoff",
+    "fact": "Retries with backoff implements resilient applications by retrying failed operations with exponential backoff",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Outbox Pattern",
+    "fact": "The Outbox pattern guarantees consistency so that every message is processed correctly in distributed services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Workload",
+    "fact": "A workload is a collection of application resources, custom code, AI models, data, and supporting infrastructure that function together to achieve defined business outcomes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": ".NET SDK",
+    "fact": "The .NET SDK for Azure provides more capabilities than other SDKs and is updated frequently, prioritized for reliability and performance",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure SDK release notes",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Solution Architect",
+    "fact": "The solution architect role involves balancing competing constraints, disclosing design shortcomings, validating assumptions with proof of concepts, and managing technical debt",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Incident Management",
+    "fact": "Incident management recovers from workload disruptions through detection, response, triage, and post-incident retrospectives",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Geo-Replication",
+    "fact": "Geo-replication replicates container images across multiple Azure regions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Container Registry docs for geo-replication feature",
+    "confidence": "high"
+  },
+  {
+    "entity": "Geo-Replication",
+    "fact": "Geo-replication provides resiliency against regional outages and reduces latency",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Defender For Container Registries",
+    "fact": "Microsoft Defender for container registries provides vulnerability scanning for container images",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check if this has been replaced by Defender for Containers",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Composite SLO",
+    "fact": "Composite SLO is calculated across user flows and deployment regions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Composite SLO",
+    "fact": "Composite SLO targets should be aligned to business requirements",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Content Delivery Network",
+    "fact": "Azure Front Door's built-in cache can replace CDN in many use cases",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Front Door documentation for caching capabilities",
+    "confidence": "high"
+  },
+  {
+    "entity": "Content Delivery Network",
+    "fact": "CDN minimizes network latency through edge caching",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Cluster Autoscaler",
+    "fact": "Cluster autoscaler automatically adjusts the number of agent nodes in response to resource constraints in AKS",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS autoscaler docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Horizontal Pod Autoscaler",
+    "fact": "Horizontal pod autoscaler adjusts pod count based on CPU utilization or other metrics",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "AKS Uptime SLA",
+    "fact": "AKS Uptime SLA provides Kubernetes API endpoint availability guarantees for production clusters",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS SLA page for current guarantees",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Entra Workload ID",
+    "fact": "Microsoft Entra Workload ID enables managed identities at the pod level in AKS",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS workload identity docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Virtual Nodes",
+    "fact": "Virtual nodes provide rapid scaling for high scale and burst scenarios in AKS",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS virtual nodes documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Kubernetes RBAC",
+    "fact": "Kubernetes RBAC integrates with Microsoft Entra ID for least privilege access control in AKS",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS RBAC integration docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "PaaS",
+    "fact": "PaaS has lower operational costs and complexity compared to IaaS",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "PaaS",
+    "fact": "PaaS may have limitations for legacy or proprietary development software",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "North Star Architecture",
+    "fact": "North Star architecture is the recommended cloud-native baseline pattern for mission-critical workloads",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure mission-critical guidance",
+    "confidence": "high"
+  },
+  {
+    "entity": "Flexible Orchestration",
+    "fact": "Flexible orchestration automatically distributes VMs across fault domains to protect against failures",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check VMSS flexible orchestration docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Safe Deployment Practice Framework",
+    "fact": "Azure SDP ensures code and configuration changes undergo phased rollout with health analysis across regional pairs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure SDP documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Geo-Redundant Storage",
+    "fact": "Azure GRS automatically replicates data to a secondary paired region",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Storage redundancy docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "TCP Port Exhaustion",
+    "fact": "TCP port exhaustion occurs when outbound connections from an App Service worker exceed capacity depending on worker size",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check App Service networking limits",
+    "confidence": "high"
+  },
+  {
+    "entity": "Docker Hub",
+    "fact": "Using Docker Hub as public registry can lead to availability, throttling, and data exfiltration issues",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Container Registry Tasks",
+    "fact": "Container Registry tasks enable automated container building and patching",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ACR Tasks docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Per-App Scaling",
+    "fact": "Per-app scaling allows an application to scale independently from its App Service plan",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check App Service per-app scaling docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Prometheus",
+    "fact": "Prometheus provides metrics integration within Azure Monitor for AKS container insights",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Monitor managed Prometheus docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Planned Maintenance",
+    "fact": "Planned Maintenance allows defining maintenance windows for AKS node and cluster updates",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS planned maintenance docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Auto-Upgrade Channels",
+    "fact": "Auto-upgrade channels automatically upgrade AKS clusters to newer Kubernetes versions or node images",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS auto-upgrade docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Baseline Architecture",
+    "fact": "Baseline architecture is a reference for mission-critical apps accessed over public endpoints without private network connectivity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure mission-critical baseline docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Baseline With Network Controls",
+    "fact": "Extends baseline architecture with strict network controls to prevent unauthorized public access",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check mission-critical network controls docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Cosmos DB SDK",
+    "fact": "Azure Cosmos DB SDK provides built-in error handling, retry, and reliability capabilities",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB SDK documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Direct Connection Mode",
+    "fact": "Direct connection mode uses direct TCP connectivity to backend Cosmos DB nodes for optimized performance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB connectivity modes docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Partitioning Strategy",
+    "fact": "Partitioning strategy optimizes data distribution across logical and physical partitions in Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Event Sourcing",
+    "fact": "Event Sourcing is used alongside CQRS for asynchronous non-blocking messaging",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Event Sourcing",
+    "fact": "Event Sourcing is a persistence pattern that optimizes throughput",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Continuous Backups",
+    "fact": "Continuous backups provide recovery points across the last 30 days for Azure Cosmos DB",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Cosmos DB continuous backup documentation for retention period",
+    "confidence": "high"
+  },
+  {
+    "entity": "Indexing",
+    "fact": "Index exclusions in Azure Cosmos DB reduce RU/s and storage requirements",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Automatic Failover",
+    "fact": "Automatic failover is for single write region configurations and considers all read region replicas for failover priority",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Paxos Consensus Protocol",
+    "fact": "Azure Cosmos DB uses the Paxos consensus protocol to achieve quorum across replicas within a region",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Last Write Wins",
+    "fact": "Last Write Wins is the conflict resolution policy used in multi-region write contexts when the same data item is changed in two separate write-replicas",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Gateway Connectivity Mode",
+    "fact": "Gateway mode provides HTTPS connectivity to frontend gateway nodes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB connectivity modes documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Service-Managed Encryption Keys",
+    "fact": "Service-managed encryption keys are recommended over customer-managed keys to reduce management complexity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Analytical Store",
+    "fact": "Analytical Store uses a column-format store optimized for analytical queries",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Geo-Redundant Storage",
+    "fact": "GRS is the default storage redundancy for periodic backups, replicated to a paired region",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB periodic backup default settings",
+    "confidence": "high"
+  },
+  {
+    "entity": "Request Units",
+    "fact": "RU/s are billed per region for replicated configurations in Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB pricing model",
+    "confidence": "high"
+  },
+  {
+    "entity": "Session",
+    "fact": "Session is the default and most widely used consistency level in Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB default consistency level docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Active Geo-Replication",
+    "fact": "Active Geo-Replication supports up to four readable replicas across different regions",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure SQL Database geo-replication limits",
+    "confidence": "high"
+  },
+  {
+    "entity": "Enterprise Flash Tier",
+    "fact": "Enterprise Flash tier runs on a combination of RAM and flash non-volatile memory",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Cache for Redis Enterprise Flash docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Enterprise Flash Tier",
+    "fact": "Enterprise Flash tier enables cache sizes up to 13TB with clustering",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Cache for Redis tier limits",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Single Server",
+    "fact": "Azure Database for PostgreSQL Single Server has a 99.99% SLA",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Database for PostgreSQL SLA page; Single Server may be deprecated",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Transparent Data Encryption",
+    "fact": "TDE provides server-side at-rest encryption for Azure SQL Database",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure SQL TDE documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Zone-Redundant Deployment Model",
+    "fact": "Zone-Redundant deployment spreads Business Critical database replicas across Availability Zones within the same region",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Availability Zone Redundancy",
+    "fact": "Availability Zone redundancy places data replicas across multiple availability zones to protect against zone failures",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Soft Delete",
+    "fact": "Soft Delete flags records as deleted rather than removing them, enabling inclusion in the change feed",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Conflict Resolution",
+    "fact": "Conflict resolution addresses situations where the same data item is changed in two separate write replicas before replication",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Auto Failover Groups",
+    "fact": "Auto Failover Groups replicate databases to a secondary server and allow transparent failover upon failure",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Business-Critical Service Tier",
+    "fact": "The Business-Critical service tier maximizes reliability and availability for Azure SQL Database",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure SQL service tier comparison docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Caching For Hot Tier Data",
+    "fact": "In-memory caching increases read throughput and improves response times for hot tier data",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Data Lake Gen2",
+    "fact": "Azure Data Lake Gen2 has a hierarchical namespace",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Data Lake Gen2 documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Data Lake Gen2",
+    "fact": "Azure Data Lake Gen2 is supported as an external store for Azure Synapse queries",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Synapse documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "CAP Theorem",
+    "fact": "CAP theorem describes trade-offs between consistency, availability, and partition tolerance in distributed systems",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "SAGA",
+    "fact": "SAGA is a design pattern for managing consistency and dependencies between different datastores in microservice architectures",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "PACELC Theorem",
+    "fact": "PACELC theorem extends CAP theorem to include latency and consistency trade-offs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Change Feed Processor",
+    "fact": "Change feed processor binds to Azure Cosmos DB change feed to process items into storage",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB change feed documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Event Grid",
+    "fact": "Event Grid is supported by Azure Data Factory for event-based triggers",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ADF trigger documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Single-Region Write",
+    "fact": "Single-region write Azure Cosmos DB offers 99.999% read SLA with Availability Zones",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB SLA page",
+    "confidence": "high"
+  },
+  {
+    "entity": "Single-Region Write",
+    "fact": "Single-region write Azure Cosmos DB offers 99.995% write SLA with Availability Zones",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB SLA page",
+    "confidence": "high"
+  },
+  {
+    "entity": "ETL",
+    "fact": "ETL pipelines consume throughput and can impact transactional workload performance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "HTAP",
+    "fact": "Hybrid Transactional-Analytical Processing enables querying transactional data for analytics in near real-time without ETL",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Auto-Sync",
+    "fact": "Operational data changes are automatically synced to the Analytical Store with latency usually less than two minutes",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Cosmos DB Analytical Store documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "MACsec",
+    "fact": "MACsec uses IEEE 802.1AE MAC standard for data-link encryption",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "MACsec",
+    "fact": "MACsec secures all traffic between Azure datacenters on the Microsoft backbone network",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure network security documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microservice Architecture",
+    "fact": "Microservice architecture allows individual services to use distinct scenario-optimized datastores rather than a single monolithic datastore",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Message Buffer",
+    "fact": "Message buffer stores write conflicts within the hub region capable of storing a few minutes worth of write updates",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check relevant architecture pattern documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Periodic Backup",
+    "fact": "Periodic backup in Cosmos DB provides zone-redundant or locally-redundant storage options",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB backup documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Periodic Backup",
+    "fact": "Periodic backup restoration requires a support request",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB backup documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Continuous Backup",
+    "fact": "Continuous backup enables point-in-time restore via Azure portal or ARM templates",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Cosmos DB continuous backup documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Function",
+    "fact": "Azure Function can be triggered by Azure Cosmos DB change feed",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Functions Cosmos DB trigger documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Partition Key",
+    "fact": "Partition key selection is critical for optimal performance and data distribution in Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Time To Live",
+    "fact": "TTL automatically deletes records after an elapsed time in Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB TTL documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Multi-Region Data Platform",
+    "fact": "A multi-region data platform distributes replicas across regions for maximum reliability, availability, and performance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Active-Active Geographical Distribution",
+    "fact": "Active-active geographical distribution deploys applications across multiple regions simultaneously",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Active-Active Geographical Distribution",
+    "fact": "Active-active geographical distribution introduces data consistency challenges",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Velocity",
+    "fact": "Velocity is one of the Four Vs of Big Data",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Chaos Studio",
+    "fact": "Azure Chaos Studio is an Azure-native service for chaos engineering and fault injection",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Chaos Studio product page",
+    "confidence": "high"
+  },
+  {
+    "entity": "Failure Mode Analysis",
+    "fact": "Failure mode analysis distinguishes failures from errors and considers read and write failures separately",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Failure Mode Analysis",
+    "fact": "Failure mode analysis identifies risk, impact, and breadth of impact by introducing faults",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Blue/Green Deployments",
+    "fact": "Blue/green deployments require Infrastructure as Code with fully automated deployments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Mission-Critical",
+    "fact": "Azure Mission-Critical recommends deploying infrastructure and applications together as deployment stamps",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Mission-Critical guidance",
+    "confidence": "high"
+  },
+  {
+    "entity": "Staging Environment",
+    "fact": "Staging environments are short-lived and destroyed after test validations are complete",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Production Environment",
+    "fact": "Production environments require the highest levels of reliability, capacity, and security",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Data Virtualization",
+    "fact": "Data virtualization does not require ETL and data movement",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Mission-Critical Connected",
+    "fact": "Azure Mission-Critical Connected is a reference implementation on GitHub",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check GitHub for Azure Mission-Critical Connected repo",
+    "confidence": "high"
+  },
+  {
+    "entity": "Terraform",
+    "fact": "Terraform is an IaC tool for defining and deploying infrastructure",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Terraform",
+    "fact": "Terraform providers need to be kept up to date as part of update management",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Terraform",
+    "fact": "Terraform resources can be used alongside Azure policies",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Terraform Azure provider docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Resource Manager Templates",
+    "fact": "ARM templates are Azure-native IaC artifacts",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check if ARM templates are still recommended vs Bicep",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Unit Testing",
+    "fact": "Unit testing confirms application business logic works as expected and validates overall effect of code changes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Smoke Testing",
+    "fact": "Smoke testing typically tests a single virtual user session",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "medium"
+  },
+  {
+    "entity": "Service Level Objectives",
+    "fact": "SLOs define availability targets such as 99.9% or 99.999%",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Zero-Downtime Deployments",
+    "fact": "Zero-downtime deployments require rigorous testing and end-to-end automation",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "SlowLoris",
+    "fact": "SlowLoris is a DDoS attack vector targeting network endpoints",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Blast Radius Reduction And Fault Isolation",
+    "fact": "Blast radius reduction anticipates failures from individual components to entire Azure regions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Design For Scale-Out",
+    "fact": "Design for scale-out focuses on horizontal scaling by adding resource units in parallel",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Complexity Avoidance",
+    "fact": "Avoiding unnecessary complexity drives reliability and management efficiencies",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Development Environments",
+    "fact": "Development environments are short-lived and have lower requirements for reliability, capacity, and security",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "SIEM",
+    "fact": "SIEM is used for tracking security and audit events and incident response",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Business Continuity",
+    "fact": "Business continuity includes planning and practice drills to maximize resiliency during unplanned downtime",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "MLOps Workflow",
+    "fact": "MLOps workflow is a recommended approach for operationalizing machine learning models",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Managed Compute Services",
+    "fact": "Managed compute services and containerized architectures reduce ongoing administrative and operational overhead",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Quantify Operational Health",
+    "fact": "Quantify operational health is a DevOps principle",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Classify And Encrypt Data",
+    "fact": "Classify and encrypt data is a security principle in the Azure Well-Architected Framework",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Monitor The Security Of The Entire Solution",
+    "fact": "Monitoring the security of the entire solution and planning incident responses is a security principle",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Unified Data Sink",
+    "fact": "A unified data sink consolidates all operational data for correlated analysis into a single pane of application health",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Unified Data Sink",
+    "fact": "Log Analytics Workspace can serve as a unified data sink",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Monitor/Log Analytics docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Structured Logging",
+    "fact": "Structured logging outputs log data in a consistent, parseable format",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Structured Logging",
+    "fact": "Structured logging is recommended for all log messages to improve observability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Traffic Light Model",
+    "fact": "The traffic light model uses Green (Healthy), Amber (Degraded), and Red (Unavailable) states",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Correlation ID",
+    "fact": "A correlation ID is returned to callers for all calls to facilitate troubleshooting and distributed tracing",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Sampling",
+    "fact": "Sampling can be enabled in Application Insights to reduce telemetry volume and optimize data ingest costs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Application Insights sampling documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Cross-Workspace Queries",
+    "fact": "Cross-workspace queries maintain a unified view across different Log Analytics workspaces",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Log Analytics cross-workspace query docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft.Insights REST API",
+    "fact": "The Microsoft.Insights REST API is used to deploy query packs as ARM resources",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Microsoft.Insights REST API reference",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Action Groups",
+    "fact": "Action Groups are Azure Monitor components for defining automated responses to alerts",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Monitor Action Groups docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Action Groups",
+    "fact": "Action Groups have hard limits on configurable responses",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Monitor service limits",
+    "confidence": "high"
+  },
+  {
+    "entity": "Automated ML",
+    "fact": "Automated ML is an Azure Machine Learning capability for automating ML model building",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure ML AutoML docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Anomaly Detection",
+    "fact": "Anomaly Detection is an Azure Cognitive Services feature for flagging unexpected variances in data streams",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Cognitive Services Anomaly Detector docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure ML",
+    "fact": "Azure ML integrates with Synapse Analytics through notebooks for training ML models using Automated ML",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Synapse ML integration docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Predictive Action",
+    "fact": "Predictive action involves interpreting and correlating complex operational signals to prevent issues before they occur",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Synapse Spark Pools",
+    "fact": "Synapse Spark Pools support ML libraries including MLLib, SparkML, and MMLSpark",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Synapse Spark documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Data Lake Storage",
+    "fact": "Azure Synapse can register external datasets from Azure Data Lake Storage",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Synapse external data source docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Database For Postgres",
+    "fact": "Azure Database for Postgres can serve as an external datastore for Grafana configuration state",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Grafana on Azure architecture docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "App Services",
+    "fact": "App Services can be used to deploy Grafana nodes in a highly available configuration",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure managed Grafana or App Services container docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure SQL",
+    "fact": "Azure SQL can optimize dashboard data retrieval when Log Analytics query limits are reached",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Log Analytics query limits and workarounds",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Automated Incident Response",
+    "fact": "Implementing extensive alerting to detect and respond to issues in near real-time maximizes reliability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "MLOps",
+    "fact": "MLOps applies DevOps practices to automate the ML lifecycle including training, operationalization, scoring, and continuous improvement",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Dedicated Clusters",
+    "fact": "Log Analytics Dedicated Clusters enable Availability Zones for zone failure protection",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Log Analytics dedicated cluster docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Dedicated Clusters",
+    "fact": "Dedicated Clusters require a minimum daily data ingest commitment",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Log Analytics dedicated cluster pricing/commitments",
+    "confidence": "high"
+  },
+  {
+    "entity": "Node Pools",
+    "fact": "AKS node pools allow separating workloads using nodes with different hardware and software characteristics",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS node pool documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Node Pools",
+    "fact": "AKS node pools do not provide network-level isolation",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AKS network isolation docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Network Address Translation",
+    "fact": "NAT is a compute operation in the networking stack that translates addresses when traffic from a virtual network travels to the Internet",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Virtual Network Peering",
+    "fact": "Virtual network peering connects networks within a region and across different regions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure VNet peering docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Virtual Network Peering",
+    "fact": "Treating application virtual networks as ephemeral creates complications with virtual network peering",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Observability",
+    "fact": "Observability focuses on robust and contextualized instrumentation and monitoring to provide insight into application health",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "VPN",
+    "fact": "VPN serves as a failover connectivity mechanism providing additional redundancy alongside ExpressRoute",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure DDoS Protection Basic",
+    "fact": "Azure DDoS Protection Basic is integrated into Azure Front Door by default",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door documentation for default DDoS protection tier",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure DDoS Protection Basic",
+    "fact": "Azure DDoS Protection Basic provides always-on traffic monitoring and real-time mitigation against Layer 3/4 and Layer 7 attacks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure DDoS Protection Basic feature documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure DDoS Standard",
+    "fact": "Azure DDoS Standard provides additional advanced protection and detection capabilities beyond Azure DDoS Protection Basic for Azure Front Door",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure DDoS Standard documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Application Gateway WAF",
+    "fact": "Application Gateway WAF supports built-in and custom rules in detection or prevention mode",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Application Gateway WAF documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Application Gateway WAF",
+    "fact": "Application Gateway WAF provides a slightly different feature set from Front Door WAF",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Compare feature matrices of App GW WAF vs Front Door WAF",
+    "confidence": "high"
+  },
+  {
+    "entity": "Session Affinity",
+    "fact": "Session Affinity uses client-side cookies to route subsequent requests to the same backend as the first request",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Session Affinity",
+    "fact": "Session Affinity can negatively impact traffic distribution balance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Akamai",
+    "fact": "Akamai is a third-party CDN provider that can integrate with Azure CDN",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure CDN provider options - Akamai integration was deprecated",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Verizon",
+    "fact": "Verizon is a third-party CDN provider that can integrate with Azure CDN",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure CDN provider options",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure DNS",
+    "fact": "Azure DNS is a shared foundational service that serves as a global platform dependency for almost all Azure services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure architecture documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Global Backbone Network",
+    "fact": "Azure Front Door uses the Microsoft global backbone network to forward requests to backend endpoints",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door architecture docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Anycast Protocol",
+    "fact": "Azure Front Door uses Anycast protocol with split TCP to optimize connectivity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door networking documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "TLS Offloading",
+    "fact": "TLS Offloading decrypts incoming TLS-encrypted traffic at the ingress point and requires the private key of the TLS certificate",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "OWASP",
+    "fact": "Azure WAF managed rule sets address the OWASP top 10 vulnerabilities",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure WAF managed rule sets documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Virtual Private Network",
+    "fact": "VPN provides aggregated bandwidth up to 10 Gbps in hub-and-spoke networks",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure VPN Gateway bandwidth limits",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Virtual Private Network",
+    "fact": "VPN provides aggregated bandwidth up to 20 Gbps in Azure Virtual WAN",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Virtual WAN VPN throughput limits",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Virtual Network Gateway",
+    "fact": "Azure Virtual Network Gateway requires a dedicated subnet",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure VNet Gateway deployment requirements",
+    "confidence": "high"
+  },
+  {
+    "entity": "Service Endpoints",
+    "fact": "Service Endpoints have data exfiltration risks compared to private endpoints",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Service Endpoints",
+    "fact": "Service Endpoints can be used for services that don't support Private Link",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check which Azure services support Private Link vs Service Endpoints",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Firewall Manager",
+    "fact": "Firewall Manager provides centralized management of Azure Firewall instances through global firewall policies",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Firewall Manager documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Private Link",
+    "fact": "Private Link enables direct service-to-service communication using private endpoints within or across regions",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Private Link documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "SNAT Port Inventory",
+    "fact": "SNAT port inventory can be pressured by large numbers of outgoing internet connections through NAT Gateway",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Region",
+    "fact": "An Azure region contains one or more Availability Zones",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure regions and availability zones documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Resource Manager",
+    "fact": "Azure Policy is part of Azure Resource Manager",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Policy architecture documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Resource Manager",
+    "fact": "Azure Resource Manager provides an API and control plane for managing Azure resources",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ARM documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "GitHub Dependabot",
+    "fact": "GitHub Dependabot monitors and automatically detects updates for dependencies",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check GitHub Dependabot documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Deployment-Time Retrieval",
+    "fact": "Deployment-time retrieval injects secrets at deployment time, removing direct runtime dependencies on the secret store",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Akv2K8S",
+    "fact": "akv2k8s syncs Azure Key Vault secrets to Kubernetes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check akv2k8s project status and documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure VM Image Builder",
+    "fact": "Azure VM Image Builder automates build and maintenance processes for customized VM images",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure VM Image Builder documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Backup Center",
+    "fact": "Backup Center provides insights into scheduled and periodic backup operations",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Backup Center documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Bicep",
+    "fact": "Bicep is an infrastructure-as-code language for automating Azure resource provisioning",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Bicep documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "ARM Templates",
+    "fact": "ARM templates are an infrastructure-as-code solution for automating Azure resource provisioning",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ARM templates documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Key Rotation",
+    "fact": "Key rotation is a fully automated process that runs periodically to update keys, secrets, and certificates",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Secrets Store CSI Driver Provider Azure",
+    "fact": "Azure Key Vault Provider for Secrets Store CSI Driver integrates Azure Key Vault with Kubernetes for secret management",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Key Vault CSI driver docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Zero-Trust Model",
+    "fact": "Zero-trust model restricts standing write access and enforces controlled operations in critical environments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Operational Procedures",
+    "fact": "Operational procedures involve adoption of DevOps and related deployment methods to drive effective and consistent operations",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Defender For Cloud",
+    "fact": "Microsoft Defender for Cloud was formerly known as Azure Security Center",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Microsoft Defender for Cloud documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Defender For Cloud",
+    "fact": "Microsoft Defender for Cloud is a security information and event management tool",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check current product description",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Deploy If Not Exist",
+    "fact": "Deploy If Not Exist (DINE) Azure Policy execution can take several minutes to occur",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Policy DINE documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Data Integrity Protection",
+    "fact": "Data integrity protection involves encryption and key management to safeguard data without compromising application reliability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Service-Managed Keys",
+    "fact": "Service-managed keys are encryption keys managed by Azure that handle key management functions such as rotation automatically",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure encryption key management docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Private Endpoints",
+    "fact": "Azure Private Endpoints provide secure, private access to Azure PaaS resources",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Private Endpoint docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Virtual Network Service Endpoints",
+    "fact": "Virtual Network Service Endpoints provide service-level access from selected subnets to selected PaaS services",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure VNet service endpoints docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Application Security Groups",
+    "fact": "Application Security Groups don't span across multiple virtual networks",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check ASG limitations in Azure docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Application Security Groups",
+    "fact": "Application Security Groups are used to micro-segment application traffic",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Network Watcher",
+    "fact": "Azure Network Watcher packet capture is limited to a maximum period of five hours",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Network Watcher packet capture limits",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Network Watcher",
+    "fact": "Azure Network Watcher provides VM Network Troubleshooter for integrated diagnostics",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Network Watcher feature list",
+    "confidence": "high"
+  },
+  {
+    "entity": "DDoS Standard Protection Plan",
+    "fact": "DDoS standard protection plan secures all public IP addresses within an application",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure DDoS Protection docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Traffic Analytics",
+    "fact": "Traffic Analytics receives NSG flow logs to provide insights into internal and external traffic flows",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Traffic Analytics docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "STRIDE",
+    "fact": "STRIDE covers six threat vectors: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "STRIDE",
+    "fact": "STRIDE is a lightweight risk framework for evaluating security threats",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Secret Scanning",
+    "fact": "Secret scanning detects secrets before code is committed to prevent secret leaks through source code repositories",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Token Caching",
+    "fact": "Secure token caching allows for a degraded but available experience when the identity platform is unavailable",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Next-Generation Firewall",
+    "fact": "NGFW capabilities such as deep packet inspection are provided by inline Network Virtual Appliances",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure NVA and firewall docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Disaster Recovery Plan",
+    "fact": "Disaster recovery plans address wide-scope failures through multi-region deployments based on business priorities and reliability objectives",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Ten Design Principles For Azure Applications",
+    "fact": "The Ten Design Principles for Azure Applications is referenced by the Azure Architecture Center",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Architecture Center",
+    "confidence": "high"
+  },
+  {
+    "entity": "Cloud Adoption Framework",
+    "fact": "Cloud Adoption Framework is recommended for improving a portfolio of workloads through centralized controls",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Service Guides",
+    "fact": "Service guides outline key features and recommended configurations for individual Azure components",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check WAF service guides",
+    "confidence": "high"
+  },
+  {
+    "entity": "Operational Excellence Maturity Model",
+    "fact": "Operational Excellence Maturity Model is recommended as entry point for AI adoption",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check WAF maturity model docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Resource Locks",
+    "fact": "Azure resource locks can apply delete protection to prevent accidental deletion of resources",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure docs for resource lock capabilities",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Resource Locks",
+    "fact": "Resource locks complement but do not replace backups and proper governance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Reliability Pillar",
+    "fact": "The Reliability pillar distinguishes between resiliency and recoverability as separate concepts for workload design",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Files",
+    "fact": "Azure Files supports both SMB and NFS file share protocols",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Files protocol support docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Files",
+    "fact": "Azure Files offers SSD file shares and metadata caching capabilities",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Files feature list",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Application Gateway V2",
+    "fact": "Azure Application Gateway v2 has AI-powered threat analysis and response capabilities",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check App Gateway v2 feature announcements",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure OpenAI Service",
+    "fact": "The Azure OpenAI Service guide was retired because content was outdated",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check WAF service guides for Azure OpenAI",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Virtual Network Manager",
+    "fact": "Azure Virtual Network Manager provides centralized IP address management capabilities",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check AVNM feature docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "PaaS Isolation",
+    "fact": "PaaS isolation is recommended with Azure Network Security Perimeter as a network segmentation pattern",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Network Security Perimeter docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Geo Priority Replication",
+    "fact": "Geo priority replication optimizes RPO when using GZRS redundancy",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Storage replication options",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Technical Debt",
+    "fact": "Technical debt requires intentional decision-making, documentation, and proactive management",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Database For Postgresql",
+    "fact": "Azure Database for PostgreSQL supports high availability, geo-redundant backup, private networking, Microsoft Entra ID integration, cost modeling, automation, monitoring, and intelligent performance tuning",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Database for PostgreSQL feature docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Event Grid",
+    "fact": "Azure Event Grid service guide covers all five Well-Architected Framework pillars",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check WAF service guide for Event Grid",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Database For MySQL",
+    "fact": "Azure Database for MySQL offers a flexible server deployment option",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Database for MySQL deployment options",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure File Sync Arc Extension",
+    "fact": "Azure File Sync Arc extension enables file synchronization for hybrid environments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure File Sync Arc extension docs",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Self-Healing And Self-Preservation",
+    "fact": "Dead-letter queues are a mechanism for handling corrupt messages as part of self-healing architecture",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Copilot In Azure",
+    "fact": "Microsoft Copilot in Azure can analyze redundancy configurations, identify security threats, and find cost inefficiencies in Azure Storage",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Copilot in Azure capabilities for Storage",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Platform Teams",
+    "fact": "Platform teams host components too expensive for individual workload teams and divide costs across workloads",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Continuous Improvement",
+    "fact": "Continuous improvement is a theme across all Well-Architected Framework pillars",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Application Landing Zone",
+    "fact": "An application landing zone is a collection of dedicated subscriptions matching a workload's resource organization needs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "SaaS Workloads",
+    "fact": "SaaS workloads guidance covers design methodology, identity and access management, resource organization, billing, data, and AI strategy",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check WAF SaaS workloads documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Safe Deployment Practices",
+    "fact": "Safe deployment practices are architecture strategies within the operational excellence pillar",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "AI Integration",
+    "fact": "AI integration was incorporated throughout the Operational Excellence pillar to reduce manual toil and support operational decision-making",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check WAF Operational Excellence pillar updates",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Platform Landing Zone",
+    "fact": "Platform landing zones are a type of Azure landing zone available for deployment",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Landing Zone documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Platform Team",
+    "fact": "A platform team is a centralized team that supports diverse workloads",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Platform Team",
+    "fact": "A platform team implements uniformity and constraints and hosts shared components or services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Autoscaling",
+    "fact": "Autoscaling is the practice of automatically adjusting resource capacity in response to load changes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Autoscaling",
+    "fact": "Autoscaling is configured based on service-internal and application-set thresholds to respond to load-level volatility",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "PaaS Services",
+    "fact": "Legacy or proprietary software might not run on PaaS services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Java",
+    "fact": "Java SDK libraries for Azure are updated frequently",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure SDK for Java release notes",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Queue-Based Load Leveling",
+    "fact": "Queue-Based Load Leveling introduces a buffer between consumers and requested resources to ensure consistent load levels through queued requests processed by worker processes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Bulkhead",
+    "fact": "The Bulkhead pattern partitions service instances into groups based on load and availability requirements, isolating failures to sustain service functionality",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Throttling",
+    "fact": "Throttling controls resource consumption by deferring lower-priority operations when a resource reaches a load threshold",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Health Endpoint Monitoring",
+    "fact": "Health Endpoint Monitoring implements functional checks in an application accessible through exposed endpoints at regular intervals",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Expressroute",
+    "fact": "Azure ExpressRoute is a connectivity option for accessing workloads through private networks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure ExpressRoute documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "NServiceBus",
+    "fact": "NServiceBus is a messaging framework with built-in resiliency features",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check NServiceBus documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "MassTransit",
+    "fact": "MassTransit is a messaging framework with built-in resiliency features",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check MassTransit documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure API Management",
+    "fact": "Azure API Management is a service for publishing, securing, transforming, and monitoring APIs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure API Management docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure API Management",
+    "fact": "Azure API Management functions as an API gateway and management platform",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure API Management docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Power Apps",
+    "fact": "Power Apps provides a low-code/no-code development experience with workflow logic configurable through a user interface",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Power Apps documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Power Automate",
+    "fact": "Power Automate provides low-code/no-code workflow automation with integrations configurable through connections",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Power Automate documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Dedicated Plan",
+    "fact": "The Dedicated plan is the least serverless Azure Functions hosting option",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Functions hosting plans documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Dedicated Plan",
+    "fact": "The Dedicated plan provides autoscale but with slower scale operations than other Azure Functions plans",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Functions hosting plans documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Recovery Point Objectives",
+    "fact": "RPO defines the acceptable amount of data loss measured in time during a disaster",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Recovery Time Objectives",
+    "fact": "RTO defines the acceptable downtime duration for recovering a service after a failure",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Linux-Based Container Runtimes",
+    "fact": "Linux-based container runtimes are recommended for containers due to lightweight images and frequent feature releases",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check container best practices documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Proximity Placement Groups",
+    "fact": "Proximity placement groups minimize internode latency by co-locating resources physically close together",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Proximity Placement Groups docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Proximity Placement Groups",
+    "fact": "Proximity Placement Groups enable submillisecond latency between services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure documentation for latency claims",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Active/Passive",
+    "fact": "Active/passive is a deployment strategy suitable for scenarios with lower reliability targets",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Centralized Data Services",
+    "fact": "Centralized data services introduce operational bottlenecks that hinder agility and should be avoided in mission-critical or business-critical contexts",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Policy Add-On For AKS",
+    "fact": "The Azure Policy Add-on for AKS provides built-in policies to control pod functions like root privileges and enforce policy conformance",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check AKS Azure Policy Add-on documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Zone-Redundant Storage",
+    "fact": "ZRS is a storage redundancy option for backup storage in Azure Cosmos DB, available in regions supporting Availability Zones",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Cosmos DB backup storage options",
+    "confidence": "high"
+  },
+  {
+    "entity": "Cosmos DB Account Reader",
+    "fact": "Cosmos DB Account Reader is a built-in RBAC role enabling read-only access to Azure Cosmos DB resources",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Cosmos DB RBAC roles documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "DocumentDB Account Contributor",
+    "fact": "DocumentDB Account Contributor enables management of Azure Cosmos DB accounts including keys and role assignments but not data-plane access",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Cosmos DB RBAC roles documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Cosmos DB Operator",
+    "fact": "Cosmos DB Operator is a built-in RBAC role in Azure",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure RBAC built-in roles documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Cosmos DB Operator",
+    "fact": "Cosmos DB Operator is similar to DocumentDB Account Contributor but cannot manage keys or role assignments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Cosmos DB RBAC roles documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Command And Query Responsibility Segregation",
+    "fact": "CQRS separates read and write operations",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Transactional",
+    "fact": "Transactional workloads process large volumes of individual transactions optimized for near real-time CRUD queries with row-based storage",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Reserved Capacity",
+    "fact": "Reserved Capacity provides potential cost optimizations for Azure SQL Database and Azure Database for PostgreSQL compute costs",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure pricing pages for reserved capacity eligible services",
+    "confidence": "high"
+  },
+  {
+    "entity": "Request Unit",
+    "fact": "Request Units represent throughput consumed by operations on Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB RU documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Request Unit",
+    "fact": "Analytical queries on transactional data can consume significant RUs",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Caching Layer",
+    "fact": "A caching layer increases read throughput and improves end-to-end client response times",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Standard Throughput",
+    "fact": "Standard throughput allocates fixed resources to guarantee a specified RU/s value",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB throughput modes documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Standard Throughput",
+    "fact": "Standard throughput is billed hourly for provisioned throughput",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Cosmos DB pricing page",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Dedicated Gateway",
+    "fact": "Dedicated Gateway is a connection mode feature of Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB dedicated gateway docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Consistency Level",
+    "fact": "Consistency level defines data consistency guarantees offered by Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB consistency levels documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Stored Procedures",
+    "fact": "Stored procedures are server-side programmable logic deployable in Azure Cosmos DB SQL database containers",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB server-side programming docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "Triggers",
+    "fact": "Triggers execute before or after operations on Azure Cosmos DB containers",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB triggers documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "UDFs",
+    "fact": "UDFs are custom functions that can be created in Azure Cosmos DB SQL database containers",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB UDF documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "MongoDB API",
+    "fact": "MongoDB API enables MongoDB-compatible access to Azure Cosmos DB",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Cosmos DB API options",
+    "confidence": "high"
+  },
+  {
+    "entity": "MongoDB API",
+    "fact": "MongoDB API is supported by Azure Data Factory connector",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check ADF connector documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Smoke Tests",
+    "fact": "Smoke tests are run as part of every deployment to validate basic application functionality",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Branching Strategy",
+    "fact": "A branching strategy ensures maximum reliability, enables parallel development, and supports fast releases from development to production",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Blue-Green Deployment",
+    "fact": "Blue-green deployment transitions traffic between two environments with the inactive environment decommissioned after transition",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Least Privilege",
+    "fact": "Least privilege is a security principle applied across application and control plane to protect against data exfiltration and malicious actors",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Reduce Overhead With Managed Compute Services",
+    "fact": "Using managed compute services reduces operational overhead",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Establish Baseline Performance And Identify Bottlenecks",
+    "fact": "Establishing baseline performance and identifying bottlenecks is a performance efficiency principle",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Model Capacity",
+    "fact": "Model capacity is a scalability principle for testing and planning system capacity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Rehearse Recovery And Practice Failure",
+    "fact": "Rehearsing recovery and practicing failure prepares systems for failures",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Embrace Continuous Operational Improvement",
+    "fact": "Continuous operational improvement is a DevOps principle for ongoing system enhancement",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Model And Test Against Potential Threats",
+    "fact": "Threat modeling involves modeling and testing against potential threats",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Identify And Protect Endpoints",
+    "fact": "Identifying and protecting endpoints is a security principle for securing system access points",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Protect Against Code Level Vulnerabilities",
+    "fact": "Protecting against code-level vulnerabilities is a security principle for secure coding practices",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Automate And Use Least Privilege",
+    "fact": "Least privilege principle means minimizing access rights to only what is necessary",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Power BI",
+    "fact": "Power BI is a data visualization technology provided by Microsoft",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Microsoft product portfolio",
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Mission-Critical Support",
+    "fact": "Microsoft Mission-Critical Support can model application health more accurately when key health probes are exposed",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Microsoft support tier documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Event Hubs",
+    "fact": "Event Hubs incoming/outgoing messages are key metrics for operational dashboards",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Operational Maturity",
+    "fact": "Operational maturity has three main levels: detecting and responding to issues, diagnosing issues, and predicting and preventing issues",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Log Analytics Commitment Tier Pricing Model",
+    "fact": "Log Analytics offers a commitment tier pricing model providing reduced cost and predictable data ingest charges",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Monitor pricing page",
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Load Balancer",
+    "fact": "Azure Load Balancer provides direct internet outbound connectivity for virtual machines or compute instances",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Load Balancer documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "RFC 1918",
+    "fact": "RFC 1918 defines address allocation for private internet IP addresses",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Blue-Green Deployments",
+    "fact": "Blue-green deployments use parallel subnets to facilitate updated regional deployment stamps within virtual networks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure DDoS Network Protection",
+    "fact": "Azure DDoS Network Protection helps protect public endpoints hosted within application virtual networks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure DDoS Protection documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "TLS",
+    "fact": "Azure Front Door managed certificate service enables TLS connections removing the need to manage certificate lifecycles",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Front Door TLS documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "TLS",
+    "fact": "TLS offloading occurs before traffic reaches the application",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Multicloud Active-Active Deployment",
+    "fact": "Multicloud active-active deployments introduce significant operational complexities that pose resiliency risks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Multicloud Active-Active Deployment",
+    "fact": "Multicloud active-active deployment provides broader redundancy to global outage scenarios",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "DDoS Attack",
+    "fact": "A DDoS attack renders a targeted resource unavailable by overwhelming it with illegitimate traffic",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "DNS Amplification Attack",
+    "fact": "Azure Front Door's protocol blocking helps mitigate DNS amplification attacks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door security features",
+    "confidence": "high"
+  },
+  {
+    "entity": "TCP Poisoning Attack",
+    "fact": "Azure Front Door's protocol blocking helps mitigate TCP poisoning attacks",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure Front Door security features",
+    "confidence": "high"
+  },
+  {
+    "entity": "Identity As A Security Perimeter",
+    "fact": "Identity-based access control between service components can replace network-level security",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Microsoft Azure Backbone",
+    "fact": "Connectivity between public endpoints on Azure does not traverse the public internet due to the Azure backbone",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure networking documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "X-Azure-FDID",
+    "fact": "X-Azure-FDID header is used to filter incoming requests to validate all traffic flows through the configured Azure Front Door instance",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Front Door documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "RTO/RPO",
+    "fact": "Backup and restore strategies should align with RTO and RPO requirements",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Runtime Retrieval",
+    "fact": "Runtime secret retrieval prevents the application platform from accessing secrets directly",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "IaaS VMs",
+    "fact": "IaaS VMs provide flexibility in configuration but increase operational costs and responsibility compared to PaaS services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Configuration As Code",
+    "fact": "Configuration as code enables consistent release and update processes by defining configuration settings as code",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Data Platform",
+    "fact": "Data store technology choices should be informed by volume, velocity, variety, and veracity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Networking And Connectivity",
+    "fact": "Networking and connectivity is a mission-critical design area in the Azure Well-Architected Framework",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Health Modeling And Observability",
+    "fact": "Health modeling and observability is a mission-critical design area for defining robust health models",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Deployment And Testing",
+    "fact": "Deployment and testing as a mission-critical design area is focused on eradicating downtime through optimal CI/CD pipelines",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Design Principles",
+    "fact": "Mission-critical design principles align with the core Well-Architected Framework pillars",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Firewall Premium",
+    "fact": "Azure Firewall Premium supports deep packet inspection and TLS inspection",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure Firewall Premium feature documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Virtual Network Injection",
+    "fact": "Virtual Network Injection provides dedicated private deployments for supported services such as App Service through an App Service Environment",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check App Service Environment VNet injection docs",
+    "confidence": "high"
+  },
+  {
+    "entity": "App Service Environment",
+    "fact": "App Service Environment supports Virtual Network Injection for dedicated private deployments",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check ASE documentation",
+    "confidence": "high"
+  },
+  {
+    "entity": "Network Virtual Appliance",
+    "fact": "NVAs support inline network security including deep packet inspection and TLS inspection",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Defender",
+    "fact": "Azure Defender is enabled for all supporting services",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Microsoft Defender for Cloud documentation; Azure Defender was rebranded to Microsoft Defender for Cloud",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Dependency Scanning",
+    "fact": "Dependency scanning is enabled within source code repositories to identify vulnerable dependencies",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Denial Of Service",
+    "fact": "Denial of Service is classified as a STRIDE threat vector",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Mission-Critical Open Source Project",
+    "fact": "The Mission-Critical open source project is hosted on GitHub under the Azure/AlwaysOn repository",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check github.com/Azure/AlwaysOn for current status",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Background Jobs",
+    "fact": "Background jobs run independently of the UI to minimize UI load, improve availability, and reduce response time",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Transient Faults",
+    "fact": "Transient faults are temporary failures in cloud applications that can be handled through retry strategies",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Flow Design",
+    "fact": "Flow design is a three-step process for optimizing workloads through structured flows aligned with business processes",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Data Partitioning",
+    "fact": "Data partitioning in distributed systems improves scalability, reduces contention, and optimizes performance",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Geodes",
+    "fact": "Geodes are an alternative to deployment stamps in active-active deployment patterns for multi-region disaster recovery",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure Local",
+    "fact": "Azure Local platform was updated to version 2311",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Local (formerly Azure Stack HCI) version history",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure NetApp Files",
+    "fact": "Azure NetApp Files offers a Flexible service level",
+    "type": "perishable",
+    "shelf_life_months": 12,
+    "verification_hint": "Check Azure NetApp Files service level documentation",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Foundation Model Fine-Tuning",
+    "fact": "Fine-tuning foundation models requires high-quality, task-relevant examples rather than the large datasets needed for traditional model training",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Architecture Design Diagrams",
+    "fact": "Architecture design diagram guidance includes recommendations for clarity, accessibility, version control, and layered visuals",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Workload Team Personas For AI Workloads",
+    "fact": "The article introduces agentic personas and their roles in AI workloads reflecting advances in generative AI",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check WAF AI workload personas article for current content",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure ExpressRoute",
+    "fact": "Azure ExpressRoute provides dedicated network connectivity",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Azure ExpressRoute",
+    "fact": "Azure ExpressRoute includes resiliency and recoverability capabilities",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "verification_hint": "Check Azure ExpressRoute documentation for current resiliency features",
+    "confidence": "medium"
+  },
+  {
+    "entity": "Chargeback",
+    "fact": "Chargeback model is often cheaper for workload teams due to economies of scale from centralized platform services",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Showback",
+    "fact": "Showback displays costs to workload teams without directly charging them",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Subscription-Vending Process",
+    "fact": "Subscription-vending is a self-service process through which platform teams offer subscriptions to workload teams",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Service-Level Agreement",
+    "fact": "An SLA defines core capability or infrastructure offering commitments between teams",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Service-Level Objective",
+    "fact": "SLOs are targets offered to a workload's users regarding performance and availability",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  },
+  {
+    "entity": "Domain Name System",
+    "fact": "DNS implementations are driven by specific hub-spoke infrastructure choices",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "medium"
+  },
+  {
+    "entity": "Azure Storage Discovery",
+    "fact": "Azure Storage Discovery works with Microsoft Copilot in Azure to analyze redundancy configurations across storage accounts",
+    "type": "perishable",
+    "shelf_life_months": 6,
+    "verification_hint": "Check Azure Copilot documentation for Storage Discovery feature",
+    "confidence": "medium"
+  },
+  {
+    "entity": "GenAIOps",
+    "fact": "GenAIOps refers to generative AI operations practices for SaaS businesses",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "medium"
+  },
+  {
+    "entity": "Cloud Operating Model",
+    "fact": "A cloud operating model defines how an organization governs and operates its cloud platform and workloads",
+    "type": "timeless",
+    "shelf_life_months": 0,
+    "confidence": "high"
+  }
+]

@@ -1,0 +1,2885 @@
+{
+  "mission-critical/mission-critical-application-design.md": [
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/best-practices/auto-scaling",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/best-practices/auto-scaling",
+      "text": "autoscaling",
+      "section": "Scale-unit architecture"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/deployment-stamp",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/deployment-stamp",
+      "text": "deployment stamps",
+      "section": "Scale-unit architecture"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/azure-subscription-service-limits",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits",
+      "text": "Azure subscription scale limits and quotas",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/antipatterns/noisy-neighbor",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/antipatterns/noisy-neighbor",
+      "text": "Noisy Neighbor antipattern",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/reliability/availability-zones-overview",
+      "learn_url": "https://learn.microsoft.com/azure/reliability/availability-zones-overview",
+      "text": "availability zones",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/guide/architecture-styles/microservices",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices",
+      "text": "microservices architecture style",
+      "section": "Loosely coupled event-driven architecture"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/guide/architecture-styles/event-driven",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/guide/architecture-styles/event-driven",
+      "text": "event-driven design",
+      "section": "Loosely coupled event-driven architecture"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#every-message-must-be-processed",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#every-message-must-be-processed",
+      "text": "every message is processed correctly",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+      "text": "Application Insights",
+      "section": "Resiliency patterns and error handling in application code"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns",
+      "text": "common software engineering patterns",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/queue-based-load-leveling",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/queue-based-load-leveling",
+      "text": "Queue-Based Load Leveling",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/circuit-breaker",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker",
+      "text": "Circuit Breaker",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/bulkhead",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/bulkhead",
+      "text": "Bulkhead",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/reference-architectures/saga/saga",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/reference-architectures/saga/saga",
+      "text": "Saga",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/health-endpoint-monitoring",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring",
+      "text": "Health Endpoint Monitoring",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/retry",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/retry",
+      "text": "Retry",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/throttling",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/throttling",
+      "text": "Throttling",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/monitor-collection-data-storage",
+      "resolved": "devops/monitor-collection-data-storage.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/monitor-collection-data-storage",
+      "anchor": null,
+      "text": "Collect, aggregate, and store monitoring data for cloud applications",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-health-modeling.md",
+      "resolved": "mission-critical/mission-critical-health-modeling.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-health-modeling",
+      "anchor": null,
+      "text": "application health model",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-application-platform.md",
+      "resolved": "mission-critical/mission-critical-application-platform.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-application-platform",
+      "anchor": null,
+      "text": "Application platform",
+      "section": "Next step"
+    }
+  ],
+  "mission-critical/mission-critical-application-platform.md": [
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "text": "Compute decision tree",
+      "section": "Application platform considerations for mission-critical workloads on Azure"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/reliability/availability-zones-overview",
+      "learn_url": "https://learn.microsoft.com/azure/reliability/availability-zones-overview",
+      "text": "Availability zones",
+      "section": "Global distribution of platform resources"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/reliability/availability-zones-region-support",
+      "learn_url": "https://learn.microsoft.com/azure/reliability/availability-zones-region-support",
+      "text": "availability zones",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/best-practices-availability-paired-regions",
+      "learn_url": "https://learn.microsoft.com/azure/best-practices-availability-paired-regions",
+      "text": "regional pairs",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/blog/advancing-safe-deployment-practices",
+      "text": "Azure safe deployment practice (SDP) framework",
+      "section": "Design considerations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "../reliability/metrics.md#define-composite-slo-targets",
+      "resolved": "reliability/metrics.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/reliability/metrics#define-composite-slo-targets",
+      "anchor": "define-composite-slo-targets",
+      "text": "composite SLO",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "../reliability/metrics.md#implement-multiregion-targets",
+      "resolved": "reliability/metrics.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/reliability/metrics#implement-multiregion-targets",
+      "anchor": "implement-multiregion-targets",
+      "text": "implement multiregion targets",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-networking-connectivity.md#global-traffic-routing",
+      "resolved": "mission-critical/mission-critical-networking-connectivity.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-networking-connectivity#global-traffic-routing",
+      "anchor": "global-traffic-routing",
+      "text": "Global traffic routing",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-networking-connectivity.md#application-delivery-services",
+      "resolved": "mission-critical/mission-critical-networking-connectivity.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-networking-connectivity#application-delivery-services",
+      "anchor": "application-delivery-services",
+      "text": "Application delivery services",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-networking-connectivity.md#caching-and-static-content-delivery",
+      "resolved": "mission-critical/mission-critical-networking-connectivity.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-networking-connectivity#caching-and-static-content-delivery",
+      "anchor": "caching-and-static-content-delivery",
+      "text": "Caching and static content delivery",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/container-registry",
+      "text": "Azure Container Registry",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images",
+      "learn_url": "https://learn.microsoft.com/azure/aks/operator-best-practices-multi-region#enable-geo-replication-for-container-images",
+      "text": "geo-replication",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/security-center/defender-for-container-registries-introduction",
+      "learn_url": "https://learn.microsoft.com/azure/security-center/defender-for-container-registries-introduction",
+      "text": "Microsoft Defender for container registries",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "text": "Compute decision tree",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/container-apps/compare-options#container-option-comparisons",
+      "learn_url": "https://learn.microsoft.com/azure/container-apps/compare-options#container-option-comparisons",
+      "text": "Container option comparisons",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/kubernetes-service",
+      "text": "Azure Kubernetes Service (AKS)",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/container-apps/overview",
+      "learn_url": "https://learn.microsoft.com/azure/container-apps/overview",
+      "text": "Azure Container Apps",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/app-service/containers",
+      "text": "Azure App Service",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service",
+      "resolved": "services/compute/azure-kubernetes-service/azure-kubernetes-service.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/services/compute/azure-kubernetes-service/azure-kubernetes-service",
+      "anchor": null,
+      "text": "Azure Well-Architected Framework review - AKS",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment",
+      "learn_url": "https://learn.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment",
+      "text": "AKS clusters across different Azure regions",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/availability-zones",
+      "learn_url": "https://learn.microsoft.com/azure/aks/availability-zones",
+      "text": "availability zones",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/reduce-latency-ppg",
+      "learn_url": "https://learn.microsoft.com/azure/aks/reduce-latency-ppg",
+      "text": "proximity placement groups",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/uptime-sla",
+      "learn_url": "https://learn.microsoft.com/azure/aks/uptime-sla",
+      "text": "AKS Uptime SLA",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-kubernetes-service-limits",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-kubernetes-service-limits",
+      "text": "scale limits",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/cluster-autoscaler",
+      "learn_url": "https://learn.microsoft.com/azure/aks/cluster-autoscaler",
+      "text": "cluster autoscaler",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/concepts-scale#horizontal-pod-autoscaler",
+      "learn_url": "https://learn.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler",
+      "text": "horizontal pod autoscaler",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/virtual-nodes-cli",
+      "learn_url": "https://learn.microsoft.com/azure/aks/virtual-nodes-cli",
+      "text": "virtual nodes",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits",
+      "learn_url": "https://learn.microsoft.com/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits",
+      "text": "pod resource requests and limits",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations",
+      "learn_url": "https://learn.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations",
+      "text": "taints and tolerations",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-managed-identity",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-managed-identity",
+      "text": "managed identities",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/workload-identity-overview",
+      "learn_url": "https://learn.microsoft.com/azure/aks/workload-identity-overview",
+      "text": "Microsoft Entra Workload ID",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/managed-aad",
+      "learn_url": "https://learn.microsoft.com/azure/aks/managed-aad",
+      "text": "Microsoft Entra integration",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/azure-ad-rbac",
+      "learn_url": "https://learn.microsoft.com/azure/aks/azure-ad-rbac",
+      "text": "least privilege",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/control-kubeconfig-access",
+      "learn_url": "https://learn.microsoft.com/azure/aks/control-kubeconfig-access",
+      "text": "Kubernetes cluster configuration",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources",
+      "learn_url": "https://learn.microsoft.com/azure/aks/developer-best-practices-pod-security#secure-pod-access-to-resources",
+      "text": "actions that containers can perform",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/supported-kubernetes-versions",
+      "learn_url": "https://learn.microsoft.com/azure/aks/supported-kubernetes-versions",
+      "text": "Kubernetes versions",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "external",
+      "url": "https://aka.ms/aks/roadmap",
+      "text": "AKS Roadmap",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "external",
+      "url": "https://aka.ms/aks/releasenotes",
+      "text": "Release Notes",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/upgrade-cluster",
+      "learn_url": "https://learn.microsoft.com/azure/aks/upgrade-cluster",
+      "text": "updating nodes and/or clusters",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/planned-maintenance",
+      "learn_url": "https://learn.microsoft.com/azure/aks/planned-maintenance",
+      "text": "Planned Maintenance",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/upgrade-cluster#set-auto-upgrade-channel",
+      "learn_url": "https://learn.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel",
+      "text": "auto-upgrade channels",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/concepts-network#compare-network-models",
+      "learn_url": "https://learn.microsoft.com/azure/aks/concepts-network#compare-network-models",
+      "text": "Azure CNI",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-byo-cni",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-byo-cni",
+      "text": "bring your own CNI",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-network-policies",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-network-policies",
+      "text": "Azure",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/insights/container-insights-overview",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-overview",
+      "text": "Azure Monitor and Application Insights",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/view-master-logs",
+      "learn_url": "https://learn.microsoft.com/azure/aks/view-master-logs",
+      "text": "Kubernetes resource logs",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/insights/container-insights-prometheus-integration",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration",
+      "text": "Prometheus metrics",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/governance/policy/concepts/policy-for-kubernetes",
+      "learn_url": "https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes",
+      "text": "Azure Policy Add-on for AKS",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-pod-security-on-azure-policy",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-pod-security-on-azure-policy",
+      "text": "pod",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/governance/policy/overview",
+      "learn_url": "https://learn.microsoft.com/azure/governance/policy/overview",
+      "text": "Azure Policy",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/governance/policy/concepts/policy-for-kubernetes",
+      "learn_url": "https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes",
+      "text": "Azure Policy Add-on for AKS",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/app-service/containers",
+      "text": "App Service",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/services/compute/azure-app-service/reliability",
+      "resolved": "services/compute/azure-app-service/reliability.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/services/compute/azure-app-service/reliability",
+      "anchor": null,
+      "text": "Reliability considerations for App Service",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/services/compute/azure-app-service/operational-excellence",
+      "resolved": "services/compute/azure-app-service/operational-excellence.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/services/compute/azure-app-service/operational-excellence",
+      "anchor": null,
+      "text": "Operational excellence for App Service",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/services/compute/azure-app-service/reliability#tcp-and-snat-ports",
+      "resolved": "services/compute/azure-app-service/reliability.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/services/compute/azure-app-service/reliability#tcp-and-snat-ports",
+      "anchor": "tcp-and-snat-ports",
+      "text": "TCP and SNAT ports",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/app-service/overview-hosting-plans#should-i-put-an-app-in-a-new-plan-or-an-existing-plan",
+      "learn_url": "https://learn.microsoft.com/azure/app-service/overview-hosting-plans#should-i-put-an-app-in-a-new-plan-or-an-existing-plan",
+      "text": "instances per App Service plan",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.github.io/AppService/2021/04/21/Announcing-Autoheal-for-Azure-App-Service-Linux.html",
+      "text": "Auto Heal",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/app-service/monitor-instances-health-check",
+      "learn_url": "https://learn.microsoft.com/azure/app-service/monitor-instances-health-check",
+      "text": "Health Check",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html",
+      "text": "availability zone configuration",
+      "section": "Container hosting and orchestration"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/container-registry",
+      "text": "Azure Container Registry",
+      "section": "Container registry"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/container-registry/container-registry-geo-replication#considerations-for-high-availability",
+      "learn_url": "https://learn.microsoft.com/azure/container-registry/container-registry-geo-replication#considerations-for-high-availability",
+      "text": "geo-replication",
+      "section": "Container registry"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/container-registry/zone-redundancy",
+      "learn_url": "https://learn.microsoft.com/azure/container-registry/zone-redundancy",
+      "text": "Premium Container Registry tier supports zone redundancy",
+      "section": "Container registry"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/container-registry/container-registry-private-link",
+      "learn_url": "https://learn.microsoft.com/azure/container-registry/container-registry-private-link",
+      "text": "private endpoints",
+      "section": "Container registry"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/container-registry/container-registry-image-lock",
+      "learn_url": "https://learn.microsoft.com/azure/container-registry/container-registry-image-lock",
+      "text": "locking an image version or a repository",
+      "section": "Container registry"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/lock-resources",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources",
+      "text": "resource locks",
+      "section": "Container registry"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/container-registry/container-registry-image-lock#scenarios",
+      "learn_url": "https://learn.microsoft.com/azure/container-registry/container-registry-image-lock#scenarios",
+      "text": "Tagged Container Registry images are mutable by default",
+      "section": "Container registry"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-functions/functions-overview",
+      "learn_url": "https://learn.microsoft.com/azure/azure-functions/functions-overview",
+      "text": "Azure Functions",
+      "section": "Serverless compute"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/logic-apps/logic-apps-overview",
+      "learn_url": "https://learn.microsoft.com/azure/logic-apps/logic-apps-overview",
+      "text": "Azure Logic Apps",
+      "section": "Serverless compute"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/api-management",
+      "text": "Azure API Management",
+      "section": "Serverless compute"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-functions/functions-scale",
+      "learn_url": "https://learn.microsoft.com/azure/azure-functions/functions-scale",
+      "text": "Azure Functions hosting option",
+      "section": "Serverless compute"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/logic-apps/single-tenant-overview-compare",
+      "learn_url": "https://learn.microsoft.com/azure/logic-apps/single-tenant-overview-compare",
+      "text": "deployment modes",
+      "section": "Serverless compute"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/reliability/availability-zones-overview",
+      "learn_url": "https://learn.microsoft.com/azure/reliability/availability-zones-overview",
+      "text": "Availability zones",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machine-scale-sets/overview",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machine-scale-sets/overview",
+      "text": "Azure virtual machine scale sets",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs",
+      "text": "unhealthy instances",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration",
+      "text": "Scale sets with flexible orchestration",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machines/sizes",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machines/sizes",
+      "text": "Right-size VM SKU sizes",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/reliability/availability-zones-overview",
+      "learn_url": "https://learn.microsoft.com/azure/reliability/availability-zones-overview",
+      "text": "availability zones",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration",
+      "text": "flexible virtual machine scale sets",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains",
+      "text": "Manage fault domains in scale sets",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/mission-critical/mission-critical-networking-connectivity#global-traffic-routing",
+      "resolved": "mission-critical/mission-critical-networking-connectivity.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-networking-connectivity#global-traffic-routing",
+      "anchor": "global-traffic-routing",
+      "text": "networking and connectivity design area",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-operational-procedures.md#iaas-specific-considerations-when-using-vms",
+      "resolved": "mission-critical/mission-critical-operational-procedures.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-operational-procedures#iaas-specific-considerations-when-using-vms",
+      "anchor": "iaas-specific-considerations-when-using-vms",
+      "text": "IaaS considerations",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-operational-procedures.md",
+      "resolved": "mission-critical/mission-critical-operational-procedures.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-operational-procedures",
+      "anchor": null,
+      "text": "Operational procedures",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-deployment-testing.md#continuous-validation-and-testing",
+      "resolved": "mission-critical/mission-critical-deployment-testing.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing",
+      "anchor": "continuous-validation-and-testing",
+      "text": "Continuous validation and testing",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis",
+      "resolved": "mission-critical/mission-critical-health-modeling.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-health-modeling#unified-data-sink-for-correlated-analysis",
+      "anchor": "unified-data-sink-for-correlated-analysis",
+      "text": "unified data sink",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/security/fundamentals/iaas",
+      "learn_url": "https://learn.microsoft.com/azure/security/fundamentals/iaas",
+      "text": "Security best practices for IaaS workloads in Azure",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-data-platform.md",
+      "resolved": "mission-critical/mission-critical-data-platform.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-data-platform",
+      "anchor": null,
+      "text": "Data platform",
+      "section": "Next step"
+    }
+  ],
+  "mission-critical/mission-critical-architecture-pattern.md": [
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/mission-critical/mission-critical-overview#what-are-the-key-design-areas",
+      "resolved": "mission-critical/mission-critical-overview.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-overview#what-are-the-key-design-areas",
+      "anchor": "what-are-the-key-design-areas",
+      "text": "**the key design areas**",
+      "section": "Architecture pattern for mission-critical workloads on Azure"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/tag-mission-critical-workload",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/tag-mission-critical-workload",
+      "text": "Label mission-critical workloads",
+      "section": "Architecture pattern for mission-critical workloads on Azure"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/mission-critical/mission-critical-application-platform#containerization",
+      "resolved": "mission-critical/mission-critical-application-platform.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-application-platform#containerization",
+      "anchor": "containerization",
+      "text": "Well-Architected mission-critical workloads: Containerization",
+      "section": "Baseline architectures for mission-critical workloads"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/mission-critical/mission-critical-overview#what-are-the-key-design-areas",
+      "resolved": "mission-critical/mission-critical-overview.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-overview#what-are-the-key-design-areas",
+      "anchor": "what-are-the-key-design-areas",
+      "text": "What are the key design areas?",
+      "section": "Design areas"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-application-design.md",
+      "resolved": "mission-critical/mission-critical-application-design.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-application-design",
+      "anchor": null,
+      "text": "Application design",
+      "section": "Next step"
+    }
+  ],
+  "mission-critical/mission-critical-assessment.md": [
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/mission-critical/mission-critical-design-principles?branch=main",
+      "resolved": "mission-critical/mission-critical-design-principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-design-principles?branch=main",
+      "anchor": null,
+      "text": "mission-critical design methodology",
+      "section": "Well-Architected assessment for mission-critical workloads"
+    }
+  ],
+  "mission-critical/mission-critical-data-platform.md": [
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/time-to-live",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/time-to-live",
+      "text": "TTL",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/reference-architectures/saga/saga",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/reference-architectures/saga/saga",
+      "text": "SAGA",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://en.wikipedia.org/wiki/CAP_theorem",
+      "text": "CAP",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://en.wikipedia.org/wiki/PACELC_theorem",
+      "text": "PACELC",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/security/fundamentals/encryption-overview",
+      "learn_url": "https://learn.microsoft.com/azure/security/fundamentals/encryption-overview",
+      "text": "encryption models",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/cqrs",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/cqrs",
+      "text": "CQRS",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/event-sourcing",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/event-sourcing",
+      "text": "Event Sourcing",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/reference-architectures/saga/saga",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/reference-architectures/saga/saga",
+      "text": "SAGA",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/guide/technology-choices/data-store-decision-tree",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-store-decision-tree",
+      "text": "Azure Data Store Decision Tree",
+      "section": "Additional references"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/guide/technology-choices/data-store-considerations",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/guide/technology-choices/data-store-considerations",
+      "text": "Criteria for choosing a Data Store",
+      "section": "Additional references"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/data-guide/big-data/non-relational-data",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/data-guide/big-data/non-relational-data",
+      "text": "Non-Relational Data Stores",
+      "section": "Additional references"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/data-guide/relational-data/online-transaction-processing",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/data-guide/relational-data/online-transaction-processing",
+      "text": "Relational OLTP Data Stores",
+      "section": "Additional references"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/dedicated-gateway#connection-modes",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/dedicated-gateway#connection-modes",
+      "text": "Gateway and Direct connectivity modes",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/high-availability#availability-zone-support",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/high-availability#availability-zone-support",
+      "text": "Availability Zone (AZ) redundancy",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/conflict-resolution-policies",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/conflict-resolution-policies",
+      "text": "update (insert, replace, delete) conflicts",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/autoscale-faq",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/autoscale-faq",
+      "text": "automatic failover",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/",
+      "text": "99.999% SLA",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/provision-throughput-autoscale",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/provision-throughput-autoscale",
+      "text": "autoscale",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/consistency-levels",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/consistency-levels",
+      "text": "consistency level",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/media/how-to-restrict-user-data/operations.png \"Azure Cosmos DB Access Capabilities\"",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/media/how-to-restrict-user-data/operations.png \"Azure Cosmos DB Access Capabilities\"",
+      "text": "Azure Cosmos DB Access Capabilities",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/role-based-access-control#check-list-before-enabling",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/role-based-access-control#check-list-before-enabling",
+      "text": "evaluated and tested",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/role-based-access-control#set-via-arm-template",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/role-based-access-control#set-via-arm-template",
+      "text": "ARM Template",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4750c32b-89c0-46af-bfcb-2e4541a818d5",
+      "text": "Built-In Azure Policy",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/role-based-access-control#built-in-roles",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/role-based-access-control#built-in-roles",
+      "text": "Built-in RBAC Roles",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/role-based-access-control#custom-roles",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/role-based-access-control#custom-roles",
+      "text": "custom RBAC roles",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb",
+      "learn_url": "https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb",
+      "text": "privilege combinations",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/role-based-access-control/built-in-roles#cosmos-db-account-reader-role",
+      "learn_url": "https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#cosmos-db-account-reader-role",
+      "text": "Cosmos DB Account Reader",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/role-based-access-control/built-in-roles#documentdb-account-contributor",
+      "learn_url": "https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#documentdb-account-contributor",
+      "text": "DocumentDB Account Contributor",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/role-based-access-control/built-in-roles#cosmos-db-operator",
+      "learn_url": "https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#cosmos-db-operator",
+      "text": "Cosmos DB Operator",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/resource-locks",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/resource-locks",
+      "text": "Resource Locks",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/change-feed",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/change-feed",
+      "text": "Azure Cosmos DB change feed",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/change-feed-design-patterns#deletes",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/change-feed-design-patterns#deletes",
+      "text": "Soft Delete",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/analytical-store-introduction",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/analytical-store-introduction",
+      "text": "analytical store",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/configure-periodic-backup-restore",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/configure-periodic-backup-restore",
+      "text": "Periodic",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/configure-periodic-backup-restore#backup-storage-redundancy",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/configure-periodic-backup-restore#backup-storage-redundancy",
+      "text": "Zone-Redundant Storage or Locally-Redundant Storage",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/configure-periodic-backup-restore#request-restore",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/configure-periodic-backup-restore#request-restore",
+      "text": "Support Request",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/continuous-backup-restore-introduction",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction",
+      "text": "Continuous",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/restore-account-continuous-backup#restore-account-portal",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/restore-account-continuous-backup#restore-account-portal",
+      "text": "Azure portal",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/restore-account-continuous-backup#restore-arm-template",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/restore-account-continuous-backup#restore-arm-template",
+      "text": "ARM templates",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/continuous-backup-restore-introduction#current-limitations",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction#current-limitations",
+      "text": "limitations",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/continuous-backup-restore-introduction#continuous-backup-pricing",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction#continuous-backup-pricing",
+      "text": "additional storage cost",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/templates/microsoft.documentdb/databaseaccounts?tabs=json#ipaddressorrange-object",
+      "learn_url": "https://learn.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts?tabs=json#ipaddressorrange-object",
+      "text": "firewall settings",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/templates/microsoft.documentdb/databaseaccounts/privateendpointconnections",
+      "learn_url": "https://learn.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts/privateendpointconnections",
+      "text": "virtual network access control lists",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/templates/microsoft.documentdb/databaseaccounts/privateendpointconnections",
+      "learn_url": "https://learn.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts/privateendpointconnections",
+      "text": "private endpoint settings",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/templates/microsoft.documentdb/databaseaccounts?tabs=json#consistencypolicy-object",
+      "learn_url": "https://learn.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts?tabs=json#consistencypolicy-object",
+      "text": "consistency settings",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers/storedprocedures",
+      "learn_url": "https://learn.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers/storedprocedures",
+      "text": "stored procedures",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers/triggers",
+      "learn_url": "https://learn.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers/triggers",
+      "text": "triggers",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers/userdefinedfunctions",
+      "learn_url": "https://learn.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers/userdefinedfunctions",
+      "text": "UDFs",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/templates/microsoft.documentdb/databaseaccounts?tabs=json#Location",
+      "learn_url": "https://learn.microsoft.com/azure/templates/microsoft.documentdb/databaseaccounts?tabs=json#Location",
+      "text": "multi-region settings",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/change-feed",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/change-feed",
+      "text": "Azure Cosmos DB change feed",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/change-feed-functions",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/change-feed-functions",
+      "text": "Azure function",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/change-feed-processor",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/change-feed-processor",
+      "text": "change feed processor",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/connector-azure-cosmos-db",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/connector-azure-cosmos-db",
+      "text": "Azure Data Factory Connector for Azure Cosmos DB",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/connector-azure-cosmos-db",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/connector-azure-cosmos-db",
+      "text": "Azure Cosmos DB for NoSQL",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/connector-azure-cosmos-db-mongodb-api",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/connector-azure-cosmos-db-mongodb-api",
+      "text": "MongoDB API",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/concepts-pipeline-execution-triggers#schedule-trigger",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/concepts-pipeline-execution-triggers#schedule-trigger",
+      "text": "Schedule",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/concepts-pipeline-execution-triggers#tumbling-window-trigger",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/concepts-pipeline-execution-triggers#tumbling-window-trigger",
+      "text": "Tumbling window",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/concepts-pipeline-execution-triggers#event-based-trigger",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/concepts-pipeline-execution-triggers#event-based-trigger",
+      "text": "Event-based",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/data-factory-private-link",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/data-factory-private-link",
+      "text": "Azure Private Link",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/high-availability#availability-zone-support",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/high-availability#availability-zone-support",
+      "text": "Availability Zone (AZ) redundancy",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/how-to-model-partition-example",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/how-to-model-partition-example",
+      "text": "test and validate",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/partitioning-overview#choose-partitionkey",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey",
+      "text": "Select an optimal partition key",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/index-overview",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/index-overview",
+      "text": "Indexing",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/best-practice-dotnet#checklist",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/best-practice-dotnet#checklist",
+      "text": "Azure Cosmos DB SDK",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/best-practices/retry-service-specific#cosmos-db",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific#cosmos-db",
+      "text": "retry logic",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "external",
+      "url": "https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4750c32b-89c0-46af-bfcb-2e4541a818d5",
+      "text": "Azure Cosmos DB key-based metadata write access",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/monitor-cosmos-db",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/monitor-cosmos-db",
+      "text": "Azure Monitor",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/how-to-choose-offer",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/how-to-choose-offer",
+      "text": "provisioned throughput types",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/nosql/performance-tips",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/nosql/performance-tips",
+      "text": "performance tips for Azure Cosmos DB",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/high-availability#multi-region-accounts-with-a-single-write-region-write-region-outage",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/high-availability#multi-region-accounts-with-a-single-write-region-write-region-outage",
+      "text": "automatic failover",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/cqrs",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/cqrs",
+      "text": "Command and Query Responsibility Segregation",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/patterns/event-sourcing",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/patterns/event-sourcing",
+      "text": "Event Sourcing",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/sql-database/sql-database-elastic-scale-introduction",
+      "learn_url": "https://learn.microsoft.com/azure/sql-database/sql-database-elastic-scale-introduction",
+      "text": "Sharding",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell",
+      "text": "Auto Failover Groups",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/high-availability-sla",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/high-availability-sla",
+      "text": "distributed across Availability Zones",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cost-management-billing/reservations/understand-reservation-charges",
+      "learn_url": "https://learn.microsoft.com/azure/cost-management-billing/reservations/understand-reservation-charges",
+      "text": "Reservation Discount",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/recovery-using-backups#point-in-time-restore",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/recovery-using-backups#point-in-time-restore",
+      "text": "Point-in-time restore",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/sql-database/sql-database-recovery-using-backups",
+      "learn_url": "https://learn.microsoft.com/azure/sql-database/sql-database-recovery-using-backups",
+      "text": "Geo-restore",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/postgresql/tutorial-hyperscale-shard",
+      "learn_url": "https://learn.microsoft.com/azure/postgresql/tutorial-hyperscale-shard",
+      "text": "Hyperscale (Citus)",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-auto-scale-an-azure-database-for-mysql-postgresql/ba-p/369177",
+      "text": "Autoscale",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/postgresql/flexible-server/concept-reserved-pricing",
+      "learn_url": "https://learn.microsoft.com/azure/postgresql/flexible-server/concept-reserved-pricing",
+      "text": "Single Server Reservation Discount",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/postgresql/concepts-hyperscale-reserved-pricing",
+      "learn_url": "https://learn.microsoft.com/azure/postgresql/concepts-hyperscale-reserved-pricing",
+      "text": "Hyperscale (Citus) Reservation Discount",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/reserved-capacity-overview",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/reserved-capacity-overview",
+      "text": "Reserved Capacity",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/active-geo-replication-overview",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/active-geo-replication-overview",
+      "text": "Active Geo-Replication",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery",
+      "text": "transparent failover",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts",
+      "text": "Azure SQL Analytics",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/monitor-tune-overview",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/monitor-tune-overview",
+      "text": "monitoring and alerts",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/query-performance-insight-use",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/query-performance-insight-use",
+      "text": "Query Performance Insights",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/database-advisor-find-recommendations-portal",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/database-advisor-find-recommendations-portal",
+      "text": "performance recommendations",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/troubleshoot-common-connectivity-issues",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/troubleshoot-common-connectivity-issues",
+      "text": "Implement retry logic",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-sql/database/recovery-using-backups#point-in-time-restore",
+      "learn_url": "https://learn.microsoft.com/azure/azure-sql/database/recovery-using-backups#point-in-time-restore",
+      "text": "point-in-time restore",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/postgresql/concepts-hyperscale-configuration-options",
+      "learn_url": "https://learn.microsoft.com/azure/postgresql/concepts-hyperscale-configuration-options",
+      "text": "Hyperscale (Citus)",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/postgresql/concepts-hyperscale-reserved-pricing",
+      "learn_url": "https://learn.microsoft.com/azure/postgresql/concepts-hyperscale-reserved-pricing",
+      "text": "Hyperscale (Citus) Reservation Discount",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-cache-for-redis/cache-best-practices-connection",
+      "learn_url": "https://learn.microsoft.com/azure/azure-cache-for-redis/cache-best-practices-connection",
+      "text": "connection resilience",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-cache-for-redis/cache-administration#schedule-updates",
+      "learn_url": "https://learn.microsoft.com/azure/azure-cache-for-redis/cache-administration#schedule-updates",
+      "text": "scheduled updates",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/analytical-store-introduction",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/analytical-store-introduction",
+      "text": "Azure Cosmos DB Analytical Store",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/pricing/details/cosmos-db/",
+      "text": "pricing model",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/configure-custom-partitioning",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/configure-custom-partitioning",
+      "text": "partitioning Analytical Store",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/sql/query-cosmos-db-analytical-store",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/sql/query-cosmos-db-analytical-store",
+      "text": "Azure Synapse Analytics SQL Serverless pools can query the Analytical Store",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3",
+      "text": "Azure Synapse Analytics Spark pools can query the Analytical Store",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/synapse-link/how-to-copy-to-sql-pool",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/synapse-link/how-to-copy-to-sql-pool",
+      "text": "copied from the Azure Cosmos DB Analytical Store into a dedicated Synapse SQL pool using Spark",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3",
+      "text": "Azure Synapse Spark",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3#load-to-spark-dataframe",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3#load-to-spark-dataframe",
+      "text": "Spark dataframe",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/media/analytical-store-introduction/transactional-analytical-data-stores.png \"Azure Cosmos DB Analytical Column Store\"",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/media/analytical-store-introduction/transactional-analytical-data-stores.png \"Azure Cosmos DB Analytical Column Store\"",
+      "text": "Azure Cosmos DB Analytical Column Store",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/change-feed",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/change-feed",
+      "text": "Azure Cosmos DB change feed",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/overview-what-is",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/overview-what-is",
+      "text": "Azure Synapse",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/copy-activity-overview?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics#supported-data-stores-and-formats",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/copy-activity-overview?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics#supported-data-stores-and-formats",
+      "text": "supported sources",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://techcommunity.microsoft.com/t5/azure-monitor/how-to-analyze-data-exported-from-log-analytics-data-using/ba-p/2547888",
+      "text": "Log Analytics exported data can be queried via Synapse Spark",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/overview-what-is#unified-experience",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/overview-what-is#unified-experience",
+      "text": "Azure Synapse Studio",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/media/overview-what-is/synapse-architecture.png \"Azure Synapse Analytics\"",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/media/overview-what-is/synapse-architecture.png \"Azure Synapse Analytics\"",
+      "text": "Azure Synapse Analytics",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/configure-synapse-link#enable-synapse-link",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/configure-synapse-link#enable-synapse-link",
+      "text": "Azure Synapse Link",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/configure-synapse-link#create-analytical-ttl",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/configure-synapse-link#create-analytical-ttl",
+      "text": "Create a container enabled for Analytical Store",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/configure-synapse-link#update-analytical-ttl",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/configure-synapse-link#update-analytical-ttl",
+      "text": "enable an existing Container for Analytical Store",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db",
+      "learn_url": "https://learn.microsoft.com/azure/synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db",
+      "text": "Connect the Azure Synapse workspace to the Azure Cosmos DB Analytical Store",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cosmos-db/database-security?tabs=sql-api#primary-keys",
+      "learn_url": "https://learn.microsoft.com/azure/cosmos-db/database-security?tabs=sql-api#primary-keys",
+      "text": "read-only Azure Cosmos DB key",
+      "section": "Design Recommendations"
+    }
+  ],
+  "mission-critical/mission-critical-deployment-testing.md": [
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Online",
+      "text": "Mission-Critical Online",
+      "section": "Zero-downtime deployment"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Connected",
+      "text": "Azure Mission-Critical Connected",
+      "section": "Zero-downtime deployment"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Online",
+      "text": "Mission Critical Online",
+      "section": "Test or staging environments"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Online/blob/main/src/testing/userload-generator/README.md",
+      "text": "user load generator",
+      "section": "Test or staging environments"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Online",
+      "text": "Mission Critical Online",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Connected/blob/main/docs/reference-implementation/Health-Failure-Analysis.md",
+      "text": "Outage risks of individual components",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/chaos-studio",
+      "text": "Azure Chaos Studio",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates",
+      "text": "Dependabot",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://docs.github.com/en/github-ae@latest/admin/overview/about-github-ae",
+      "text": "GitHub AE",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security",
+      "text": "GitHub for source control",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/solutions/machine-learning-ops/",
+      "text": "MLOps workflow",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-Security.md",
+      "resolved": "mission-critical/mission-critical-Security.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-Security",
+      "anchor": null,
+      "text": "Security",
+      "section": "Next step"
+    }
+  ],
+  "mission-critical/mission-critical-design-methodology.md": [
+    {
+      "type": "internal-waf",
+      "url": "../reliability/metrics.md",
+      "resolved": "reliability/metrics.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/reliability/metrics",
+      "anchor": null,
+      "text": "Recommendations for defining reliability targets",
+      "section": "Design for your reliability objectives"
+    },
+    {
+      "type": "internal-waf",
+      "url": "../operational-excellence/enable-automation.md",
+      "resolved": "operational-excellence/enable-automation.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/operational-excellence/enable-automation",
+      "anchor": null,
+      "text": "Recommendations for enabling automation",
+      "section": "Strive for end-to-end automation"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-deployment-testing.md",
+      "resolved": "mission-critical/mission-critical-deployment-testing.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-deployment-testing",
+      "anchor": null,
+      "text": "Recommendations for deployment and testing",
+      "section": "Design for zero-downtime deployments"
+    },
+    {
+      "type": "internal-waf",
+      "url": "../design-guides/health-modeling.md",
+      "resolved": "design-guides/health-modeling.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/design-guides/health-modeling",
+      "anchor": null,
+      "text": "Design guide about health modeling",
+      "section": "Design for fast failure detection and recovery"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/guide/design-principles/design-for-evolution",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/guide/design-principles/design-for-evolution",
+      "text": "Evolve with Azure",
+      "section": "Evolve with Azure"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/updates/",
+      "text": "Azure updates",
+      "section": "Evolve with Azure"
+    }
+  ],
+  "mission-critical/mission-critical-design-principles.md": [
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/resiliency/principles#design-for-failure",
+      "resolved": "resiliency/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/resiliency/principles#design-for-failure",
+      "anchor": "design-for-failure",
+      "text": "**Blast radius reduction and fault isolation**",
+      "section": "Reliability"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/resiliency/principles#observe-application-health",
+      "resolved": "resiliency/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/resiliency/principles#observe-application-health",
+      "anchor": "observe-application-health",
+      "text": "**Observe application health**",
+      "section": "Reliability"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/resiliency/principles#drive-automation",
+      "resolved": "resiliency/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/resiliency/principles#drive-automation",
+      "anchor": "drive-automation",
+      "text": "**Drive automation**",
+      "section": "Reliability"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/resiliency/principles#design-for-self-healing",
+      "resolved": "resiliency/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/resiliency/principles#design-for-self-healing",
+      "anchor": "design-for-self-healing",
+      "text": "**Design for self-healing**",
+      "section": "Reliability"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/resiliency/principles#design-for-scale-out",
+      "resolved": "resiliency/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/resiliency/principles#design-for-scale-out",
+      "anchor": "design-for-scale-out",
+      "text": "**Design for scale-out**",
+      "section": "Performance Efficiency"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/performance-efficiency/performance-test",
+      "resolved": "performance-efficiency/performance-test.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/performance-test",
+      "anchor": null,
+      "text": "**Continuous validation and testing**",
+      "section": "Performance Efficiency"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/architecture/guide/design-principles/managed-services",
+      "learn_url": "https://learn.microsoft.com/azure/architecture/guide/design-principles/managed-services",
+      "text": "**Reduce overhead with managed compute services**",
+      "section": "Performance Efficiency"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/performance-efficiency/principles",
+      "resolved": "performance-efficiency/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/performance-efficiency/principles",
+      "anchor": null,
+      "text": "**Establish baseline performance and identify bottlenecks**",
+      "section": "Performance Efficiency"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/scalability/test-checklist",
+      "resolved": "scalability/test-checklist.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/scalability/test-checklist",
+      "anchor": null,
+      "text": "**Model capacity**",
+      "section": "Performance Efficiency"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#use-loosely-coupled-architecture",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#use-loosely-coupled-architecture",
+      "anchor": "use-loosely-coupled-architecture",
+      "text": "**Loosely coupled components**",
+      "section": "Operational Excellence"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#optimize-build-and-release-processes",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#optimize-build-and-release-processes",
+      "anchor": "optimize-build-and-release-processes",
+      "text": "**Automate build and release processes**",
+      "section": "Operational Excellence"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#understand-operational-health",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#understand-operational-health",
+      "anchor": "understand-operational-health",
+      "text": "**Quantify operational health**",
+      "section": "Operational Excellence"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#rehearse-recovery-and-practice-failure",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#rehearse-recovery-and-practice-failure",
+      "anchor": "rehearse-recovery-and-practice-failure",
+      "text": "**Rehearse recovery and practice failure**",
+      "section": "Operational Excellence"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#embrace-continuous-operational-improvement",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#embrace-continuous-operational-improvement",
+      "anchor": "embrace-continuous-operational-improvement",
+      "text": "**Embrace continuous operational improvement**",
+      "section": "Operational Excellence"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/security/security-principles#monitor-system-security-plan-incident-response",
+      "resolved": "security/security-principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/security/security-principles#monitor-system-security-plan-incident-response",
+      "anchor": "monitor-system-security-plan-incident-response",
+      "text": "**Monitor the security of the entire solution and plan incident responses**",
+      "section": "Security"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#optimize-build-and-release-processes",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#optimize-build-and-release-processes",
+      "anchor": "optimize-build-and-release-processes",
+      "text": "**Model and test against potential threats**",
+      "section": "Security"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#understand-operational-health",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#understand-operational-health",
+      "anchor": "understand-operational-health",
+      "text": "**Identify and protect endpoints**",
+      "section": "Security"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#rehearse-recovery-and-practice-failure",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#rehearse-recovery-and-practice-failure",
+      "anchor": "rehearse-recovery-and-practice-failure",
+      "text": "**Protect against code level vulnerabilities**",
+      "section": "Security"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/principles#embrace-continuous-operational-improvement",
+      "resolved": "devops/principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/principles#embrace-continuous-operational-improvement",
+      "anchor": "embrace-continuous-operational-improvement",
+      "text": "**Automate and use least privilege**",
+      "section": "Security"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/security/security-principles#classify-and-encrypt-data",
+      "resolved": "security/security-principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/security/security-principles#classify-and-encrypt-data",
+      "anchor": "classify-and-encrypt-data",
+      "text": "**Classify and encrypt data**",
+      "section": "Security"
+    }
+  ],
+  "mission-critical/mission-critical-health-modeling.md": [
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Online",
+      "text": "Mission-Critical Online",
+      "section": "Example - Layered health model"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Connected",
+      "text": "Mission-Critical Connected",
+      "section": "Example - Layered health model"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./images/mission-critical-example-health-definitions.png \"Mission-critical example health definitions\"",
+      "resolved": "mission-critical/images/mission-critical-example-health-definitions.png \"Mission-critical example health definitions\"",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/images/mission-critical-example-health-definitions.png \"Mission-critical example health definitions\"",
+      "anchor": null,
+      "text": "Mission-critical example health definitions",
+      "section": "Example - Layered health model"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-online",
+      "text": "online reference implementation",
+      "section": "Example - Layered health model"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./images/mission-critical-example-fault-states.png \"Mission Critical Example Health Model Visualization\"",
+      "resolved": "mission-critical/images/mission-critical-example-fault-states.png \"Mission Critical Example Health Model Visualization\"",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/images/mission-critical-example-fault-states.png \"Mission Critical Example Health Model Visualization\"",
+      "anchor": null,
+      "text": "Mission Critical Example Health Model Visualization",
+      "section": "Example - Layered health model"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/overview#overview",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/overview#overview",
+      "text": "Azure Monitor",
+      "section": "Unified data sink for correlated analysis"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./images/mission-critical-health-data-collection.png \"Mission Critical Health Data Collection\"",
+      "resolved": "mission-critical/images/mission-critical-health-data-collection.png \"Mission Critical Health Data Collection\"",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/images/mission-critical-health-data-collection.png \"Mission Critical Health Data Collection\"",
+      "anchor": null,
+      "text": "Mission Critical Health Data Collection",
+      "section": "Unified data sink for correlated analysis"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-explorer/",
+      "learn_url": "https://learn.microsoft.com/azure/data-explorer/",
+      "text": "Azure Data Explorer",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics",
+      "text": "retained",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/essentials/diagnostic-settings",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings",
+      "text": "diagnostic setting",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/policy-reference",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/policy-reference",
+      "text": "Built-In Policies",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/data-retention-archive",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-archive",
+      "text": "archived",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/logs-data-export",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export",
+      "text": "exported",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/logs-dedicated-clusters",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/logs-dedicated-clusters",
+      "text": "Dedicated Clusters",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/best-practices-logs#reliability",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/best-practices-logs#reliability",
+      "text": "Best practices for Azure Monitor Logs",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/logs-data-export",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export",
+      "text": "can be exported to Azure Storage or Azure Event Hubs on a continuous, scheduled, or one-time basis",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/storage/common/storage-redundancy",
+      "learn_url": "https://learn.microsoft.com/azure/storage/common/storage-redundancy",
+      "text": "redundancy levels",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/logs-data-export#limitations",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export#limitations",
+      "text": "data export limitations",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/logs-data-export#supported-tables",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export#supported-tables",
+      "text": "tables in the workspace are supported",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/data-retention-archive",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/data-retention-archive",
+      "text": "Archiving",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#user-query-throttling",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#user-query-throttling",
+      "text": "user query throttling limits",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/query-packs",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/query-packs",
+      "text": "Query packs",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/app/sampling",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/app/sampling",
+      "text": "Sampling",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/pricing/details/monitor/",
+      "text": "charged",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/cost-logs#commitment-tiers",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers",
+      "text": "Log Analytics commitment tier pricing model",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/cross-workspace-query",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/cross-workspace-query",
+      "text": "cross-Workspace queries",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/query-packs",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/query-packs",
+      "text": "query packs",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/logs-data-export?tabs=portal",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export?tabs=portal",
+      "text": "fork",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "external",
+      "url": "https://stackify.com/what-is-structured-logging-and-why-developers-need-it/",
+      "text": "structured logging",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/app-service/monitor-instances-health-check",
+      "learn_url": "https://learn.microsoft.com/azure/app-service/monitor-instances-health-check",
+      "text": "Health Checks",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/logs/daily-cap",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/logs/daily-cap",
+      "text": "daily cap",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/service-limits#user-query-throttling",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/service-limits#user-query-throttling",
+      "text": "Log Analytics limits on concurrent and queued queries, as well as the overall query rate",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/Azure/Mission-Critical-Online/tree/main/src/infra/monitoring/queries",
+      "text": "here",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/service-limits#user-query-throttling",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/service-limits#user-query-throttling",
+      "text": "query limits",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring#plan-platform-management-and-monitoring",
+      "learn_url": "https://learn.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring#plan-platform-management-and-monitoring",
+      "text": "central platform Log Analytics workspace",
+      "section": "Design Recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/alerts/alerts-overview",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-overview",
+      "text": "Azure Monitor",
+      "section": "Automated incident response"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/alerts/action-groups",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups",
+      "text": "Action Groups",
+      "section": "Automated incident response"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-monitor/data-sources",
+      "learn_url": "https://learn.microsoft.com/azure/azure-monitor/data-sources",
+      "text": "data sources",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#alerts",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#alerts",
+      "text": "Limits",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#alerts-api",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#alerts-api",
+      "text": "throttling limits",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#action-groups",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#action-groups",
+      "text": "several hard limits",
+      "section": "Design considerations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./images/mission-critical-aiops-methodology.png \"Mission Critical AIOps Methodologies\"",
+      "resolved": "mission-critical/images/mission-critical-aiops-methodology.png \"Mission Critical AIOps Methodologies\"",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/images/mission-critical-aiops-methodology.png \"Mission Critical AIOps Methodologies\"",
+      "anchor": null,
+      "text": "Mission Critical AIOps Methodologies",
+      "section": "Predictive action and AI operations (AIOps)"
+    },
+    {
+      "type": "external",
+      "url": "https://scikit-learn.org/stable/",
+      "text": "Scikit Learn",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/machine-learning/concept-automated-ml",
+      "learn_url": "https://learn.microsoft.com/azure/machine-learning/concept-automated-ml",
+      "text": "Automated ML",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cognitive-services/what-are-cognitive-services",
+      "learn_url": "https://learn.microsoft.com/azure/cognitive-services/what-are-cognitive-services",
+      "text": "Azure Cognitive Services",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cognitive-services/anomaly-detector/",
+      "learn_url": "https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/",
+      "text": "Anomaly Detection",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/data-factory/introduction",
+      "learn_url": "https://learn.microsoft.com/azure/data-factory/introduction",
+      "text": "Azure Data Factory",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-synapse-analytics-limits",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-synapse-analytics-limits",
+      "text": "Azure Synapse",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/machine-learning/concept-model-management-and-deployment#automate-the-ml-lifecycle",
+      "learn_url": "https://learn.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#automate-the-ml-lifecycle",
+      "text": "automate the ML lifecycle",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cognitive-services/what-are-cognitive-services",
+      "learn_url": "https://learn.microsoft.com/azure/cognitive-services/what-are-cognitive-services",
+      "text": "Azure Cognitive Services",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cognitive-services/anomaly-detector/",
+      "learn_url": "https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/",
+      "text": "Anomaly Detection",
+      "section": "Design recommendations"
+    }
+  ],
+  "mission-critical/mission-critical-networking-connectivity.md": [
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/frontdoor/",
+      "text": "Azure Front Door",
+      "section": "Global traffic routing"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/traffic-manager/",
+      "text": "Azure Traffic Manager",
+      "section": "Global traffic routing"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/load-balancer/cross-region-overview",
+      "learn_url": "https://learn.microsoft.com/azure/load-balancer/cross-region-overview",
+      "text": "Azure Standard Load Balancer",
+      "section": "Global traffic routing"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/frontdoor/front-door-ddos#integration-with-azure-ddos-protection-basic",
+      "learn_url": "https://learn.microsoft.com/azure/frontdoor/front-door-ddos#integration-with-azure-ddos-protection-basic",
+      "text": "Azure DDoS protection Basic",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://www.microsoft.com/download/details.aspx?id=56519",
+      "text": "Azure IP Ranges and Service Tags",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/frontdoor/front-door-routing-methods",
+      "learn_url": "https://learn.microsoft.com/azure/frontdoor/front-door-routing-methods",
+      "text": "load distribution configurations",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/frontdoor/front-door-routing-methods#session-affinity",
+      "learn_url": "https://learn.microsoft.com/azure/frontdoor/front-door-routing-methods#session-affinity",
+      "text": "Session Affinity",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/load-balancer/cross-region-overview#limitations",
+      "learn_url": "https://learn.microsoft.com/azure/load-balancer/cross-region-overview#limitations",
+      "text": "technical limitations",
+      "section": "Design considerations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./images/mission-critical-global-routing.gif \"Mission-Critical Global Load Balancer Configuration\"",
+      "resolved": "mission-critical/images/mission-critical-global-routing.gif \"Mission-Critical Global Load Balancer Configuration\"",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/images/mission-critical-global-routing.gif \"Mission-Critical Global Load Balancer Configuration\"",
+      "anchor": null,
+      "text": "Mission-Critical Global Load Balancer Configuration",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-",
+      "learn_url": "https://learn.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-",
+      "text": "validate incoming requests through header based filtering",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/frontdoor/front-door-backend-pool#load-balancing-settings",
+      "learn_url": "https://learn.microsoft.com/azure/frontdoor/front-door-backend-pool#load-balancing-settings",
+      "text": "\"Latency Sensitivity (Additional Latency)\"",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/frontdoor/edge-locations-by-region",
+      "learn_url": "https://learn.microsoft.com/azure/frontdoor/edge-locations-by-region",
+      "text": "edge locations",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/frontdoor/front-door-caching",
+      "learn_url": "https://learn.microsoft.com/azure/frontdoor/front-door-caching",
+      "text": "Azure Front Door",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/services/cdn",
+      "text": "Azure CDN",
+      "section": "Design considerations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-networking-connectivity.md",
+      "resolved": "mission-critical/mission-critical-networking-connectivity.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-networking-connectivity",
+      "anchor": null,
+      "text": "Network and connectivity",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/blog/how-to-resize-azure-virtual-networks-that-are-peered-now-in-preview/",
+      "text": "sync on the peering link is required",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/concepts-network#compare-network-models",
+      "learn_url": "https://learn.microsoft.com/azure/aks/concepts-network#compare-network-models",
+      "text": "supports a richer feature set",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity",
+      "learn_url": "https://learn.microsoft.com/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity",
+      "text": "network guidance",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/bastion/bastion-overview",
+      "learn_url": "https://learn.microsoft.com/azure/bastion/bastion-overview",
+      "text": "Azure Bastion",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/load-balancer/load-balancer-outbound-connections#scenarios",
+      "learn_url": "https://learn.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios",
+      "text": "connectivity methods",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-network/nat-gateway/nat-overview",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-network/nat-gateway/nat-overview",
+      "text": "Azure NAT Gateway",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/firewall/protect-azure-kubernetes-service",
+      "learn_url": "https://learn.microsoft.com/azure/firewall/protect-azure-kubernetes-service",
+      "text": "Azure Firewall",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/pricing/details/bandwidth/",
+      "text": "data transfer charges",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-network/nat-gateway/nat-overview",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-network/nat-gateway/nat-overview",
+      "text": "Azure NAT Gateway",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/reliability/availability-zones-overview",
+      "learn_url": "https://learn.microsoft.com/azure/reliability/availability-zones-overview",
+      "text": "Availability Zone (AZ)",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.microsoft.com/pricing/details/bandwidth/",
+      "text": "data transfer charge",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machines/co-location",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machines/co-location",
+      "text": "Proximity Placement Groups",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/concepts-network#azure-cni-advanced-networking",
+      "learn_url": "https://learn.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking",
+      "text": "networking models",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet",
+      "text": "into different subnets",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/concepts-network#azure-cni-advanced-networking",
+      "learn_url": "https://learn.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking",
+      "text": "Azure CNI documentation",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://kubernetes.io/docs/concepts/services-networking/network-policies/",
+      "text": "Network Policies",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities",
+      "text": "Differences between Azure and Calico policies and their capabilities",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities",
+      "text": "richer feature set",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet",
+      "text": "different subnets within the same virtual network",
+      "section": "Design Considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/concepts-network#azure-cni-advanced-networking",
+      "learn_url": "https://learn.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking",
+      "text": "Azure CNI",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/aks/use-network-policies",
+      "learn_url": "https://learn.microsoft.com/azure/aks/use-network-policies",
+      "text": "Network Policy",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-health-modeling.md",
+      "resolved": "mission-critical/mission-critical-health-modeling.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-health-modeling",
+      "anchor": null,
+      "text": "Health modeling and observability",
+      "section": "Next step"
+    }
+  ],
+  "mission-critical/mission-critical-operational-procedures.md": [
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/lock-resources",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources",
+      "text": "lock Azure resources",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://github.com/dependabot",
+      "text": "GitHub Dependabot",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/container-registry/container-registry-auto-purge",
+      "learn_url": "https://learn.microsoft.com/azure/container-registry/container-registry-auto-purge",
+      "text": "removing old versions of images from Azure Container Registry",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "external",
+      "url": "https://azure.github.io/secrets-store-csi-driver-provider-azure",
+      "text": "Azure Key Vault Provider for Secrets Store CSI Driver",
+      "section": "Design considerations"
+    },
+    {
+      "type": "external",
+      "url": "https://akv2k8s.io",
+      "text": "akv2k8s",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/app-service/app-service-key-vault-references",
+      "learn_url": "https://learn.microsoft.com/azure/app-service/app-service-key-vault-references",
+      "text": "Key Vault referenced app settings",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/general/event-grid-tutorial",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/general/event-grid-tutorial",
+      "text": "configure alerting",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/keys/how-to-configure-key-rotation#configure-key-near-expiry-notification",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/keys/how-to-configure-key-rotation#configure-key-near-expiry-notification",
+      "text": "key near expiry notification in Azure Key Vault",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machines/maintenance-and-updates",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machines/maintenance-and-updates",
+      "text": "Maintenance for virtual machines in Azure",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machines/maintenance-notifications",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machines/maintenance-notifications",
+      "text": "Handling planned maintenance notifications",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/backup/backup-center-overview",
+      "learn_url": "https://learn.microsoft.com/azure/backup/backup-center-overview",
+      "text": "Backup center",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/virtual-machines/image-builder-overview",
+      "learn_url": "https://learn.microsoft.com/azure/virtual-machines/image-builder-overview",
+      "text": "Azure VM Image Builder",
+      "section": "Design recommendations"
+    }
+  ],
+  "mission-critical/mission-critical-overview.md": [
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/#reliability",
+      "resolved": ".md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/#reliability",
+      "anchor": "reliability",
+      "text": "Reliability",
+      "section": "Is mission-critical only about reliability?"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/security/",
+      "resolved": "security/.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/security/",
+      "anchor": null,
+      "text": "Security",
+      "section": "Is mission-critical only about reliability?"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/devops/",
+      "resolved": "devops/.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/devops/",
+      "anchor": null,
+      "text": "Operational Excellence",
+      "section": "Is mission-critical only about reliability?"
+    },
+    {
+      "type": "internal-waf",
+      "url": "/azure/well-architected/scalability/",
+      "resolved": "scalability/.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/scalability/",
+      "anchor": null,
+      "text": "Performance Efficiency",
+      "section": "Is mission-critical only about reliability?"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-design-methodology.md",
+      "resolved": "mission-critical/mission-critical-design-methodology.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-design-methodology",
+      "anchor": null,
+      "text": "Design Methodology",
+      "section": "How to use this guidance?"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-design-principles.md",
+      "resolved": "mission-critical/mission-critical-design-principles.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-design-principles",
+      "anchor": null,
+      "text": "Design Principles",
+      "section": "How to use this guidance?"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./images/mission-critical-design-areas.svg \"Mission-critical design areas\"",
+      "resolved": "mission-critical/images/mission-critical-design-areas.svg \"Mission-critical design areas\"",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/images/mission-critical-design-areas.svg \"Mission-critical design areas\"",
+      "anchor": null,
+      "text": "Mission-critical design areas",
+      "section": "How to use this guidance?"
+    }
+  ],
+  "mission-critical/mission-critical-security.md": [
+    {
+      "type": "external",
+      "url": "https://github.com/azure/alwayson",
+      "text": "Mission-Critical open source project",
+      "section": "Security considerations for mission-critical workloads on Azure"
+    },
+    {
+      "type": "external",
+      "url": "https://www.microsoft.com/security/business/zero-trust",
+      "text": "Zero Trust",
+      "section": "Alignment with the Zero Trust model"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/active-directory/managed-identities-azure-resources/overview",
+      "learn_url": "https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview",
+      "text": "Azure Managed Identities",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/active-directory/develop/reference-v2-libraries",
+      "learn_url": "https://learn.microsoft.com/azure/active-directory/develop/reference-v2-libraries",
+      "text": "Microsoft identity platform authentication libraries",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/active-directory/fundamentals/resilience-client-app?tabs=csharp",
+      "learn_url": "https://learn.microsoft.com/azure/active-directory/fundamentals/resilience-client-app?tabs=csharp",
+      "text": "such as MSAL",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/devops/devsecops/",
+      "learn_url": "https://learn.microsoft.com/azure/devops/devsecops/",
+      "text": "DevSecOps",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "external",
+      "url": "https://github.blog/2020-08-27-secure-at-every-step-putting-devsecops-into-practice-with-code-scanning/",
+      "text": "secret scanning",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "external",
+      "url": "https://en.wikipedia.org/wiki/STRIDE_(security",
+      "text": "STRIDE",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/private-link/private-link-faq#what-is-the-difference-between-service-endpoints-and-private-endpoints-",
+      "learn_url": "https://learn.microsoft.com/azure/private-link/private-link-faq#what-is-the-difference-between-service-endpoints-and-private-endpoints-",
+      "text": "data exfiltration risks associated with Service Endpoints",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/devops/pipelines/agents/agents?tabs=browser#install",
+      "learn_url": "https://learn.microsoft.com/azure/devops/pipelines/agents/agents?tabs=browser#install",
+      "text": "Private self-hosted build agents",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/private-link/private-endpoint-overview#private-link-resource",
+      "learn_url": "https://learn.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource",
+      "text": "Azure Private Link",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/private-link/private-endpoint-overview",
+      "learn_url": "https://learn.microsoft.com/azure/private-link/private-endpoint-overview",
+      "text": "private endpoints",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/devops/pipelines/agents/agents#install",
+      "learn_url": "https://learn.microsoft.com/azure/devops/pipelines/agents/agents#install",
+      "text": "hosted private build agents",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/devops/pipelines/agents/agents#microsoft-hosted-agents",
+      "learn_url": "https://learn.microsoft.com/azure/devops/pipelines/agents/agents#microsoft-hosted-agents",
+      "text": "Microsoft-hosted agents",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/bastion/bastion-overview",
+      "learn_url": "https://learn.microsoft.com/azure/bastion/bastion-overview",
+      "text": "Azure Bastion",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/private-link/availability",
+      "learn_url": "https://learn.microsoft.com/azure/private-link/availability",
+      "text": "Azure Private Link availability",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/general/rbac-guide?tabs=azure-cli#best-practices-for-individual-keys-secrets-and-certificates",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#best-practices-for-individual-keys-secrets-and-certificates",
+      "text": "object-level permissions",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/keys/about-keys#compliance",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/keys/about-keys#compliance",
+      "text": "FIPS 140 validation",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/managed-hsm/overview",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/managed-hsm/overview",
+      "text": "Azure Key Vault managed HSM",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/general/backup?tabs=azure-cli#overview",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/general/backup?tabs=azure-cli#overview",
+      "text": "point-in-time snapshot",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/general/overview",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/general/overview",
+      "text": "Azure Key Vault",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/certificates/certificate-scenarios#creating-a-certificate-with-a-ca-partnered-with-key-vault",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-a-certificate-with-a-ca-partnered-with-key-vault",
+      "text": "manage certificate procurement and signing",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/key-vault/general/alert",
+      "learn_url": "https://learn.microsoft.com/azure/key-vault/general/alert",
+      "text": "alerts",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-policy-limits",
+      "learn_url": "https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-policy-limits",
+      "text": "several limits",
+      "section": "Design considerations"
+    },
+    {
+      "type": "azure-docs",
+      "url": "/azure/security/fundamentals/iaas",
+      "learn_url": "https://learn.microsoft.com/azure/security/fundamentals/iaas",
+      "text": "Security best practices for IaaS workloads in Azure",
+      "section": "Design recommendations"
+    },
+    {
+      "type": "internal-waf",
+      "url": "./mission-critical-operational-procedures.md",
+      "resolved": "mission-critical/mission-critical-operational-procedures.md",
+      "learn_url": "https://learn.microsoft.com/azure/well-architected/mission-critical/mission-critical-operational-procedures",
+      "anchor": null,
+      "text": "Operational procedures",
+      "section": "Next step"
+    }
+  ]
+}
