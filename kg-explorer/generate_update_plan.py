@@ -74,7 +74,7 @@ def get_llm_config(proxy_url: str | None) -> dict:
         "base_url": proxy_url
         or os.environ.get("LLM_BINDING_HOST", DEFAULT_PROXY_URL),
         "model": os.environ.get("LLM_MODEL", DEFAULT_MODEL),
-        "api_key": os.environ.get("LLM_API_KEY", DEFAULT_API_KEY),
+        "api_key": os.environ.get("OPENAI_API_KEY", os.environ.get("LLM_API_KEY", DEFAULT_API_KEY)),
     }
 
 

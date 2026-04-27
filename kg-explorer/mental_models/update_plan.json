@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-27T21:42:48Z",
+  "total_verified": 1,
+  "total_outdated": 1,
+  "total_current": 0,
+  "total_unverifiable": 0,
+  "updates": [
+    {
+      "fact_id": "066fb3e99ac718e8",
+      "entity": "AKS",
+      "fact": "AKS has a scale limit of 1,000 nodes per cluster",
+      "status": "outdated",
+      "current_info": "AKS supports up to 5,000 nodes per cluster. The 1,000 node limit is the default, but higher limits are available.",
+      "file": "mission-critical/mission-critical-application-design.md",
+      "heading": "### Example scale units",
+      "line_approx": 31,
+      "location_confidence": 0.92,
+      "suggested_replacement": null,
+      "source_url": "https://learn.microsoft.com/en-us/azure/aks/quotas-skus-regions",
+      "confidence": "medium",
+      "verified_at": "2026-04-27T21:42:34+00:00",
+      "manual_review_needed": false
+    }
+  ]
+}

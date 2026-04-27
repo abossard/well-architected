@@ -184,11 +184,13 @@ class McpStdioClient:
 
     async def _rpc(self, method: str, params: dict) -> dict:
         async with self._lock:
+            await self._ensure_alive()
             req_id = self._next_id
             self._next_id += 1
             msg = {"jsonrpc": "2.0", "id": req_id, "method": method, "params": params}
             raw = json.dumps(msg) + "\n"
-            assert self._proc and self._proc.stdin and self._proc.stdout
+            if not (self._proc and self._proc.stdin and self._proc.stdout):
+                raise RuntimeError("MCP process not available")
             await self._loop.run_in_executor(None, self._proc.stdin.write, raw.encode())  # type: ignore[union-attr]
             await self._loop.run_in_executor(None, self._proc.stdin.flush)  # type: ignore[union-attr]
             # Read lines until we get a response with matching id
@@ -218,7 +220,7 @@ class McpStdioClient:
 
     # ── high-level tool call ────────────────────────────────────────
     async def call_tool(self, name: str, arguments: dict) -> Any:
-        await self._ensure_alive()
+        # _ensure_alive is called inside _rpc under the lock
         resp = await self._rpc("tools/call", {"name": name, "arguments": arguments})
         if "error" in resp:
             raise RuntimeError(f"MCP tool error: {resp['error']}")
@@ -640,7 +642,7 @@ def main() -> int:
     if results:
         counts = {}
         for r in results:
-            s = r.get("status", "unknown")
+            s = r.get("verdict", "unknown")
             counts[s] = counts.get(s, 0) + 1
         print(f"\nResults: {counts}")
     return 0
