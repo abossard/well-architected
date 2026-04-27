@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mental Models · Azure Well-Architected Framework</title>
+  <title>Mission-Critical Knowledge Graph · Azure Well-Architected Framework</title>
   <style>
     :root {
       color-scheme: dark;
@@ -16,56 +16,228 @@
       --accent: #f59e0b;
       --accent-2: #6366f1;
       --link: #58a6ff;
+      --green: #3fb950;
+      --red: #f85149;
+      --purple: #bc8cff;
     }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.65; }
-    main { max-width: 880px; margin: 0 auto; padding: 64px 24px 96px; }
-    h1 { font-size: 2.6rem; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.02em; }
-    .lede { font-size: 1.2rem; color: var(--muted); margin: 0 0 48px; max-width: 56ch; }
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 0 0 48px; }
-    .stats > div { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 18px; }
-    .stats b { display: block; font-size: 1.8rem; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
-    .stats span { color: var(--muted); font-size: 0.9rem; }
-    form#search { display: flex; gap: 8px; margin: 0 0 40px; }
-    form#search input { flex: 1; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 14px 18px; font-size: 1rem; border-radius: 8px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.65; }
+    main { max-width: 860px; margin: 0 auto; padding: 72px 24px 48px; }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 64px; }
+    .hero-badge { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); background: color-mix(in srgb, var(--accent) 8%, transparent); padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; }
+    h1 { font-size: 2.8rem; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
+    h1 span { color: var(--accent); }
+    .tagline { font-size: 1.15rem; color: var(--muted); max-width: 52ch; margin: 0 auto 32px; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--bg); font-size: 1.05rem; font-weight: 600; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: opacity 0.15s; }
+    .hero-cta:hover { opacity: 0.9; }
+    .hero-cta svg { width: 18px; height: 18px; }
+
+    /* Search */
+    .search-wrap { max-width: 520px; margin: 0 auto 64px; }
+    form#search { display: flex; gap: 8px; }
+    form#search input { flex: 1; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 13px 18px; font-size: 1rem; border-radius: 8px; }
     form#search input:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: transparent; }
-    form#search button { background: var(--accent); color: #0d1117; border: none; padding: 0 22px; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; }
-    .cta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 0 0 32px; }
-    .cta a { display: block; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent-2); border-radius: 8px; padding: 18px 20px; color: var(--text); text-decoration: none; }
-    .cta a:hover { background: var(--surface-2); border-left-color: var(--accent); }
-    .cta a b { display: block; font-size: 1.05rem; margin-bottom: 4px; }
-    .cta a span { color: var(--muted); font-size: 0.9rem; }
-    footer { color: var(--muted); font-size: 0.85rem; margin-top: 48px; border-top: 1px solid var(--border); padding-top: 24px; }
-    a.link { color: var(--link); }
+    form#search button { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0 18px; font-size: 1.1rem; border-radius: 8px; cursor: pointer; transition: border-color 0.15s; }
+    form#search button:hover { border-color: var(--accent); }
+
+    /* Stats grid */
+    h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 16px; font-weight: 600; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 64px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 16px; text-align: center; }
+    .stat-card .num { display: block; font-size: 2rem; font-weight: 700; color: var(--accent); line-height: 1.1; margin-bottom: 4px; }
+    .stat-card .label { color: var(--muted); font-size: 0.85rem; }
+
+    /* Pipeline */
+    .pipeline { margin-bottom: 64px; }
+    .pipeline p.desc { color: var(--muted); margin-bottom: 24px; max-width: 60ch; }
+    .pipe-flow { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding-bottom: 8px; }
+    .pipe-step { flex: 1; min-width: 130px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 14px; text-align: center; position: relative; }
+    .pipe-step .icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .pipe-step .step-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+    .pipe-step .step-detail { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+    .pipe-arrow { display: flex; align-items: center; color: var(--muted); font-size: 1.2rem; padding: 0 4px; flex-shrink: 0; }
+
+    /* Views */
+    .views { margin-bottom: 64px; }
+    .views-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .view-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 18px; text-decoration: none; color: var(--text); transition: border-color 0.15s; display: block; }
+    .view-card:hover { border-color: var(--accent-2); }
+    .view-card .view-icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .view-card .view-title { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+    .view-card .view-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+    /* Links */
+    .links { margin-bottom: 64px; }
+    .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+    .links-grid a { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; color: var(--text); text-decoration: none; transition: border-color 0.15s; font-size: 0.92rem; }
+    .links-grid a:hover { border-color: var(--link); }
+    .links-grid a .link-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .links-grid a .link-label { font-weight: 500; }
+    .links-grid a .link-sub { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 2px; font-weight: 400; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding-top: 24px; margin-top: 16px; color: var(--muted); font-size: 0.82rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+    footer a { color: var(--link); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .pipe-flow { flex-direction: column; gap: 0; }
+      .pipe-arrow { justify-content: center; transform: rotate(90deg); padding: 2px 0; }
+      .stats { grid-template-columns: repeat(3, 1fr); }
+      footer { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
   <main>
-    <h1>Mental models from the Azure Well-Architected Framework</h1>
-    <p class="lede">Curated thinking tools for architects who need to ship reliable, secure,
-      cost-conscious workloads. Mined from <b id="stat-docs">–</b> Microsoft Learn pages.</p>
 
-    <section class="stats" aria-label="stats">
-      <div><b id="stat-models">–</b><span>mental models</span></div>
-      <div><b id="stat-nodes">–</b><span>entities</span></div>
-      <div><b id="stat-edges">–</b><span>relations</span></div>
-      <div><b id="stat-mc">–</b><span>core topics</span></div>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">Azure Well-Architected Framework</div>
+      <h1>Mission-Critical<br><span>Knowledge Graph</span></h1>
+      <p class="tagline">
+        An interactive knowledge graph distilled from <b id="stat-docs">18</b> mission-critical
+        docs — surfacing entities, mental models, facts, and hidden connections
+        that architects need to build resilient systems on Azure.
+      </p>
+      <a href="explorer.html" class="hero-cta">
+        Open Explorer
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd"/></svg>
+      </a>
     </section>
 
-    <form id="search" onsubmit="return jumpToGraph(event)">
-      <input id="q" autocomplete="off" placeholder="Jump to a concept… e.g. Zero Trust" />
-      <button type="submit" aria-label="Go">→</button>
-    </form>
+    <!-- Search -->
+    <div class="search-wrap">
+      <form id="search" onsubmit="return jumpToGraph(event)">
+        <input id="q" autocomplete="off" placeholder="Jump to a concept… e.g. Zero Trust, Bulkhead, SLA" />
+        <button type="submit" aria-label="Search">⏎</button>
+      </form>
+    </div>
 
-    <nav class="cta">
-      <a href="explorer.html"><b>Knowledge Graph Explorer</b><span>Graph, mental model cards, facts — all in one view</span></a>
-      <a href="explorer.html#" onclick="this.href='explorer.html';document.querySelector('#viewCards')?.click();"><b>Browse mental model cards</b><span>Rich cards with mantras, tradeoffs, connections</span></a>
-    </nav>
+    <!-- Stats -->
+    <section>
+      <h2>By the numbers</h2>
+      <div class="stats">
+        <div class="stat-card"><span class="num" id="stat-nodes">1,242</span><span class="label">Nodes</span></div>
+        <div class="stat-card"><span class="num" id="stat-edges">1,430</span><span class="label">Edges</span></div>
+        <div class="stat-card"><span class="num" id="stat-models">39</span><span class="label">Mental models</span></div>
+        <div class="stat-card"><span class="num" id="stat-facts">629</span><span class="label">Facts</span></div>
+        <div class="stat-card"><span class="num" id="stat-entities">613</span><span class="label">Entities</span></div>
+        <div class="stat-card"><span class="num" id="stat-links">398</span><span class="label">Cross-references</span></div>
+      </div>
+    </section>
 
+    <!-- Pipeline -->
+    <section class="pipeline">
+      <h2>How it was built</h2>
+      <p class="desc">
+        Raw markdown from the Well-Architected Framework flows through an AI-powered pipeline
+        that extracts structure, meaning, and connections — no manual curation.
+      </p>
+      <div class="pipe-flow">
+        <div class="pipe-step">
+          <div class="icon">📄</div>
+          <div class="step-title">Source docs</div>
+          <div class="step-detail">18 markdown files from WAF mission-critical + pillar overviews</div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step">
+          <div class="icon">🔬</div>
+          <div class="step-title">LightRAG</div>
+          <div class="step-detail">Claude Opus extracts 613 entities with OpenAI embeddings</div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step">
+          <div class="icon">🏷️</div>
+          <div class="step-title">Classify</div>
+          <div class="step-detail">8 categories, 39 mental model cards with mantras and tradeoffs</div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step">
+          <div class="icon">📌</div>
+          <div class="step-title">Facts</div>
+          <div class="step-detail">629 facts — 284 timeless principles, 345 perishable</div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step">
+          <div class="icon">🕸️</div>
+          <div class="step-title">Graph</div>
+          <div class="step-detail">1,242 nodes + 1,430 edges assembled into an explorable graph</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you can explore -->
+    <section class="views">
+      <h2>What you can explore</h2>
+      <div class="views-grid">
+        <a href="explorer.html" class="view-card">
+          <div class="view-icon">🌐</div>
+          <div class="view-title">Graph view</div>
+          <div class="view-desc">Interactive force-directed graph. Click any node to see its connections, category, and related facts.</div>
+        </a>
+        <a href="explorer.html#models" class="view-card">
+          <div class="view-icon">🧠</div>
+          <div class="view-title">Mental models</div>
+          <div class="view-desc">39 rich cards with mantras, when-to-apply guidance, tradeoffs, and connections to other concepts.</div>
+        </a>
+        <a href="explorer.html#nodes" class="view-card">
+          <div class="view-icon">📋</div>
+          <div class="view-title">Node browser</div>
+          <div class="view-desc">Browse and filter all 613 entities — concepts, patterns, Azure services, metrics, and anti-patterns.</div>
+        </a>
+        <a href="explorer.html#facts" class="view-card">
+          <div class="view-icon">✅</div>
+          <div class="view-title">Fact checker</div>
+          <div class="view-desc">629 extracted facts separated into timeless principles and perishable claims that need periodic review.</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Links -->
+    <section class="links">
+      <h2>Links</h2>
+      <div class="links-grid">
+        <a href="https://learn.microsoft.com/azure/well-architected">
+          <span class="link-icon">📘</span>
+          <div>
+            <span class="link-label">Azure Well-Architected Framework</span>
+            <span class="link-sub">The published docs on Microsoft Learn</span>
+          </div>
+        </a>
+        <a href="https://github.com/MicrosoftDocs/well-architected">
+          <span class="link-icon">📂</span>
+          <div>
+            <span class="link-label">Source repo</span>
+            <span class="link-sub">MicrosoftDocs/well-architected</span>
+          </div>
+        </a>
+        <a href="https://github.com/abossard/well-architected">
+          <span class="link-icon">🔀</span>
+          <div>
+            <span class="link-label">Fork with explorer</span>
+            <span class="link-sub">abossard/well-architected</span>
+          </div>
+        </a>
+        <a href="https://github.com/HKUDS/LightRAG">
+          <span class="link-icon">⚡</span>
+          <div>
+            <span class="link-label">LightRAG</span>
+            <span class="link-sub">The RAG engine powering entity extraction</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      Derived from the <a class="link" href="https://learn.microsoft.com/azure/well-architected">Azure Well-Architected Framework</a>.
-      Source: <a class="link" href="https://github.com/MicrosoftDocs/well-architected">MicrosoftDocs/well-architected</a>.
+      <span>Built with <a href="https://github.com/HKUDS/LightRAG">LightRAG</a> + Claude Opus · Derived from the <a href="https://learn.microsoft.com/azure/well-architected">Azure Well-Architected Framework</a></span>
+      <span><a href="https://github.com/abossard/well-architected">GitHub</a></span>
     </footer>
+
   </main>
 
   <script>
@@ -73,15 +245,16 @@
       .then(r => r.json())
       .then(d => {
         const s = d.stats || {};
-        document.getElementById("stat-models").textContent = s.mental_models ?? "–";
-        document.getElementById("stat-nodes").textContent  = (s.nodes ?? 0).toLocaleString();
-        document.getElementById("stat-edges").textContent  = (s.edges ?? 0).toLocaleString();
-        document.getElementById("stat-mc").textContent     = (s.mission_critical ?? 0).toLocaleString();
-        document.getElementById("stat-docs").textContent   = (s.docs ?? 0).toLocaleString();
-        const el = document.getElementById("cta-graph-stats");
-        if (el) el.textContent = `${(s.nodes??0).toLocaleString()} entities · ${(s.edges??0).toLocaleString()} relations`;
+        const set = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = Number(val).toLocaleString(); };
+        set("stat-nodes", s.nodes);
+        set("stat-edges", s.edges);
+        set("stat-models", s.mental_models);
+        set("stat-docs", s.docs);
+        set("stat-facts", s.facts);
+        set("stat-entities", s.entities);
+        set("stat-links", s.links);
       })
-      .catch(() => { /* leave placeholders */ });
+      .catch(() => {});
 
     function jumpToGraph(e) {
       e.preventDefault();
