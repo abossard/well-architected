@@ -265,7 +265,7 @@
       <button class="edge-toggle on" data-rel="builds_on" aria-label="Toggle builds_on edges">builds_on</button>
       <button class="edge-toggle on" data-rel="enables" aria-label="Toggle enables edges">enables</button>
       <button class="edge-toggle on" data-rel="references" aria-label="Toggle references edges">references</button>
-      <button class="edge-toggle" data-rel="mentioned_with" aria-label="Toggle mentioned_with edges">mentioned_with</button>
+      <button class="edge-toggle on" data-rel="mentioned_with" aria-label="Toggle mentioned_with edges">mentioned_with</button>
       <span class="sep" style="width:1px;height:20px;background:var(--border);margin:0 2px;"></span>
       <button class="edge-toggle" id="factsToggle" aria-label="Toggle fact nodes">Facts</button>
       <label id="factTimelessLabel" style="display:none;font-size:0.78rem;color:var(--muted);cursor:pointer;align-items:center;gap:3px;"><input type="checkbox" id="factTimelessCb" checked style="accent-color:#f59e0b;" /> ♾ Timeless (<span id="factTimelessCount">0</span>)</label>
@@ -336,7 +336,7 @@ let detailsData = null;
 let selectedNodeId = null;
 let currentView = "graph"; // "graph" | "cards"
 let drawerHistory = [];
-const edgeVisibility = { builds_on: true, enables: true, references: true, mentioned_with: false, has_fact: false };
+const edgeVisibility = { builds_on: true, enables: true, references: true, mentioned_with: true, has_fact: false };
 let showFacts = false;
 let showFactTimeless = true;
 let showFactPerishable = true;
