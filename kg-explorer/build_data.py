@@ -21,11 +21,13 @@ from typing import Any
 HERE = pathlib.Path(__file__).resolve().parent
 REPO = HERE.parent
 
-GRAPHML       = HERE / "lightrag_data" / "graph_chunk_entity_relation.graphml"
-ENTITY_CHUNKS = HERE / "lightrag_data" / "kv_store_entity_chunks.json"
-TEXT_CHUNKS   = HERE / "lightrag_data" / "kv_store_text_chunks.json"
+DEFAULT_DOMAIN = "mission-critical"
 TAXONOMY      = HERE / "mental_models" / "taxonomy.json"
 CARDS         = HERE / "mental_models" / "cards.json"
+FACTS         = HERE / "mental_models" / "facts.json"
+VERIFICATIONS = HERE / "mental_models" / "verifications.json"
+FACT_LOCATIONS = HERE / "mental_models" / "fact_locations.json"
+LINKS         = HERE / "data" / "links.json"
 
 OUT_DIRS = [
     HERE / "data",
@@ -36,9 +38,20 @@ LEARN_BASE     = "https://learn.microsoft.com/azure/well-architected"
 MC_PATH_MARKER = "/mission-critical/"
 GRAPHML_NS     = {"g": "http://graphml.graphdrawing.org/xmlns"}
 
+
+def rag_paths(domain: str) -> tuple[pathlib.Path, pathlib.Path, pathlib.Path]:
+    """Return (graphml, entity_chunks, text_chunks) paths for a domain."""
+    rag_dir = HERE / f"lightrag_data_{domain}"
+    return (
+        rag_dir / "graph_chunk_entity_relation.graphml",
+        rag_dir / "kv_store_entity_chunks.json",
+        rag_dir / "kv_store_text_chunks.json",
+    )
+
 NODE_TYPES = {
     "MENTAL_MODEL", "PATTERN", "AZURE_SERVICE", "PROCESS",
-    "CONCEPT", "METRIC", "ANTI_PATTERN", "TRADEOFF", "OTHER",
+    "CONCEPT", "METRIC", "ANTI_PATTERN", "TRADEOFF", "FACT", "OTHER",
+    "FACT_TIMELESS", "FACT_PERISHABLE",
 }
 
 # ─── loaders ────────────────────────────────────────────────────────────────
@@ -358,22 +371,296 @@ def condense_description(desc: str, max_chars: int = 120) -> str:
     return desc
 
 
+# ─── link integration ──────────────────────────────────────────────────────
+
+def load_links() -> dict[str, list[dict]]:
+    """Load extracted links from data/links.json."""
+    if not LINKS.exists():
+        return {}
+    return load_json(LINKS)
+
+
+def build_link_edges(links_data: dict[str, list[dict]],
+                     entity_chunks: dict,
+                     text_chunks: dict,
+                     valid_ids: set[str],
+                     centrality: Counter,
+                     top_n_per_doc: int = 5) -> tuple[list[dict], dict[str, list[dict]]]:
+    """Create cross-reference edges from extracted links.
+
+    Returns (edges, node_links) where:
+    - edges: list of {source, target, relation: "references", weight}
+    - node_links: {entity_id: [link_metadata]} for detail panel
+
+    Only the top-N most central entities per document participate in
+    cross-reference edges to avoid combinatorial explosion.
+    """
+    # Build a map: waf_path → set of entity_ids that come from that path
+    path_to_entities: dict[str, set[str]] = defaultdict(set)
+    for eid, entry in entity_chunks.items():
+        if eid not in valid_ids:
+            continue
+        for cid in entry.get("chunk_ids") or []:
+            chunk = text_chunks.get(cid)
+            if not chunk:
+                continue
+            rel = _normalize_path(chunk.get("file_path", "") or "")
+            if rel:
+                path_to_entities[rel].add(eid)
+
+    # Pre-compute top-N entities per doc (by centrality)
+    top_entities_per_doc: dict[str, set[str]] = {}
+    for path, entities in path_to_entities.items():
+        ranked = sorted(entities, key=lambda e: centrality.get(e, 0), reverse=True)
+        top_entities_per_doc[path] = set(ranked[:top_n_per_doc])
+
+    # Build edges from source docs to target docs via links
+    ref_edges: list[dict] = []
+    node_links: dict[str, list[dict]] = defaultdict(list)
+    seen_edges: set[tuple] = set()
+
+    for source_path, links in links_data.items():
+        source_entities = path_to_entities.get(source_path, set())
+        source_top = top_entities_per_doc.get(source_path, set())
+
+        for link in links:
+            # Attach link metadata to all entities from the source doc
+            for eid in source_entities:
+                node_links[eid].append({
+                    "text": link.get("text", ""),
+                    "url": link.get("learn_url") or link.get("url", ""),
+                    "type": link.get("type", "external"),
+                })
+
+            # For internal-waf links, create edges between top entities only
+            if link.get("type") == "internal-waf" and link.get("resolved"):
+                target_path = link["resolved"]
+                target_top = top_entities_per_doc.get(target_path, set())
+                for se in source_top:
+                    for te in target_top:
+                        if se == te:
+                            continue
+                        key = (min(se, te), max(se, te))
+                        if key in seen_edges:
+                            continue
+                        seen_edges.add(key)
+                        ref_edges.append({
+                            "source": se,
+                            "target": te,
+                            "relation": "references",
+                            "weight": 1.5,
+                        })
+
+    return ref_edges, dict(node_links)
+
+
+# ─── fact nodes ─────────────────────────────────────────────────────────────
+
+def build_fact_nodes(facts: list[dict],
+                     existing_nodes: dict[str, dict],
+                     pos: dict[str, tuple[float, float]],
+                     verifications: dict[str, dict] | None = None,
+                     locations: dict[str, dict] | None = None) -> tuple[list[dict], list[dict]]:
+    """Synthesize graph nodes and edges from extracted facts.
+
+    Merges verification verdicts (only if URL+citation present) and
+    source locations into each fact node's detail dict.
+    """
+    verifications = verifications or {}
+    locations = locations or {}
+    rng = random.Random(42)
+    fact_nodes: list[dict] = []
+    fact_edges: list[dict] = []
+    entity_counters: dict[str, int] = {}
+    verified_count = 0
+    located_count = 0
+
+    for f in facts:
+        entity = f.get("entity", "")
+        if not entity or entity not in existing_nodes:
+            continue
+
+        slug = _slugify(entity)
+        idx = entity_counters.get(slug, 0)
+        entity_counters[slug] = idx + 1
+
+        fact_id = f"fact:{slug}:{idx}"
+        hash_id = _compute_fact_id(entity, f.get("fact", ""))
+
+        fact_type = f.get("type", "timeless")
+        node_type = "FACT_TIMELESS" if fact_type == "timeless" else "FACT_PERISHABLE"
+
+        parent = existing_nodes[entity]
+        parent_depth = parent.get("depth", 0)
+        parent_pos = pos.get(entity)
+        if parent_pos:
+            fx = round(parent_pos[0] + rng.uniform(-30, 30), 2)
+            fy = round(parent_pos[1] + rng.uniform(-30, 30), 2)
+        else:
+            fx = round(rng.uniform(-100, 100), 2)
+            fy = round(rng.uniform(-100, 100), 2)
+
+        detail = {
+            "fact": f.get("fact", ""),
+            "fact_type": fact_type,
+            "fact_id": hash_id,
+            "shelf_life_months": f.get("shelf_life_months"),
+            "confidence": f.get("confidence"),
+            "verification_hint": f.get("verification_hint"),
+            "source_entity": entity,
+        }
+
+        # Merge verification (only accepted if URL + real citation)
+        v = verifications.get(hash_id)
+        if v:
+            detail["verified"] = v.get("verdict")
+            detail["verified_at"] = v.get("verified_at")
+            detail["current_info"] = v.get("current_info")
+            detail["source_url"] = v.get("source_url")
+            detail["source_excerpt"] = v.get("source_excerpt")
+            detail["verification_notes"] = v.get("notes")
+            verified_count += 1
+
+        # Merge location
+        loc = locations.get(hash_id)
+        if loc:
+            best = loc.get("best_location") or {}
+            detail["source_file"] = best.get("file")
+            detail["source_heading"] = best.get("heading")
+            detail["source_line"] = best.get("line_approx")
+            detail["location_confidence"] = best.get("location_confidence", 0.0)
+            detail["manual_location_needed"] = loc.get("manual_location_needed", False)
+            located_count += 1
+
+        fact_node = {
+            "id": fact_id,
+            "type": node_type,
+            "description": f.get("fact", ""),
+            "mission_critical": True,
+            "centrality": 0,
+            "depth": parent_depth + 1,
+            "x": fx,
+            "y": fy,
+            "fact_detail": detail,
+        }
+        fact_nodes.append(fact_node)
+        fact_edges.append({
+            "source": entity,
+            "target": fact_id,
+            "relation": "has_fact",
+            "weight": 0.3,
+        })
+
+    if verified_count:
+        print(f"  {verified_count} facts with verified citations")
+    if located_count:
+        print(f"  {located_count} facts with source locations")
+
+    return fact_nodes, fact_edges
+
+    return fact_nodes, fact_edges
+
+
+def _compute_fact_id(entity: str, fact: str) -> str:
+    """Stable fact_id matching verify_facts.py and locate_facts.py."""
+    import hashlib
+    return hashlib.sha256((entity + "\0" + fact).encode()).hexdigest()[:16]
+
+
+def load_verifications() -> dict[str, dict]:
+    """Load verifications.json, index by fact_id.
+
+    Only accepts verifications that meet ALL of:
+    1. Has source_url (non-empty)
+    2. Has source_excerpt with actual content (>50 chars, not just metadata)
+    3. Has both entity and fact text
+    A verdict without a real citation from a real URL is not trustworthy.
+    """
+    if not VERIFICATIONS.exists():
+        return {}
+    raw = load_json(VERIFICATIONS)
+    idx: dict[str, dict] = {}
+    skipped_no_url = 0
+    skipped_bad_excerpt = 0
+    skipped_no_entity = 0
+    dupes = 0
+    for v in raw:
+        entity = (v.get("entity") or "").strip()
+        fact = (v.get("fact") or "").strip()
+        if not entity or not fact:
+            skipped_no_entity += 1
+            continue
+        fid = v.get("fact_id") or _compute_fact_id(entity, fact)
+        url = (v.get("source_url") or "").strip()
+        excerpt = (v.get("source_excerpt") or "").strip()
+        if not url:
+            skipped_no_url += 1
+            continue
+        # Reject boilerplate/empty excerpts — must have real page content
+        is_boilerplate = (
+            len(excerpt) < 50
+            or ("Word Count:** 0" in excerpt and "Content Length:** 0" in excerpt)
+            or ("Content:**\n" in excerpt and len(excerpt.split("Content:**\n")[-1].strip()) < 20)
+        )
+        if is_boilerplate:
+            skipped_bad_excerpt += 1
+            continue
+        if fid in idx:
+            dupes += 1
+        idx[fid] = v
+    if skipped_no_url:
+        print(f"  ⚠ skipped {skipped_no_url} verifications without source URL")
+    if skipped_bad_excerpt:
+        print(f"  ⚠ skipped {skipped_bad_excerpt} verifications with empty/boilerplate excerpt")
+    if skipped_no_entity:
+        print(f"  ⚠ skipped {skipped_no_entity} verifications missing entity/fact")
+    if dupes:
+        print(f"  ⚠ {dupes} duplicate fact_ids (last-write-wins)")
+    return idx
+
+
+def load_fact_locations() -> dict[str, dict]:
+    """Load fact_locations.json, index by fact_id."""
+    if not FACT_LOCATIONS.exists():
+        return {}
+    raw = load_json(FACT_LOCATIONS)
+    idx: dict[str, dict] = {}
+    for loc in raw:
+        entity = (loc.get("entity") or "").strip()
+        fact = (loc.get("fact") or "").strip()
+        if not entity or not fact:
+            continue
+        fid = loc.get("fact_id") or _compute_fact_id(entity, fact)
+        idx[fid] = loc
+    return idx
+
+
 # ─── main build ────────────────────────────────────────────────────────────
 
-def build() -> dict:
-    print(f"→ Loading GraphML {GRAPHML.name}")
-    raw_nodes, raw_edges = load_graphml(GRAPHML)
+def build(domain: str = DEFAULT_DOMAIN) -> dict:
+    graphml_path, ec_path, tc_path = rag_paths(domain)
+
+    print(f"→ Loading GraphML {graphml_path}")
+    raw_nodes, raw_edges = load_graphml(graphml_path)
     print(f"  {len(raw_nodes)} nodes, {len(raw_edges)} raw edges")
 
-    print("→ Loading taxonomy + cards + chunks")
-    taxonomy = load_json(TAXONOMY)
-    cards    = load_json(CARDS)
-    ec       = load_json(ENTITY_CHUNKS)
-    tc       = load_json(TEXT_CHUNKS)
+    print("→ Loading taxonomy + cards + chunks + facts")
+    taxonomy = load_json(TAXONOMY) if TAXONOMY.exists() else []
+    cards    = load_json(CARDS) if CARDS.exists() else []
+    facts    = load_json(FACTS) if FACTS.exists() else []
+    ec       = load_json(ec_path)
+    tc       = load_json(tc_path)
 
     tax_idx   = build_taxonomy_index(taxonomy)
     card_idx  = {c["name"]: c for c in cards}
     card_names = set(card_idx)
+
+    # Index facts by entity name
+    facts_by_entity: dict[str, list[dict]] = defaultdict(list)
+    for f in facts:
+        eid = f.get("entity", "")
+        if eid:
+            facts_by_entity[eid].append(f)
 
     print("→ Building nodes")
     nodes_out: list[dict] = []
@@ -393,6 +680,9 @@ def build() -> dict:
             node["type"] = "MENTAL_MODEL"
             node["mission_critical"] = True
             merge_card_onto_node(node, card_idx[nid])
+        # Attach extracted facts
+        if nid in facts_by_entity:
+            node["facts"] = facts_by_entity[nid]
         nodes_out.append(node)
 
     valid_ids = {n["id"] for n in nodes_out}
@@ -452,6 +742,23 @@ def build() -> dict:
             "weight": e.get("weight", 1.0),
         })
 
+    # 3. Cross-reference edges from extracted links.
+    print("→ Integrating extracted links")
+    links_data = load_links()
+    ref_edges, node_links = build_link_edges(links_data, ec, tc, valid_ids, centrality)
+    for re_ in ref_edges:
+        key = (re_["source"], re_["target"], re_["relation"])
+        if key not in seen:
+            seen.add(key)
+            edges_out.append(re_)
+    print(f"  {len(ref_edges)} reference edges from {sum(len(v) for v in links_data.values())} extracted links")
+
+    # Attach link metadata to nodes
+    for n in nodes_out:
+        nlinks = node_links.get(n["id"])
+        if nlinks:
+            n["links"] = nlinks
+
     # ─── precomputed layout ──────────────────────────────────────────────
     print("→ Computing layout (networkx spring_layout, weighted)")
     pos = compute_layout(nodes_out, edges_out)
@@ -462,6 +769,21 @@ def build() -> dict:
                 n["x"] = round(p[0], 2)
                 n["y"] = round(p[1], 2)
 
+    # ─── fact nodes ─────────────────────────────────────────────────────
+    print("→ Loading verifications + locations")
+    verifications = load_verifications()
+    fact_locs = load_fact_locations()
+    print(f"  {len(verifications)} valid verifications, {len(fact_locs)} fact locations")
+
+    print("→ Building fact nodes")
+    existing_node_map = {n["id"]: n for n in nodes_out}
+    fact_nodes_list, fact_edges_list = build_fact_nodes(
+        facts, existing_node_map, pos, verifications, fact_locs,
+    )
+    nodes_out.extend(fact_nodes_list)
+    edges_out.extend(fact_edges_list)
+    print(f"  {len(fact_nodes_list)} fact nodes, {len(fact_edges_list)} has_fact edges")
+
     # ─── stats ───────────────────────────────────────────────────────────
     docs_set: set[str] = set()
     for chunk in tc.values():
@@ -469,15 +791,36 @@ def build() -> dict:
         if rel:
             docs_set.add(rel)
 
+    # Fact statistics
+    all_facts = [f for n in nodes_out for f in (n.get("facts") or [])]
+    perishable_facts = [f for f in all_facts if f.get("type") == "perishable"]
+    fact_nodes_timeless = sum(1 for n in fact_nodes_list if n["type"] == "FACT_TIMELESS")
+    fact_nodes_perishable = sum(1 for n in fact_nodes_list if n["type"] == "FACT_PERISHABLE")
+    entity_count = len(nodes_out) - len(fact_nodes_list)
+
+    # Verification coverage
+    verified_current = sum(1 for n in fact_nodes_list if (n.get("fact_detail") or {}).get("verified") == "current")
+    verified_outdated = sum(1 for n in fact_nodes_list if (n.get("fact_detail") or {}).get("verified") == "outdated")
+    facts_with_location = sum(1 for n in fact_nodes_list if (n.get("fact_detail") or {}).get("source_file"))
+
     stats = {
         "docs":             len(docs_set),
         "nodes":            len(nodes_out),
+        "entities":         entity_count,
         "edges":            len(edges_out),
         "mental_models":    sum(1 for n in nodes_out if n["type"] == "MENTAL_MODEL"),
         "mission_critical": sum(1 for n in nodes_out if n["mission_critical"]),
         "by_type":          dict(Counter(n["type"] for n in nodes_out)),
         "by_relation":      dict(Counter(e["relation"] for e in edges_out)),
         "missing_refs":     len(missing_refs),
+        "facts_total":      len(all_facts),
+        "facts_perishable": len(perishable_facts),
+        "fact_nodes":       len(fact_nodes_list),
+        "fact_nodes_timeless": fact_nodes_timeless,
+        "fact_nodes_perishable": fact_nodes_perishable,
+        "verified_current": verified_current,
+        "verified_outdated": verified_outdated,
+        "facts_with_location": facts_with_location,
     }
 
     # ─── depth assignment (BFS from MENTAL_MODEL seeds) ─────────────────
@@ -533,6 +876,7 @@ def build() -> dict:
     graph_nodes = []
     details: dict[str, dict] = {}
     for n in nodes_out:
+        is_fact = n.get("fact_detail") is not None
         slim = {
             "id":   n["id"],
             "type": n["type"],
@@ -542,7 +886,45 @@ def build() -> dict:
         if "x" in n: slim["x"] = n["x"]
         if "y" in n: slim["y"] = n["y"]
         if n.get("mission_critical"): slim["mc"] = True
+        if is_fact: slim["fact"] = True
+        # Add verification verdict to slim node for UI color-coding
+        if is_fact:
+            fd = n.get("fact_detail") or {}
+            if fd.get("verified"):
+                slim["v"] = fd["verified"]  # "current" | "outdated"
         graph_nodes.append(slim)
+
+        if is_fact:
+            fd = n["fact_detail"]
+            det: dict[str, Any] = {
+                "type":              n["type"],
+                "summary":           fd["fact"],
+                "fact_type":         fd["fact_type"],
+                "fact_id":           fd.get("fact_id"),
+                "confidence":        fd.get("confidence"),
+                "source_entity":     fd["source_entity"],
+            }
+            if fd.get("shelf_life_months"):
+                det["shelf_life_months"] = fd["shelf_life_months"]
+            if fd.get("verification_hint"):
+                det["verification_hint"] = fd["verification_hint"]
+            # Verification data (only present if URL + real citation)
+            if fd.get("verified"):
+                det["verified"] = fd["verified"]
+                det["verified_at"] = fd.get("verified_at")
+                det["current_info"] = fd.get("current_info")
+                det["source_url"] = fd.get("source_url")
+                det["source_excerpt"] = fd.get("source_excerpt")
+                det["verification_notes"] = fd.get("verification_notes")
+            # Source location data
+            if fd.get("source_file"):
+                det["source_file"] = fd["source_file"]
+                det["source_heading"] = fd.get("source_heading")
+                det["source_line"] = fd.get("source_line")
+                det["location_confidence"] = fd.get("location_confidence")
+                det["manual_location_needed"] = fd.get("manual_location_needed", False)
+            details[n["id"]] = det
+            continue
 
         docs = [
             {"title": d.get("title") or d.get("path") or "", "url": d["url"],
@@ -555,6 +937,21 @@ def build() -> dict:
         }
         if docs:
             det["docs"] = docs
+        # Attach extracted links to details
+        if n.get("links"):
+            det["links"] = n["links"]
+        # Attach facts with shelf-life metadata
+        if n.get("facts"):
+            det["facts"] = [
+                {
+                    "fact": f["fact"],
+                    "type": f.get("type", "timeless"),
+                    **({"shelf_life_months": f["shelf_life_months"]} if f.get("shelf_life_months") else {}),
+                    **({"verification_hint": f["verification_hint"]} if f.get("verification_hint") else {}),
+                    **({"confidence": f["confidence"]} if f.get("confidence") else {}),
+                }
+                for f in n["facts"]
+            ]
         if n["type"] == "MENTAL_MODEL":
             for src, dst in (
                 ("mantra", "mantra"),
@@ -580,7 +977,12 @@ def build() -> dict:
 
 
 def main():
-    graph, details = build()
+    import argparse
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--domain", default=DEFAULT_DOMAIN, help="domain for RAG data (default: mission-critical)")
+    args = ap.parse_args()
+
+    graph, details = build(domain=args.domain)
     graph_payload   = json.dumps(graph,   ensure_ascii=False, separators=(",", ":"))
     details_payload = json.dumps(details, ensure_ascii=False, separators=(",", ":"))
     for out_dir in OUT_DIRS:
@@ -598,7 +1000,10 @@ def main():
             print(f"  removed stale {legacy.relative_to(REPO)}")
     s = graph["stats"]
     print(f"\nSummary:")
+    print(f"  domain           : {args.domain}")
     print(f"  nodes            : {s['nodes']}")
+    print(f"  entities         : {s['entities']}")
+    print(f"  fact_nodes       : {s['fact_nodes']} (timeless: {s['fact_nodes_timeless']}, perishable: {s['fact_nodes_perishable']})")
     print(f"  edges            : {s['edges']}")
     print(f"  mental_models    : {s['mental_models']}")
     print(f"  mission_critical : {s['mission_critical']}")
