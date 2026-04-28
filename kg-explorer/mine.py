@@ -27,13 +27,18 @@ from functools import partial
 PROXY_URL = "http://127.0.0.1:11435/v1"
 API_KEY = "copilot-proxy"
 LLM_MODEL = "claude-opus-4.6"
-RAG_DIR = pathlib.Path(__file__).parent / "lightrag_data"
+DEFAULT_DOMAIN = "mission-critical"
 OUT_DIR = pathlib.Path(__file__).parent / "mental_models"
 
 
-def load_graph():
+def rag_dir_for_domain(domain: str) -> pathlib.Path:
+    return pathlib.Path(__file__).parent / f"lightrag_data_{domain}"
+
+
+def load_graph(domain: str = DEFAULT_DOMAIN):
     """Parse GraphML into nodes and edges."""
-    tree = ET.parse(RAG_DIR / "graph_chunk_entity_relation.graphml")
+    rag_dir = rag_dir_for_domain(domain)
+    tree = ET.parse(rag_dir / "graph_chunk_entity_relation.graphml")
     root = tree.getroot()
 
     # Find key definitions
@@ -153,6 +158,68 @@ Return ONLY valid JSON array. No markdown fences."""
     except json.JSONDecodeError:
         pass
     return []
+
+
+async def extract_facts(entities, descriptions, nodes, edges):
+    """Extract and classify facts vs timeless principles.
+
+    Returns a list of fact objects with shelf-life metadata.
+    Timeless principles (theory) don't need verification.
+    Time-sensitive facts (specific numbers, versions, limits) do.
+    """
+    from lightrag.llm.openai import openai_complete_if_cache
+
+    all_facts = []
+    batch_size = 30
+
+    for i in range(0, len(entities), batch_size):
+        batch = entities[i:i + batch_size]
+        entity_context = []
+        for e in batch:
+            desc = descriptions.get(e, "(no description)")[:300]
+            neighbors = sorted(find_neighbors(e, edges))[:10]
+            entity_context.append(f"- {e}: {desc} [connected to: {', '.join(neighbors[:5])}]")
+
+        prompt = f"""Analyze these entities from the Azure Well-Architected Framework knowledge graph.
+For each entity, extract specific FACTS — concrete, verifiable claims embedded in the description.
+
+Classify each fact as:
+- "timeless": A principle, theory, or design philosophy that doesn't expire
+  (e.g., "Minimize blast radius", "Design for failure", "Use defense in depth")
+- "perishable": A specific claim about a service, limit, version, or capability that may change
+  (e.g., "Cosmos DB supports up to 100K RU/s", "AKS supports Kubernetes 1.28", "SLA of 99.99%")
+
+For perishable facts, estimate shelf_life_months (how long before this fact should be re-verified).
+
+Return a JSON array of objects:
+[{{
+  "entity": "entity name",
+  "fact": "the specific factual claim",
+  "type": "timeless" or "perishable",
+  "shelf_life_months": number (0 for timeless, 3-24 for perishable),
+  "verification_hint": "how to verify this fact" (for perishable only),
+  "confidence": "high" or "medium" or "low"
+}}]
+
+Entities:
+{chr(10).join(entity_context)}
+
+Extract ALL facts you can find — be thorough. A single entity may have multiple facts.
+Return ONLY valid JSON array. No markdown fences."""
+
+        try:
+            result = await openai_complete_if_cache(
+                LLM_MODEL, prompt, base_url=PROXY_URL, api_key=API_KEY
+            )
+            match = re.search(r"\[.*\]", result, re.DOTALL)
+            if match:
+                facts = json.loads(match.group())
+                all_facts.extend(facts)
+                print(f"  Batch {i // batch_size + 1}: extracted {len(facts)} facts")
+        except Exception as e:
+            print(f"  Batch {i // batch_size + 1} ERROR: {e}")
+
+    return all_facts
 
 
 async def extract_mental_model_cards(mental_models, nodes, edges, max_cards=54):
@@ -473,10 +540,11 @@ async def main():
     parser.add_argument("--top", type=int, default=20, help="Number of top mental models to card")
     parser.add_argument("--query", type=str, help="Filter entities by name")
     parser.add_argument("--skip-llm", action="store_true", help="Skip LLM classification, use cached")
+    parser.add_argument("--domain", default=DEFAULT_DOMAIN, help="domain for RAG data (default: mission-critical)")
     args = parser.parse_args()
 
     print("Loading graph...")
-    nodes, edges = load_graph()
+    nodes, edges = load_graph(args.domain)
     print(f"  {len(nodes)} nodes, {len(edges)} edges")
 
     print("Computing centrality...")
@@ -551,6 +619,17 @@ async def main():
     cards_path.write_text(json.dumps(cards, indent=2))
     print(f"  Saved {len(cards)} cards to {cards_path}")
 
+    # Extract facts (timeless vs perishable)
+    print(f"\nExtracting facts from {len(sorted_entities)} entities...")
+    facts = await extract_facts(sorted_entities, descriptions, nodes, edges)
+
+    timeless = [f for f in facts if f.get("type") == "timeless"]
+    perishable = [f for f in facts if f.get("type") == "perishable"]
+
+    facts_path = OUT_DIR / "facts.json"
+    facts_path.write_text(json.dumps(facts, indent=2))
+    print(f"  Saved {len(facts)} facts ({len(timeless)} timeless, {len(perishable)} perishable)")
+
     # Find tradeoffs
     tradeoffs = [t for t in taxonomy if t["category"] == "TRADEOFF"]
     print(f"\n=== TRADEOFFS ({len(tradeoffs)}) ===")
@@ -586,6 +665,14 @@ async def main():
         ],
         "tradeoffs": [t["entity"] for t in tradeoffs],
         "anti_patterns": [t["entity"] for t in anti_patterns],
+        "facts": {
+            "total": len(facts),
+            "timeless": len(timeless),
+            "perishable": len(perishable),
+            "perishable_by_shelf_life": dict(Counter(
+                f.get("shelf_life_months", 0) for f in perishable
+            )),
+        },
     }
     (OUT_DIR / "summary.json").write_text(json.dumps(summary, indent=2))
 

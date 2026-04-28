@@ -33,31 +33,26 @@ EMBED_DIM = 1536
 ROOT = pathlib.Path(__file__).resolve().parent
 REPO_ROOT = ROOT.parent
 WAF_ROOT = REPO_ROOT / "well-architected"
-RAG_DIR = ROOT / "lightrag_data"
+
+# Per-domain RAG directory to prevent future mixing
+DEFAULT_DOMAIN = "mission-critical"
+RAG_DIR_BASE = ROOT / "lightrag_data"
 
 MIN_CHARS = 100
 SKIP_NAMES = {"TOC.md", "index.md"}
 
-# (subdir, recursive)
+LINK_RE = re.compile(r"\[([^\]]*)\]\(([^)]+)\)")
+IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"}
+
+# (subdir, recursive) — focused on mission-critical + curated cross-refs
 SOURCES: list[tuple[str, bool]] = [
     ("mission-critical", False),
-    ("reliability", False),
-    ("security", False),
-    ("performance-efficiency", False),
-    ("operational-excellence", False),
-    ("cost-optimization", False),
-    ("design-guides", False),
-    ("architect-role", False),
-    ("service-guides", False),
-    ("ai", False),
-    ("saas", False),
-    ("azure-virtual-desktop", False),
-    ("azure-vmware", False),
-    ("sustainability", False),
-    ("sap", True),
-    ("hpc", False),
-    ("oracle-iaas", False),
 ]
+
+
+def rag_dir_for_domain(domain: str) -> pathlib.Path:
+    """Per-domain RAG directory to prevent cross-domain mixing."""
+    return ROOT / f"lightrag_data_{domain}"
 
 
 def strip_frontmatter(text: str) -> str:
@@ -66,6 +61,32 @@ def strip_frontmatter(text: str) -> str:
         if m:
             return text[m.end():]
     return text
+
+
+def extract_link_context(text: str, filepath: pathlib.Path) -> str:
+    """Extract outbound links from markdown and format as a references section.
+
+    Appended to the text before LightRAG ingestion so the LLM entity extractor
+    picks up cross-reference relationships.
+    """
+    from urllib.parse import urlparse
+
+    refs: list[str] = []
+    for m in LINK_RE.finditer(text):
+        link_text = m.group(1).strip()
+        url = m.group(2).strip()
+        if url.startswith("#"):
+            continue
+        parsed = urlparse(url)
+        if pathlib.Path(parsed.path).suffix.lower() in IMAGE_EXTS:
+            continue
+        if not link_text:
+            continue
+        refs.append(f"- {link_text}: {url}")
+
+    if not refs:
+        return ""
+    return "\n\n## References and Cross-links\n\nThis document references the following:\n" + "\n".join(refs)
 
 
 def collect_files(only_dir: str | None = None) -> list[pathlib.Path]:
@@ -88,8 +109,8 @@ def collect_files(only_dir: str | None = None) -> list[pathlib.Path]:
     return files
 
 
-def already_ingested() -> set[str]:
-    doc_status = RAG_DIR / "kv_store_doc_status.json"
+def already_ingested(rag_dir: pathlib.Path) -> set[str]:
+    doc_status = rag_dir / "kv_store_doc_status.json"
     if not doc_status.exists():
         return set()
     data = json.loads(doc_status.read_text())
@@ -108,7 +129,7 @@ def ensure_proxy() -> None:
         sys.exit(1)
 
 
-async def ingest(files: list[pathlib.Path]) -> None:
+async def ingest(files: list[pathlib.Path], rag_dir: pathlib.Path) -> None:
     from lightrag import LightRAG
     from lightrag.llm.openai import openai_complete_if_cache, openai_embed
     from lightrag.utils import EmbeddingFunc
@@ -121,7 +142,7 @@ async def ingest(files: list[pathlib.Path]) -> None:
         )
 
     rag = LightRAG(
-        working_dir=str(RAG_DIR),
+        working_dir=str(rag_dir),
         llm_model_func=llm_func,
         llm_model_name=LLM_MODEL,
         llm_model_max_async=2,
@@ -139,15 +160,22 @@ async def ingest(files: list[pathlib.Path]) -> None:
     total = len(files)
     for i, f in enumerate(files, 1):
         try:
-            text = strip_frontmatter(f.read_text(encoding="utf-8"))
+            raw = f.read_text(encoding="utf-8")
+            text = strip_frontmatter(raw)
         except Exception as e:
             print(f"[{i}/{total}] READ ERROR {f}: {e}", flush=True)
             continue
         if len(text.strip()) < MIN_CHARS:
             print(f"[{i}/{total}] SKIP (too short) {f.relative_to(REPO_ROOT)}", flush=True)
             continue
+
+        # Append link context so LLM captures cross-references
+        link_ctx = extract_link_context(text, f)
+        if link_ctx:
+            text += link_ctx
+
         rel = str(f.relative_to(REPO_ROOT))
-        print(f"[{i}/{total}] {rel} ({len(text)} chars)", flush=True)
+        print(f"[{i}/{total}] {rel} ({len(text)} chars, {'+links' if link_ctx else 'no links'})", flush=True)
         try:
             await rag.ainsert(text, file_paths=[rel])
         except Exception as e:
@@ -155,13 +183,19 @@ async def ingest(files: list[pathlib.Path]) -> None:
 
 
 async def main_async(args: argparse.Namespace) -> int:
+    domain = args.domain or DEFAULT_DOMAIN
+    rag_dir = rag_dir_for_domain(domain)
+    rag_dir.mkdir(parents=True, exist_ok=True)
+
     files = collect_files(args.dir)
-    ingested = already_ingested()
+    ingested = already_ingested(rag_dir)
     pending = [
         f for f in files
         if str(f) not in ingested and str(f.relative_to(REPO_ROOT)) not in ingested
     ]
 
+    print(f"Domain: {domain}")
+    print(f"RAG dir: {rag_dir}")
     print(f"Found {len(files)} markdown files ({len(ingested)} already ingested, {len(pending)} pending)")
     if args.dry_run:
         for f in pending:
@@ -172,7 +206,7 @@ async def main_async(args: argparse.Namespace) -> int:
         return 0
 
     ensure_proxy()
-    await ingest(pending)
+    await ingest(pending, rag_dir)
     print("DONE")
     return 0
 
@@ -180,6 +214,7 @@ async def main_async(args: argparse.Namespace) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dir", help="limit ingestion to a single subdir (e.g. reliability)")
+    ap.add_argument("--domain", default=DEFAULT_DOMAIN, help="domain name for per-domain RAG isolation (default: mission-critical)")
     ap.add_argument("--dry-run", action="store_true", help="print pending files, don't ingest")
     args = ap.parse_args()
     return asyncio.run(main_async(args))

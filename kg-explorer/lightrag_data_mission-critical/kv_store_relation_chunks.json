@@ -1,0 +1,6220 @@
+{
+  "Azure<SEP>Scale-Unit Architecture": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f"
+    ],
+    "count": 1,
+    "create_time": 1777290818,
+    "update_time": 1777290818,
+    "_id": "Azure<SEP>Scale-Unit Architecture"
+  },
+  "Azure Well-Architected Framework<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f",
+      "chunk-3137621891148d2c190c438f188b4eb5",
+      "chunk-a324803e46dec295e5d9abb5a43f8a29"
+    ],
+    "count": 3,
+    "update_time": 1777292125,
+    "_id": "Azure Well-Architected Framework<SEP>Mission-Critical Workload"
+  },
+  "Scale Unit<SEP>Scale-Unit Architecture": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f"
+    ],
+    "count": 1,
+    "create_time": 1777290819,
+    "update_time": 1777290819,
+    "_id": "Scale Unit<SEP>Scale-Unit Architecture"
+  },
+  "Global Distribution<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f"
+    ],
+    "count": 1,
+    "create_time": 1777290819,
+    "update_time": 1777290819,
+    "_id": "Global Distribution<SEP>Mission-Critical Workload"
+  },
+  "Deployment Stamp<SEP>Scale Unit": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f"
+    ],
+    "count": 1,
+    "create_time": 1777290819,
+    "update_time": 1777290819,
+    "_id": "Deployment Stamp<SEP>Scale Unit"
+  },
+  "Capacity Model<SEP>Scale Unit": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f"
+    ],
+    "count": 1,
+    "create_time": 1777290820,
+    "update_time": 1777290820,
+    "_id": "Capacity Model<SEP>Scale Unit"
+  },
+  "Active/Active Model<SEP>Global Distribution": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f"
+    ],
+    "count": 1,
+    "create_time": 1777290820,
+    "update_time": 1777290820,
+    "_id": "Active/Active Model<SEP>Global Distribution"
+  },
+  "Azure Landing Zone<SEP>Noisy Neighbor Antipattern": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f"
+    ],
+    "count": 1,
+    "create_time": 1777290820,
+    "update_time": 1777290820,
+    "_id": "Azure Landing Zone<SEP>Noisy Neighbor Antipattern"
+  },
+  ".NET SDK<SEP>Azure SDKs": {
+    "chunk_ids": [
+      "chunk-6ffc0561a80ee1b478b5e827cc0c1a93"
+    ],
+    "count": 1,
+    "create_time": 1777290820,
+    "update_time": 1777290820,
+    "_id": ".NET SDK<SEP>Azure SDKs"
+  },
+  "AKS<SEP>Scale Unit": {
+    "chunk_ids": [
+      "chunk-e07a49a74635d695d2a74e26e941143f"
+    ],
+    "count": 1,
+    "create_time": 1777290820,
+    "update_time": 1777290820,
+    "_id": "AKS<SEP>Scale Unit"
+  },
+  "Azure SDKs<SEP>Microservices Architecture": {
+    "chunk_ids": [
+      "chunk-6ffc0561a80ee1b478b5e827cc0c1a93"
+    ],
+    "count": 1,
+    "create_time": 1777290820,
+    "update_time": 1777290820,
+    "_id": "Azure SDKs<SEP>Microservices Architecture"
+  },
+  "Application Insights<SEP>Distributed Tracing": {
+    "chunk_ids": [
+      "chunk-6ffc0561a80ee1b478b5e827cc0c1a93",
+      "chunk-3ed4331e930dc66a90d716e75ccb847e",
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7",
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 4,
+    "update_time": 1777291794,
+    "_id": "Application Insights<SEP>Distributed Tracing"
+  },
+  "Circuit Breaker<SEP>Microservices Architecture": {
+    "chunk_ids": [
+      "chunk-6ffc0561a80ee1b478b5e827cc0c1a93"
+    ],
+    "count": 1,
+    "create_time": 1777290821,
+    "update_time": 1777290821,
+    "_id": "Circuit Breaker<SEP>Microservices Architecture"
+  },
+  "Active/Active Model<SEP>Availability Zones": {
+    "chunk_ids": [
+      "chunk-3ed4331e930dc66a90d716e75ccb847e"
+    ],
+    "count": 1,
+    "create_time": 1777290821,
+    "update_time": 1777290821,
+    "_id": "Active/Active Model<SEP>Availability Zones"
+  },
+  "Loosely Coupled Event-Driven Architecture<SEP>Microservices Architecture": {
+    "chunk_ids": [
+      "chunk-3ed4331e930dc66a90d716e75ccb847e"
+    ],
+    "count": 1,
+    "create_time": 1777290821,
+    "update_time": 1777290821,
+    "_id": "Loosely Coupled Event-Driven Architecture<SEP>Microservices Architecture"
+  },
+  "Circuit Breaker<SEP>Retries With Backoff": {
+    "chunk_ids": [
+      "chunk-3ed4331e930dc66a90d716e75ccb847e"
+    ],
+    "count": 1,
+    "create_time": 1777290821,
+    "update_time": 1777290821,
+    "_id": "Circuit Breaker<SEP>Retries With Backoff"
+  },
+  "Active/Active Model<SEP>Mission-Critical Application": {
+    "chunk_ids": [
+      "chunk-3ed4331e930dc66a90d716e75ccb847e"
+    ],
+    "count": 1,
+    "create_time": 1777290821,
+    "update_time": 1777290821,
+    "_id": "Active/Active Model<SEP>Mission-Critical Application"
+  },
+  "Event-Driven Design<SEP>Loosely Coupled Event-Driven Architecture": {
+    "chunk_ids": [
+      "chunk-3ed4331e930dc66a90d716e75ccb847e"
+    ],
+    "count": 1,
+    "create_time": 1777290822,
+    "update_time": 1777290822,
+    "_id": "Event-Driven Design<SEP>Loosely Coupled Event-Driven Architecture"
+  },
+  "Distributed Tracing<SEP>Health Model": {
+    "chunk_ids": [
+      "chunk-3ed4331e930dc66a90d716e75ccb847e"
+    ],
+    "count": 1,
+    "create_time": 1777290822,
+    "update_time": 1777290822,
+    "_id": "Distributed Tracing<SEP>Health Model"
+  },
+  "Microservices Architecture<SEP>Mission-Critical Application": {
+    "chunk_ids": [
+      "chunk-3ed4331e930dc66a90d716e75ccb847e"
+    ],
+    "count": 1,
+    "create_time": 1777290822,
+    "update_time": 1777290822,
+    "_id": "Microservices Architecture<SEP>Mission-Critical Application"
+  },
+  "Outbox Pattern<SEP>Transactional Session": {
+    "chunk_ids": [
+      "chunk-3ed4331e930dc66a90d716e75ccb847e"
+    ],
+    "count": 1,
+    "create_time": 1777290822,
+    "update_time": 1777290822,
+    "_id": "Outbox Pattern<SEP>Transactional Session"
+  },
+  "Retry<SEP>Saga": {
+    "chunk_ids": [
+      "chunk-36d66c785cc9b10b4cf377888b6bd59f"
+    ],
+    "count": 1,
+    "create_time": 1777290823,
+    "update_time": 1777290823,
+    "_id": "Retry<SEP>Saga"
+  },
+  "Azure Cosmos DB<SEP>Azure SDKs": {
+    "chunk_ids": [
+      "chunk-36d66c785cc9b10b4cf377888b6bd59f"
+    ],
+    "count": 1,
+    "create_time": 1777290823,
+    "update_time": 1777290823,
+    "_id": "Azure Cosmos DB<SEP>Azure SDKs"
+  },
+  "Polly<SEP>Retry": {
+    "chunk_ids": [
+      "chunk-36d66c785cc9b10b4cf377888b6bd59f"
+    ],
+    "count": 1,
+    "create_time": 1777290823,
+    "update_time": 1777290823,
+    "_id": "Polly<SEP>Retry"
+  },
+  "Container Registry<SEP>Zone Redundancy": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290970,
+    "update_time": 1777290970,
+    "_id": "Container Registry<SEP>Zone Redundancy"
+  },
+  "Azure Functions<SEP>Serverless Computing": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290970,
+    "update_time": 1777290970,
+    "_id": "Azure Functions<SEP>Serverless Computing"
+  },
+  "Azure Logic Apps<SEP>Serverless Computing": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290970,
+    "update_time": 1777290970,
+    "_id": "Azure Logic Apps<SEP>Serverless Computing"
+  },
+  "Container Registry<SEP>Image Locking": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290971,
+    "update_time": 1777290971,
+    "_id": "Container Registry<SEP>Image Locking"
+  },
+  "Azure Functions<SEP>Premium Plan": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290971,
+    "update_time": 1777290971,
+    "_id": "Azure Functions<SEP>Premium Plan"
+  },
+  "Azure Functions<SEP>Azure Logic Apps": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290971,
+    "update_time": 1777290971,
+    "_id": "Azure Functions<SEP>Azure Logic Apps"
+  },
+  "Container Registry<SEP>Microsoft Entra": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290971,
+    "update_time": 1777290971,
+    "_id": "Container Registry<SEP>Microsoft Entra"
+  },
+  "Azure Functions<SEP>Web Application Firewall": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290971,
+    "update_time": 1777290971,
+    "_id": "Azure Functions<SEP>Web Application Firewall"
+  },
+  "Availability Zones<SEP>Azure Container Registry": {
+    "chunk_ids": [
+      "chunk-ca497cb3fcd5030cdda335c35addc590"
+    ],
+    "count": 1,
+    "create_time": 1777290971,
+    "update_time": 1777290971,
+    "_id": "Availability Zones<SEP>Azure Container Registry"
+  },
+  "Container Registry<SEP>Private Endpoints": {
+    "chunk_ids": [
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa"
+    ],
+    "count": 1,
+    "create_time": 1777290972,
+    "update_time": 1777290972,
+    "_id": "Container Registry<SEP>Private Endpoints"
+  },
+  "Availability Zones<SEP>Azure App Service": {
+    "chunk_ids": [
+      "chunk-ca497cb3fcd5030cdda335c35addc590"
+    ],
+    "count": 1,
+    "create_time": 1777290972,
+    "update_time": 1777290972,
+    "_id": "Availability Zones<SEP>Azure App Service"
+  },
+  "Azure Container Registry<SEP>Microsoft": {
+    "chunk_ids": [
+      "chunk-ca497cb3fcd5030cdda335c35addc590"
+    ],
+    "count": 1,
+    "create_time": 1777290972,
+    "update_time": 1777290972,
+    "_id": "Azure Container Registry<SEP>Microsoft"
+  },
+  "Availability Zones<SEP>Azure Virtual Machine Scale Sets": {
+    "chunk_ids": [
+      "chunk-ca497cb3fcd5030cdda335c35addc590"
+    ],
+    "count": 1,
+    "create_time": 1777290972,
+    "update_time": 1777290972,
+    "_id": "Availability Zones<SEP>Azure Virtual Machine Scale Sets"
+  },
+  "Azure App Service<SEP>Microsoft": {
+    "chunk_ids": [
+      "chunk-ca497cb3fcd5030cdda335c35addc590"
+    ],
+    "count": 1,
+    "create_time": 1777290972,
+    "update_time": 1777290972,
+    "_id": "Azure App Service<SEP>Microsoft"
+  },
+  "Azure Container Registry<SEP>Geo-Replication": {
+    "chunk_ids": [
+      "chunk-ca497cb3fcd5030cdda335c35addc590",
+      "chunk-77437de30be507969c1117574fed4849",
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 3,
+    "create_time": 1777290972,
+    "update_time": 1777290972,
+    "_id": "Azure Container Registry<SEP>Geo-Replication"
+  },
+  "Auto Heal<SEP>Azure App Service": {
+    "chunk_ids": [
+      "chunk-ca497cb3fcd5030cdda335c35addc590"
+    ],
+    "count": 1,
+    "create_time": 1777290973,
+    "update_time": 1777290973,
+    "_id": "Auto Heal<SEP>Azure App Service"
+  },
+  "Azure Container Registry<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-77437de30be507969c1117574fed4849"
+    ],
+    "count": 1,
+    "create_time": 1777290973,
+    "update_time": 1777290973,
+    "_id": "Azure Container Registry<SEP>Microsoft Entra ID"
+  },
+  "Azure App Service<SEP>Health Check": {
+    "chunk_ids": [
+      "chunk-ca497cb3fcd5030cdda335c35addc590"
+    ],
+    "count": 1,
+    "create_time": 1777290973,
+    "update_time": 1777290973,
+    "_id": "Azure App Service<SEP>Health Check"
+  },
+  "Containerization<SEP>Deployment Stamps": {
+    "chunk_ids": [
+      "chunk-77437de30be507969c1117574fed4849"
+    ],
+    "count": 1,
+    "create_time": 1777290973,
+    "update_time": 1777290973,
+    "_id": "Containerization<SEP>Deployment Stamps"
+  },
+  "Azure Container Registry<SEP>Microsoft Defender For Container Registries": {
+    "chunk_ids": [
+      "chunk-77437de30be507969c1117574fed4849",
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 2,
+    "create_time": 1777290973,
+    "update_time": 1777290973,
+    "_id": "Azure Container Registry<SEP>Microsoft Defender For Container Registries"
+  },
+  "Composite SLO<SEP>Deployment Stamps": {
+    "chunk_ids": [
+      "chunk-77437de30be507969c1117574fed4849"
+    ],
+    "count": 1,
+    "create_time": 1777290973,
+    "update_time": 1777290973,
+    "_id": "Composite SLO<SEP>Deployment Stamps"
+  },
+  "Azure<SEP>Containerization": {
+    "chunk_ids": [
+      "chunk-77437de30be507969c1117574fed4849"
+    ],
+    "count": 1,
+    "create_time": 1777290973,
+    "update_time": 1777290973,
+    "_id": "Azure<SEP>Containerization"
+  },
+  "Azure Kubernetes Service<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290973,
+    "update_time": 1777290973,
+    "_id": "Azure Kubernetes Service<SEP>Microsoft Entra ID"
+  },
+  "Availability Zones<SEP>Deployment Stamps": {
+    "chunk_ids": [
+      "chunk-77437de30be507969c1117574fed4849"
+    ],
+    "count": 1,
+    "create_time": 1777290974,
+    "update_time": 1777290974,
+    "_id": "Availability Zones<SEP>Deployment Stamps"
+  },
+  "Azure Kubernetes Service<SEP>Cluster Autoscaler": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290974,
+    "update_time": 1777290974,
+    "_id": "Azure Kubernetes Service<SEP>Cluster Autoscaler"
+  },
+  "Azure Kubernetes Service<SEP>Horizontal Pod Autoscaler": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290974,
+    "update_time": 1777290974,
+    "_id": "Azure Kubernetes Service<SEP>Horizontal Pod Autoscaler"
+  },
+  "AKS Uptime SLA<SEP>Azure Kubernetes Service": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290974,
+    "update_time": 1777290974,
+    "_id": "AKS Uptime SLA<SEP>Azure Kubernetes Service"
+  },
+  "Azure Kubernetes Service<SEP>Microsoft Entra Workload ID": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2",
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 2,
+    "create_time": 1777290975,
+    "update_time": 1777290975,
+    "_id": "Azure Kubernetes Service<SEP>Microsoft Entra Workload ID"
+  },
+  "Azure Container Apps<SEP>Azure Kubernetes Service": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290975,
+    "update_time": 1777290975,
+    "_id": "Azure Container Apps<SEP>Azure Kubernetes Service"
+  },
+  "Azure App Service<SEP>Azure Kubernetes Service": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290975,
+    "update_time": 1777290975,
+    "_id": "Azure App Service<SEP>Azure Kubernetes Service"
+  },
+  "Availability Zones<SEP>Azure Kubernetes Service": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2",
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 2,
+    "create_time": 1777290976,
+    "update_time": 1777290976,
+    "_id": "Availability Zones<SEP>Azure Kubernetes Service"
+  },
+  "Kubernetes RBAC<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290976,
+    "update_time": 1777290976,
+    "_id": "Kubernetes RBAC<SEP>Microsoft Entra ID"
+  },
+  "Azure Kubernetes Service<SEP>Virtual Nodes": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290976,
+    "update_time": 1777290976,
+    "_id": "Azure Kubernetes Service<SEP>Virtual Nodes"
+  },
+  "Azure Virtual Machines<SEP>IaaS": {
+    "chunk_ids": [
+      "chunk-b3d8041b90240539202a251be26880b7"
+    ],
+    "count": 1,
+    "create_time": 1777290976,
+    "update_time": 1777290976,
+    "_id": "Azure Virtual Machines<SEP>IaaS"
+  },
+  "IaaS<SEP>PaaS": {
+    "chunk_ids": [
+      "chunk-b3d8041b90240539202a251be26880b7"
+    ],
+    "count": 1,
+    "create_time": 1777290976,
+    "update_time": 1777290976,
+    "_id": "IaaS<SEP>PaaS"
+  },
+  "Availability Zones<SEP>Azure Virtual Machines": {
+    "chunk_ids": [
+      "chunk-b3d8041b90240539202a251be26880b7"
+    ],
+    "count": 1,
+    "create_time": 1777290976,
+    "update_time": 1777290976,
+    "_id": "Availability Zones<SEP>Azure Virtual Machines"
+  },
+  "AKS Security Baseline<SEP>Azure Kubernetes Service": {
+    "chunk_ids": [
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2"
+    ],
+    "count": 1,
+    "create_time": 1777290977,
+    "update_time": 1777290977,
+    "_id": "AKS Security Baseline<SEP>Azure Kubernetes Service"
+  },
+  "Azure Virtual Machine Scale Sets<SEP>Flexible Orchestration": {
+    "chunk_ids": [
+      "chunk-b3d8041b90240539202a251be26880b7"
+    ],
+    "count": 1,
+    "create_time": 1777290977,
+    "update_time": 1777290977,
+    "_id": "Azure Virtual Machine Scale Sets<SEP>Flexible Orchestration"
+  },
+  "Mission-Critical Workloads<SEP>North Star Architecture": {
+    "chunk_ids": [
+      "chunk-b3d8041b90240539202a251be26880b7"
+    ],
+    "count": 1,
+    "create_time": 1777290977,
+    "update_time": 1777290977,
+    "_id": "Mission-Critical Workloads<SEP>North Star Architecture"
+  },
+  "Azure Marketplace<SEP>Azure Virtual Machines": {
+    "chunk_ids": [
+      "chunk-b3d8041b90240539202a251be26880b7"
+    ],
+    "count": 1,
+    "create_time": 1777290977,
+    "update_time": 1777290977,
+    "_id": "Azure Marketplace<SEP>Azure Virtual Machines"
+  },
+  "Azure<SEP>Azure Virtual Machines": {
+    "chunk_ids": [
+      "chunk-b3d8041b90240539202a251be26880b7"
+    ],
+    "count": 1,
+    "create_time": 1777290978,
+    "update_time": 1777290978,
+    "_id": "Azure<SEP>Azure Virtual Machines"
+  },
+  "Active/Active Model<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-3137621891148d2c190c438f188b4eb5"
+    ],
+    "count": 1,
+    "create_time": 1777290978,
+    "update_time": 1777290978,
+    "_id": "Active/Active Model<SEP>Mission-Critical Workload"
+  },
+  "Azure Virtual Machines<SEP>Chaos Experiments": {
+    "chunk_ids": [
+      "chunk-b3d8041b90240539202a251be26880b7"
+    ],
+    "count": 1,
+    "create_time": 1777290978,
+    "update_time": 1777290978,
+    "_id": "Azure Virtual Machines<SEP>Chaos Experiments"
+  },
+  "Azure<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-3137621891148d2c190c438f188b4eb5",
+      "chunk-06f6956528b19bfc513c2a4b70a66e71",
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b"
+    ],
+    "count": 3,
+    "update_time": 1777292200,
+    "_id": "Azure<SEP>Mission-Critical Workload"
+  },
+  "Deployment Stamp<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-3137621891148d2c190c438f188b4eb5"
+    ],
+    "count": 1,
+    "create_time": 1777290978,
+    "update_time": 1777290978,
+    "_id": "Deployment Stamp<SEP>Mission-Critical Workload"
+  },
+  "Availability Zones<SEP>Azure": {
+    "chunk_ids": [
+      "chunk-3137621891148d2c190c438f188b4eb5"
+    ],
+    "count": 1,
+    "create_time": 1777290978,
+    "update_time": 1777290978,
+    "_id": "Availability Zones<SEP>Azure"
+  },
+  "Azure Safe Deployment Practice Framework<SEP>Regional Pairs": {
+    "chunk_ids": [
+      "chunk-3137621891148d2c190c438f188b4eb5"
+    ],
+    "count": 1,
+    "create_time": 1777290978,
+    "update_time": 1777290978,
+    "_id": "Azure Safe Deployment Practice Framework<SEP>Regional Pairs"
+  },
+  "Azure Geo-Redundant Storage<SEP>Regional Pairs": {
+    "chunk_ids": [
+      "chunk-3137621891148d2c190c438f188b4eb5"
+    ],
+    "count": 1,
+    "create_time": 1777290979,
+    "update_time": 1777290979,
+    "_id": "Azure Geo-Redundant Storage<SEP>Regional Pairs"
+  },
+  "Azure Kubernetes Service<SEP>Scale-Unit Architecture": {
+    "chunk_ids": [
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 1,
+    "create_time": 1777290979,
+    "update_time": 1777290979,
+    "_id": "Azure Kubernetes Service<SEP>Scale-Unit Architecture"
+  },
+  "Azure Kubernetes Service<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 1,
+    "create_time": 1777290979,
+    "update_time": 1777290979,
+    "_id": "Azure Kubernetes Service<SEP>Azure Monitor"
+  },
+  "Azure Kubernetes Service<SEP>Azure Policy": {
+    "chunk_ids": [
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 1,
+    "create_time": 1777290979,
+    "update_time": 1777290979,
+    "_id": "Azure Kubernetes Service<SEP>Azure Policy"
+  },
+  "Azure Kubernetes Service<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-ab841386ea8be41c85364b56959f5c8d",
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 2,
+    "update_time": 1777292792,
+    "_id": "Azure Kubernetes Service<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Container Registry<SEP>Global Distribution": {
+    "chunk_ids": [
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 1,
+    "create_time": 1777290980,
+    "update_time": 1777290980,
+    "_id": "Azure Container Registry<SEP>Global Distribution"
+  },
+  "Azure App Service<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 1,
+    "create_time": 1777290980,
+    "update_time": 1777290980,
+    "_id": "Azure App Service<SEP>Azure Well-Architected Framework"
+  },
+  "Azure CNI<SEP>Azure Kubernetes Service": {
+    "chunk_ids": [
+      "chunk-ab841386ea8be41c85364b56959f5c8d",
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 2,
+    "update_time": 1777292016,
+    "_id": "Azure CNI<SEP>Azure Kubernetes Service"
+  },
+  "App Service<SEP>Auto Heal": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290980,
+    "update_time": 1777290980,
+    "_id": "App Service<SEP>Auto Heal"
+  },
+  "Azure Kubernetes Service<SEP>Global Distribution": {
+    "chunk_ids": [
+      "chunk-ab841386ea8be41c85364b56959f5c8d"
+    ],
+    "count": 1,
+    "create_time": 1777290980,
+    "update_time": 1777290980,
+    "_id": "Azure Kubernetes Service<SEP>Global Distribution"
+  },
+  "App Service<SEP>Health Check": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290980,
+    "update_time": 1777290980,
+    "_id": "App Service<SEP>Health Check"
+  },
+  "Azure Container Registry<SEP>Docker Hub": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290980,
+    "update_time": 1777290980,
+    "_id": "Azure Container Registry<SEP>Docker Hub"
+  },
+  "App Service<SEP>Application Insights": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290981,
+    "update_time": 1777290981,
+    "_id": "App Service<SEP>Application Insights"
+  },
+  "Azure Container Registry<SEP>Microsoft Entra": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290981,
+    "update_time": 1777290981,
+    "_id": "Azure Container Registry<SEP>Microsoft Entra"
+  },
+  "App Service<SEP>App Service Plan": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290981,
+    "update_time": 1777290981,
+    "_id": "App Service<SEP>App Service Plan"
+  },
+  "Azure Container Registry<SEP>Container Registry Tasks": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290981,
+    "update_time": 1777290981,
+    "_id": "Azure Container Registry<SEP>Container Registry Tasks"
+  },
+  "App Service Plan<SEP>Autoscale": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290982,
+    "update_time": 1777290982,
+    "_id": "App Service Plan<SEP>Autoscale"
+  },
+  "App Service<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290982,
+    "update_time": 1777290982,
+    "_id": "App Service<SEP>Log Analytics"
+  },
+  "App Service<SEP>Azure Event Hubs": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290982,
+    "update_time": 1777290982,
+    "_id": "App Service<SEP>Azure Event Hubs"
+  },
+  "AKS<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290982,
+    "update_time": 1777290982,
+    "_id": "AKS<SEP>Microsoft Entra ID"
+  },
+  "App Service Plan<SEP>Per-App Scaling": {
+    "chunk_ids": [
+      "chunk-4b5329d8449298032d7c7a42ce86fe02"
+    ],
+    "count": 1,
+    "create_time": 1777290982,
+    "update_time": 1777290982,
+    "_id": "App Service Plan<SEP>Per-App Scaling"
+  },
+  "AKS<SEP>Azure CNI": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5",
+      "chunk-c136188a7c5b35c34dacbc95825b4191",
+      "chunk-0d7d8989458b7b6a8098b2c4cc007937"
+    ],
+    "count": 3,
+    "update_time": 1777292017,
+    "_id": "AKS<SEP>Azure CNI"
+  },
+  "AKS<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290983,
+    "update_time": 1777290983,
+    "_id": "AKS<SEP>Azure Monitor"
+  },
+  "AKS<SEP>Azure Policy": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290983,
+    "update_time": 1777290983,
+    "_id": "AKS<SEP>Azure Policy"
+  },
+  "Azure CNI<SEP>Calico": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290983,
+    "update_time": 1777290983,
+    "_id": "Azure CNI<SEP>Calico"
+  },
+  "AKS<SEP>Kubernetes": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290984,
+    "update_time": 1777290984,
+    "_id": "AKS<SEP>Kubernetes"
+  },
+  "Azure Monitor<SEP>Prometheus": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290984,
+    "update_time": 1777290984,
+    "_id": "Azure Monitor<SEP>Prometheus"
+  },
+  "Azure App Service<SEP>SNAT Port Exhaustion": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290984,
+    "update_time": 1777290984,
+    "_id": "Azure App Service<SEP>SNAT Port Exhaustion"
+  },
+  "AKS<SEP>Azure App Service": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290984,
+    "update_time": 1777290984,
+    "_id": "AKS<SEP>Azure App Service"
+  },
+  "Azure App Service<SEP>TCP Port Exhaustion": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290984,
+    "update_time": 1777290984,
+    "_id": "Azure App Service<SEP>TCP Port Exhaustion"
+  },
+  "AKS<SEP>Planned Maintenance": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290984,
+    "update_time": 1777290984,
+    "_id": "AKS<SEP>Planned Maintenance"
+  },
+  "AKS<SEP>Auto-Upgrade Channels": {
+    "chunk_ids": [
+      "chunk-b7e299b337a793955172863127084bd5"
+    ],
+    "count": 1,
+    "create_time": 1777290985,
+    "update_time": 1777290985,
+    "_id": "AKS<SEP>Auto-Upgrade Channels"
+  },
+  "Core Architecture Pattern<SEP>Global Resources": {
+    "chunk_ids": [
+      "chunk-8b2f79e880d3ae7cbc10150a4958b75f"
+    ],
+    "count": 1,
+    "create_time": 1777291015,
+    "update_time": 1777291015,
+    "_id": "Core Architecture Pattern<SEP>Global Resources"
+  },
+  "Azure<SEP>Mission-Critical Workloads": {
+    "chunk_ids": [
+      "chunk-8b2f79e880d3ae7cbc10150a4958b75f",
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 2,
+    "update_time": 1777292406,
+    "_id": "Azure<SEP>Mission-Critical Workloads"
+  },
+  "Core Architecture Pattern<SEP>Regional Stamp Resources": {
+    "chunk_ids": [
+      "chunk-8b2f79e880d3ae7cbc10150a4958b75f"
+    ],
+    "count": 1,
+    "create_time": 1777291015,
+    "update_time": 1777291015,
+    "_id": "Core Architecture Pattern<SEP>Regional Stamp Resources"
+  },
+  "Global Resources<SEP>Regional Stamp Resources": {
+    "chunk_ids": [
+      "chunk-8b2f79e880d3ae7cbc10150a4958b75f"
+    ],
+    "count": 1,
+    "create_time": 1777291016,
+    "update_time": 1777291016,
+    "_id": "Global Resources<SEP>Regional Stamp Resources"
+  },
+  "Core Architecture Pattern<SEP>Regional Resources": {
+    "chunk_ids": [
+      "chunk-8b2f79e880d3ae7cbc10150a4958b75f"
+    ],
+    "count": 1,
+    "create_time": 1777291016,
+    "update_time": 1777291016,
+    "_id": "Core Architecture Pattern<SEP>Regional Resources"
+  },
+  "Azure Kubernetes Service<SEP>Mission-Critical Workloads": {
+    "chunk_ids": [
+      "chunk-a68460066510727d2f753c0a61011f2f"
+    ],
+    "count": 1,
+    "create_time": 1777291016,
+    "update_time": 1777291016,
+    "_id": "Azure Kubernetes Service<SEP>Mission-Critical Workloads"
+  },
+  "Global Resources<SEP>Regional Resources": {
+    "chunk_ids": [
+      "chunk-8b2f79e880d3ae7cbc10150a4958b75f"
+    ],
+    "count": 1,
+    "create_time": 1777291016,
+    "update_time": 1777291016,
+    "_id": "Global Resources<SEP>Regional Resources"
+  },
+  "Baseline Architecture<SEP>Baseline With Network Controls": {
+    "chunk_ids": [
+      "chunk-a68460066510727d2f753c0a61011f2f"
+    ],
+    "count": 1,
+    "create_time": 1777291016,
+    "update_time": 1777291016,
+    "_id": "Baseline Architecture<SEP>Baseline With Network Controls"
+  },
+  "Core Architecture Pattern<SEP>Mission-Critical Workloads": {
+    "chunk_ids": [
+      "chunk-8b2f79e880d3ae7cbc10150a4958b75f"
+    ],
+    "count": 1,
+    "create_time": 1777291017,
+    "update_time": 1777291017,
+    "_id": "Core Architecture Pattern<SEP>Mission-Critical Workloads"
+  },
+  "Azure Landing Zones<SEP>Baseline In Azure Landing Zones": {
+    "chunk_ids": [
+      "chunk-a68460066510727d2f753c0a61011f2f"
+    ],
+    "count": 1,
+    "create_time": 1777291017,
+    "update_time": 1777291017,
+    "_id": "Azure Landing Zones<SEP>Baseline In Azure Landing Zones"
+  },
+  "Mission-Critical Design Methodology<SEP>Well-Architected Assessment": {
+    "chunk_ids": [
+      "chunk-7092b7ad42e474e7a19995579b487a34"
+    ],
+    "count": 1,
+    "create_time": 1777291033,
+    "update_time": 1777291033,
+    "_id": "Mission-Critical Design Methodology<SEP>Well-Architected Assessment"
+  },
+  "Mission-Critical Workload<SEP>Well-Architected Assessment": {
+    "chunk_ids": [
+      "chunk-7092b7ad42e474e7a19995579b487a34"
+    ],
+    "count": 1,
+    "create_time": 1777291034,
+    "update_time": 1777291034,
+    "_id": "Mission-Critical Workload<SEP>Well-Architected Assessment"
+  },
+  "Azure<SEP>Well-Architected Assessment": {
+    "chunk_ids": [
+      "chunk-7092b7ad42e474e7a19995579b487a34"
+    ],
+    "count": 1,
+    "create_time": 1777291035,
+    "update_time": 1777291035,
+    "_id": "Azure<SEP>Well-Architected Assessment"
+  },
+  "Availability Zones<SEP>Azure Cosmos DB": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47",
+      "chunk-cd806d5f85dca98a80362955d10e7ef7"
+    ],
+    "count": 2,
+    "create_time": 1777291359,
+    "update_time": 1777291359,
+    "_id": "Availability Zones<SEP>Azure Cosmos DB"
+  },
+  "Azure Monitor<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47",
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 2,
+    "update_time": 1777291803,
+    "_id": "Azure Monitor<SEP>Log Analytics"
+  },
+  "Azure Cosmos DB<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47",
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c"
+    ],
+    "count": 2,
+    "create_time": 1777291359,
+    "update_time": 1777291359,
+    "_id": "Azure Cosmos DB<SEP>Azure Monitor"
+  },
+  "Azure Cosmos DB<SEP>Azure Cosmos DB SDK": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47"
+    ],
+    "count": 1,
+    "create_time": 1777291360,
+    "update_time": 1777291360,
+    "_id": "Azure Cosmos DB<SEP>Azure Cosmos DB SDK"
+  },
+  "Azure Cosmos DB<SEP>Direct Connection Mode": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47"
+    ],
+    "count": 1,
+    "create_time": 1777291361,
+    "update_time": 1777291361,
+    "_id": "Azure Cosmos DB<SEP>Direct Connection Mode"
+  },
+  "Azure Cosmos DB<SEP>Partitioning Strategy": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47"
+    ],
+    "count": 1,
+    "create_time": 1777291361,
+    "update_time": 1777291361,
+    "_id": "Azure Cosmos DB<SEP>Partitioning Strategy"
+  },
+  "AKS<SEP>Azure Cosmos DB": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47"
+    ],
+    "count": 1,
+    "create_time": 1777291362,
+    "update_time": 1777291362,
+    "_id": "AKS<SEP>Azure Cosmos DB"
+  },
+  "Azure Cosmos DB<SEP>CQRS": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47"
+    ],
+    "count": 1,
+    "create_time": 1777291362,
+    "update_time": 1777291362,
+    "_id": "Azure Cosmos DB<SEP>CQRS"
+  },
+  "Azure Cosmos DB<SEP>Azure Security Baseline": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47",
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c"
+    ],
+    "count": 2,
+    "create_time": 1777291362,
+    "update_time": 1777291362,
+    "_id": "Azure Cosmos DB<SEP>Azure Security Baseline"
+  },
+  "Azure Cosmos DB<SEP>Azure Policy": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47"
+    ],
+    "count": 1,
+    "create_time": 1777291363,
+    "update_time": 1777291363,
+    "_id": "Azure Cosmos DB<SEP>Azure Policy"
+  },
+  "Azure Cosmos DB<SEP>Indexing": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 2,
+    "create_time": 1777291363,
+    "update_time": 1777291363,
+    "_id": "Azure Cosmos DB<SEP>Indexing"
+  },
+  "Azure Cosmos DB<SEP>Continuous Backups": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47"
+    ],
+    "count": 1,
+    "create_time": 1777291364,
+    "update_time": 1777291364,
+    "_id": "Azure Cosmos DB<SEP>Continuous Backups"
+  },
+  "Automatic Failover<SEP>Azure Cosmos DB": {
+    "chunk_ids": [
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47",
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 3,
+    "create_time": 1777291364,
+    "update_time": 1777291364,
+    "_id": "Automatic Failover<SEP>Azure Cosmos DB"
+  },
+  "Azure Cosmos DB<SEP>Multi-Region Write": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b",
+      "chunk-cd806d5f85dca98a80362955d10e7ef7"
+    ],
+    "count": 2,
+    "create_time": 1777291364,
+    "update_time": 1777291364,
+    "_id": "Azure Cosmos DB<SEP>Multi-Region Write"
+  },
+  "Availability Zone Redundancy<SEP>Azure Cosmos DB": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 2,
+    "create_time": 1777291365,
+    "update_time": 1777291365,
+    "_id": "Availability Zone Redundancy<SEP>Azure Cosmos DB"
+  },
+  "Azure Cosmos DB For NoSQL<SEP>Direct Connectivity Mode": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b"
+    ],
+    "count": 1,
+    "create_time": 1777291365,
+    "update_time": 1777291365,
+    "_id": "Azure Cosmos DB For NoSQL<SEP>Direct Connectivity Mode"
+  },
+  "Azure Cosmos DB<SEP>Paxos Consensus Protocol": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b",
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 2,
+    "create_time": 1777291365,
+    "update_time": 1777291365,
+    "_id": "Azure Cosmos DB<SEP>Paxos Consensus Protocol"
+  },
+  "Azure Cosmos DB<SEP>Last Write Wins": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b",
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 2,
+    "create_time": 1777291365,
+    "update_time": 1777291365,
+    "_id": "Azure Cosmos DB<SEP>Last Write Wins"
+  },
+  "Azure Cosmos DB<SEP>Gateway Connectivity Mode": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b"
+    ],
+    "count": 1,
+    "create_time": 1777291366,
+    "update_time": 1777291366,
+    "_id": "Azure Cosmos DB<SEP>Gateway Connectivity Mode"
+  },
+  "Conflict Resolution<SEP>Multi-Region Write": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b"
+    ],
+    "count": 1,
+    "create_time": 1777291366,
+    "update_time": 1777291366,
+    "_id": "Conflict Resolution<SEP>Multi-Region Write"
+  },
+  "Azure Cosmos DB<SEP>Direct Connectivity Mode": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b"
+    ],
+    "count": 1,
+    "create_time": 1777291366,
+    "update_time": 1777291366,
+    "_id": "Azure Cosmos DB<SEP>Direct Connectivity Mode"
+  },
+  "Customer-Managed Keys<SEP>Service-Managed Encryption Keys": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b"
+    ],
+    "count": 1,
+    "create_time": 1777291366,
+    "update_time": 1777291366,
+    "_id": "Customer-Managed Keys<SEP>Service-Managed Encryption Keys"
+  },
+  "Azure Cosmos DB<SEP>Azure Cosmos DB For NoSQL": {
+    "chunk_ids": [
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b"
+    ],
+    "count": 1,
+    "create_time": 1777291366,
+    "update_time": 1777291366,
+    "_id": "Azure Cosmos DB<SEP>Azure Cosmos DB For NoSQL"
+  },
+  "Change Feed<SEP>Soft-Delete Pattern": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae",
+      "chunk-cd806d5f85dca98a80362955d10e7ef7"
+    ],
+    "count": 2,
+    "create_time": 1777291366,
+    "update_time": 1777291366,
+    "_id": "Change Feed<SEP>Soft-Delete Pattern"
+  },
+  "Soft-Delete Pattern<SEP>Time-To-Live": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291367,
+    "update_time": 1777291367,
+    "_id": "Soft-Delete Pattern<SEP>Time-To-Live"
+  },
+  "Azure Cosmos DB<SEP>Change Feed": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae",
+      "chunk-0709e0d30d586072a6b10881d6bc306c",
+      "chunk-cd806d5f85dca98a80362955d10e7ef7",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 4,
+    "create_time": 1777291367,
+    "update_time": 1777291367,
+    "_id": "Azure Cosmos DB<SEP>Change Feed"
+  },
+  "Analytical Store<SEP>Azure Cosmos DB": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 2,
+    "create_time": 1777291367,
+    "update_time": 1777291367,
+    "_id": "Analytical Store<SEP>Azure Cosmos DB"
+  },
+  "Geo-Redundant Storage<SEP>Periodic Backup Mode": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291367,
+    "update_time": 1777291367,
+    "_id": "Geo-Redundant Storage<SEP>Periodic Backup Mode"
+  },
+  "Continuous Backup Mode<SEP>Periodic Backup Mode": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291368,
+    "update_time": 1777291368,
+    "_id": "Continuous Backup Mode<SEP>Periodic Backup Mode"
+  },
+  "Azure Cosmos DB For Nosql<SEP>Continuous Backup Mode": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291368,
+    "update_time": 1777291368,
+    "_id": "Azure Cosmos DB For Nosql<SEP>Continuous Backup Mode"
+  },
+  "Azure Cosmos DB<SEP>Periodic Backup Mode": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291368,
+    "update_time": 1777291368,
+    "_id": "Azure Cosmos DB<SEP>Periodic Backup Mode"
+  },
+  "Azure Cosmos DB For Mongodb<SEP>Continuous Backup Mode": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291368,
+    "update_time": 1777291368,
+    "_id": "Azure Cosmos DB For Mongodb<SEP>Continuous Backup Mode"
+  },
+  "Continuous Backup Mode<SEP>Point-In-Time Restore": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291369,
+    "update_time": 1777291369,
+    "_id": "Continuous Backup Mode<SEP>Point-In-Time Restore"
+  },
+  "Cosmos DB Account Reader Role<SEP>Periodic Backup Mode": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291369,
+    "update_time": 1777291369,
+    "_id": "Cosmos DB Account Reader Role<SEP>Periodic Backup Mode"
+  },
+  "Azure Cosmos DB<SEP>Continuous Backup Mode": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291369,
+    "update_time": 1777291369,
+    "_id": "Azure Cosmos DB<SEP>Continuous Backup Mode"
+  },
+  "Continuous Backup Mode<SEP>Locally-Redundant Storage": {
+    "chunk_ids": [
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae"
+    ],
+    "count": 1,
+    "create_time": 1777291369,
+    "update_time": 1777291369,
+    "_id": "Continuous Backup Mode<SEP>Locally-Redundant Storage"
+  },
+  "Azure Cosmos DB<SEP>Request Units": {
+    "chunk_ids": [
+      "chunk-0709e0d30d586072a6b10881d6bc306c",
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 2,
+    "create_time": 1777291369,
+    "update_time": 1777291369,
+    "_id": "Azure Cosmos DB<SEP>Request Units"
+  },
+  "Azure Cosmos DB<SEP>Microsoft Entra": {
+    "chunk_ids": [
+      "chunk-0709e0d30d586072a6b10881d6bc306c"
+    ],
+    "count": 1,
+    "create_time": 1777291370,
+    "update_time": 1777291370,
+    "_id": "Azure Cosmos DB<SEP>Microsoft Entra"
+  },
+  "Change Feed<SEP>Soft Delete": {
+    "chunk_ids": [
+      "chunk-0709e0d30d586072a6b10881d6bc306c",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 2,
+    "create_time": 1777291370,
+    "update_time": 1777291370,
+    "_id": "Change Feed<SEP>Soft Delete"
+  },
+  "Azure Cosmos DB<SEP>Resource Locks": {
+    "chunk_ids": [
+      "chunk-0709e0d30d586072a6b10881d6bc306c",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 2,
+    "create_time": 1777291370,
+    "update_time": 1777291370,
+    "_id": "Azure Cosmos DB<SEP>Resource Locks"
+  },
+  "Azure Cosmos DB Analytical Store<SEP>Azure Synapse Analytics": {
+    "chunk_ids": [
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c"
+    ],
+    "count": 1,
+    "create_time": 1777291370,
+    "update_time": 1777291370,
+    "_id": "Azure Cosmos DB Analytical Store<SEP>Azure Synapse Analytics"
+  },
+  "Active Geo-Replication<SEP>Azure SQL Database": {
+    "chunk_ids": [
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c",
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 2,
+    "create_time": 1777291370,
+    "update_time": 1777291370,
+    "_id": "Active Geo-Replication<SEP>Azure SQL Database"
+  },
+  "Azure Cosmos DB<SEP>Session": {
+    "chunk_ids": [
+      "chunk-0709e0d30d586072a6b10881d6bc306c"
+    ],
+    "count": 1,
+    "create_time": 1777291370,
+    "update_time": 1777291370,
+    "_id": "Azure Cosmos DB<SEP>Session"
+  },
+  "Azure SQL Database<SEP>Query Performance Insights": {
+    "chunk_ids": [
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c",
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 2,
+    "create_time": 1777291370,
+    "update_time": 1777291370,
+    "_id": "Azure SQL Database<SEP>Query Performance Insights"
+  },
+  "Azure Cosmos DB<SEP>Azure Cosmos DB Analytical Store": {
+    "chunk_ids": [
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c",
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1",
+      "chunk-111b4be7044ec226f9516d7ed5776826",
+      "chunk-dc30613029b54ffcf46bef5325576b62"
+    ],
+    "count": 4,
+    "create_time": 1777291370,
+    "update_time": 1777291370,
+    "_id": "Azure Cosmos DB<SEP>Azure Cosmos DB Analytical Store"
+  },
+  "Azure Cosmos DB Analytical Store<SEP>Azure Synapse Spark": {
+    "chunk_ids": [
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c"
+    ],
+    "count": 1,
+    "create_time": 1777291371,
+    "update_time": 1777291371,
+    "_id": "Azure Cosmos DB Analytical Store<SEP>Azure Synapse Spark"
+  },
+  "Azure SQL Analytics<SEP>Azure SQL Database": {
+    "chunk_ids": [
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c",
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 2,
+    "create_time": 1777291371,
+    "update_time": 1777291371,
+    "_id": "Azure SQL Analytics<SEP>Azure SQL Database"
+  },
+  "Azure Cache For Redis<SEP>Caching For Hot Tier Data": {
+    "chunk_ids": [
+      "chunk-058624a53f7dcacddad189523984d8b2"
+    ],
+    "count": 1,
+    "create_time": 1777291371,
+    "update_time": 1777291371,
+    "_id": "Azure Cache For Redis<SEP>Caching For Hot Tier Data"
+  },
+  "Azure Cache For Redis<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-058624a53f7dcacddad189523984d8b2"
+    ],
+    "count": 1,
+    "create_time": 1777291371,
+    "update_time": 1777291371,
+    "_id": "Azure Cache For Redis<SEP>Azure Monitor"
+  },
+  "Azure Cosmos DB<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-058624a53f7dcacddad189523984d8b2",
+      "chunk-111b4be7044ec226f9516d7ed5776826"
+    ],
+    "count": 2,
+    "create_time": 1777291371,
+    "update_time": 1777291371,
+    "_id": "Azure Cosmos DB<SEP>Azure Synapse"
+  },
+  "Azure Database For PostgreSQL<SEP>Flexible Server": {
+    "chunk_ids": [
+      "chunk-058624a53f7dcacddad189523984d8b2",
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 2,
+    "create_time": 1777291371,
+    "update_time": 1777291371,
+    "_id": "Azure Database For PostgreSQL<SEP>Flexible Server"
+  },
+  "Azure Database For PostgreSQL<SEP>Hyperscale (Citus)": {
+    "chunk_ids": [
+      "chunk-058624a53f7dcacddad189523984d8b2",
+      "chunk-65d6d67b4e65531ad950d1206265e623",
+      "chunk-dc30613029b54ffcf46bef5325576b62"
+    ],
+    "count": 3,
+    "create_time": 1777291371,
+    "update_time": 1777291371,
+    "_id": "Azure Database For PostgreSQL<SEP>Hyperscale (Citus)"
+  },
+  "Azure Cache For Redis<SEP>Enterprise Flash Tier": {
+    "chunk_ids": [
+      "chunk-058624a53f7dcacddad189523984d8b2"
+    ],
+    "count": 1,
+    "create_time": 1777291371,
+    "update_time": 1777291371,
+    "_id": "Azure Cache For Redis<SEP>Enterprise Flash Tier"
+  },
+  "Azure Database For PostgreSQL<SEP>Single Server": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291372,
+    "update_time": 1777291372,
+    "_id": "Azure Database For PostgreSQL<SEP>Single Server"
+  },
+  "Hyperscale (Citus)<SEP>Sharding": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623",
+      "chunk-dc30613029b54ffcf46bef5325576b62"
+    ],
+    "count": 2,
+    "create_time": 1777291372,
+    "update_time": 1777291372,
+    "_id": "Hyperscale (Citus)<SEP>Sharding"
+  },
+  "Analytical Scenarios<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-058624a53f7dcacddad189523984d8b2"
+    ],
+    "count": 1,
+    "create_time": 1777291372,
+    "update_time": 1777291372,
+    "_id": "Analytical Scenarios<SEP>Azure Synapse"
+  },
+  "Auto Failover Groups<SEP>Azure SQL Database": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623",
+      "chunk-dc30613029b54ffcf46bef5325576b62"
+    ],
+    "count": 2,
+    "create_time": 1777291372,
+    "update_time": 1777291372,
+    "_id": "Auto Failover Groups<SEP>Azure SQL Database"
+  },
+  "Azure SQL Database<SEP>Business-Critical Service Tier": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291372,
+    "update_time": 1777291372,
+    "_id": "Azure SQL Database<SEP>Business-Critical Service Tier"
+  },
+  "Azure Monitor<SEP>Azure SQL Database": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291373,
+    "update_time": 1777291373,
+    "_id": "Azure Monitor<SEP>Azure SQL Database"
+  },
+  "Azure SQL Database<SEP>Transparent Data Encryption": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291373,
+    "update_time": 1777291373,
+    "_id": "Azure SQL Database<SEP>Transparent Data Encryption"
+  },
+  "Azure SQL Database<SEP>Point-In-Time Restore": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291373,
+    "update_time": 1777291373,
+    "_id": "Azure SQL Database<SEP>Point-In-Time Restore"
+  },
+  "Availability Zones<SEP>Flexible Server": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291373,
+    "update_time": 1777291373,
+    "_id": "Availability Zones<SEP>Flexible Server"
+  },
+  "Azure Cosmos DB<SEP>Azure SQL Database": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291374,
+    "update_time": 1777291374,
+    "_id": "Azure Cosmos DB<SEP>Azure SQL Database"
+  },
+  "Autoscale<SEP>Azure Database For PostgreSQL": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291374,
+    "update_time": 1777291374,
+    "_id": "Autoscale<SEP>Azure Database For PostgreSQL"
+  },
+  "Azure SQL Database<SEP>Zone-Redundant Deployment Model": {
+    "chunk_ids": [
+      "chunk-65d6d67b4e65531ad950d1206265e623"
+    ],
+    "count": 1,
+    "create_time": 1777291374,
+    "update_time": 1777291374,
+    "_id": "Azure SQL Database<SEP>Zone-Redundant Deployment Model"
+  },
+  "Azure Cosmos DB Analytical Store<SEP>Azure Synapse Link": {
+    "chunk_ids": [
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1",
+      "chunk-111b4be7044ec226f9516d7ed5776826"
+    ],
+    "count": 2,
+    "create_time": 1777291374,
+    "update_time": 1777291374,
+    "_id": "Azure Cosmos DB Analytical Store<SEP>Azure Synapse Link"
+  },
+  "Azure Storage<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1",
+      "chunk-f7620929405aff597a8fb7046b3e2aa5"
+    ],
+    "count": 2,
+    "update_time": 1777291805,
+    "_id": "Azure Storage<SEP>Azure Synapse"
+  },
+  "Azure Cosmos DB<SEP>Azure Cosmos DB Change Feed": {
+    "chunk_ids": [
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1"
+    ],
+    "count": 1,
+    "create_time": 1777291374,
+    "update_time": 1777291374,
+    "_id": "Azure Cosmos DB<SEP>Azure Cosmos DB Change Feed"
+  },
+  "Azure Data Lake Gen2<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1"
+    ],
+    "count": 1,
+    "create_time": 1777291374,
+    "update_time": 1777291374,
+    "_id": "Azure Data Lake Gen2<SEP>Azure Synapse"
+  },
+  "Azure Synapse<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1",
+      "chunk-4678f659d2199619f053d40287ff2e4a",
+      "chunk-f7620929405aff597a8fb7046b3e2aa5"
+    ],
+    "count": 3,
+    "update_time": 1777291802,
+    "_id": "Azure Synapse<SEP>Log Analytics"
+  },
+  "Azure Cosmos DB Change Feed<SEP>Azure Synapse Link": {
+    "chunk_ids": [
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1"
+    ],
+    "count": 1,
+    "create_time": 1777291375,
+    "update_time": 1777291375,
+    "_id": "Azure Cosmos DB Change Feed<SEP>Azure Synapse Link"
+  },
+  "Azure Functions<SEP>Change Feed": {
+    "chunk_ids": [
+      "chunk-cd806d5f85dca98a80362955d10e7ef7"
+    ],
+    "count": 1,
+    "create_time": 1777291375,
+    "update_time": 1777291375,
+    "_id": "Azure Functions<SEP>Change Feed"
+  },
+  "Azure Synapse<SEP>Azure Synapse Studio": {
+    "chunk_ids": [
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1"
+    ],
+    "count": 1,
+    "create_time": 1777291375,
+    "update_time": 1777291375,
+    "_id": "Azure Synapse<SEP>Azure Synapse Studio"
+  },
+  "Azure Cosmos DB<SEP>Azure Data Factory": {
+    "chunk_ids": [
+      "chunk-cd806d5f85dca98a80362955d10e7ef7",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 2,
+    "create_time": 1777291375,
+    "update_time": 1777291375,
+    "_id": "Azure Cosmos DB<SEP>Azure Data Factory"
+  },
+  "Azure Data Factory<SEP>Azure Private Link": {
+    "chunk_ids": [
+      "chunk-cd806d5f85dca98a80362955d10e7ef7",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 2,
+    "create_time": 1777291375,
+    "update_time": 1777291375,
+    "_id": "Azure Data Factory<SEP>Azure Private Link"
+  },
+  "Azure Cosmos DB<SEP>Azure Storage": {
+    "chunk_ids": [
+      "chunk-cd806d5f85dca98a80362955d10e7ef7"
+    ],
+    "count": 1,
+    "create_time": 1777291375,
+    "update_time": 1777291375,
+    "_id": "Azure Cosmos DB<SEP>Azure Storage"
+  },
+  "Azure Data Factory<SEP>Event Grid": {
+    "chunk_ids": [
+      "chunk-cd806d5f85dca98a80362955d10e7ef7"
+    ],
+    "count": 1,
+    "create_time": 1777291376,
+    "update_time": 1777291376,
+    "_id": "Azure Data Factory<SEP>Event Grid"
+  },
+  "Azure Cosmos DB<SEP>Azure Synapse Link": {
+    "chunk_ids": [
+      "chunk-cd806d5f85dca98a80362955d10e7ef7",
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "count": 2,
+    "create_time": 1777291376,
+    "update_time": 1777291376,
+    "_id": "Azure Cosmos DB<SEP>Azure Synapse Link"
+  },
+  "Auto-Sync<SEP>Azure Cosmos DB Analytical Store": {
+    "chunk_ids": [
+      "chunk-111b4be7044ec226f9516d7ed5776826"
+    ],
+    "count": 1,
+    "create_time": 1777291376,
+    "update_time": 1777291376,
+    "_id": "Auto-Sync<SEP>Azure Cosmos DB Analytical Store"
+  },
+  "Azure Cosmos DB<SEP>Single-Region Write": {
+    "chunk_ids": [
+      "chunk-cd806d5f85dca98a80362955d10e7ef7"
+    ],
+    "count": 1,
+    "create_time": 1777291376,
+    "update_time": 1777291376,
+    "_id": "Azure Cosmos DB<SEP>Single-Region Write"
+  },
+  "Azure Cosmos DB Analytical Store<SEP>Azure Synapse SQL Serverless Pools": {
+    "chunk_ids": [
+      "chunk-111b4be7044ec226f9516d7ed5776826"
+    ],
+    "count": 1,
+    "create_time": 1777291376,
+    "update_time": 1777291376,
+    "_id": "Azure Cosmos DB Analytical Store<SEP>Azure Synapse SQL Serverless Pools"
+  },
+  "Azure Cosmos DB<SEP>Azure Cosmos DB For Nosql": {
+    "chunk_ids": [
+      "chunk-cd806d5f85dca98a80362955d10e7ef7"
+    ],
+    "count": 1,
+    "create_time": 1777291376,
+    "update_time": 1777291376,
+    "_id": "Azure Cosmos DB<SEP>Azure Cosmos DB For Nosql"
+  },
+  "Azure Synapse Link<SEP>HTAP": {
+    "chunk_ids": [
+      "chunk-111b4be7044ec226f9516d7ed5776826"
+    ],
+    "count": 1,
+    "create_time": 1777291376,
+    "update_time": 1777291376,
+    "_id": "Azure Synapse Link<SEP>HTAP"
+  },
+  "Azure Cosmos DB Analytical Store<SEP>Azure Synapse Spark Pools": {
+    "chunk_ids": [
+      "chunk-111b4be7044ec226f9516d7ed5776826"
+    ],
+    "count": 1,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "Azure Cosmos DB Analytical Store<SEP>Azure Synapse Spark Pools"
+  },
+  "Microservice Architecture<SEP>SAGA": {
+    "chunk_ids": [
+      "chunk-ceea393f341ad536e3a85d5af262a1bf",
+      "chunk-32d784320f22fc18cf5d44108f55403f"
+    ],
+    "count": 2,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "Microservice Architecture<SEP>SAGA"
+  },
+  "Azure<SEP>Key Vault": {
+    "chunk_ids": [
+      "chunk-ceea393f341ad536e3a85d5af262a1bf"
+    ],
+    "count": 1,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "Azure<SEP>Key Vault"
+  },
+  "CAP Theorem<SEP>Veracity": {
+    "chunk_ids": [
+      "chunk-ceea393f341ad536e3a85d5af262a1bf"
+    ],
+    "count": 1,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "CAP Theorem<SEP>Veracity"
+  },
+  "Azure<SEP>MACsec": {
+    "chunk_ids": [
+      "chunk-ceea393f341ad536e3a85d5af262a1bf"
+    ],
+    "count": 1,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "Azure<SEP>MACsec"
+  },
+  "Apache Spark<SEP>Polyglot Storage": {
+    "chunk_ids": [
+      "chunk-ceea393f341ad536e3a85d5af262a1bf"
+    ],
+    "count": 1,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "Apache Spark<SEP>Polyglot Storage"
+  },
+  "PACELC Theorem<SEP>Veracity": {
+    "chunk_ids": [
+      "chunk-ceea393f341ad536e3a85d5af262a1bf"
+    ],
+    "count": 1,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "PACELC Theorem<SEP>Veracity"
+  },
+  "Azure<SEP>Client-Side Encryption": {
+    "chunk_ids": [
+      "chunk-ceea393f341ad536e3a85d5af262a1bf"
+    ],
+    "count": 1,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "Azure<SEP>Client-Side Encryption"
+  },
+  "Azure Cosmos DB<SEP>Custom Resolution Policies": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 1,
+    "create_time": 1777291377,
+    "update_time": 1777291377,
+    "_id": "Azure Cosmos DB<SEP>Custom Resolution Policies"
+  },
+  "Azure<SEP>Server-Side Encryption": {
+    "chunk_ids": [
+      "chunk-ceea393f341ad536e3a85d5af262a1bf"
+    ],
+    "count": 1,
+    "create_time": 1777291378,
+    "update_time": 1777291378,
+    "_id": "Azure<SEP>Server-Side Encryption"
+  },
+  "Azure Cosmos DB For NoSQL<SEP>Custom Resolution Policies": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 1,
+    "create_time": 1777291378,
+    "update_time": 1777291378,
+    "_id": "Azure Cosmos DB For NoSQL<SEP>Custom Resolution Policies"
+  },
+  "Autoscale<SEP>Azure Cosmos DB": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f",
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 2,
+    "create_time": 1777291378,
+    "update_time": 1777291378,
+    "_id": "Autoscale<SEP>Azure Cosmos DB"
+  },
+  "Hub Region<SEP>Message Buffer": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 1,
+    "create_time": 1777291378,
+    "update_time": 1777291378,
+    "_id": "Hub Region<SEP>Message Buffer"
+  },
+  "Azure Cosmos DB<SEP>Recovery Time Objective": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 1,
+    "create_time": 1777291379,
+    "update_time": 1777291379,
+    "_id": "Azure Cosmos DB<SEP>Recovery Time Objective"
+  },
+  "Consistency Levels<SEP>Recovery Point Objective": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 1,
+    "create_time": 1777291379,
+    "update_time": 1777291379,
+    "_id": "Consistency Levels<SEP>Recovery Point Objective"
+  },
+  "Azure Cosmos DB<SEP>Hub Region": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 1,
+    "create_time": 1777291379,
+    "update_time": 1777291379,
+    "_id": "Azure Cosmos DB<SEP>Hub Region"
+  },
+  "Consistency Levels<SEP>Recovery Time Objective": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 1,
+    "create_time": 1777291379,
+    "update_time": 1777291379,
+    "_id": "Consistency Levels<SEP>Recovery Time Objective"
+  },
+  "Azure SQL Database<SEP>Sharding": {
+    "chunk_ids": [
+      "chunk-dc30613029b54ffcf46bef5325576b62"
+    ],
+    "count": 1,
+    "create_time": 1777291379,
+    "update_time": 1777291379,
+    "_id": "Azure SQL Database<SEP>Sharding"
+  },
+  "Azure SQL Database<SEP>Azure Traffic Manager": {
+    "chunk_ids": [
+      "chunk-dc30613029b54ffcf46bef5325576b62"
+    ],
+    "count": 1,
+    "create_time": 1777291379,
+    "update_time": 1777291379,
+    "_id": "Azure SQL Database<SEP>Azure Traffic Manager"
+  },
+  "Azure Cosmos DB<SEP>Consistency Levels": {
+    "chunk_ids": [
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f"
+    ],
+    "count": 1,
+    "create_time": 1777291379,
+    "update_time": 1777291379,
+    "_id": "Azure Cosmos DB<SEP>Consistency Levels"
+  },
+  "Azure Cosmos DB<SEP>Role-Based Access Control": {
+    "chunk_ids": [
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 1,
+    "create_time": 1777291380,
+    "update_time": 1777291380,
+    "_id": "Azure Cosmos DB<SEP>Role-Based Access Control"
+  },
+  "Azure Function<SEP>Change Feed": {
+    "chunk_ids": [
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 1,
+    "create_time": 1777291380,
+    "update_time": 1777291380,
+    "_id": "Azure Function<SEP>Change Feed"
+  },
+  "Azure Cosmos DB<SEP>Periodic Backup": {
+    "chunk_ids": [
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 1,
+    "create_time": 1777291380,
+    "update_time": 1777291380,
+    "_id": "Azure Cosmos DB<SEP>Periodic Backup"
+  },
+  "Change Feed<SEP>Change Feed Processor": {
+    "chunk_ids": [
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 1,
+    "create_time": 1777291380,
+    "update_time": 1777291380,
+    "_id": "Change Feed<SEP>Change Feed Processor"
+  },
+  "Azure Cosmos DB<SEP>Continuous Backup": {
+    "chunk_ids": [
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 1,
+    "create_time": 1777291381,
+    "update_time": 1777291381,
+    "_id": "Azure Cosmos DB<SEP>Continuous Backup"
+  },
+  "Azure Synapse Analytics<SEP>Azure Synapse Link": {
+    "chunk_ids": [
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "count": 1,
+    "create_time": 1777291381,
+    "update_time": 1777291381,
+    "_id": "Azure Synapse Analytics<SEP>Azure Synapse Link"
+  },
+  "Azure Cosmos DB<SEP>Partition Key": {
+    "chunk_ids": [
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 1,
+    "create_time": 1777291381,
+    "update_time": 1777291381,
+    "_id": "Azure Cosmos DB<SEP>Partition Key"
+  },
+  "Azure Synapse Analytics<SEP>Azure Synapse Studio": {
+    "chunk_ids": [
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "count": 1,
+    "create_time": 1777291381,
+    "update_time": 1777291381,
+    "_id": "Azure Synapse Analytics<SEP>Azure Synapse Studio"
+  },
+  "Azure Cosmos DB<SEP>Conflict Resolution Policies": {
+    "chunk_ids": [
+      "chunk-4b4894fcd598b00b3316bd49945a116d"
+    ],
+    "count": 1,
+    "create_time": 1777291381,
+    "update_time": 1777291381,
+    "_id": "Azure Cosmos DB<SEP>Conflict Resolution Policies"
+  },
+  "Azure Synapse Analytics<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "count": 1,
+    "create_time": 1777291381,
+    "update_time": 1777291381,
+    "_id": "Azure Synapse Analytics<SEP>Log Analytics"
+  },
+  "Azure Cosmos DB Analytical Column Store<SEP>Spark Dataframe": {
+    "chunk_ids": [
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "count": 1,
+    "create_time": 1777291381,
+    "update_time": 1777291381,
+    "_id": "Azure Cosmos DB Analytical Column Store<SEP>Spark Dataframe"
+  },
+  "Azure Cosmos DB<SEP>Azure Cosmos DB Analytical Column Store": {
+    "chunk_ids": [
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "count": 1,
+    "create_time": 1777291382,
+    "update_time": 1777291382,
+    "_id": "Azure Cosmos DB<SEP>Azure Cosmos DB Analytical Column Store"
+  },
+  "Azure Synapse Analytics<SEP>Synapse Spark": {
+    "chunk_ids": [
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "count": 1,
+    "create_time": 1777291382,
+    "update_time": 1777291382,
+    "_id": "Azure Synapse Analytics<SEP>Synapse Spark"
+  },
+  "Azure Cosmos DB<SEP>Data Tiering": {
+    "chunk_ids": [
+      "chunk-32d784320f22fc18cf5d44108f55403f"
+    ],
+    "count": 1,
+    "create_time": 1777291382,
+    "update_time": 1777291382,
+    "_id": "Azure Cosmos DB<SEP>Data Tiering"
+  },
+  "Azure Data Factory<SEP>Azure Synapse Analytics": {
+    "chunk_ids": [
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "count": 1,
+    "create_time": 1777291382,
+    "update_time": 1777291382,
+    "_id": "Azure Data Factory<SEP>Azure Synapse Analytics"
+  },
+  "CQRS<SEP>Event Sourcing": {
+    "chunk_ids": [
+      "chunk-32d784320f22fc18cf5d44108f55403f",
+      "chunk-13da8c10e8b6b19647675081cbb79073"
+    ],
+    "count": 2,
+    "create_time": 1777291382,
+    "update_time": 1777291382,
+    "_id": "CQRS<SEP>Event Sourcing"
+  },
+  "Caching<SEP>Time-To-Live": {
+    "chunk_ids": [
+      "chunk-32d784320f22fc18cf5d44108f55403f"
+    ],
+    "count": 1,
+    "create_time": 1777291382,
+    "update_time": 1777291382,
+    "_id": "Caching<SEP>Time-To-Live"
+  },
+  "Azure Storage<SEP>Data Tiering": {
+    "chunk_ids": [
+      "chunk-32d784320f22fc18cf5d44108f55403f"
+    ],
+    "count": 1,
+    "create_time": 1777291382,
+    "update_time": 1777291382,
+    "_id": "Azure Storage<SEP>Data Tiering"
+  },
+  "Availability Zones<SEP>Multi-Region Data Platform": {
+    "chunk_ids": [
+      "chunk-32d784320f22fc18cf5d44108f55403f"
+    ],
+    "count": 1,
+    "create_time": 1777291382,
+    "update_time": 1777291382,
+    "_id": "Availability Zones<SEP>Multi-Region Data Platform"
+  },
+  "Azure<SEP>Four Vs Of Big Data": {
+    "chunk_ids": [
+      "chunk-13da8c10e8b6b19647675081cbb79073"
+    ],
+    "count": 1,
+    "create_time": 1777291383,
+    "update_time": 1777291383,
+    "_id": "Azure<SEP>Four Vs Of Big Data"
+  },
+  "Data Tiering<SEP>Time-To-Live": {
+    "chunk_ids": [
+      "chunk-32d784320f22fc18cf5d44108f55403f"
+    ],
+    "count": 1,
+    "create_time": 1777291383,
+    "update_time": 1777291383,
+    "_id": "Data Tiering<SEP>Time-To-Live"
+  },
+  "Azure Cosmos DB<SEP>Time To Live": {
+    "chunk_ids": [
+      "chunk-13da8c10e8b6b19647675081cbb79073"
+    ],
+    "count": 1,
+    "create_time": 1777291383,
+    "update_time": 1777291383,
+    "_id": "Azure Cosmos DB<SEP>Time To Live"
+  },
+  "Active-Active Geographical Distribution<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-13da8c10e8b6b19647675081cbb79073"
+    ],
+    "count": 1,
+    "create_time": 1777291383,
+    "update_time": 1777291383,
+    "_id": "Active-Active Geographical Distribution<SEP>Mission-Critical Workload"
+  },
+  "Four Vs Of Big Data<SEP>Volume": {
+    "chunk_ids": [
+      "chunk-13da8c10e8b6b19647675081cbb79073"
+    ],
+    "count": 1,
+    "create_time": 1777291383,
+    "update_time": 1777291383,
+    "_id": "Four Vs Of Big Data<SEP>Volume"
+  },
+  "Four Vs Of Big Data<SEP>Velocity": {
+    "chunk_ids": [
+      "chunk-13da8c10e8b6b19647675081cbb79073"
+    ],
+    "count": 1,
+    "create_time": 1777291383,
+    "update_time": 1777291383,
+    "_id": "Four Vs Of Big Data<SEP>Velocity"
+  },
+  "Four Vs Of Big Data<SEP>Variety": {
+    "chunk_ids": [
+      "chunk-13da8c10e8b6b19647675081cbb79073"
+    ],
+    "count": 1,
+    "create_time": 1777291384,
+    "update_time": 1777291384,
+    "_id": "Four Vs Of Big Data<SEP>Variety"
+  },
+  "Four Vs Of Big Data<SEP>Veracity": {
+    "chunk_ids": [
+      "chunk-13da8c10e8b6b19647675081cbb79073"
+    ],
+    "count": 1,
+    "create_time": 1777291384,
+    "update_time": 1777291384,
+    "_id": "Four Vs Of Big Data<SEP>Veracity"
+  },
+  "Common Vulnerabilities And Exposures<SEP>Penetration Testing": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593"
+    ],
+    "count": 1,
+    "create_time": 1777291486,
+    "update_time": 1777291486,
+    "_id": "Common Vulnerabilities And Exposures<SEP>Penetration Testing"
+  },
+  "Azure Chaos Studio<SEP>Chaos Experiments": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593"
+    ],
+    "count": 1,
+    "create_time": 1777291486,
+    "update_time": 1777291486,
+    "_id": "Azure Chaos Studio<SEP>Chaos Experiments"
+  },
+  "Azure Pipelines<SEP>GitHub Actions": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593",
+      "chunk-0ecbdde6d262012ebbdfa789102231a4"
+    ],
+    "count": 2,
+    "create_time": 1777291486,
+    "update_time": 1777291486,
+    "_id": "Azure Pipelines<SEP>GitHub Actions"
+  },
+  "Azure Pipelines<SEP>Infrastructure As Code": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593"
+    ],
+    "count": 1,
+    "create_time": 1777291486,
+    "update_time": 1777291486,
+    "_id": "Azure Pipelines<SEP>Infrastructure As Code"
+  },
+  "Chaos Experiments<SEP>Load Testing": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593"
+    ],
+    "count": 1,
+    "create_time": 1777291487,
+    "update_time": 1777291487,
+    "_id": "Chaos Experiments<SEP>Load Testing"
+  },
+  "GitHub Actions<SEP>Microsoft": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593",
+      "chunk-0ecbdde6d262012ebbdfa789102231a4"
+    ],
+    "count": 2,
+    "create_time": 1777291487,
+    "update_time": 1777291487,
+    "_id": "GitHub Actions<SEP>Microsoft"
+  },
+  "Common Vulnerabilities And Exposures<SEP>Dependabot": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593"
+    ],
+    "count": 1,
+    "create_time": 1777291487,
+    "update_time": 1777291487,
+    "_id": "Common Vulnerabilities And Exposures<SEP>Dependabot"
+  },
+  "Blue/Green Deployments<SEP>Infrastructure As Code": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593"
+    ],
+    "count": 1,
+    "create_time": 1777291487,
+    "update_time": 1777291487,
+    "_id": "Blue/Green Deployments<SEP>Infrastructure As Code"
+  },
+  "Load Testing<SEP>Stress Testing": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593"
+    ],
+    "count": 1,
+    "create_time": 1777291487,
+    "update_time": 1777291487,
+    "_id": "Load Testing<SEP>Stress Testing"
+  },
+  "Azure Mission-Critical<SEP>Blue/Green Deployment": {
+    "chunk_ids": [
+      "chunk-4c437470f34ed638659632da76be560f"
+    ],
+    "count": 1,
+    "create_time": 1777291487,
+    "update_time": 1777291487,
+    "_id": "Azure Mission-Critical<SEP>Blue/Green Deployment"
+  },
+  "Azure Pipelines<SEP>Microsoft": {
+    "chunk_ids": [
+      "chunk-c97a1db66c7ecde12774487f7afb1593",
+      "chunk-0ecbdde6d262012ebbdfa789102231a4"
+    ],
+    "count": 2,
+    "create_time": 1777291488,
+    "update_time": 1777291488,
+    "_id": "Azure Pipelines<SEP>Microsoft"
+  },
+  "Blue/Green Deployment<SEP>Deployment Stamp": {
+    "chunk_ids": [
+      "chunk-4c437470f34ed638659632da76be560f"
+    ],
+    "count": 1,
+    "create_time": 1777291488,
+    "update_time": 1777291488,
+    "_id": "Blue/Green Deployment<SEP>Deployment Stamp"
+  },
+  "Chaos Testing<SEP>Load Testing": {
+    "chunk_ids": [
+      "chunk-4c437470f34ed638659632da76be560f"
+    ],
+    "count": 1,
+    "create_time": 1777291488,
+    "update_time": 1777291488,
+    "_id": "Chaos Testing<SEP>Load Testing"
+  },
+  "Production Environment<SEP>Staging Environment": {
+    "chunk_ids": [
+      "chunk-4c437470f34ed638659632da76be560f"
+    ],
+    "count": 1,
+    "create_time": 1777291488,
+    "update_time": 1777291488,
+    "_id": "Production Environment<SEP>Staging Environment"
+  },
+  "Azure Front Door<SEP>Blue/Green Deployment": {
+    "chunk_ids": [
+      "chunk-4c437470f34ed638659632da76be560f"
+    ],
+    "count": 1,
+    "create_time": 1777291488,
+    "update_time": 1777291488,
+    "_id": "Azure Front Door<SEP>Blue/Green Deployment"
+  },
+  "Azure DevOps<SEP>GitHub": {
+    "chunk_ids": [
+      "chunk-0ecbdde6d262012ebbdfa789102231a4"
+    ],
+    "count": 1,
+    "create_time": 1777291488,
+    "update_time": 1777291488,
+    "_id": "Azure DevOps<SEP>GitHub"
+  },
+  "Azure App Service<SEP>Blue/Green Deployment": {
+    "chunk_ids": [
+      "chunk-4c437470f34ed638659632da76be560f"
+    ],
+    "count": 1,
+    "create_time": 1777291489,
+    "update_time": 1777291489,
+    "_id": "Azure App Service<SEP>Blue/Green Deployment"
+  },
+  "AIOps<SEP>MLOps Workflow": {
+    "chunk_ids": [
+      "chunk-0ecbdde6d262012ebbdfa789102231a4",
+      "chunk-11bac6534273a4d1656750c49ac2fcee"
+    ],
+    "count": 2,
+    "create_time": 1777291489,
+    "update_time": 1777291489,
+    "_id": "AIOps<SEP>MLOps Workflow"
+  },
+  "Azure Kubernetes Service<SEP>Blue/Green Deployment": {
+    "chunk_ids": [
+      "chunk-4c437470f34ed638659632da76be560f"
+    ],
+    "count": 1,
+    "create_time": 1777291489,
+    "update_time": 1777291489,
+    "_id": "Azure Kubernetes Service<SEP>Blue/Green Deployment"
+  },
+  "Data Virtualization<SEP>ETL": {
+    "chunk_ids": [
+      "chunk-0ecbdde6d262012ebbdfa789102231a4"
+    ],
+    "count": 1,
+    "create_time": 1777291489,
+    "update_time": 1777291489,
+    "_id": "Data Virtualization<SEP>ETL"
+  },
+  "AIOps<SEP>CI/CD Pipelines": {
+    "chunk_ids": [
+      "chunk-0ecbdde6d262012ebbdfa789102231a4"
+    ],
+    "count": 1,
+    "create_time": 1777291489,
+    "update_time": 1777291489,
+    "_id": "AIOps<SEP>CI/CD Pipelines"
+  },
+  "GitHub<SEP>Mission-Critical Online": {
+    "chunk_ids": [
+      "chunk-11bac6534273a4d1656750c49ac2fcee"
+    ],
+    "count": 1,
+    "create_time": 1777291489,
+    "update_time": 1777291489,
+    "_id": "GitHub<SEP>Mission-Critical Online"
+  },
+  "AIOps<SEP>DevOps": {
+    "chunk_ids": [
+      "chunk-11bac6534273a4d1656750c49ac2fcee",
+      "chunk-a324803e46dec295e5d9abb5a43f8a29"
+    ],
+    "count": 2,
+    "update_time": 1777292126,
+    "_id": "AIOps<SEP>DevOps"
+  },
+  "GitHub<SEP>Mission-Critical Connected": {
+    "chunk_ids": [
+      "chunk-11bac6534273a4d1656750c49ac2fcee"
+    ],
+    "count": 1,
+    "create_time": 1777291490,
+    "update_time": 1777291490,
+    "_id": "GitHub<SEP>Mission-Critical Connected"
+  },
+  "Dependabot<SEP>GitHub": {
+    "chunk_ids": [
+      "chunk-11bac6534273a4d1656750c49ac2fcee"
+    ],
+    "count": 1,
+    "create_time": 1777291490,
+    "update_time": 1777291490,
+    "_id": "Dependabot<SEP>GitHub"
+  },
+  "CI/CD Pipelines<SEP>Zero-Downtime Deployment": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71"
+    ],
+    "count": 1,
+    "create_time": 1777291490,
+    "update_time": 1777291490,
+    "_id": "CI/CD Pipelines<SEP>Zero-Downtime Deployment"
+  },
+  "Mission-Critical Workload<SEP>Zero-Downtime Deployment": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71"
+    ],
+    "count": 1,
+    "create_time": 1777291491,
+    "update_time": 1777291491,
+    "_id": "Mission-Critical Workload<SEP>Zero-Downtime Deployment"
+  },
+  "Scale-Unit Architecture<SEP>Zero-Downtime Deployment": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71"
+    ],
+    "count": 1,
+    "create_time": 1777291491,
+    "update_time": 1777291491,
+    "_id": "Scale-Unit Architecture<SEP>Zero-Downtime Deployment"
+  },
+  "Infrastructure As Code<SEP>Terraform": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71",
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 2,
+    "update_time": 1777292123,
+    "_id": "Infrastructure As Code<SEP>Terraform"
+  },
+  "Azure Resource Manager Templates<SEP>Infrastructure As Code": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71"
+    ],
+    "count": 1,
+    "create_time": 1777291491,
+    "update_time": 1777291491,
+    "_id": "Azure Resource Manager Templates<SEP>Infrastructure As Code"
+  },
+  "Mission-Critical Online<SEP>Zero-Downtime Deployment": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71"
+    ],
+    "count": 1,
+    "create_time": 1777291492,
+    "update_time": 1777291492,
+    "_id": "Mission-Critical Online<SEP>Zero-Downtime Deployment"
+  },
+  "Development Environments<SEP>Infrastructure As Code": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71"
+    ],
+    "count": 1,
+    "create_time": 1777291492,
+    "update_time": 1777291492,
+    "_id": "Development Environments<SEP>Infrastructure As Code"
+  },
+  "Mission-Critical Workload<SEP>Test Or Staging Environments": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71"
+    ],
+    "count": 1,
+    "create_time": 1777291492,
+    "update_time": 1777291492,
+    "_id": "Mission-Critical Workload<SEP>Test Or Staging Environments"
+  },
+  "Continuous Validation And Testing<SEP>Unit Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291492,
+    "update_time": 1777291492,
+    "_id": "Continuous Validation And Testing<SEP>Unit Testing"
+  },
+  "Azure Mission-Critical Connected<SEP>Zero-Downtime Deployment": {
+    "chunk_ids": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71"
+    ],
+    "count": 1,
+    "create_time": 1777291492,
+    "update_time": 1777291492,
+    "_id": "Azure Mission-Critical Connected<SEP>Zero-Downtime Deployment"
+  },
+  "Continuous Validation And Testing<SEP>Smoke Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291492,
+    "update_time": 1777291492,
+    "_id": "Continuous Validation And Testing<SEP>Smoke Testing"
+  },
+  "Continuous Validation And Testing<SEP>Load Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291493,
+    "update_time": 1777291493,
+    "_id": "Continuous Validation And Testing<SEP>Load Testing"
+  },
+  "Load Testing<SEP>Performance Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291494,
+    "update_time": 1777291494,
+    "_id": "Load Testing<SEP>Performance Testing"
+  },
+  "Chaos Testing<SEP>Continuous Validation And Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291494,
+    "update_time": 1777291494,
+    "_id": "Chaos Testing<SEP>Continuous Validation And Testing"
+  },
+  "Performance Testing<SEP>Stress Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291494,
+    "update_time": 1777291494,
+    "_id": "Performance Testing<SEP>Stress Testing"
+  },
+  "Azure<SEP>Subscription-Scoped Deployment": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291494,
+    "update_time": 1777291494,
+    "_id": "Azure<SEP>Subscription-Scoped Deployment"
+  },
+  "Continuous Validation And Testing<SEP>Penetration Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291494,
+    "update_time": 1777291494,
+    "_id": "Continuous Validation And Testing<SEP>Penetration Testing"
+  },
+  "Deployment Stamp<SEP>Subscription-Scoped Deployment": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291494,
+    "update_time": 1777291494,
+    "_id": "Deployment Stamp<SEP>Subscription-Scoped Deployment"
+  },
+  "Continuous Validation And Testing<SEP>UI Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291495,
+    "update_time": 1777291495,
+    "_id": "Continuous Validation And Testing<SEP>UI Testing"
+  },
+  "Continuous Validation And Testing<SEP>Stress Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291495,
+    "update_time": 1777291495,
+    "_id": "Continuous Validation And Testing<SEP>Stress Testing"
+  },
+  "Continuous Validation And Testing<SEP>Performance Testing": {
+    "chunk_ids": [
+      "chunk-b8200e1f0295324acfed0587523ace64"
+    ],
+    "count": 1,
+    "create_time": 1777291495,
+    "update_time": 1777291495,
+    "_id": "Continuous Validation And Testing<SEP>Performance Testing"
+  },
+  "Azure<SEP>Design Methodology": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291539,
+    "update_time": 1777291539,
+    "_id": "Azure<SEP>Design Methodology"
+  },
+  "Mission-Critical Workloads<SEP>Service Level Objectives": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291539,
+    "update_time": 1777291539,
+    "_id": "Mission-Critical Workloads<SEP>Service Level Objectives"
+  },
+  "Mission-Critical Workloads<SEP>Recovery Time Objective": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291539,
+    "update_time": 1777291539,
+    "_id": "Mission-Critical Workloads<SEP>Recovery Time Objective"
+  },
+  "Mission-Critical Workloads<SEP>Recovery Point Objective": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291540,
+    "update_time": 1777291540,
+    "_id": "Mission-Critical Workloads<SEP>Recovery Point Objective"
+  },
+  "Design Methodology<SEP>Mission-Critical Workloads": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291540,
+    "update_time": 1777291540,
+    "_id": "Design Methodology<SEP>Mission-Critical Workloads"
+  },
+  "Design Methodology<SEP>Zero-Downtime Deployments": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291541,
+    "update_time": 1777291541,
+    "_id": "Design Methodology<SEP>Zero-Downtime Deployments"
+  },
+  "Design Methodology<SEP>Health Model": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291541,
+    "update_time": 1777291541,
+    "_id": "Design Methodology<SEP>Health Model"
+  },
+  "Azure<SEP>Health Modeling": {
+    "chunk_ids": [
+      "chunk-6d5fef3c980e677376967817f32d9dad",
+      "chunk-0de195b0afed20e3d851a968d363d0ca"
+    ],
+    "count": 2,
+    "update_time": 1777291796,
+    "_id": "Azure<SEP>Health Modeling"
+  },
+  "Design Methodology<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291542,
+    "update_time": 1777291542,
+    "_id": "Design Methodology<SEP>Well-Architected Framework"
+  },
+  "Mission-Critical Design Principles<SEP>Mission-Critical Overview": {
+    "chunk_ids": [
+      "chunk-6d5fef3c980e677376967817f32d9dad"
+    ],
+    "count": 1,
+    "create_time": 1777291542,
+    "update_time": 1777291542,
+    "_id": "Mission-Critical Design Principles<SEP>Mission-Critical Overview"
+  },
+  "Design Methodology<SEP>End-To-End Automation": {
+    "chunk_ids": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36"
+    ],
+    "count": 1,
+    "create_time": 1777291542,
+    "update_time": 1777291542,
+    "_id": "Design Methodology<SEP>End-To-End Automation"
+  },
+  "Azure Well-Architected Framework<SEP>CI/CD": {
+    "chunk_ids": [
+      "chunk-75881c2e5d7a1909b7080e2819bc0413"
+    ],
+    "count": 1,
+    "create_time": 1777291593,
+    "update_time": 1777291593,
+    "_id": "Azure Well-Architected Framework<SEP>CI/CD"
+  },
+  "SIEM<SEP>Security": {
+    "chunk_ids": [
+      "chunk-75881c2e5d7a1909b7080e2819bc0413"
+    ],
+    "count": 1,
+    "create_time": 1777291593,
+    "update_time": 1777291593,
+    "_id": "SIEM<SEP>Security"
+  },
+  "Business Continuity<SEP>Disaster Recovery": {
+    "chunk_ids": [
+      "chunk-75881c2e5d7a1909b7080e2819bc0413"
+    ],
+    "count": 1,
+    "create_time": 1777291593,
+    "update_time": 1777291593,
+    "_id": "Business Continuity<SEP>Disaster Recovery"
+  },
+  "Health Model<SEP>Security": {
+    "chunk_ids": [
+      "chunk-75881c2e5d7a1909b7080e2819bc0413"
+    ],
+    "count": 1,
+    "create_time": 1777291593,
+    "update_time": 1777291593,
+    "_id": "Health Model<SEP>Security"
+  },
+  "DDoS<SEP>SlowLoris": {
+    "chunk_ids": [
+      "chunk-75881c2e5d7a1909b7080e2819bc0413",
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 2,
+    "update_time": 1777292408,
+    "_id": "DDoS<SEP>SlowLoris"
+  },
+  "Penetration Testing<SEP>Security": {
+    "chunk_ids": [
+      "chunk-75881c2e5d7a1909b7080e2819bc0413"
+    ],
+    "count": 1,
+    "create_time": 1777291594,
+    "update_time": 1777291594,
+    "_id": "Penetration Testing<SEP>Security"
+  },
+  "Cost Optimization<SEP>Infrastructure As Code": {
+    "chunk_ids": [
+      "chunk-75881c2e5d7a1909b7080e2819bc0413"
+    ],
+    "count": 1,
+    "create_time": 1777291594,
+    "update_time": 1777291594,
+    "_id": "Cost Optimization<SEP>Infrastructure As Code"
+  },
+  "Mission-Critical Design Methodology<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291594,
+    "update_time": 1777291594,
+    "_id": "Mission-Critical Design Methodology<SEP>Reliability"
+  },
+  "Azure Well-Architected Framework<SEP>Cost Optimization": {
+    "chunk_ids": [
+      "chunk-75881c2e5d7a1909b7080e2819bc0413",
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e",
+      "chunk-387611e470f83bbe5d875c098db01fe9",
+      "chunk-3794cb2593672d7e205ce2c3021b80ff",
+      "chunk-233362b748b88ddd9ff57f063cacd0c2",
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 6,
+    "update_time": 1777292858,
+    "_id": "Azure Well-Architected Framework<SEP>Cost Optimization"
+  },
+  "Mission-Critical Design Methodology<SEP>Performance Efficiency": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291594,
+    "update_time": 1777291594,
+    "_id": "Mission-Critical Design Methodology<SEP>Performance Efficiency"
+  },
+  "Mission-Critical Design Methodology<SEP>Operational Excellence": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291595,
+    "update_time": 1777291595,
+    "_id": "Mission-Critical Design Methodology<SEP>Operational Excellence"
+  },
+  "Active/Active Design<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291595,
+    "update_time": 1777291595,
+    "_id": "Active/Active Design<SEP>Reliability"
+  },
+  "Mission-Critical Design Methodology<SEP>Security": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291595,
+    "update_time": 1777291595,
+    "_id": "Mission-Critical Design Methodology<SEP>Security"
+  },
+  "Design For Self-Healing<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291595,
+    "update_time": 1777291595,
+    "_id": "Design For Self-Healing<SEP>Reliability"
+  },
+  "Design For Scale-Out<SEP>Performance Efficiency": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291595,
+    "update_time": 1777291595,
+    "_id": "Design For Scale-Out<SEP>Performance Efficiency"
+  },
+  "Cost Optimization<SEP>Mission-Critical Design Methodology": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291596,
+    "update_time": 1777291596,
+    "_id": "Cost Optimization<SEP>Mission-Critical Design Methodology"
+  },
+  "Continuous Validation And Testing<SEP>Performance Efficiency": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291596,
+    "update_time": 1777291596,
+    "_id": "Continuous Validation And Testing<SEP>Performance Efficiency"
+  },
+  "Active/Active Design<SEP>Azure": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291596,
+    "update_time": 1777291596,
+    "_id": "Active/Active Design<SEP>Azure"
+  },
+  "Capacity Model<SEP>Performance Efficiency": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291596,
+    "update_time": 1777291596,
+    "_id": "Capacity Model<SEP>Performance Efficiency"
+  },
+  "Blast Radius Reduction And Fault Isolation<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291596,
+    "update_time": 1777291596,
+    "_id": "Blast Radius Reduction And Fault Isolation<SEP>Reliability"
+  },
+  "Observe Application Health<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291597,
+    "update_time": 1777291597,
+    "_id": "Observe Application Health<SEP>Reliability"
+  },
+  "Loosely Coupled Components<SEP>Operational Excellence": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291597,
+    "update_time": 1777291597,
+    "_id": "Loosely Coupled Components<SEP>Operational Excellence"
+  },
+  "Drive Automation<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291597,
+    "update_time": 1777291597,
+    "_id": "Drive Automation<SEP>Reliability"
+  },
+  "Automate Build And Release Processes<SEP>Operational Excellence": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291597,
+    "update_time": 1777291597,
+    "_id": "Automate Build And Release Processes<SEP>Operational Excellence"
+  },
+  "Managed Compute Services<SEP>Performance Efficiency": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291597,
+    "update_time": 1777291597,
+    "_id": "Managed Compute Services<SEP>Performance Efficiency"
+  },
+  "Complexity Avoidance<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-f86c34d935d91c0feba2784fca188c36"
+    ],
+    "count": 1,
+    "create_time": 1777291597,
+    "update_time": 1777291597,
+    "_id": "Complexity Avoidance<SEP>Reliability"
+  },
+  "Azure Well-Architected Framework<SEP>Drive Automation": {
+    "chunk_ids": [
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "count": 1,
+    "create_time": 1777291597,
+    "update_time": 1777291597,
+    "_id": "Azure Well-Architected Framework<SEP>Drive Automation"
+  },
+  "Azure Well-Architected Framework<SEP>Design For Self-Healing": {
+    "chunk_ids": [
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "count": 1,
+    "create_time": 1777291598,
+    "update_time": 1777291598,
+    "_id": "Azure Well-Architected Framework<SEP>Design For Self-Healing"
+  },
+  "Azure Well-Architected Framework<SEP>Loosely Coupled Components": {
+    "chunk_ids": [
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "count": 1,
+    "create_time": 1777291598,
+    "update_time": 1777291598,
+    "_id": "Azure Well-Architected Framework<SEP>Loosely Coupled Components"
+  },
+  "Azure Well-Architected Framework<SEP>Classify And Encrypt Data": {
+    "chunk_ids": [
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "count": 1,
+    "create_time": 1777291598,
+    "update_time": 1777291598,
+    "_id": "Azure Well-Architected Framework<SEP>Classify And Encrypt Data"
+  },
+  "Azure Well-Architected Framework<SEP>Continuous Validation And Testing": {
+    "chunk_ids": [
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "count": 1,
+    "create_time": 1777291599,
+    "update_time": 1777291599,
+    "_id": "Azure Well-Architected Framework<SEP>Continuous Validation And Testing"
+  },
+  "Automate Build And Release Processes<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "count": 1,
+    "create_time": 1777291599,
+    "update_time": 1777291599,
+    "_id": "Automate Build And Release Processes<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Well-Architected Framework<SEP>Quantify Operational Health": {
+    "chunk_ids": [
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "count": 1,
+    "create_time": 1777291600,
+    "update_time": 1777291600,
+    "_id": "Azure Well-Architected Framework<SEP>Quantify Operational Health"
+  },
+  "Azure Well-Architected Framework<SEP>Monitor The Security Of The Entire Solution": {
+    "chunk_ids": [
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "count": 1,
+    "create_time": 1777291600,
+    "update_time": 1777291600,
+    "_id": "Azure Well-Architected Framework<SEP>Monitor The Security Of The Entire Solution"
+  },
+  "Health Model<SEP>Service Level Objective": {
+    "chunk_ids": [
+      "chunk-aee778ccfa3886c52f485cafeef0009b"
+    ],
+    "count": 1,
+    "create_time": 1777291793,
+    "update_time": 1777291793,
+    "_id": "Health Model<SEP>Service Level Objective"
+  },
+  "Log Analytics Workspace<SEP>Unified Data Sink": {
+    "chunk_ids": [
+      "chunk-aee778ccfa3886c52f485cafeef0009b"
+    ],
+    "count": 1,
+    "create_time": 1777291793,
+    "update_time": 1777291793,
+    "_id": "Log Analytics Workspace<SEP>Unified Data Sink"
+  },
+  "Health Model<SEP>KQL": {
+    "chunk_ids": [
+      "chunk-aee778ccfa3886c52f485cafeef0009b"
+    ],
+    "count": 1,
+    "create_time": 1777291793,
+    "update_time": 1777291793,
+    "_id": "Health Model<SEP>KQL"
+  },
+  "Azure Monitor<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-aee778ccfa3886c52f485cafeef0009b",
+      "chunk-7255c274585b0f1f482e338bbc6c26aa"
+    ],
+    "count": 2,
+    "create_time": 1777291794,
+    "update_time": 1777291794,
+    "_id": "Azure Monitor<SEP>Log Analytics Workspace"
+  },
+  "Grafana<SEP>Health Model": {
+    "chunk_ids": [
+      "chunk-aee778ccfa3886c52f485cafeef0009b"
+    ],
+    "count": 1,
+    "create_time": 1777291794,
+    "update_time": 1777291794,
+    "_id": "Grafana<SEP>Health Model"
+  },
+  "Health Model<SEP>Mission-Critical Online": {
+    "chunk_ids": [
+      "chunk-aee778ccfa3886c52f485cafeef0009b"
+    ],
+    "count": 1,
+    "create_time": 1777291794,
+    "update_time": 1777291794,
+    "_id": "Health Model<SEP>Mission-Critical Online"
+  },
+  "Application Insights<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-aee778ccfa3886c52f485cafeef0009b",
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47",
+      "chunk-7255c274585b0f1f482e338bbc6c26aa"
+    ],
+    "count": 3,
+    "create_time": 1777291794,
+    "update_time": 1777291794,
+    "_id": "Application Insights<SEP>Azure Monitor"
+  },
+  "Health Model<SEP>Mission-Critical Connected": {
+    "chunk_ids": [
+      "chunk-aee778ccfa3886c52f485cafeef0009b"
+    ],
+    "count": 1,
+    "create_time": 1777291794,
+    "update_time": 1777291794,
+    "_id": "Health Model<SEP>Mission-Critical Connected"
+  },
+  "Azure Dashboards<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7"
+    ],
+    "count": 1,
+    "create_time": 1777291794,
+    "update_time": 1777291794,
+    "_id": "Azure Dashboards<SEP>Azure Monitor"
+  },
+  "Azure Data Explorer<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7"
+    ],
+    "count": 1,
+    "create_time": 1777291795,
+    "update_time": 1777291795,
+    "_id": "Azure Data Explorer<SEP>Log Analytics"
+  },
+  "Azure Dashboards<SEP>Grafana": {
+    "chunk_ids": [
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7",
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 2,
+    "create_time": 1777291795,
+    "update_time": 1777291795,
+    "_id": "Azure Dashboards<SEP>Grafana"
+  },
+  "Health Model<SEP>Traffic Light Model": {
+    "chunk_ids": [
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7"
+    ],
+    "count": 1,
+    "create_time": 1777291795,
+    "update_time": 1777291795,
+    "_id": "Health Model<SEP>Traffic Light Model"
+  },
+  "Grafana<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7"
+    ],
+    "count": 1,
+    "create_time": 1777291795,
+    "update_time": 1777291795,
+    "_id": "Grafana<SEP>Log Analytics"
+  },
+  "Azure Dashboards<SEP>Health Model": {
+    "chunk_ids": [
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7"
+    ],
+    "count": 1,
+    "create_time": 1777291795,
+    "update_time": 1777291795,
+    "_id": "Azure Dashboards<SEP>Health Model"
+  },
+  "Application Insights<SEP>Correlation ID": {
+    "chunk_ids": [
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7"
+    ],
+    "count": 1,
+    "create_time": 1777291795,
+    "update_time": 1777291795,
+    "_id": "Application Insights<SEP>Correlation ID"
+  },
+  "Health Modeling<SEP>Observability": {
+    "chunk_ids": [
+      "chunk-0de195b0afed20e3d851a968d363d0ca"
+    ],
+    "count": 1,
+    "create_time": 1777291796,
+    "update_time": 1777291796,
+    "_id": "Health Modeling<SEP>Observability"
+  },
+  "Health Model<SEP>Structured Logging": {
+    "chunk_ids": [
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7"
+    ],
+    "count": 1,
+    "create_time": 1777291796,
+    "update_time": 1777291796,
+    "_id": "Health Model<SEP>Structured Logging"
+  },
+  "Health Score<SEP>Layered Application Health": {
+    "chunk_ids": [
+      "chunk-0de195b0afed20e3d851a968d363d0ca"
+    ],
+    "count": 1,
+    "create_time": 1777291796,
+    "update_time": 1777291796,
+    "_id": "Health Score<SEP>Layered Application Health"
+  },
+  "Health Modeling<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-0de195b0afed20e3d851a968d363d0ca"
+    ],
+    "count": 1,
+    "create_time": 1777291797,
+    "update_time": 1777291797,
+    "_id": "Health Modeling<SEP>Mission-Critical Workload"
+  },
+  "Health Score<SEP>Service Level Objective": {
+    "chunk_ids": [
+      "chunk-0de195b0afed20e3d851a968d363d0ca"
+    ],
+    "count": 1,
+    "create_time": 1777291797,
+    "update_time": 1777291797,
+    "_id": "Health Score<SEP>Service Level Objective"
+  },
+  "CI/CD Pipelines<SEP>Health Modeling": {
+    "chunk_ids": [
+      "chunk-0de195b0afed20e3d851a968d363d0ca"
+    ],
+    "count": 1,
+    "create_time": 1777291797,
+    "update_time": 1777291797,
+    "_id": "CI/CD Pipelines<SEP>Health Modeling"
+  },
+  "Health Modeling<SEP>Performance Testing": {
+    "chunk_ids": [
+      "chunk-0de195b0afed20e3d851a968d363d0ca"
+    ],
+    "count": 1,
+    "create_time": 1777291797,
+    "update_time": 1777291797,
+    "_id": "Health Modeling<SEP>Performance Testing"
+  },
+  "Application Insights<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291797,
+    "update_time": 1777291797,
+    "_id": "Application Insights<SEP>Log Analytics Workspace"
+  },
+  "Kusto Query Language<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291798,
+    "update_time": 1777291798,
+    "_id": "Kusto Query Language<SEP>Log Analytics Workspace"
+  },
+  "Application Insights<SEP>Kusto Query Language": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291798,
+    "update_time": 1777291798,
+    "_id": "Application Insights<SEP>Kusto Query Language"
+  },
+  "Health Modeling<SEP>Layered Application Health": {
+    "chunk_ids": [
+      "chunk-0de195b0afed20e3d851a968d363d0ca"
+    ],
+    "count": 1,
+    "create_time": 1777291798,
+    "update_time": 1777291798,
+    "_id": "Health Modeling<SEP>Layered Application Health"
+  },
+  "Azure Data Explorer<SEP>Kusto Query Language": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291798,
+    "update_time": 1777291798,
+    "_id": "Azure Data Explorer<SEP>Kusto Query Language"
+  },
+  "Application Insights<SEP>Sampling": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291798,
+    "update_time": 1777291798,
+    "_id": "Application Insights<SEP>Sampling"
+  },
+  "Azure Storage<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47",
+      "chunk-7255c274585b0f1f482e338bbc6c26aa"
+    ],
+    "count": 2,
+    "create_time": 1777291798,
+    "update_time": 1777291798,
+    "_id": "Azure Storage<SEP>Log Analytics Workspace"
+  },
+  "Log Analytics Workspace<SEP>Query Packs": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47",
+      "chunk-7255c274585b0f1f482e338bbc6c26aa"
+    ],
+    "count": 2,
+    "create_time": 1777291799,
+    "update_time": 1777291799,
+    "_id": "Log Analytics Workspace<SEP>Query Packs"
+  },
+  "Microsoft.Insights REST API<SEP>Query Packs": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291799,
+    "update_time": 1777291799,
+    "_id": "Microsoft.Insights REST API<SEP>Query Packs"
+  },
+  "Azure Policy<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291799,
+    "update_time": 1777291799,
+    "_id": "Azure Policy<SEP>Log Analytics Workspace"
+  },
+  "Log Analytics Workspace<SEP>Sentinel": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291799,
+    "update_time": 1777291799,
+    "_id": "Log Analytics Workspace<SEP>Sentinel"
+  },
+  "Application Insights<SEP>Correlation IDs": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291799,
+    "update_time": 1777291799,
+    "_id": "Application Insights<SEP>Correlation IDs"
+  },
+  "Anomaly Detection<SEP>Azure Cognitive Services": {
+    "chunk_ids": [
+      "chunk-73d35a819f81fdf6e061b2c836acac71",
+      "chunk-4678f659d2199619f053d40287ff2e4a",
+      "chunk-f7620929405aff597a8fb7046b3e2aa5"
+    ],
+    "count": 3,
+    "create_time": 1777291800,
+    "update_time": 1777291800,
+    "_id": "Anomaly Detection<SEP>Azure Cognitive Services"
+  },
+  "Cross-Workspace Queries<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47"
+    ],
+    "count": 1,
+    "create_time": 1777291800,
+    "update_time": 1777291800,
+    "_id": "Cross-Workspace Queries<SEP>Log Analytics Workspace"
+  },
+  "Action Groups<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-73d35a819f81fdf6e061b2c836acac71",
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 2,
+    "create_time": 1777291800,
+    "update_time": 1777291800,
+    "_id": "Action Groups<SEP>Azure Monitor"
+  },
+  "Automated ML<SEP>Azure Machine Learning": {
+    "chunk_ids": [
+      "chunk-73d35a819f81fdf6e061b2c836acac71"
+    ],
+    "count": 1,
+    "create_time": 1777291800,
+    "update_time": 1777291800,
+    "_id": "Automated ML<SEP>Azure Machine Learning"
+  },
+  "AIOps<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291800,
+    "update_time": 1777291800,
+    "_id": "AIOps<SEP>Azure Synapse"
+  },
+  "AIOps<SEP>Azure Databricks": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291800,
+    "update_time": 1777291800,
+    "_id": "AIOps<SEP>Azure Databricks"
+  },
+  "Azure ML<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291801,
+    "update_time": 1777291801,
+    "_id": "Azure ML<SEP>Azure Synapse"
+  },
+  "AIOps<SEP>Predictive Action": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291801,
+    "update_time": 1777291801,
+    "_id": "AIOps<SEP>Predictive Action"
+  },
+  "Azure Cognitive Services<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291801,
+    "update_time": 1777291801,
+    "_id": "Azure Cognitive Services<SEP>Azure Synapse"
+  },
+  "Azure Data Factory<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291801,
+    "update_time": 1777291801,
+    "_id": "Azure Data Factory<SEP>Azure Synapse"
+  },
+  "AIOps<SEP>Azure Monitor Alerts API": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291801,
+    "update_time": 1777291801,
+    "_id": "AIOps<SEP>Azure Monitor Alerts API"
+  },
+  "Azure Databricks<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291801,
+    "update_time": 1777291801,
+    "_id": "Azure Databricks<SEP>Azure Synapse"
+  },
+  "Azure Synapse<SEP>Synapse Spark Pools": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291802,
+    "update_time": 1777291802,
+    "_id": "Azure Synapse<SEP>Synapse Spark Pools"
+  },
+  "App Services<SEP>Grafana": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291802,
+    "update_time": 1777291802,
+    "_id": "App Services<SEP>Grafana"
+  },
+  "Azure Blob Storage<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291802,
+    "update_time": 1777291802,
+    "_id": "Azure Blob Storage<SEP>Azure Synapse"
+  },
+  "Azure Database For Postgres<SEP>Grafana": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291803,
+    "update_time": 1777291803,
+    "_id": "Azure Database For Postgres<SEP>Grafana"
+  },
+  "Azure Data Lake Storage<SEP>Azure Synapse": {
+    "chunk_ids": [
+      "chunk-4678f659d2199619f053d40287ff2e4a"
+    ],
+    "count": 1,
+    "create_time": 1777291803,
+    "update_time": 1777291803,
+    "_id": "Azure Data Lake Storage<SEP>Azure Synapse"
+  },
+  "Azure Storage<SEP>Grafana": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291803,
+    "update_time": 1777291803,
+    "_id": "Azure Storage<SEP>Grafana"
+  },
+  "Azure SQL<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291804,
+    "update_time": 1777291804,
+    "_id": "Azure SQL<SEP>Log Analytics"
+  },
+  "AKS<SEP>Grafana": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291804,
+    "update_time": 1777291804,
+    "_id": "AKS<SEP>Grafana"
+  },
+  "Automated Incident Response<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291804,
+    "update_time": 1777291804,
+    "_id": "Automated Incident Response<SEP>Azure Monitor"
+  },
+  "KQL<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291804,
+    "update_time": 1777291804,
+    "_id": "KQL<SEP>Log Analytics"
+  },
+  "Azure Monitor<SEP>Azure Monitor Alerts API": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291804,
+    "update_time": 1777291804,
+    "_id": "Azure Monitor<SEP>Azure Monitor Alerts API"
+  },
+  "Azure Storage<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-f7620929405aff597a8fb7046b3e2aa5"
+    ],
+    "count": 1,
+    "create_time": 1777291804,
+    "update_time": 1777291804,
+    "_id": "Azure Storage<SEP>Log Analytics"
+  },
+  "Azure Monitor<SEP>Health Model": {
+    "chunk_ids": [
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82"
+    ],
+    "count": 1,
+    "create_time": 1777291804,
+    "update_time": 1777291804,
+    "_id": "Azure Monitor<SEP>Health Model"
+  },
+  "AIOps<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-f7620929405aff597a8fb7046b3e2aa5"
+    ],
+    "count": 1,
+    "create_time": 1777291805,
+    "update_time": 1777291805,
+    "_id": "AIOps<SEP>Azure Monitor"
+  },
+  "AIOps<SEP>MLOps": {
+    "chunk_ids": [
+      "chunk-f7620929405aff597a8fb7046b3e2aa5"
+    ],
+    "count": 1,
+    "create_time": 1777291805,
+    "update_time": 1777291805,
+    "_id": "AIOps<SEP>MLOps"
+  },
+  "Azure Event Hubs<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-f7620929405aff597a8fb7046b3e2aa5"
+    ],
+    "count": 1,
+    "create_time": 1777291805,
+    "update_time": 1777291805,
+    "_id": "Azure Event Hubs<SEP>Log Analytics"
+  },
+  "Azure Data Explorer<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-7255c274585b0f1f482e338bbc6c26aa"
+    ],
+    "count": 1,
+    "create_time": 1777291805,
+    "update_time": 1777291805,
+    "_id": "Azure Data Explorer<SEP>Log Analytics Workspace"
+  },
+  "AIOps<SEP>Azure Cognitive Services": {
+    "chunk_ids": [
+      "chunk-f7620929405aff597a8fb7046b3e2aa5"
+    ],
+    "count": 1,
+    "create_time": 1777291806,
+    "update_time": 1777291806,
+    "_id": "AIOps<SEP>Azure Cognitive Services"
+  },
+  "Dedicated Clusters<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-7255c274585b0f1f482e338bbc6c26aa"
+    ],
+    "count": 1,
+    "create_time": 1777291806,
+    "update_time": 1777291806,
+    "_id": "Dedicated Clusters<SEP>Log Analytics Workspace"
+  },
+  "Azure Event Hubs<SEP>Log Analytics Workspace": {
+    "chunk_ids": [
+      "chunk-7255c274585b0f1f482e338bbc6c26aa"
+    ],
+    "count": 1,
+    "create_time": 1777291806,
+    "update_time": 1777291806,
+    "_id": "Azure Event Hubs<SEP>Log Analytics Workspace"
+  },
+  "Azure Kubernetes Service<SEP>Kubenet": {
+    "chunk_ids": [
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 1,
+    "create_time": 1777292016,
+    "update_time": 1777292016,
+    "_id": "Azure Kubernetes Service<SEP>Kubenet"
+  },
+  "Calico<SEP>Network Policies": {
+    "chunk_ids": [
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 1,
+    "create_time": 1777292016,
+    "update_time": 1777292016,
+    "_id": "Calico<SEP>Network Policies"
+  },
+  "Micro-Segmentation<SEP>Zero Trust": {
+    "chunk_ids": [
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 1,
+    "create_time": 1777292016,
+    "update_time": 1777292016,
+    "_id": "Micro-Segmentation<SEP>Zero Trust"
+  },
+  "Micro-Segmentation<SEP>Network Security Groups": {
+    "chunk_ids": [
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 1,
+    "create_time": 1777292016,
+    "update_time": 1777292016,
+    "_id": "Micro-Segmentation<SEP>Network Security Groups"
+  },
+  "Azure Front Door<SEP>Network Security Groups": {
+    "chunk_ids": [
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 1,
+    "create_time": 1777292017,
+    "update_time": 1777292017,
+    "_id": "Azure Front Door<SEP>Network Security Groups"
+  },
+  "Azure<SEP>Network Policies": {
+    "chunk_ids": [
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 1,
+    "create_time": 1777292017,
+    "update_time": 1777292017,
+    "_id": "Azure<SEP>Network Policies"
+  },
+  "Azure Kubernetes Service<SEP>Network Policies": {
+    "chunk_ids": [
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 1,
+    "create_time": 1777292017,
+    "update_time": 1777292017,
+    "_id": "Azure Kubernetes Service<SEP>Network Policies"
+  },
+  "Azure Kubernetes Service<SEP>Node Pools": {
+    "chunk_ids": [
+      "chunk-defd991d185ed0d546fc2887007b9160"
+    ],
+    "count": 1,
+    "create_time": 1777292018,
+    "update_time": 1777292018,
+    "_id": "Azure Kubernetes Service<SEP>Node Pools"
+  },
+  "Azure NAT Gateway<SEP>SNAT Port Exhaustion": {
+    "chunk_ids": [
+      "chunk-c136188a7c5b35c34dacbc95825b4191"
+    ],
+    "count": 1,
+    "create_time": 1777292018,
+    "update_time": 1777292018,
+    "_id": "Azure NAT Gateway<SEP>SNAT Port Exhaustion"
+  },
+  "AKS<SEP>Kubenet": {
+    "chunk_ids": [
+      "chunk-c136188a7c5b35c34dacbc95825b4191",
+      "chunk-0d7d8989458b7b6a8098b2c4cc007937"
+    ],
+    "count": 2,
+    "create_time": 1777292018,
+    "update_time": 1777292018,
+    "_id": "AKS<SEP>Kubenet"
+  },
+  "Network Address Translation<SEP>SNAT Port Exhaustion": {
+    "chunk_ids": [
+      "chunk-c136188a7c5b35c34dacbc95825b4191"
+    ],
+    "count": 1,
+    "create_time": 1777292018,
+    "update_time": 1777292018,
+    "_id": "Network Address Translation<SEP>SNAT Port Exhaustion"
+  },
+  "Express Route<SEP>VPN": {
+    "chunk_ids": [
+      "chunk-c136188a7c5b35c34dacbc95825b4191"
+    ],
+    "count": 1,
+    "create_time": 1777292018,
+    "update_time": 1777292018,
+    "_id": "Express Route<SEP>VPN"
+  },
+  "Azure App Service<SEP>Azure NAT Gateway": {
+    "chunk_ids": [
+      "chunk-c136188a7c5b35c34dacbc95825b4191"
+    ],
+    "count": 1,
+    "create_time": 1777292018,
+    "update_time": 1777292018,
+    "_id": "Azure App Service<SEP>Azure NAT Gateway"
+  },
+  "Azure Front Door<SEP>Azure Web Application Firewall": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565",
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 2,
+    "create_time": 1777292018,
+    "update_time": 1777292018,
+    "_id": "Azure Front Door<SEP>Azure Web Application Firewall"
+  },
+  "AKS<SEP>Azure Firewall": {
+    "chunk_ids": [
+      "chunk-c136188a7c5b35c34dacbc95825b4191"
+    ],
+    "count": 1,
+    "create_time": 1777292018,
+    "update_time": 1777292018,
+    "_id": "AKS<SEP>Azure Firewall"
+  },
+  "Azure DDoS Protection Basic<SEP>Azure Front Door": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565",
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 2,
+    "create_time": 1777292019,
+    "update_time": 1777292019,
+    "_id": "Azure DDoS Protection Basic<SEP>Azure Front Door"
+  },
+  "Azure DDoS Standard<SEP>Azure Front Door": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565"
+    ],
+    "count": 1,
+    "create_time": 1777292019,
+    "update_time": 1777292019,
+    "_id": "Azure DDoS Standard<SEP>Azure Front Door"
+  },
+  "Azure Front Door<SEP>Azure Front Door Premium": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565"
+    ],
+    "count": 1,
+    "create_time": 1777292020,
+    "update_time": 1777292020,
+    "_id": "Azure Front Door<SEP>Azure Front Door Premium"
+  },
+  "Azure Front Door<SEP>Content Delivery Network": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565",
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775",
+      "chunk-38a9b32aa690001ea5387c320074295c"
+    ],
+    "count": 3,
+    "create_time": 1777292020,
+    "update_time": 1777292020,
+    "_id": "Azure Front Door<SEP>Content Delivery Network"
+  },
+  "Application Gateway WAF<SEP>Azure Web Application Firewall": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565"
+    ],
+    "count": 1,
+    "create_time": 1777292020,
+    "update_time": 1777292020,
+    "_id": "Application Gateway WAF<SEP>Azure Web Application Firewall"
+  },
+  "Azure Front Door<SEP>Azure Traffic Manager": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565",
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775",
+      "chunk-38a9b32aa690001ea5387c320074295c"
+    ],
+    "count": 3,
+    "create_time": 1777292021,
+    "update_time": 1777292021,
+    "_id": "Azure Front Door<SEP>Azure Traffic Manager"
+  },
+  "Azure Front Door<SEP>Microsoft": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565"
+    ],
+    "count": 1,
+    "create_time": 1777292021,
+    "update_time": 1777292021,
+    "_id": "Azure Front Door<SEP>Microsoft"
+  },
+  "Azure Application Gateway<SEP>WAF": {
+    "chunk_ids": [
+      "chunk-adc31ff972bb32047bd652b7c4ab8132"
+    ],
+    "count": 1,
+    "create_time": 1777292021,
+    "update_time": 1777292021,
+    "_id": "Azure Application Gateway<SEP>WAF"
+  },
+  "Azure Front Door<SEP>Session Affinity": {
+    "chunk_ids": [
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565"
+    ],
+    "count": 1,
+    "create_time": 1777292022,
+    "update_time": 1777292022,
+    "_id": "Azure Front Door<SEP>Session Affinity"
+  },
+  "Azure CDN<SEP>Caching": {
+    "chunk_ids": [
+      "chunk-adc31ff972bb32047bd652b7c4ab8132"
+    ],
+    "count": 1,
+    "create_time": 1777292022,
+    "update_time": 1777292022,
+    "_id": "Azure CDN<SEP>Caching"
+  },
+  "Azure Front Door<SEP>WAF": {
+    "chunk_ids": [
+      "chunk-adc31ff972bb32047bd652b7c4ab8132"
+    ],
+    "count": 1,
+    "create_time": 1777292022,
+    "update_time": 1777292022,
+    "_id": "Azure Front Door<SEP>WAF"
+  },
+  "Availability Zones<SEP>Azure Standard Load Balancer": {
+    "chunk_ids": [
+      "chunk-adc31ff972bb32047bd652b7c4ab8132"
+    ],
+    "count": 1,
+    "create_time": 1777292022,
+    "update_time": 1777292022,
+    "_id": "Availability Zones<SEP>Azure Standard Load Balancer"
+  },
+  "Azure Front Door<SEP>Caching": {
+    "chunk_ids": [
+      "chunk-adc31ff972bb32047bd652b7c4ab8132"
+    ],
+    "count": 1,
+    "create_time": 1777292023,
+    "update_time": 1777292023,
+    "_id": "Azure Front Door<SEP>Caching"
+  },
+  "Azure CDN<SEP>Azure Front Door": {
+    "chunk_ids": [
+      "chunk-adc31ff972bb32047bd652b7c4ab8132"
+    ],
+    "count": 1,
+    "create_time": 1777292023,
+    "update_time": 1777292023,
+    "_id": "Azure CDN<SEP>Azure Front Door"
+  },
+  "AKS<SEP>Network Policy": {
+    "chunk_ids": [
+      "chunk-0d7d8989458b7b6a8098b2c4cc007937"
+    ],
+    "count": 1,
+    "create_time": 1777292023,
+    "update_time": 1777292023,
+    "_id": "AKS<SEP>Network Policy"
+  },
+  "Calico<SEP>Network Policy": {
+    "chunk_ids": [
+      "chunk-0d7d8989458b7b6a8098b2c4cc007937"
+    ],
+    "count": 1,
+    "create_time": 1777292024,
+    "update_time": 1777292024,
+    "_id": "Calico<SEP>Network Policy"
+  },
+  "Akamai<SEP>Azure CDN": {
+    "chunk_ids": [
+      "chunk-adc31ff972bb32047bd652b7c4ab8132"
+    ],
+    "count": 1,
+    "create_time": 1777292024,
+    "update_time": 1777292024,
+    "_id": "Akamai<SEP>Azure CDN"
+  },
+  "Azure Front Door<SEP>Global Traffic Routing": {
+    "chunk_ids": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 1,
+    "create_time": 1777292024,
+    "update_time": 1777292024,
+    "_id": "Azure Front Door<SEP>Global Traffic Routing"
+  },
+  "Azure Traffic Manager<SEP>Global Traffic Routing": {
+    "chunk_ids": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 1,
+    "create_time": 1777292024,
+    "update_time": 1777292024,
+    "_id": "Azure Traffic Manager<SEP>Global Traffic Routing"
+  },
+  "Azure CDN<SEP>Verizon": {
+    "chunk_ids": [
+      "chunk-adc31ff972bb32047bd652b7c4ab8132"
+    ],
+    "count": 1,
+    "create_time": 1777292024,
+    "update_time": 1777292024,
+    "_id": "Azure CDN<SEP>Verizon"
+  },
+  "Azure Front Door<SEP>Microsoft Global Backbone Network": {
+    "chunk_ids": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 1,
+    "create_time": 1777292024,
+    "update_time": 1777292024,
+    "_id": "Azure Front Door<SEP>Microsoft Global Backbone Network"
+  },
+  "Azure Standard Load Balancer<SEP>Global Traffic Routing": {
+    "chunk_ids": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 1,
+    "create_time": 1777292025,
+    "update_time": 1777292025,
+    "_id": "Azure Standard Load Balancer<SEP>Global Traffic Routing"
+  },
+  "Azure DNS<SEP>Global Traffic Routing": {
+    "chunk_ids": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 1,
+    "create_time": 1777292026,
+    "update_time": 1777292026,
+    "_id": "Azure DNS<SEP>Global Traffic Routing"
+  },
+  "Anycast Protocol<SEP>Azure Front Door": {
+    "chunk_ids": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 1,
+    "create_time": 1777292026,
+    "update_time": 1777292026,
+    "_id": "Anycast Protocol<SEP>Azure Front Door"
+  },
+  "Global Traffic Routing<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 1,
+    "create_time": 1777292026,
+    "update_time": 1777292026,
+    "_id": "Global Traffic Routing<SEP>Microsoft Entra ID"
+  },
+  "Azure Front Door<SEP>Traffic Manager": {
+    "chunk_ids": [
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 1,
+    "create_time": 1777292026,
+    "update_time": 1777292026,
+    "_id": "Azure Front Door<SEP>Traffic Manager"
+  },
+  "Global Traffic Routing<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775"
+    ],
+    "count": 1,
+    "create_time": 1777292026,
+    "update_time": 1777292026,
+    "_id": "Global Traffic Routing<SEP>Mission-Critical Workload"
+  },
+  "Azure Application Gateway<SEP>Traffic Manager": {
+    "chunk_ids": [
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 1,
+    "create_time": 1777292026,
+    "update_time": 1777292026,
+    "_id": "Azure Application Gateway<SEP>Traffic Manager"
+  },
+  "Azure Front Door<SEP>Azure WAF": {
+    "chunk_ids": [
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 1,
+    "create_time": 1777292026,
+    "update_time": 1777292026,
+    "_id": "Azure Front Door<SEP>Azure WAF"
+  },
+  "Azure Application Gateway<SEP>Azure WAF": {
+    "chunk_ids": [
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 1,
+    "create_time": 1777292027,
+    "update_time": 1777292027,
+    "_id": "Azure Application Gateway<SEP>Azure WAF"
+  },
+  "Azure CDN<SEP>Azure WAF": {
+    "chunk_ids": [
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 1,
+    "create_time": 1777292027,
+    "update_time": 1777292027,
+    "_id": "Azure CDN<SEP>Azure WAF"
+  },
+  "Azure Front Door<SEP>TLS Offloading": {
+    "chunk_ids": [
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 1,
+    "create_time": 1777292027,
+    "update_time": 1777292027,
+    "_id": "Azure Front Door<SEP>TLS Offloading"
+  },
+  "Azure Application Gateway<SEP>Azure Front Door": {
+    "chunk_ids": [
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 1,
+    "create_time": 1777292027,
+    "update_time": 1777292027,
+    "_id": "Azure Application Gateway<SEP>Azure Front Door"
+  },
+  "Azure WAF<SEP>OWASP": {
+    "chunk_ids": [
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3"
+    ],
+    "count": 1,
+    "create_time": 1777292027,
+    "update_time": 1777292027,
+    "_id": "Azure WAF<SEP>OWASP"
+  },
+  "AKS<SEP>Virtual Network": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292027,
+    "update_time": 1777292027,
+    "_id": "AKS<SEP>Virtual Network"
+  },
+  "Azure Bastion<SEP>Virtual Network": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292028,
+    "update_time": 1777292028,
+    "_id": "Azure Bastion<SEP>Virtual Network"
+  },
+  "Azure<SEP>ExpressRoute": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292028,
+    "update_time": 1777292028,
+    "_id": "Azure<SEP>ExpressRoute"
+  },
+  "Private Endpoints<SEP>Virtual Network": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292028,
+    "update_time": 1777292028,
+    "_id": "Private Endpoints<SEP>Virtual Network"
+  },
+  "Azure Virtual WAN<SEP>Virtual Private Network": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292028,
+    "update_time": 1777292028,
+    "_id": "Azure Virtual WAN<SEP>Virtual Private Network"
+  },
+  "Azure Front Door Premium<SEP>Private Endpoints": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292028,
+    "update_time": 1777292028,
+    "_id": "Azure Front Door Premium<SEP>Private Endpoints"
+  },
+  "Azure Firewall<SEP>Virtual Network": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292028,
+    "update_time": 1777292028,
+    "_id": "Azure Firewall<SEP>Virtual Network"
+  },
+  "Azure Landing Zone<SEP>ExpressRoute": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546",
+      "chunk-a8deba810ca14d9b278b1f9d887802f2",
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 3,
+    "update_time": 1777292401,
+    "_id": "Azure Landing Zone<SEP>ExpressRoute"
+  },
+  "Azure Virtual Network Gateway<SEP>Virtual Network": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292029,
+    "update_time": 1777292029,
+    "_id": "Azure Virtual Network Gateway<SEP>Virtual Network"
+  },
+  "Azure Front Door<SEP>Web Application Firewall": {
+    "chunk_ids": [
+      "chunk-38a9b32aa690001ea5387c320074295c"
+    ],
+    "count": 1,
+    "create_time": 1777292029,
+    "update_time": 1777292029,
+    "_id": "Azure Front Door<SEP>Web Application Firewall"
+  },
+  "Application Gateway<SEP>Azure Traffic Manager": {
+    "chunk_ids": [
+      "chunk-38a9b32aa690001ea5387c320074295c"
+    ],
+    "count": 1,
+    "create_time": 1777292029,
+    "update_time": 1777292029,
+    "_id": "Application Gateway<SEP>Azure Traffic Manager"
+  },
+  "Azure Landing Zone<SEP>Azure Virtual WAN": {
+    "chunk_ids": [
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546"
+    ],
+    "count": 1,
+    "create_time": 1777292029,
+    "update_time": 1777292029,
+    "_id": "Azure Landing Zone<SEP>Azure Virtual WAN"
+  },
+  "Azure Front Door<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-38a9b32aa690001ea5387c320074295c"
+    ],
+    "count": 1,
+    "create_time": 1777292029,
+    "update_time": 1777292029,
+    "_id": "Azure Front Door<SEP>Log Analytics"
+  },
+  "Azure Cosmos DB<SEP>Azure Front Door": {
+    "chunk_ids": [
+      "chunk-38a9b32aa690001ea5387c320074295c"
+    ],
+    "count": 1,
+    "create_time": 1777292030,
+    "update_time": 1777292030,
+    "_id": "Azure Cosmos DB<SEP>Azure Front Door"
+  },
+  "Azure Firewall<SEP>Firewall Manager": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292030,
+    "update_time": 1777292030,
+    "_id": "Azure Firewall<SEP>Firewall Manager"
+  },
+  "Azure Firewall<SEP>Virtual WAN": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292030,
+    "update_time": 1777292030,
+    "_id": "Azure Firewall<SEP>Virtual WAN"
+  },
+  "Availability Zone<SEP>NAT Gateway": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292030,
+    "update_time": 1777292030,
+    "_id": "Availability Zone<SEP>NAT Gateway"
+  },
+  "Azure Front Door<SEP>Client Side Routing Logic": {
+    "chunk_ids": [
+      "chunk-38a9b32aa690001ea5387c320074295c"
+    ],
+    "count": 1,
+    "create_time": 1777292030,
+    "update_time": 1777292030,
+    "_id": "Azure Front Door<SEP>Client Side Routing Logic"
+  },
+  "Availability Zone<SEP>Deployment Stamp": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292031,
+    "update_time": 1777292031,
+    "_id": "Availability Zone<SEP>Deployment Stamp"
+  },
+  "Express Route<SEP>Virtual Network Peering": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292031,
+    "update_time": 1777292031,
+    "_id": "Express Route<SEP>Virtual Network Peering"
+  },
+  "Application Gateway<SEP>Azure Front Door": {
+    "chunk_ids": [
+      "chunk-38a9b32aa690001ea5387c320074295c"
+    ],
+    "count": 1,
+    "create_time": 1777292031,
+    "update_time": 1777292031,
+    "_id": "Application Gateway<SEP>Azure Front Door"
+  },
+  "Deployment Stamp<SEP>Private Link": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292031,
+    "update_time": 1777292031,
+    "_id": "Deployment Stamp<SEP>Private Link"
+  },
+  "NAT Gateway<SEP>SNAT Port Inventory": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292031,
+    "update_time": 1777292031,
+    "_id": "NAT Gateway<SEP>SNAT Port Inventory"
+  },
+  "Azure Firewall<SEP>Role-Based Access Control": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292031,
+    "update_time": 1777292031,
+    "_id": "Azure Firewall<SEP>Role-Based Access Control"
+  },
+  "Availability Zone<SEP>Azure Region": {
+    "chunk_ids": [
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9"
+    ],
+    "count": 1,
+    "create_time": 1777292031,
+    "update_time": 1777292031,
+    "_id": "Availability Zone<SEP>Azure Region"
+  },
+  "Azure Policy<SEP>Azure Resource Manager": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787",
+      "chunk-a324803e46dec295e5d9abb5a43f8a29",
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 3,
+    "update_time": 1777292400,
+    "_id": "Azure Policy<SEP>Azure Resource Manager"
+  },
+  "Key Vault<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292120,
+    "update_time": 1777292120,
+    "_id": "Key Vault<SEP>Microsoft Entra ID"
+  },
+  "Azure Policy<SEP>RBAC": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292121,
+    "update_time": 1777292121,
+    "_id": "Azure Policy<SEP>RBAC"
+  },
+  "Azure Kubernetes Service<SEP>Mission-Critical Design": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292121,
+    "update_time": 1777292121,
+    "_id": "Azure Kubernetes Service<SEP>Mission-Critical Design"
+  },
+  "Key Vault<SEP>Secret Management": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292121,
+    "update_time": 1777292121,
+    "_id": "Key Vault<SEP>Secret Management"
+  },
+  "Azure Container Registry<SEP>Mission-Critical Design": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292121,
+    "update_time": 1777292121,
+    "_id": "Azure Container Registry<SEP>Mission-Critical Design"
+  },
+  "RBAC<SEP>Resource Locks": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292121,
+    "update_time": 1777292121,
+    "_id": "RBAC<SEP>Resource Locks"
+  },
+  "Microsoft Entra ID<SEP>Secret Management": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "Microsoft Entra ID<SEP>Secret Management"
+  },
+  "GitHub Dependabot<SEP>Update Management": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "GitHub Dependabot<SEP>Update Management"
+  },
+  "Application-Startup Retrieval<SEP>Azure Key Vault Provider For Secrets Store CSI Driver": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "Application-Startup Retrieval<SEP>Azure Key Vault Provider For Secrets Store CSI Driver"
+  },
+  "Mission-Critical Design<SEP>Update Management": {
+    "chunk_ids": [
+      "chunk-6bb2c831e41151a23a478ec8c59ab787"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "Mission-Critical Design<SEP>Update Management"
+  },
+  "Azure Key Vault<SEP>Managed Identities": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "Azure Key Vault<SEP>Managed Identities"
+  },
+  "Akv2K8S<SEP>Application-Startup Retrieval": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "Akv2K8S<SEP>Application-Startup Retrieval"
+  },
+  "Managed Identities<SEP>Microsoft Entra": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "Managed Identities<SEP>Microsoft Entra"
+  },
+  "Infrastructure As Code<SEP>Virtual Machine Scale Sets": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "Infrastructure As Code<SEP>Virtual Machine Scale Sets"
+  },
+  "Deployment-Time Retrieval<SEP>Kubernetes": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292122,
+    "update_time": 1777292122,
+    "_id": "Deployment-Time Retrieval<SEP>Kubernetes"
+  },
+  "Azure Key Vault<SEP>Key Rotation": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292123,
+    "update_time": 1777292123,
+    "_id": "Azure Key Vault<SEP>Key Rotation"
+  },
+  "ARM Templates<SEP>Infrastructure As Code": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292123,
+    "update_time": 1777292123,
+    "_id": "ARM Templates<SEP>Infrastructure As Code"
+  },
+  "Bicep<SEP>Infrastructure As Code": {
+    "chunk_ids": [
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce"
+    ],
+    "count": 1,
+    "create_time": 1777292123,
+    "update_time": 1777292123,
+    "_id": "Bicep<SEP>Infrastructure As Code"
+  },
+  "Mission-Critical Workload<SEP>Virtual Machine Scale Sets": {
+    "chunk_ids": [
+      "chunk-682b99a48c23e193c28d8a4eae469e68"
+    ],
+    "count": 1,
+    "create_time": 1777292123,
+    "update_time": 1777292123,
+    "_id": "Mission-Critical Workload<SEP>Virtual Machine Scale Sets"
+  },
+  "Backup Center<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-682b99a48c23e193c28d8a4eae469e68"
+    ],
+    "count": 1,
+    "create_time": 1777292124,
+    "update_time": 1777292124,
+    "_id": "Backup Center<SEP>Mission-Critical Workload"
+  },
+  "Azure Key Vault<SEP>Secrets Store CSI Driver Provider Azure": {
+    "chunk_ids": [
+      "chunk-682b99a48c23e193c28d8a4eae469e68"
+    ],
+    "count": 1,
+    "create_time": 1777292124,
+    "update_time": 1777292124,
+    "_id": "Azure Key Vault<SEP>Secrets Store CSI Driver Provider Azure"
+  },
+  "Azure VM Image Builder<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-682b99a48c23e193c28d8a4eae469e68"
+    ],
+    "count": 1,
+    "create_time": 1777292124,
+    "update_time": 1777292124,
+    "_id": "Azure VM Image Builder<SEP>Mission-Critical Workload"
+  },
+  "CI/CD<SEP>DevOps": {
+    "chunk_ids": [
+      "chunk-a324803e46dec295e5d9abb5a43f8a29"
+    ],
+    "count": 1,
+    "create_time": 1777292124,
+    "update_time": 1777292124,
+    "_id": "CI/CD<SEP>DevOps"
+  },
+  "DevOps<SEP>DevSecOps": {
+    "chunk_ids": [
+      "chunk-a324803e46dec295e5d9abb5a43f8a29"
+    ],
+    "count": 1,
+    "create_time": 1777292124,
+    "update_time": 1777292124,
+    "_id": "DevOps<SEP>DevSecOps"
+  },
+  "Microsoft Entra Privileged Identity Management<SEP>Zero-Trust Model": {
+    "chunk_ids": [
+      "chunk-a324803e46dec295e5d9abb5a43f8a29"
+    ],
+    "count": 1,
+    "create_time": 1777292125,
+    "update_time": 1777292125,
+    "_id": "Microsoft Entra Privileged Identity Management<SEP>Zero-Trust Model"
+  },
+  "Azure Marketplace<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-682b99a48c23e193c28d8a4eae469e68"
+    ],
+    "count": 1,
+    "create_time": 1777292125,
+    "update_time": 1777292125,
+    "_id": "Azure Marketplace<SEP>Mission-Critical Workload"
+  },
+  "DevOps<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-a324803e46dec295e5d9abb5a43f8a29"
+    ],
+    "count": 1,
+    "create_time": 1777292125,
+    "update_time": 1777292125,
+    "_id": "DevOps<SEP>Mission-Critical Workload"
+  },
+  "Azure Policy<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-a324803e46dec295e5d9abb5a43f8a29"
+    ],
+    "count": 1,
+    "create_time": 1777292126,
+    "update_time": 1777292126,
+    "_id": "Azure Policy<SEP>Mission-Critical Workload"
+  },
+  "Azure RBAC<SEP>DevOps": {
+    "chunk_ids": [
+      "chunk-a324803e46dec295e5d9abb5a43f8a29"
+    ],
+    "count": 1,
+    "create_time": 1777292126,
+    "update_time": 1777292126,
+    "_id": "Azure RBAC<SEP>DevOps"
+  },
+  "Reliability<SEP>Security": {
+    "chunk_ids": [
+      "chunk-c80c2e3daca343330a4078ee96575423",
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b"
+    ],
+    "count": 2,
+    "create_time": 1777292199,
+    "update_time": 1777292199,
+    "_id": "Reliability<SEP>Security"
+  },
+  "Operational Excellence<SEP>Operational Procedures": {
+    "chunk_ids": [
+      "chunk-c80c2e3daca343330a4078ee96575423"
+    ],
+    "count": 1,
+    "create_time": 1777292199,
+    "update_time": 1777292199,
+    "_id": "Operational Excellence<SEP>Operational Procedures"
+  },
+  "Azure Well-Architected Framework<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-c80c2e3daca343330a4078ee96575423",
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e",
+      "chunk-387611e470f83bbe5d875c098db01fe9",
+      "chunk-3794cb2593672d7e205ce2c3021b80ff",
+      "chunk-233362b748b88ddd9ff57f063cacd0c2",
+      "chunk-180631bfef52e56155ab10e925a1d9c4",
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 7,
+    "update_time": 1777292857,
+    "_id": "Azure Well-Architected Framework<SEP>Reliability"
+  },
+  "Azure Well-Architected Framework<SEP>Security": {
+    "chunk_ids": [
+      "chunk-c80c2e3daca343330a4078ee96575423",
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e",
+      "chunk-387611e470f83bbe5d875c098db01fe9",
+      "chunk-3794cb2593672d7e205ce2c3021b80ff",
+      "chunk-233362b748b88ddd9ff57f063cacd0c2",
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 6,
+    "update_time": 1777292858,
+    "_id": "Azure Well-Architected Framework<SEP>Security"
+  },
+  "Mission-Critical Workload<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b"
+    ],
+    "count": 1,
+    "create_time": 1777292201,
+    "update_time": 1777292201,
+    "_id": "Mission-Critical Workload<SEP>Well-Architected Framework"
+  },
+  "Azure Well-Architected Framework<SEP>Performance Efficiency": {
+    "chunk_ids": [
+      "chunk-c80c2e3daca343330a4078ee96575423",
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e",
+      "chunk-387611e470f83bbe5d875c098db01fe9",
+      "chunk-3794cb2593672d7e205ce2c3021b80ff",
+      "chunk-233362b748b88ddd9ff57f063cacd0c2",
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 6,
+    "update_time": 1777292863,
+    "_id": "Azure Well-Architected Framework<SEP>Performance Efficiency"
+  },
+  "Azure Well-Architected Framework<SEP>Operational Excellence": {
+    "chunk_ids": [
+      "chunk-c80c2e3daca343330a4078ee96575423",
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e",
+      "chunk-387611e470f83bbe5d875c098db01fe9",
+      "chunk-3794cb2593672d7e205ce2c3021b80ff",
+      "chunk-233362b748b88ddd9ff57f063cacd0c2",
+      "chunk-ea4e1326f308873031b3e530e46d8478",
+      "chunk-180631bfef52e56155ab10e925a1d9c4",
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 8,
+    "update_time": 1777292859,
+    "_id": "Azure Well-Architected Framework<SEP>Operational Excellence"
+  },
+  "Security<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b",
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 2,
+    "update_time": 1777292543,
+    "_id": "Security<SEP>Well-Architected Framework"
+  },
+  "Mission-Critical Workload<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b"
+    ],
+    "count": 1,
+    "create_time": 1777292201,
+    "update_time": 1777292201,
+    "_id": "Mission-Critical Workload<SEP>Reliability"
+  },
+  "Azure<SEP>Microsoft": {
+    "chunk_ids": [
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b"
+    ],
+    "count": 1,
+    "create_time": 1777292202,
+    "update_time": 1777292202,
+    "_id": "Azure<SEP>Microsoft"
+  },
+  "Operational Excellence<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b",
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 2,
+    "update_time": 1777292545,
+    "_id": "Operational Excellence<SEP>Well-Architected Framework"
+  },
+  "Performance Efficiency<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b",
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 2,
+    "update_time": 1777292545,
+    "_id": "Performance Efficiency<SEP>Well-Architected Framework"
+  },
+  "Operational Excellence<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b"
+    ],
+    "count": 1,
+    "create_time": 1777292202,
+    "update_time": 1777292202,
+    "_id": "Operational Excellence<SEP>Reliability"
+  },
+  "Availability Zones<SEP>Azure Policy": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80",
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 2,
+    "create_time": 1777292397,
+    "update_time": 1777292397,
+    "_id": "Availability Zones<SEP>Azure Policy"
+  },
+  "Log Analytics Workspace<SEP>Microsoft Entra": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80"
+    ],
+    "count": 1,
+    "create_time": 1777292397,
+    "update_time": 1777292397,
+    "_id": "Log Analytics Workspace<SEP>Microsoft Entra"
+  },
+  "Azure Bastion<SEP>Virtual Machines": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80"
+    ],
+    "count": 1,
+    "create_time": 1777292397,
+    "update_time": 1777292397,
+    "_id": "Azure Bastion<SEP>Virtual Machines"
+  },
+  "Azure Policy<SEP>Private Endpoints": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80",
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 2,
+    "create_time": 1777292398,
+    "update_time": 1777292398,
+    "_id": "Azure Policy<SEP>Private Endpoints"
+  },
+  "Network Security Groups<SEP>Virtual Machines": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80"
+    ],
+    "count": 1,
+    "create_time": 1777292398,
+    "update_time": 1777292398,
+    "_id": "Network Security Groups<SEP>Virtual Machines"
+  },
+  "Azure Key Vault<SEP>Virtual Machines": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80"
+    ],
+    "count": 1,
+    "create_time": 1777292398,
+    "update_time": 1777292398,
+    "_id": "Azure Key Vault<SEP>Virtual Machines"
+  },
+  "Azure Landing Zone<SEP>Azure Policy": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80"
+    ],
+    "count": 1,
+    "create_time": 1777292398,
+    "update_time": 1777292398,
+    "_id": "Azure Landing Zone<SEP>Azure Policy"
+  },
+  "Azure Firewall<SEP>Virtual Machines": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80"
+    ],
+    "count": 1,
+    "create_time": 1777292399,
+    "update_time": 1777292399,
+    "_id": "Azure Firewall<SEP>Virtual Machines"
+  },
+  "Azure Policy<SEP>Microsoft Defender For Cloud": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80",
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 2,
+    "create_time": 1777292399,
+    "update_time": 1777292399,
+    "_id": "Azure Policy<SEP>Microsoft Defender For Cloud"
+  },
+  "Azure Key Vault<SEP>Data Integrity Protection": {
+    "chunk_ids": [
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 1,
+    "create_time": 1777292399,
+    "update_time": 1777292399,
+    "_id": "Azure Key Vault<SEP>Data Integrity Protection"
+  },
+  "Azure Policy<SEP>Deploy If Not Exist": {
+    "chunk_ids": [
+      "chunk-14c9347a4bec9630cfbf008260182d80"
+    ],
+    "count": 1,
+    "create_time": 1777292399,
+    "update_time": 1777292399,
+    "_id": "Azure Policy<SEP>Deploy If Not Exist"
+  },
+  "Azure Key Vault<SEP>FIPS 140": {
+    "chunk_ids": [
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 1,
+    "create_time": 1777292400,
+    "update_time": 1777292400,
+    "_id": "Azure Key Vault<SEP>FIPS 140"
+  },
+  "Azure Key Vault<SEP>Azure Monitor": {
+    "chunk_ids": [
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 1,
+    "create_time": 1777292400,
+    "update_time": 1777292400,
+    "_id": "Azure Key Vault<SEP>Azure Monitor"
+  },
+  "Customer-Managed Keys<SEP>Service-Managed Keys": {
+    "chunk_ids": [
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 1,
+    "create_time": 1777292400,
+    "update_time": 1777292400,
+    "_id": "Customer-Managed Keys<SEP>Service-Managed Keys"
+  },
+  "Azure Key Vault<SEP>Microsoft Entra": {
+    "chunk_ids": [
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 1,
+    "create_time": 1777292401,
+    "update_time": 1777292401,
+    "_id": "Azure Key Vault<SEP>Microsoft Entra"
+  },
+  "Azure Key Vault Managed HSM<SEP>FIPS 140": {
+    "chunk_ids": [
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 1,
+    "create_time": 1777292401,
+    "update_time": 1777292401,
+    "_id": "Azure Key Vault Managed HSM<SEP>FIPS 140"
+  },
+  "Azure Private Endpoints<SEP>Azure Private Link": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292401,
+    "update_time": 1777292401,
+    "_id": "Azure Private Endpoints<SEP>Azure Private Link"
+  },
+  "Network Security Groups<SEP>Zero Trust": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292401,
+    "update_time": 1777292401,
+    "_id": "Network Security Groups<SEP>Zero Trust"
+  },
+  "Azure Key Vault<SEP>Private Endpoints": {
+    "chunk_ids": [
+      "chunk-a8deba810ca14d9b278b1f9d887802f2"
+    ],
+    "count": 1,
+    "create_time": 1777292401,
+    "update_time": 1777292401,
+    "_id": "Azure Key Vault<SEP>Private Endpoints"
+  },
+  "Azure DevOps<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292401,
+    "update_time": 1777292401,
+    "_id": "Azure DevOps<SEP>Microsoft Entra ID"
+  },
+  "Azure Front Door<SEP>DDoS Standard Protection Plan": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292401,
+    "update_time": 1777292401,
+    "_id": "Azure Front Door<SEP>DDoS Standard Protection Plan"
+  },
+  "Azure Private Link<SEP>Virtual Network Service Endpoints": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292402,
+    "update_time": 1777292402,
+    "_id": "Azure Private Link<SEP>Virtual Network Service Endpoints"
+  },
+  "Network Security Groups<SEP>Traffic Analytics": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292402,
+    "update_time": 1777292402,
+    "_id": "Network Security Groups<SEP>Traffic Analytics"
+  },
+  "Application Security Groups<SEP>Network Security Groups": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292402,
+    "update_time": 1777292402,
+    "_id": "Application Security Groups<SEP>Network Security Groups"
+  },
+  "Azure Bastion<SEP>Azure DevOps": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292402,
+    "update_time": 1777292402,
+    "_id": "Azure Bastion<SEP>Azure DevOps"
+  },
+  "Azure Private Link<SEP>ExpressRoute": {
+    "chunk_ids": [
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc"
+    ],
+    "count": 1,
+    "create_time": 1777292402,
+    "update_time": 1777292402,
+    "_id": "Azure Private Link<SEP>ExpressRoute"
+  },
+  "MSAL<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 1,
+    "create_time": 1777292402,
+    "update_time": 1777292402,
+    "_id": "MSAL<SEP>Microsoft Entra ID"
+  },
+  "CI/CD Pipelines<SEP>DevSecOps": {
+    "chunk_ids": [
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 1,
+    "create_time": 1777292402,
+    "update_time": 1777292402,
+    "_id": "CI/CD Pipelines<SEP>DevSecOps"
+  },
+  "Defense-In-Depth<SEP>Threat Modeling": {
+    "chunk_ids": [
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 1,
+    "create_time": 1777292403,
+    "update_time": 1777292403,
+    "_id": "Defense-In-Depth<SEP>Threat Modeling"
+  },
+  "STRIDE<SEP>Threat Modeling": {
+    "chunk_ids": [
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 1,
+    "create_time": 1777292403,
+    "update_time": 1777292403,
+    "_id": "STRIDE<SEP>Threat Modeling"
+  },
+  "Defense-In-Depth<SEP>Zero Trust": {
+    "chunk_ids": [
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 1,
+    "create_time": 1777292403,
+    "update_time": 1777292403,
+    "_id": "Defense-In-Depth<SEP>Zero Trust"
+  },
+  "CI/CD Pipelines<SEP>Infrastructure-As-Code": {
+    "chunk_ids": [
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 1,
+    "create_time": 1777292403,
+    "update_time": 1777292403,
+    "_id": "CI/CD Pipelines<SEP>Infrastructure-As-Code"
+  },
+  "DevSecOps<SEP>Secret Scanning": {
+    "chunk_ids": [
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 1,
+    "create_time": 1777292403,
+    "update_time": 1777292403,
+    "_id": "DevSecOps<SEP>Secret Scanning"
+  },
+  "Azure Landing Zone<SEP>Threat Modeling": {
+    "chunk_ids": [
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf"
+    ],
+    "count": 1,
+    "create_time": 1777292404,
+    "update_time": 1777292404,
+    "_id": "Azure Landing Zone<SEP>Threat Modeling"
+  },
+  "Mission-Critical Workload<SEP>Zero Trust": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292404,
+    "update_time": 1777292404,
+    "_id": "Mission-Critical Workload<SEP>Zero Trust"
+  },
+  "Azure Private Link<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292404,
+    "update_time": 1777292404,
+    "_id": "Azure Private Link<SEP>Mission-Critical Workload"
+  },
+  "Azure Key Vault<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292405,
+    "update_time": 1777292405,
+    "_id": "Azure Key Vault<SEP>Mission-Critical Workload"
+  },
+  "Microsoft<SEP>Zero Trust": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd",
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 2,
+    "create_time": 1777292405,
+    "update_time": 1777292405,
+    "_id": "Microsoft<SEP>Zero Trust"
+  },
+  "DevSecOps<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292406,
+    "update_time": 1777292406,
+    "_id": "DevSecOps<SEP>Mission-Critical Workload"
+  },
+  "Azure Key Vault<SEP>Azure Private Link": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292406,
+    "update_time": 1777292406,
+    "_id": "Azure Key Vault<SEP>Azure Private Link"
+  },
+  "Azure Private Link<SEP>Private Endpoints": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292406,
+    "update_time": 1777292406,
+    "_id": "Azure Private Link<SEP>Private Endpoints"
+  },
+  "Azure Key Vault<SEP>Azure Key Vault Managed HSM": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292406,
+    "update_time": 1777292406,
+    "_id": "Azure Key Vault<SEP>Azure Key Vault Managed HSM"
+  },
+  "MSAL<SEP>Microsoft Identity Platform Authentication Libraries": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292406,
+    "update_time": 1777292406,
+    "_id": "MSAL<SEP>Microsoft Identity Platform Authentication Libraries"
+  },
+  "Azure Private Link<SEP>Service Endpoints": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292406,
+    "update_time": 1777292406,
+    "_id": "Azure Private Link<SEP>Service Endpoints"
+  },
+  "Azure Managed Identities<SEP>Mission-Critical Workload": {
+    "chunk_ids": [
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "count": 1,
+    "create_time": 1777292406,
+    "update_time": 1777292406,
+    "_id": "Azure Managed Identities<SEP>Mission-Critical Workload"
+  },
+  "Mission-Critical Workloads<SEP>Zero Trust": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292407,
+    "update_time": 1777292407,
+    "_id": "Mission-Critical Workloads<SEP>Zero Trust"
+  },
+  "DDoS<SEP>Mission-Critical Workloads": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292407,
+    "update_time": 1777292407,
+    "_id": "DDoS<SEP>Mission-Critical Workloads"
+  },
+  "Azure Policy<SEP>Mission-Critical Workloads": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292408,
+    "update_time": 1777292408,
+    "_id": "Azure Policy<SEP>Mission-Critical Workloads"
+  },
+  "Azure Managed Identities<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292408,
+    "update_time": 1777292408,
+    "_id": "Azure Managed Identities<SEP>Microsoft Entra ID"
+  },
+  "Microsoft Entra ID<SEP>Microsoft Identity Platform Authentication Libraries": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292408,
+    "update_time": 1777292408,
+    "_id": "Microsoft Entra ID<SEP>Microsoft Identity Platform Authentication Libraries"
+  },
+  "Microsoft Entra Privileged Identity Management<SEP>Mission-Critical Workloads": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292408,
+    "update_time": 1777292408,
+    "_id": "Microsoft Entra Privileged Identity Management<SEP>Mission-Critical Workloads"
+  },
+  "Network Virtual Appliances<SEP>Next-Generation Firewall": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292408,
+    "update_time": 1777292408,
+    "_id": "Network Virtual Appliances<SEP>Next-Generation Firewall"
+  },
+  "Microsoft Entra ID<SEP>Token Caching": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292409,
+    "update_time": 1777292409,
+    "_id": "Microsoft Entra ID<SEP>Token Caching"
+  },
+  "Mission-Critical Workloads<SEP>Network Virtual Appliances": {
+    "chunk_ids": [
+      "chunk-b31cf91ba30eab331729c73c4002b505"
+    ],
+    "count": 1,
+    "create_time": 1777292409,
+    "update_time": 1777292409,
+    "_id": "Mission-Critical Workloads<SEP>Network Virtual Appliances"
+  },
+  "Azure Well-Architected Framework<SEP>Design Guides": {
+    "chunk_ids": [
+      "chunk-5edbb96d862689f4578c3260e170ce09"
+    ],
+    "count": 1,
+    "create_time": 1777292439,
+    "update_time": 1777292439,
+    "_id": "Azure Well-Architected Framework<SEP>Design Guides"
+  },
+  "Azure Architecture Center<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e"
+    ],
+    "count": 1,
+    "create_time": 1777292475,
+    "update_time": 1777292475,
+    "_id": "Azure Architecture Center<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Well-Architected Framework<SEP>Azure Well-Architected Review": {
+    "chunk_ids": [
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e"
+    ],
+    "count": 1,
+    "create_time": 1777292475,
+    "update_time": 1777292475,
+    "_id": "Azure Well-Architected Framework<SEP>Azure Well-Architected Review"
+  },
+  "Azure Architecture Center<SEP>Ten Design Principles For Azure Applications": {
+    "chunk_ids": [
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e"
+    ],
+    "count": 1,
+    "create_time": 1777292475,
+    "update_time": 1777292475,
+    "_id": "Azure Architecture Center<SEP>Ten Design Principles For Azure Applications"
+  },
+  "Azure Advisor<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e"
+    ],
+    "count": 1,
+    "create_time": 1777292476,
+    "update_time": 1777292476,
+    "_id": "Azure Advisor<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Advisor Score<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e"
+    ],
+    "count": 1,
+    "create_time": 1777292476,
+    "update_time": 1777292476,
+    "_id": "Azure Advisor Score<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Advisor<SEP>Azure Advisor Score": {
+    "chunk_ids": [
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e"
+    ],
+    "count": 1,
+    "create_time": 1777292477,
+    "update_time": 1777292477,
+    "_id": "Azure Advisor<SEP>Azure Advisor Score"
+  },
+  "Reliability<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 1,
+    "create_time": 1777292543,
+    "update_time": 1777292543,
+    "_id": "Reliability<SEP>Well-Architected Framework"
+  },
+  "Azure<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-387611e470f83bbe5d875c098db01fe9"
+    ],
+    "count": 1,
+    "create_time": 1777292543,
+    "update_time": 1777292543,
+    "_id": "Azure<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Well-Architected Framework<SEP>Cloud Adoption Framework": {
+    "chunk_ids": [
+      "chunk-387611e470f83bbe5d875c098db01fe9",
+      "chunk-3794cb2593672d7e205ce2c3021b80ff"
+    ],
+    "count": 2,
+    "create_time": 1777292544,
+    "update_time": 1777292544,
+    "_id": "Azure Well-Architected Framework<SEP>Cloud Adoption Framework"
+  },
+  "Cost Optimization<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 1,
+    "create_time": 1777292544,
+    "update_time": 1777292544,
+    "_id": "Cost Optimization<SEP>Well-Architected Framework"
+  },
+  "Azure Well-Architected Review<SEP>Microsoft": {
+    "chunk_ids": [
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 1,
+    "create_time": 1777292545,
+    "update_time": 1777292545,
+    "_id": "Azure Well-Architected Review<SEP>Microsoft"
+  },
+  "Service Guides<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 1,
+    "create_time": 1777292546,
+    "update_time": 1777292546,
+    "_id": "Service Guides<SEP>Well-Architected Framework"
+  },
+  "Design Guides<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 1,
+    "create_time": 1777292546,
+    "update_time": 1777292546,
+    "_id": "Design Guides<SEP>Well-Architected Framework"
+  },
+  "Azure Well-Architected Framework<SEP>Azure Well-Architected Review Tool": {
+    "chunk_ids": [
+      "chunk-3794cb2593672d7e205ce2c3021b80ff"
+    ],
+    "count": 1,
+    "create_time": 1777292546,
+    "update_time": 1777292546,
+    "_id": "Azure Well-Architected Framework<SEP>Azure Well-Architected Review Tool"
+  },
+  "Azure Well-Architected Review<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-f5505883d3947b5183a0241244e460f5"
+    ],
+    "count": 1,
+    "create_time": 1777292546,
+    "update_time": 1777292546,
+    "_id": "Azure Well-Architected Review<SEP>Well-Architected Framework"
+  },
+  "Maturity Model<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-0d7ba45bf48a024a996731f69cab5301"
+    ],
+    "count": 1,
+    "create_time": 1777292547,
+    "update_time": 1777292547,
+    "_id": "Maturity Model<SEP>Well-Architected Framework"
+  },
+  "Azure<SEP>Maturity Model": {
+    "chunk_ids": [
+      "chunk-0d7ba45bf48a024a996731f69cab5301"
+    ],
+    "count": 1,
+    "create_time": 1777292547,
+    "update_time": 1777292547,
+    "_id": "Azure<SEP>Maturity Model"
+  },
+  "Maturity Model<SEP>Reliability Maturity Model": {
+    "chunk_ids": [
+      "chunk-0d7ba45bf48a024a996731f69cab5301"
+    ],
+    "count": 1,
+    "create_time": 1777292547,
+    "update_time": 1777292547,
+    "_id": "Maturity Model<SEP>Reliability Maturity Model"
+  },
+  "Maturity Model<SEP>Security Maturity Model": {
+    "chunk_ids": [
+      "chunk-0d7ba45bf48a024a996731f69cab5301"
+    ],
+    "count": 1,
+    "create_time": 1777292548,
+    "update_time": 1777292548,
+    "_id": "Maturity Model<SEP>Security Maturity Model"
+  },
+  "Cost Optimization Maturity Model<SEP>Maturity Model": {
+    "chunk_ids": [
+      "chunk-0d7ba45bf48a024a996731f69cab5301"
+    ],
+    "count": 1,
+    "create_time": 1777292548,
+    "update_time": 1777292548,
+    "_id": "Cost Optimization Maturity Model<SEP>Maturity Model"
+  },
+  "Azure Well-Architected Framework Maturity Model Assessment<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-0d7ba45bf48a024a996731f69cab5301"
+    ],
+    "count": 1,
+    "create_time": 1777292548,
+    "update_time": 1777292548,
+    "_id": "Azure Well-Architected Framework Maturity Model Assessment<SEP>Well-Architected Framework"
+  },
+  "Maturity Model<SEP>Operational Excellence Maturity Model": {
+    "chunk_ids": [
+      "chunk-0d7ba45bf48a024a996731f69cab5301"
+    ],
+    "count": 1,
+    "create_time": 1777292549,
+    "update_time": 1777292549,
+    "_id": "Maturity Model<SEP>Operational Excellence Maturity Model"
+  },
+  "Maturity Model<SEP>Performance Efficiency Maturity Model": {
+    "chunk_ids": [
+      "chunk-0d7ba45bf48a024a996731f69cab5301"
+    ],
+    "count": 1,
+    "create_time": 1777292550,
+    "update_time": 1777292550,
+    "_id": "Maturity Model<SEP>Performance Efficiency Maturity Model"
+  },
+  "Recoverability<SEP>Resiliency": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292787,
+    "update_time": 1777292787,
+    "_id": "Recoverability<SEP>Resiliency"
+  },
+  "Azure Service Bus<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292787,
+    "update_time": 1777292787,
+    "_id": "Azure Service Bus<SEP>Well-Architected Framework"
+  },
+  "Recoverability<SEP>Recovery Time Objective": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292788,
+    "update_time": 1777292788,
+    "_id": "Recoverability<SEP>Recovery Time Objective"
+  },
+  "Azure Resource Locks<SEP>Safe Decommissioning": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292788,
+    "update_time": 1777292788,
+    "_id": "Azure Resource Locks<SEP>Safe Decommissioning"
+  },
+  "Recoverability<SEP>Recovery Point Objective": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292788,
+    "update_time": 1777292788,
+    "_id": "Recoverability<SEP>Recovery Point Objective"
+  },
+  "Resiliency<SEP>SAP Workloads": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292788,
+    "update_time": 1777292788,
+    "_id": "Resiliency<SEP>SAP Workloads"
+  },
+  "Recoverability<SEP>SAP Workloads": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292788,
+    "update_time": 1777292788,
+    "_id": "Recoverability<SEP>SAP Workloads"
+  },
+  "Reliability Pillar<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292788,
+    "update_time": 1777292788,
+    "_id": "Reliability Pillar<SEP>Well-Architected Framework"
+  },
+  "Safe Decommissioning<SEP>Strangler Fig Pattern": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292788,
+    "update_time": 1777292788,
+    "_id": "Safe Decommissioning<SEP>Strangler Fig Pattern"
+  },
+  "Azure Service Bus<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-973e5b950ce99287babd4d9e8e310ec0"
+    ],
+    "count": 1,
+    "create_time": 1777292788,
+    "update_time": 1777292788,
+    "_id": "Azure Service Bus<SEP>Microsoft Entra ID"
+  },
+  "Azure Firewall<SEP>Microsoft Security Copilot": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292790,
+    "update_time": 1777292790,
+    "_id": "Azure Firewall<SEP>Microsoft Security Copilot"
+  },
+  "Azure Well-Architected Framework<SEP>Mission-Critical Workloads": {
+    "chunk_ids": [
+      "chunk-233362b748b88ddd9ff57f063cacd0c2",
+      "chunk-c445903885a1763cd6ad5557106d024f",
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 3,
+    "create_time": 1777292790,
+    "update_time": 1777292790,
+    "_id": "Azure Well-Architected Framework<SEP>Mission-Critical Workloads"
+  },
+  "Azure Firewall<SEP>Log Analytics": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292791,
+    "update_time": 1777292791,
+    "_id": "Azure Firewall<SEP>Log Analytics"
+  },
+  "Azure Front Door<SEP>Microsoft Security Copilot": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292791,
+    "update_time": 1777292791,
+    "_id": "Azure Front Door<SEP>Microsoft Security Copilot"
+  },
+  "Azure Application Gateway V2<SEP>Azure Front Door": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292791,
+    "update_time": 1777292791,
+    "_id": "Azure Application Gateway V2<SEP>Azure Front Door"
+  },
+  "Azure Well-Architected Framework<SEP>Responsible AI": {
+    "chunk_ids": [
+      "chunk-233362b748b88ddd9ff57f063cacd0c2",
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 2,
+    "create_time": 1777292791,
+    "update_time": 1777292791,
+    "_id": "Azure Well-Architected Framework<SEP>Responsible AI"
+  },
+  "Azure Network Security Perimeter<SEP>Azure Virtual Network": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292791,
+    "update_time": 1777292791,
+    "_id": "Azure Network Security Perimeter<SEP>Azure Virtual Network"
+  },
+  "Azure Virtual Network<SEP>Azure Virtual Network Manager": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292791,
+    "update_time": 1777292791,
+    "_id": "Azure Virtual Network<SEP>Azure Virtual Network Manager"
+  },
+  "Azure OpenAI Service<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292791,
+    "update_time": 1777292791,
+    "_id": "Azure OpenAI Service<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Network Watcher<SEP>Azure Virtual Network": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17",
+      "chunk-50bf24a002558d213cd02700a64f5c07"
+    ],
+    "count": 2,
+    "create_time": 1777292792,
+    "update_time": 1777292792,
+    "_id": "Azure Network Watcher<SEP>Azure Virtual Network"
+  },
+  "Azure Network Security Perimeter<SEP>PaaS Isolation": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292792,
+    "update_time": 1777292792,
+    "_id": "Azure Network Security Perimeter<SEP>PaaS Isolation"
+  },
+  "Azure Cache For Redis<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292792,
+    "update_time": 1777292792,
+    "_id": "Azure Cache For Redis<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Firewall<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-ab2911837499c055b346ca8d6a1cac17"
+    ],
+    "count": 1,
+    "create_time": 1777292793,
+    "update_time": 1777292793,
+    "_id": "Azure Firewall<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Disk Storage<SEP>Azure Premium SSD": {
+    "chunk_ids": [
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 1,
+    "create_time": 1777292793,
+    "update_time": 1777292793,
+    "_id": "Azure Disk Storage<SEP>Azure Premium SSD"
+  },
+  "Azure Well-Architected Framework<SEP>Maturity Models": {
+    "chunk_ids": [
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 1,
+    "create_time": 1777292793,
+    "update_time": 1777292793,
+    "_id": "Azure Well-Architected Framework<SEP>Maturity Models"
+  },
+  "Azure Disk Storage<SEP>Azure Ultra Disk Storage": {
+    "chunk_ids": [
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 1,
+    "create_time": 1777292793,
+    "update_time": 1777292793,
+    "_id": "Azure Disk Storage<SEP>Azure Ultra Disk Storage"
+  },
+  "Agentic AI<SEP>Responsible AI": {
+    "chunk_ids": [
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 1,
+    "create_time": 1777292793,
+    "update_time": 1777292793,
+    "_id": "Agentic AI<SEP>Responsible AI"
+  },
+  "Agentic AI<SEP>Grounding Data Design": {
+    "chunk_ids": [
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 1,
+    "create_time": 1777292794,
+    "update_time": 1777292794,
+    "_id": "Agentic AI<SEP>Grounding Data Design"
+  },
+  "Azure Well-Architected Framework<SEP>Sustainable AI Design": {
+    "chunk_ids": [
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 1,
+    "create_time": 1777292794,
+    "update_time": 1777292794,
+    "_id": "Azure Well-Architected Framework<SEP>Sustainable AI Design"
+  },
+  "Maturity Models<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 1,
+    "create_time": 1777292794,
+    "update_time": 1777292794,
+    "_id": "Maturity Models<SEP>Reliability"
+  },
+  "Disaster Recovery<SEP>Incident Management": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4"
+    ],
+    "count": 1,
+    "create_time": 1777292794,
+    "update_time": 1777292794,
+    "_id": "Disaster Recovery<SEP>Incident Management"
+  },
+  "Azure Disk Storage<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-c445903885a1763cd6ad5557106d024f"
+    ],
+    "count": 1,
+    "create_time": 1777292794,
+    "update_time": 1777292794,
+    "_id": "Azure Disk Storage<SEP>Azure Well-Architected Framework"
+  },
+  "Incident Management<SEP>Operational Excellence": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4",
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 2,
+    "create_time": 1777292794,
+    "update_time": 1777292794,
+    "_id": "Incident Management<SEP>Operational Excellence"
+  },
+  "Azure Blob Storage<SEP>Microsoft Copilot In Azure": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4"
+    ],
+    "count": 1,
+    "create_time": 1777292794,
+    "update_time": 1777292794,
+    "_id": "Azure Blob Storage<SEP>Microsoft Copilot In Azure"
+  },
+  "Azure Well-Architected Framework<SEP>Disaster Recovery": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4"
+    ],
+    "count": 1,
+    "create_time": 1777292794,
+    "update_time": 1777292794,
+    "_id": "Azure Well-Architected Framework<SEP>Disaster Recovery"
+  },
+  "Azure Well-Architected Framework<SEP>SaaS Workloads": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4",
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 2,
+    "create_time": 1777292795,
+    "update_time": 1777292795,
+    "_id": "Azure Well-Architected Framework<SEP>SaaS Workloads"
+  },
+  "Operational Excellence<SEP>Strangler Fig Pattern": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4"
+    ],
+    "count": 1,
+    "create_time": 1777292795,
+    "update_time": 1777292795,
+    "_id": "Operational Excellence<SEP>Strangler Fig Pattern"
+  },
+  "Azure Blob Storage<SEP>Geo Priority Replication": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4"
+    ],
+    "count": 1,
+    "create_time": 1777292795,
+    "update_time": 1777292795,
+    "_id": "Azure Blob Storage<SEP>Geo Priority Replication"
+  },
+  "Azure Well-Architected Framework<SEP>Solution Architect": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4",
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 2,
+    "create_time": 1777292795,
+    "update_time": 1777292795,
+    "_id": "Azure Well-Architected Framework<SEP>Solution Architect"
+  },
+  "Azure Database For Postgresql<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292795,
+    "update_time": 1777292795,
+    "_id": "Azure Database For Postgresql<SEP>Microsoft Entra ID"
+  },
+  "Azure Cosmos DB For Nosql<SEP>Microsoft Entra ID": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292795,
+    "update_time": 1777292795,
+    "_id": "Azure Cosmos DB For Nosql<SEP>Microsoft Entra ID"
+  },
+  "Azure Backup<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292795,
+    "update_time": 1777292795,
+    "_id": "Azure Backup<SEP>Reliability"
+  },
+  "Solution Architect<SEP>Technical Debt": {
+    "chunk_ids": [
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4"
+    ],
+    "count": 1,
+    "create_time": 1777292796,
+    "update_time": 1777292796,
+    "_id": "Solution Architect<SEP>Technical Debt"
+  },
+  "Azure Container Apps<SEP>Cost Optimization": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292796,
+    "update_time": 1777292796,
+    "_id": "Azure Container Apps<SEP>Cost Optimization"
+  },
+  "Azure Cosmos DB For Nosql<SEP>Azure Policy": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292796,
+    "update_time": 1777292796,
+    "_id": "Azure Cosmos DB For Nosql<SEP>Azure Policy"
+  },
+  "Azure Netapp Files<SEP>Cost Optimization": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292796,
+    "update_time": 1777292796,
+    "_id": "Azure Netapp Files<SEP>Cost Optimization"
+  },
+  "Azure Advisor<SEP>Azure Cosmos DB For Nosql": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292797,
+    "update_time": 1777292797,
+    "_id": "Azure Advisor<SEP>Azure Cosmos DB For Nosql"
+  },
+  "Infrastructure-As-Code<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292797,
+    "update_time": 1777292797,
+    "_id": "Infrastructure-As-Code<SEP>Reliability"
+  },
+  "Azure Netapp Files<SEP>Operational Excellence": {
+    "chunk_ids": [
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b"
+    ],
+    "count": 1,
+    "create_time": 1777292797,
+    "update_time": 1777292797,
+    "_id": "Azure Netapp Files<SEP>Operational Excellence"
+  },
+  "Checklist.md<SEP>Operational Excellence": {
+    "chunk_ids": [
+      "chunk-df4a711d3025404c202424f3f750081c"
+    ],
+    "count": 1,
+    "create_time": 1777292797,
+    "update_time": 1777292797,
+    "_id": "Checklist.md<SEP>Operational Excellence"
+  },
+  "Azure Virtual WAN<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-20168b92f579ebd286ed6e8413a80537"
+    ],
+    "count": 1,
+    "create_time": 1777292797,
+    "update_time": 1777292797,
+    "_id": "Azure Virtual WAN<SEP>Well-Architected Framework"
+  },
+  "Azure Event Hubs<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-20168b92f579ebd286ed6e8413a80537"
+    ],
+    "count": 1,
+    "create_time": 1777292797,
+    "update_time": 1777292797,
+    "_id": "Azure Event Hubs<SEP>Well-Architected Framework"
+  },
+  "Azure<SEP>Disaster Recovery Plan": {
+    "chunk_ids": [
+      "chunk-50bf24a002558d213cd02700a64f5c07"
+    ],
+    "count": 1,
+    "create_time": 1777292797,
+    "update_time": 1777292797,
+    "_id": "Azure<SEP>Disaster Recovery Plan"
+  },
+  "Azure Databricks<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-50bf24a002558d213cd02700a64f5c07"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "Azure Databricks<SEP>Well-Architected Framework"
+  },
+  "Availability Zones And Regions<SEP>Azure": {
+    "chunk_ids": [
+      "chunk-50bf24a002558d213cd02700a64f5c07"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "Availability Zones And Regions<SEP>Azure"
+  },
+  "Azure File Sync Arc Extension<SEP>Azure Files": {
+    "chunk_ids": [
+      "chunk-50bf24a002558d213cd02700a64f5c07"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "Azure File Sync Arc Extension<SEP>Azure Files"
+  },
+  "Azure Monitor<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-50bf24a002558d213cd02700a64f5c07"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "Azure Monitor<SEP>Well-Architected Framework"
+  },
+  "Azure Database For MySQL<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-ea4e1326f308873031b3e530e46d8478"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "Azure Database For MySQL<SEP>Azure Well-Architected Framework"
+  },
+  "Azure Service Bus<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-ea4e1326f308873031b3e530e46d8478"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "Azure Service Bus<SEP>Reliability"
+  },
+  "Azure Event Grid<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-ea4e1326f308873031b3e530e46d8478"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "Azure Event Grid<SEP>Azure Well-Architected Framework"
+  },
+  "AI Integration<SEP>Operational Excellence": {
+    "chunk_ids": [
+      "chunk-ea4e1326f308873031b3e530e46d8478"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "AI Integration<SEP>Operational Excellence"
+  },
+  "Azure Blob Storage<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-ea4e1326f308873031b3e530e46d8478"
+    ],
+    "count": 1,
+    "create_time": 1777292798,
+    "update_time": 1777292798,
+    "_id": "Azure Blob Storage<SEP>Reliability"
+  },
+  "Failure Mode Analysis<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-ea4e1326f308873031b3e530e46d8478",
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 2,
+    "create_time": 1777292799,
+    "update_time": 1777292799,
+    "_id": "Failure Mode Analysis<SEP>Reliability"
+  },
+  "AI Workloads<SEP>Azure Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 1,
+    "create_time": 1777292799,
+    "update_time": 1777292799,
+    "_id": "AI Workloads<SEP>Azure Well-Architected Framework"
+  },
+  "Reliability<SEP>Self-Healing And Self-Preservation": {
+    "chunk_ids": [
+      "chunk-ea4e1326f308873031b3e530e46d8478"
+    ],
+    "count": 1,
+    "create_time": 1777292799,
+    "update_time": 1777292799,
+    "_id": "Reliability<SEP>Self-Healing And Self-Preservation"
+  },
+  "Operational Excellence<SEP>Safe Deployment Practices": {
+    "chunk_ids": [
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 1,
+    "create_time": 1777292799,
+    "update_time": 1777292799,
+    "_id": "Operational Excellence<SEP>Safe Deployment Practices"
+  },
+  "Disaster Recovery<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 1,
+    "create_time": 1777292800,
+    "update_time": 1777292800,
+    "_id": "Disaster Recovery<SEP>Reliability"
+  },
+  "Azure Well-Architected Framework<SEP>SAP Workloads": {
+    "chunk_ids": [
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 1,
+    "create_time": 1777292800,
+    "update_time": 1777292800,
+    "_id": "Azure Well-Architected Framework<SEP>SAP Workloads"
+  },
+  "Availability Zones And Regions<SEP>Reliability": {
+    "chunk_ids": [
+      "chunk-180631bfef52e56155ab10e925a1d9c4"
+    ],
+    "count": 1,
+    "create_time": 1777292800,
+    "update_time": 1777292800,
+    "_id": "Availability Zones And Regions<SEP>Reliability"
+  },
+  "Azure Well-Architected Framework<SEP>Workload": {
+    "chunk_ids": [
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 1,
+    "create_time": 1777292857,
+    "update_time": 1777292857,
+    "_id": "Azure Well-Architected Framework<SEP>Workload"
+  },
+  "Centralized Teams<SEP>Workload Team": {
+    "chunk_ids": [
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 1,
+    "create_time": 1777292858,
+    "update_time": 1777292858,
+    "_id": "Centralized Teams<SEP>Workload Team"
+  },
+  "Workload<SEP>Workload Team": {
+    "chunk_ids": [
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 1,
+    "create_time": 1777292859,
+    "update_time": 1777292859,
+    "_id": "Workload<SEP>Workload Team"
+  },
+  "Azure Landing Zones<SEP>Cloud Adoption Framework For Azure": {
+    "chunk_ids": [
+      "chunk-06d07c7fd7e0ea2028615959913f9c73"
+    ],
+    "count": 1,
+    "create_time": 1777292859,
+    "update_time": 1777292859,
+    "_id": "Azure Landing Zones<SEP>Cloud Adoption Framework For Azure"
+  },
+  "Platform Teams<SEP>Workload Teams": {
+    "chunk_ids": [
+      "chunk-830fe53dca8ce291e75061d94230f1bd"
+    ],
+    "count": 1,
+    "create_time": 1777292859,
+    "update_time": 1777292859,
+    "_id": "Platform Teams<SEP>Workload Teams"
+  },
+  "Well-Architected Framework<SEP>Workload Teams": {
+    "chunk_ids": [
+      "chunk-830fe53dca8ce291e75061d94230f1bd"
+    ],
+    "count": 1,
+    "create_time": 1777292860,
+    "update_time": 1777292860,
+    "_id": "Well-Architected Framework<SEP>Workload Teams"
+  },
+  "Continuous Improvement<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-830fe53dca8ce291e75061d94230f1bd"
+    ],
+    "count": 1,
+    "create_time": 1777292860,
+    "update_time": 1777292860,
+    "_id": "Continuous Improvement<SEP>Well-Architected Framework"
+  },
+  "Azure Landing Zones<SEP>Well-Architected Framework": {
+    "chunk_ids": [
+      "chunk-17e137434baf52b7c6f746bc411962c3"
+    ],
+    "count": 1,
+    "create_time": 1777292861,
+    "update_time": 1777292861,
+    "_id": "Azure Landing Zones<SEP>Well-Architected Framework"
+  },
+  "Application Landing Zone<SEP>Azure Landing Zones": {
+    "chunk_ids": [
+      "chunk-17e137434baf52b7c6f746bc411962c3"
+    ],
+    "count": 1,
+    "create_time": 1777292862,
+    "update_time": 1777292862,
+    "_id": "Application Landing Zone<SEP>Azure Landing Zones"
+  },
+  "Azure Landing Zones<SEP>Platform Landing Zone": {
+    "chunk_ids": [
+      "chunk-17e137434baf52b7c6f746bc411962c3"
+    ],
+    "count": 1,
+    "create_time": 1777292862,
+    "update_time": 1777292862,
+    "_id": "Azure Landing Zones<SEP>Platform Landing Zone"
+  },
+  "Platform Team<SEP>Workload Team": {
+    "chunk_ids": [
+      "chunk-17e137434baf52b7c6f746bc411962c3"
+    ],
+    "count": 1,
+    "create_time": 1777292862,
+    "update_time": 1777292862,
+    "_id": "Platform Team<SEP>Workload Team"
+  },
+  "Well-Architected Framework<SEP>Workload Team": {
+    "chunk_ids": [
+      "chunk-17e137434baf52b7c6f746bc411962c3"
+    ],
+    "count": 1,
+    "create_time": 1777292863,
+    "update_time": 1777292863,
+    "_id": "Well-Architected Framework<SEP>Workload Team"
+  }
+}

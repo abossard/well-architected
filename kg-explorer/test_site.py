@@ -31,8 +31,10 @@ FPS_PASS_MEDIAN = 30.0   # median must clear this
 FPS_WARN_MEDIAN = 45.0   # below this → warn
 FPS_FAIL_MEDIAN = 15.0   # below this → fail outright
 
-EXPECTED_TOTAL_NODES = 4099
-EXPECTED_MM = 137
+# Expected counts are range-based to accommodate nondeterministic LLM extraction.
+# Mission-critical focused graph: ~300-800 nodes.
+EXPECTED_NODE_RANGE = (200, 800)
+EXPECTED_MM_RANGE = (5, 200)
 
 
 @dataclass
@@ -145,12 +147,12 @@ def test_graph_smoke(page: Page, base: str) -> list[Result]:
     if vis is None or tot is None:
         out.append(Result("graph:node-counts", "fail", "could not parse node counter"))
     else:
-        ok_tot = tot == EXPECTED_TOTAL_NODES
-        ok_vis = 100 <= vis <= 500   # ~300 tier-0 nodes; allow slack
+        ok_tot = EXPECTED_NODE_RANGE[0] <= tot <= EXPECTED_NODE_RANGE[1]
+        ok_vis = 10 <= vis <= tot   # visible should be a subset of total
         out.append(Result(
             "graph:default-focus-count",
             "pass" if (ok_tot and ok_vis) else "fail",
-            f"{vis}/{tot} visible (expected ~200–400 / {EXPECTED_TOTAL_NODES})",
+            f"{vis}/{tot} visible (expected {EXPECTED_NODE_RANGE[0]}-{EXPECTED_NODE_RANGE[1]} total)",
             {"visible": vis, "total": tot},
         ))
 
@@ -263,17 +265,17 @@ def test_interactions(page: Page, base: str) -> list[Result]:
     v_mental = click_filter("Mental Models")
     out.append(Result(
         "graph:filter-mental",
-        "pass" if (v_mental is not None and 50 <= v_mental <= 250) else "fail",
-        f"visible={v_mental} (expect ~{EXPECTED_MM})",
+        "pass" if (v_mental is not None and EXPECTED_MM_RANGE[0] <= v_mental <= EXPECTED_MM_RANGE[1]) else "fail",
+        f"visible={v_mental} (expect {EXPECTED_MM_RANGE[0]}-{EXPECTED_MM_RANGE[1]})",
         {"visible": v_mental},
     ))
 
     v_all = click_filter("Everything")
-    ok_all = v_all is not None and v_all >= EXPECTED_TOTAL_NODES * 0.95
+    ok_all = v_all is not None and EXPECTED_NODE_RANGE[0] <= v_all <= EXPECTED_NODE_RANGE[1]
     out.append(Result(
         "graph:filter-everything",
         "pass" if ok_all else "fail",
-        f"visible={v_all} (expect ~{EXPECTED_TOTAL_NODES})",
+        f"visible={v_all} (expect {EXPECTED_NODE_RANGE[0]}-{EXPECTED_NODE_RANGE[1]})",
         {"visible": v_all},
     ))
 

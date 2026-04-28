@@ -98,7 +98,7 @@ def fact_id(entity: str, fact: str) -> str:
 class McpStdioClient:
     """Persistent MCP server subprocess with JSON-RPC 2.0 protocol."""
 
-    def __init__(self, cmd: list[str], call_timeout: float = 30.0):
+    def __init__(self, cmd: list[str], call_timeout: float = 60.0):
         self._cmd = cmd
         self._call_timeout = call_timeout
         self._proc: subprocess.Popen | None = None
@@ -239,12 +239,16 @@ def build_search_query(entry: dict) -> str:
     """Build a targeted search query from entity + fact text."""
     entity = entry["entity"]
     fact_text = entry["fact"]
+    hint = entry.get("verification_hint", "")
+    # Use verification_hint if present (it's a pre-built search suggestion)
+    if hint and len(hint) > 10:
+        return f"Azure {entity} {hint}"
     # Remove the entity name from fact to avoid redundancy, keep core claim
     core = fact_text.replace(entity, "").strip()
-    # Trim to key terms (first ~80 chars)
-    if len(core) > 80:
-        core = " ".join(core[:80].split()[:-1])
-    return f"{entity} {core} site:learn.microsoft.com"
+    # Trim to key terms (first ~60 chars)
+    if len(core) > 60:
+        core = " ".join(core[:60].split()[:-1])
+    return f"Azure {entity} {core}"
 
 
 def pick_best_url(summaries_text: str) -> str | None:
@@ -260,32 +264,31 @@ def pick_best_url(summaries_text: str) -> str | None:
 async def search_and_fetch(
     mcp: McpStdioClient, query: str
 ) -> tuple[str, str | None, str]:
-    """Phase 1: search summaries, Phase 2: fetch best page content.
+    """Search using full-web-search (includes content), fall back to summaries.
 
     Returns (evidence_text, source_url, raw_summaries).
     """
-    # Phase 1: summaries
-    summaries = await mcp.call_tool("get-web-search-summaries", {"query": query, "limit": "5"})
-    source_url = pick_best_url(summaries)
+    # Try full-web-search first (Brave-based, includes page content)
+    try:
+        full_result = await mcp.call_tool(
+            "full-web-search", {"query": query, "limit": "3", "includeContent": "true"}
+        )
+        source_url = pick_best_url(full_result)
+        if full_result and len(full_result.strip()) > 200:
+            return full_result[:4000], source_url, full_result
+    except Exception as e:
+        print(f"    [search] full-web-search failed: {e}", file=sys.stderr)
 
-    # Phase 2: fetch full page if we found a good URL
-    page_content = ""
-    if source_url:
-        try:
-            page_content = await mcp.call_tool(
-                "get-single-web-page-content", {"url": source_url}
-            )
-        except Exception as e:
-            print(f"    [fetch] Failed to get page content: {e}", file=sys.stderr)
-
-    # Combine: prefer page content, fall back to summaries
-    if page_content and len(page_content.strip()) > 100:
-        # Truncate to ~4000 chars for LLM context
-        evidence = page_content[:4000]
-    else:
-        evidence = summaries[:4000]
-
-    return evidence, source_url, summaries
+    # Fallback: summaries only
+    try:
+        summaries = await mcp.call_tool(
+            "get-web-search-summaries", {"query": query, "limit": "5"}
+        )
+        source_url = pick_best_url(summaries)
+        return summaries[:4000], source_url, summaries
+    except Exception as e:
+        print(f"    [search] summaries also failed: {e}", file=sys.stderr)
+        return "", None, ""
 
 
 # ═══════════════════════════════════════════════════════════════════

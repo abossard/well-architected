@@ -1,0 +1,386 @@
+{
+  "doc-87de51e9607fa849c24bb09f7c7552ee": {
+    "status": "processed",
+    "chunks_count": 4,
+    "chunks_list": [
+      "chunk-e07a49a74635d695d2a74e26e941143f",
+      "chunk-3ed4331e930dc66a90d716e75ccb847e",
+      "chunk-36d66c785cc9b10b4cf377888b6bd59f",
+      "chunk-6ffc0561a80ee1b478b5e827cc0c1a93"
+    ],
+    "content_summary": "# Application design of mission-critical workloads on Azure\n\nWhen you design an application, both functional and non-functional application requirements are critical. This design area describes architecture patterns and scaling strategies that can he...",
+    "content_length": 21664,
+    "created_at": "2026-04-27T11:52:34.449422+00:00",
+    "updated_at": "2026-04-27T11:53:43.835669+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-application-design.md",
+    "track_id": "insert_20260427_135234_8b1ee977",
+    "metadata": {
+      "processing_start_time": 1777290754,
+      "processing_end_time": 1777290823
+    }
+  },
+  "doc-39c17109b72f7f0af21f7d707fd299e7": {
+    "status": "processed",
+    "chunks_count": 9,
+    "chunks_list": [
+      "chunk-3137621891148d2c190c438f188b4eb5",
+      "chunk-77437de30be507969c1117574fed4849",
+      "chunk-1c97b53f9c2bcaf2eaf8ee6eff46b6b2",
+      "chunk-b7e299b337a793955172863127084bd5",
+      "chunk-4b5329d8449298032d7c7a42ce86fe02",
+      "chunk-ca8c0f8ea5cbe84839aac1d60b8bbdaa",
+      "chunk-b3d8041b90240539202a251be26880b7",
+      "chunk-ab841386ea8be41c85364b56959f5c8d",
+      "chunk-ca497cb3fcd5030cdda335c35addc590"
+    ],
+    "content_summary": "# Application platform considerations for mission-critical workloads on Azure\n\nAzure provides many compute services for hosting highly available applications. The services differ in capability and complexity. We recommend that you choose services bas...",
+    "content_length": 49526,
+    "created_at": "2026-04-27T11:53:43.909012+00:00",
+    "updated_at": "2026-04-27T11:56:25.486109+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-application-platform.md",
+    "track_id": "insert_20260427_135343_c888808b",
+    "metadata": {
+      "processing_start_time": 1777290823,
+      "processing_end_time": 1777290985
+    }
+  },
+  "doc-74a1845d56cc0a6f2bb5e64e123ee94a": {
+    "status": "processed",
+    "chunks_count": 3,
+    "chunks_list": [
+      "chunk-8b2f79e880d3ae7cbc10150a4958b75f",
+      "chunk-a68460066510727d2f753c0a61011f2f",
+      "chunk-d836e050a46f6ea39d1b4191bb25503e"
+    ],
+    "content_summary": "# Architecture pattern for mission-critical workloads on Azure\n\nThis article presents a key pattern for mission-critical architectures on Azure. Apply this pattern when you start your design process, and then select components that are best suited fo...",
+    "content_length": 11667,
+    "created_at": "2026-04-27T11:56:25.547049+00:00",
+    "updated_at": "2026-04-27T11:56:57.463074+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-architecture-pattern.md",
+    "track_id": "insert_20260427_135625_8656297d",
+    "metadata": {
+      "processing_start_time": 1777290985,
+      "processing_end_time": 1777291017
+    }
+  },
+  "doc-7092b7ad42e474e7a19995579b487a34": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-7092b7ad42e474e7a19995579b487a34"
+    ],
+    "content_summary": "# Well-Architected assessment for mission-critical workloads\n\nThe [Assessment](/assessments/?mode=pre-assessment&id=23513bdb-e8a2-4f0b-8b6b-191ee1f52d34) is a review tool for self-assessing the readiness of your mission-critical workload in productio...",
+    "content_length": 2222,
+    "created_at": "2026-04-27T11:56:57.541741+00:00",
+    "updated_at": "2026-04-27T11:57:15.587970+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-assessment.md",
+    "track_id": "insert_20260427_135657_dc939069",
+    "metadata": {
+      "processing_start_time": 1777291017,
+      "processing_end_time": 1777291035
+    }
+  },
+  "doc-ba33dd1111c8b3fa46c8a2bef49116a9": {
+    "status": "processed",
+    "chunks_count": 17,
+    "chunks_list": [
+      "chunk-13da8c10e8b6b19647675081cbb79073",
+      "chunk-ceea393f341ad536e3a85d5af262a1bf",
+      "chunk-32d784320f22fc18cf5d44108f55403f",
+      "chunk-cd60f6e9fffcac30f5165dbde144c70b",
+      "chunk-ab7e9f04e877c8420f5dae1ad6375e0f",
+      "chunk-0709e0d30d586072a6b10881d6bc306c",
+      "chunk-caad63f908cd3b639ca5d51c5a2341ae",
+      "chunk-cd806d5f85dca98a80362955d10e7ef7",
+      "chunk-db1b2af74d4d806b70803e4d1daf8a47",
+      "chunk-dc30613029b54ffcf46bef5325576b62",
+      "chunk-65d6d67b4e65531ad950d1206265e623",
+      "chunk-058624a53f7dcacddad189523984d8b2",
+      "chunk-111b4be7044ec226f9516d7ed5776826",
+      "chunk-158c7610cc47ffd0b2e8ce56b6c723f1",
+      "chunk-4b4894fcd598b00b3316bd49945a116d",
+      "chunk-73f080a578e1d5bcb7bab91a722b1c8c",
+      "chunk-522317310460c13e3a32323fc08f14d4"
+    ],
+    "content_summary": "# Data platform considerations for mission-critical workloads on Azure\n\nThe selection of an effective application data platform is a further crucial decision area, which has far-reaching implications across other design areas. Azure ultimately offers...",
+    "content_length": 90670,
+    "created_at": "2026-04-27T11:57:15.658440+00:00",
+    "updated_at": "2026-04-27T12:03:05.137666+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-data-platform.md",
+    "track_id": "insert_20260427_135715_8d91d66a",
+    "metadata": {
+      "processing_start_time": 1777291035,
+      "processing_end_time": 1777291385
+    }
+  },
+  "doc-5dcc81df634a686571ad62864dfa788d": {
+    "status": "processed",
+    "chunks_count": 6,
+    "chunks_list": [
+      "chunk-06f6956528b19bfc513c2a4b70a66e71",
+      "chunk-4c437470f34ed638659632da76be560f",
+      "chunk-b8200e1f0295324acfed0587523ace64",
+      "chunk-c97a1db66c7ecde12774487f7afb1593",
+      "chunk-0ecbdde6d262012ebbdfa789102231a4",
+      "chunk-11bac6534273a4d1656750c49ac2fcee"
+    ],
+    "content_summary": "# Deployment and testing for mission-critical workloads on Azure\n\nFailed deployments and erroneous releases are common causes for application outages. Your approach to deployment and testing plays a critical role in the overall reliability of a missi...",
+    "content_length": 32740,
+    "created_at": "2026-04-27T12:03:05.214278+00:00",
+    "updated_at": "2026-04-27T12:04:56.335939+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-deployment-testing.md",
+    "track_id": "insert_20260427_140305_66a3b233",
+    "metadata": {
+      "processing_start_time": 1777291385,
+      "processing_end_time": 1777291496
+    }
+  },
+  "doc-390c92e4b952c987f9e0e7d0deeafa36": {
+    "status": "processed",
+    "chunks_count": 2,
+    "chunks_list": [
+      "chunk-390c92e4b952c987f9e0e7d0deeafa36",
+      "chunk-6d5fef3c980e677376967817f32d9dad"
+    ],
+    "content_summary": "# Design methodology for mission-critical workloads on Azure\n\nDesigning a mission-critical application on any cloud platform demands a thoughtful engineering approach. There's complexity related to: understanding the platform's capabilities, selectin...",
+    "content_length": 6644,
+    "created_at": "2026-04-27T12:04:56.430895+00:00",
+    "updated_at": "2026-04-27T12:05:42.881907+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-design-methodology.md",
+    "track_id": "insert_20260427_140456_365a0e5c",
+    "metadata": {
+      "processing_start_time": 1777291496,
+      "processing_end_time": 1777291542
+    }
+  },
+  "doc-c62218adbc6285cc0b643ba4cf51914d": {
+    "status": "processed",
+    "chunks_count": 3,
+    "chunks_list": [
+      "chunk-f86c34d935d91c0feba2784fca188c36",
+      "chunk-75881c2e5d7a1909b7080e2819bc0413",
+      "chunk-eb446ff77685d5a057445825bab9dcd5"
+    ],
+    "content_summary": "# Design principles of a mission-critical workload\n\nThe mission-critical design methodology is underpinned by five key design principles which serve as a compass for subsequent design decisions across the critical design areas. We highly recommend th...",
+    "content_length": 13945,
+    "created_at": "2026-04-27T12:05:42.980377+00:00",
+    "updated_at": "2026-04-27T12:06:40.999452+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-design-principles.md",
+    "track_id": "insert_20260427_140542_a936c238",
+    "metadata": {
+      "processing_start_time": 1777291542,
+      "processing_end_time": 1777291600
+    }
+  },
+  "doc-23f27c6d4694e72bf89b343a80a544eb": {
+    "status": "processed",
+    "chunks_count": 9,
+    "chunks_list": [
+      "chunk-0de195b0afed20e3d851a968d363d0ca",
+      "chunk-aee778ccfa3886c52f485cafeef0009b",
+      "chunk-7255c274585b0f1f482e338bbc6c26aa",
+      "chunk-1bc4a6aa7dad91160ab49f8c99c2ea47",
+      "chunk-09511819f8c1ba5a16e71983efd9f8b7",
+      "chunk-a26205fb34c4e32a46218f4e0a88ca82",
+      "chunk-4678f659d2199619f053d40287ff2e4a",
+      "chunk-f7620929405aff597a8fb7046b3e2aa5",
+      "chunk-73d35a819f81fdf6e061b2c836acac71"
+    ],
+    "content_summary": "# Health modeling and observability of mission-critical workloads on Azure\n\nHealth modeling and observability are essential concepts to maximize reliability, which focuses on robust and contextualized instrumentation and monitoring. These concepts pr...",
+    "content_length": 47398,
+    "created_at": "2026-04-27T12:06:41.218719+00:00",
+    "updated_at": "2026-04-27T12:10:07.020408+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-health-modeling.md",
+    "track_id": "insert_20260427_140641_471da3a1",
+    "metadata": {
+      "processing_start_time": 1777291601,
+      "processing_end_time": 1777291807
+    }
+  },
+  "doc-59530f1a160204ef64403cac539796f5": {
+    "status": "processed",
+    "chunks_count": 10,
+    "chunks_list": [
+      "chunk-1ff5c56a565c7a13e4cc5066c5ed0775",
+      "chunk-ce015784fd1d8129dac8c9bbf32bf565",
+      "chunk-38a9b32aa690001ea5387c320074295c",
+      "chunk-a6ee1b46c13062b2f84bc4bd8740f6c3",
+      "chunk-adc31ff972bb32047bd652b7c4ab8132",
+      "chunk-4bdc71fab10e8d772205c8ac9acd6546",
+      "chunk-c136188a7c5b35c34dacbc95825b4191",
+      "chunk-fd5df507c6d7ae6d803dce8c99d84eb9",
+      "chunk-defd991d185ed0d546fc2887007b9160",
+      "chunk-0d7d8989458b7b6a8098b2c4cc007937"
+    ],
+    "content_summary": "# Networking and connectivity for mission-critical workloads on Azure\n\nNetworking is a fundamental area for a mission-critical application, given the recommended globally distributed active-active design approach.\n\nThis design area explores various n...",
+    "content_length": 60345,
+    "created_at": "2026-04-27T12:10:07.152645+00:00",
+    "updated_at": "2026-04-27T12:13:52.271187+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-networking-connectivity.md",
+    "track_id": "insert_20260427_141007_e0ed4d35",
+    "metadata": {
+      "processing_start_time": 1777291807,
+      "processing_end_time": 1777292032
+    }
+  },
+  "doc-222da4d1f3f74a575563115cafb453b5": {
+    "status": "processed",
+    "chunks_count": 4,
+    "chunks_list": [
+      "chunk-a324803e46dec295e5d9abb5a43f8a29",
+      "chunk-6bb2c831e41151a23a478ec8c59ab787",
+      "chunk-98dfe7557b9ff125211f2a2e03cb3dce",
+      "chunk-682b99a48c23e193c28d8a4eae469e68"
+    ],
+    "content_summary": "# Operational procedures for mission-critical workloads on Azure\n\nReliable and effective operations must be based on the principles of *automation wherever possible* and *configuration as code*. This approach requires a substantial engineering invest...",
+    "content_length": 21345,
+    "created_at": "2026-04-27T12:13:52.422266+00:00",
+    "updated_at": "2026-04-27T12:15:27.162628+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-operational-procedures.md",
+    "track_id": "insert_20260427_141352_22d1b60a",
+    "metadata": {
+      "processing_start_time": 1777292032,
+      "processing_end_time": 1777292127
+    }
+  },
+  "doc-6cfc38f16a6b2d770d230308c4562c41": {
+    "status": "processed",
+    "chunks_count": 2,
+    "chunks_list": [
+      "chunk-53e8384b0bc1068b56283b3c6b4bb02b",
+      "chunk-c80c2e3daca343330a4078ee96575423"
+    ],
+    "content_summary": "# Mission-critical workloads\n\nThis section strives to address the challenges of designing mission-critical workloads on Azure. The guidance is based on lessons learned from reviewing numerous customer applications and first-party solutions. This sect...",
+    "content_length": 7808,
+    "created_at": "2026-04-27T12:15:27.330043+00:00",
+    "updated_at": "2026-04-27T12:16:43.168253+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-overview.md",
+    "track_id": "insert_20260427_141527_da9fb159",
+    "metadata": {
+      "processing_start_time": 1777292127,
+      "processing_end_time": 1777292203
+    }
+  },
+  "doc-e01422a3b7e306bc782b297e75aaa4c8": {
+    "status": "processed",
+    "chunks_count": 6,
+    "chunks_list": [
+      "chunk-b31cf91ba30eab331729c73c4002b505",
+      "chunk-bc6c19c90a7ec75e7d95d807c1817fcf",
+      "chunk-9406ed2aa903d9c51a1e6e1d68aee2dc",
+      "chunk-a8deba810ca14d9b278b1f9d887802f2",
+      "chunk-14c9347a4bec9630cfbf008260182d80",
+      "chunk-65bdd00b5709152c19e73a1ad56171cd"
+    ],
+    "content_summary": "# Security considerations for mission-critical workloads on Azure\n\nSecurity is one of the foundational design principles and also a key design area that must be treated as a first-class concern within the mission-critical architectural process.\n\nGive...",
+    "content_length": 32760,
+    "created_at": "2026-04-27T12:16:43.286792+00:00",
+    "updated_at": "2026-04-27T12:20:09.963750+00:00",
+    "file_path": "well-architected/mission-critical/mission-critical-security.md",
+    "track_id": "insert_20260427_141643_a0ee9858",
+    "metadata": {
+      "processing_start_time": 1777292203,
+      "processing_end_time": 1777292409
+    }
+  },
+  "doc-5edbb96d862689f4578c3260e170ce09": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-5edbb96d862689f4578c3260e170ce09"
+    ],
+    "content_summary": "# Design essentials overview\n\nDesign guides in the Azure Well-Architected Framework provide prescriptive guidance that translates the framework's key strategies into actionable steps. Built on the foundational strategies defined within the pillar rec...",
+    "content_length": 4072,
+    "created_at": "2026-04-27T12:20:10.122476+00:00",
+    "updated_at": "2026-04-27T12:20:40.211387+00:00",
+    "file_path": "well-architected/design.md",
+    "track_id": "insert_20260427_142010_9af31183",
+    "metadata": {
+      "processing_start_time": 1777292410,
+      "processing_end_time": 1777292440
+    }
+  },
+  "doc-174d80fe9b4a084487aca3f0463ecf9e": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-174d80fe9b4a084487aca3f0463ecf9e"
+    ],
+    "content_summary": "# Microsoft Azure Well-Architected Framework pillars\n\nThe Azure Well-Architected Framework pillars drive architectural excellence at the fundamental level of a workload.\n\nUse this matrix to familiarize yourself with the key concepts:\n\n| Pillar | Work...",
+    "content_length": 4333,
+    "created_at": "2026-04-27T12:20:40.356118+00:00",
+    "updated_at": "2026-04-27T12:21:17.859430+00:00",
+    "file_path": "well-architected/pillars.md",
+    "track_id": "insert_20260427_142040_9e70e5d7",
+    "metadata": {
+      "processing_start_time": 1777292440,
+      "processing_end_time": 1777292477
+    }
+  },
+  "doc-39e3d8f1d2dc32aa7239d4a527ccbbf6": {
+    "status": "processed",
+    "chunks_count": 4,
+    "chunks_list": [
+      "chunk-387611e470f83bbe5d875c098db01fe9",
+      "chunk-f5505883d3947b5183a0241244e460f5",
+      "chunk-0d7ba45bf48a024a996731f69cab5301",
+      "chunk-3794cb2593672d7e205ce2c3021b80ff"
+    ],
+    "content_summary": "# What is the Azure Well-Architected Framework?\n\nThe Azure Well-Architected Framework is a design framework that can improve the quality of a workload by helping it to:\n\n- Be resilient, available, and recoverable.\n- Be as secure as you need it to be....",
+    "content_length": 21317,
+    "created_at": "2026-04-27T12:21:18.019291+00:00",
+    "updated_at": "2026-04-27T12:22:31.092140+00:00",
+    "file_path": "well-architected/what-is-well-architected-framework.md",
+    "track_id": "insert_20260427_142118_4d75c14b",
+    "metadata": {
+      "processing_start_time": 1777292478,
+      "processing_end_time": 1777292551
+    }
+  },
+  "doc-b7989e5530f7af5d65fe7736cbd67a08": {
+    "status": "processed",
+    "chunks_count": 11,
+    "chunks_list": [
+      "chunk-ea4e1326f308873031b3e530e46d8478",
+      "chunk-20168b92f579ebd286ed6e8413a80537",
+      "chunk-8e1b9f43effe85bb4f106ab0a823c7d4",
+      "chunk-973e5b950ce99287babd4d9e8e310ec0",
+      "chunk-50bf24a002558d213cd02700a64f5c07",
+      "chunk-ab2911837499c055b346ca8d6a1cac17",
+      "chunk-c445903885a1763cd6ad5557106d024f",
+      "chunk-062b3d27f8d0d9d1409bb3878692b58b",
+      "chunk-180631bfef52e56155ab10e925a1d9c4",
+      "chunk-233362b748b88ddd9ff57f063cacd0c2",
+      "chunk-df4a711d3025404c202424f3f750081c"
+    ],
+    "content_summary": "# What's new in the Azure Well-Architected Framework\n\nFind out about recent changes in the Azure Well-Architected Framework.\n\n## February 2026\n\n### Updated articles\n\n- [Architecture best practices for Azure Database for MySQL](./service-guides/azure-...",
+    "content_length": 60522,
+    "created_at": "2026-04-27T12:22:31.263251+00:00",
+    "updated_at": "2026-04-27T12:26:40.894113+00:00",
+    "file_path": "well-architected/whats-new.md",
+    "track_id": "insert_20260427_142231_0dae6b8b",
+    "metadata": {
+      "processing_start_time": 1777292551,
+      "processing_end_time": 1777292800
+    }
+  },
+  "doc-2687216b8c7169b67f1b099aacf29510": {
+    "status": "processed",
+    "chunks_count": 3,
+    "chunks_list": [
+      "chunk-06d07c7fd7e0ea2028615959913f9c73",
+      "chunk-17e137434baf52b7c6f746bc411962c3",
+      "chunk-830fe53dca8ce291e75061d94230f1bd"
+    ],
+    "content_summary": "# Azure Well-Architected Framework workloads\n\nIn the context of the Azure Well-Architected Framework, the term *workload* refers to a collection of application resources, custom code, AI models, data, and supporting infrastructure that function toget...",
+    "content_length": 15732,
+    "created_at": "2026-04-27T12:26:41.071961+00:00",
+    "updated_at": "2026-04-27T12:27:44.432432+00:00",
+    "file_path": "well-architected/workloads.md",
+    "track_id": "insert_20260427_142641_8b2aa3bd",
+    "metadata": {
+      "processing_start_time": 1777292801,
+      "processing_end_time": 1777292864
+    }
+  }
+}
